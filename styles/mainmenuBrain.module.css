@@ -1,3 +1,21 @@
+.headerbar1 {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    aspect-ratio: 3840 / 560;
+    background-image: url('../public/images/head1.png');
+    background-size: cover;
+  }
+  .headerbar2 {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    aspect-ratio: 3840 / 560;
+    background-image: url('../public/images/head2.png');
+    background-size: cover;
+  }
 .container {
     /* padding: 0 2rem; */
     background-image: url('../public/images/bg1.png');

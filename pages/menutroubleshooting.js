@@ -27,7 +27,7 @@ export default function menu2() {
             />
             </Link>
       </div>{/* prev_page */}
-      <header className='headerbar1'>
+      <header className={styles.headerbar1}>
         <p className='headerbar_text'>
         Trouble shooting 
         </p>

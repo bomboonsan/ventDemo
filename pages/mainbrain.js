@@ -27,7 +27,7 @@ export default function menu3() {
             />
             </Link>
       </div>{/* prev_page */}
-      <header className='headerbar2'>
+      <header className={styles.headerbar2}>
         <p className='headerbar_text'>
         Brain Monitoring Setup
         </p>
