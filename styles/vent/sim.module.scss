@@ -1,0 +1,19 @@
+.container {
+    /* padding: 0 2rem; */
+    background-image: url('../../public/images/bg1.png');
+    background-size: cover;
+    min-height: 100vh;
+}
+.iframe_container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1024 / 911;
+    background-color: black;
+    iframe {        
+        position: absolute;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1024 / 911;
+    }
+}

@@ -1,0 +1,80 @@
+.video_container {
+    position: relative;
+    width: 100%;
+}
+.video_item {
+}
+
+.video_btn1 {
+    cursor: pointer;
+    content: '';
+    position: absolute;
+    transform: translate(-50% , -50%);
+    left: 7%;
+    bottom: 17%;
+    aspect-ratio: 1/1;
+    width: 3%;
+    border: .3rem solid red;
+    border-radius: 50%;
+    animation: pulsing 1.5s linear infinite;
+    z-index: 4;
+}
+
+.video_btn2 {
+    cursor: pointer;
+    content: '';
+    position: absolute;
+    transform: translate(-50% , -50%);
+    left: 56%;
+    bottom: 22%;
+    aspect-ratio: 1/1;
+    width: 3%;
+    border: .3rem solid red;
+    border-radius: 50%;
+    animation: pulsing 1.5s linear infinite;
+    z-index: 4;
+}
+
+.video_btn3 {
+    cursor: pointer;
+    content: '';
+    position: absolute;
+    transform: translate(-50% , -50%);
+    left: 27.7%;
+    bottom: 29%;
+    aspect-ratio: 1/1;
+    width: 2%;
+    border: .3rem solid red;
+    border-radius: 50%;
+    animation: pulsing 1.5s linear infinite;
+    z-index: 4;
+}
+
+.video_btn4 {
+    cursor: pointer;
+    content: '';
+    position: absolute;
+    transform: translate(-50% , -50%);
+    left: 85%;
+    bottom: 10%;
+    aspect-ratio: 9/1;
+    width: 20%;
+    border: .3rem solid red;
+    border-radius: 50%;
+    animation: pulsing 1.5s linear infinite;
+    z-index: 4;
+}
+
+.show {
+    display: block;
+}
+.hidden {
+    display: none;
+}
+
+
+@keyframes pulsing {
+    50% {
+        opacity: 0.2;
+    }
+}

@@ -1,0 +1,32 @@
+.btn_setting_up_active {
+    display: flex;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    aspect-ratio: 84/76;
+    width: 100%;
+    height: auto;
+    background-image: url('.././public/vent/button-settings-focus.png');
+    background-size: cover;
+    background-position: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    .btnsLineMid {
+        flex-basis: 100%;
+        width: 100%;
+        padding-top: 2%;
+        font-size: .9rem;
+    }
+    .btnsLineTop {
+        font-family: Viking, Georgia, serif;
+        flex-basis: 100%;
+        width: 100%;
+        font-size: .4rem;
+    }
+    .btnsLineBot {
+        flex-basis: 100%;
+        width: 100%;
+        font-size: .4rem;
+        padding-bottom: 2%;
+    }
+}

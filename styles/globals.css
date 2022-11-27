@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Kanit', sans-serif !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+.padding-top {
+  padding-top: 2vw;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.prev_page {
+  position: absolute;
+  left: 2vw;
+  top: 2vw;
+  aspect-ratio: 1/1;
+  width: 3.5%;
+  height: auto;
+  content: '';
+  z-index: 99;
+}
+.prev_page img {
+  cursor: pointer;
+}
+.prev_page_case {
+  position: absolute;
+  left: 2%;
+  top: 4%;
+  aspect-ratio: 1/1;
+  width: 3.5%;
+  height: auto;
+  content: '';
+  z-index: 99;
+}
+.prev_page_case img {
+  cursor: pointer;
+}
+.headerbar1 {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  aspect-ratio: 3840 / 560;
+  background-image: url('../public/images/head1.png');
+  background-size: cover;
+}
+.headerbar2 {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  aspect-ratio: 3840 / 560;
+  background-image: url('../public/images/head2.png');
+  background-size: cover;
+}
+.headerbar_text {
+  color: #FFF;
+  font-size: 2vw;
+  font-weight: bold;
+  margin-top: 4%;
+}
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.moveable-line {
+  background: inherit !important;  
+}
+.moveable-control {
+  background: inherit !important;
+  /* border: 0 !important; */
+  border: 3px solid red !important;
+  height: 1.3rem !important;
+  width: 1.3rem !important;
+}
+.moveable-rotation {
+  height: 0 !important;
+}
+
