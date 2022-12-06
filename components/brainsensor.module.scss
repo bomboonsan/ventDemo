@@ -46,54 +46,19 @@
     }
 }
 
-.dropArea {
+.touchArea1 {
     content: '';
-    background: rgba(204,169,44, 0.4);
-    border-radius: 50%;
-    width: 10vh;
-    height: 10vh;
     position: absolute;
-    transform: translate(-50%,-50%);
-    left: 49.5%;
-    top: 30%;
-    animation: pulse 1s infinite;
+    width: 4%;
+    height: 1.5%;
+    background: rgba(252, 31, 186, 0.6);
+    // transform: rotate(-50% , -50%);
+    transform: rotate(-20deg);
+    left: 20%;
+    top: 25%;
+    cursor: pointer;
 }
 
-.lineTest {
-    content: '';
-    background: rgba(204,169,44, 0.4);
-    border-radius: 50%;
-    width: 2px;
-    height: 10vh;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 49.5%;
-    top: 30%;
-    animation: pulse 1s infinite;
-}
-
-.log_wrapper {
-    position: absolute;
-    right: 5%;
-    top: 5%;
-    z-index: 99;
-    width: 20%;
-    height: 15%;
-    padding: 1.5%;
-    p {
-        margin-bottom: 0;
-        color: #FFF;
-        text-shadow: 1px 1px #000;
-    }
-}
-.hin_area {
-    padding: 10px;
-    width: 20%;
-    position: absolute;
-    right: 3rem;
-    bottom: 7rem;
-    background: #D9D9D9;
-}
 .btn_group {
     position: absolute;
     right: 3rem;

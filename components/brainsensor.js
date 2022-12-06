@@ -6,7 +6,10 @@ import Moveable from "react-moveable"; // preact-moveable
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 export default function BrainSensor() {
-    
+    const [varImage, setVarImage] = useState('/images/BrainMonitoring-item1.png');
+    const showFinish = () => {
+        setVarImage('/images/BrainMonitoring-item2.png')
+    }
     return (
         <div className={styles.traget_container}>
             <div className={styles.bg_area}>
@@ -23,13 +26,16 @@ export default function BrainSensor() {
             </div>
             <div className={styles.monitorArea}>
                 <Image
-                    src="/images/BrainMonitoring-item.png"
+                    src={varImage}
                     alt="BIS"
                     // layout="fill"
                     // objectFit="cover"
                     width={1905}
                     height={605}
                 />   
+            </div>
+            <div className={styles.touchArea1} onClick={showFinish}>
+
             </div>
            
         </div>
