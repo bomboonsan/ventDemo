@@ -22,7 +22,7 @@
     overflow: hidden;
 
     img {
-
+        object-fit: cover;
         height: 100%;
         width: auto;
     }
@@ -38,7 +38,7 @@
     aspect-ratio: 11/6;
     width: 100%;
     height: auto;
-    padding: 1rem 4rem;
+    padding: 3rem 5rem;
     border-radius: 1rem;
     border: .1rem solid #EAA6C8;
     background-color: #fff;
@@ -46,6 +46,15 @@
     h2 {
         color: blue;
         text-align: center;
+    }
+    p {
+        color: blue;
+    }
+    li {
+        color: blue;
+    }
+    .text_lg {
+        font-size: 1.3rem;
     }
 }
 
@@ -64,3 +73,24 @@
 .contenn_wrap::-webkit-scrollbar-thumb:hover {
     background: inherit; 
 } 
+
+.btn_area {
+    position: relative;
+    width: 100%;
+}
+.btn_container {
+    position: absolute;
+    right: 0;
+    top: 2rem;
+}
+.next_btn {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFF;
+    padding: .5rem 3rem;
+    width: 100%;
+    background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;
+    box-shadow: 4px .4rem 1rem rgba(0, 0, 0, 0.5);
+    border-radius: 109px;
+    border: 0;
+}

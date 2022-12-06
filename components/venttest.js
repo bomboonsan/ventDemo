@@ -1,67 +1,98 @@
 import { useState, useEffect } from 'react';
-import styles from './ventinto.module.scss'
+import styles from './venttest.module.scss'
 import Image from 'next/image'
 import Link from "next/link";
+import Moveable from "react-moveable"; // preact-moveable
 
-export default function VentInto() {
-    const [introductionTitle, setIntroductionTitle] = useState('Instruction');
-    const [introductionText, setIntroductionText] = useState('Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum      ');
+export default function VentTest() {
     const [stepCount, setStepCount] = useState(1);
+    const [isSetWeight, setIsSetWeight] = useState(0);
+    const [isSetHeight, setIsSetHeight] = useState(0);
+    const [target, setTarget] = useState();
+    const [varX, setVarX] = useState();
+    const [varY, setVarY] = useState();
+    const [varR, setVarR] = useState(0);    
+    const [status, setStatus] = useState(null);
+    const [frame, setFrame] = useState({
+        translate: [0,0],
+        rotate: 1,
+        transformOrigin: "50% 50%",
+    });
+
+    // Var Control
+    const [weight, setWeight] = useState(50);
+    const [height, setHeight] = useState(152);
 
     useEffect(() => {
-        let btn1 = document.querySelector('#btn1');
-        let btn2 = document.querySelector('#btn2');
-        let btn3 = document.querySelector('#btn3');  
-        let tableBtngroup = document.querySelector('#table_btngroup');  
-        let tableBtnsetting = document.querySelector('#table_btnsetting');  
-        let nextBtn = document.querySelector('#nextBtn');  
-        
-        btn1.classList.add(styles['btn_setting_up_active']);
-        tableBtngroup.classList.add(styles['invisible']);
-        tableBtnsetting.classList.add(styles['invisible']);
+        // let btn1 = document.querySelector('#btn1');
+        setTarget(document.querySelector("#traget"));
     }, []);
 
-    function activeBtn(step) {        
-        let btnNum = '#btn'+step;
-        console.log(btnNum);
-        if (step == '2') {
-            document.querySelector(btnNum)?.classList.add(styles['genderBoxActive']);
-        } else if (step == '4' || step == '5' || step == '6') {
-            document.querySelector(btnNum)?.classList.add(styles['setupCaptionActive2']);
-        } else {
-            document.querySelector(btnNum)?.classList.add(styles['btn_setting_up_active']);
-        }
+    useEffect(() => {
+        // let btn1 = document.querySelector('#btn1');
+        if(isSetWeight == 1) {
+            if (varR == 0) {
+                console.log('varR=0');
+            } else {
+                let newWeight = Number(weight)+(varR/360);
+                console.log(newWeight);
+                setWeight(newWeight.toFixed(1));
 
-        if (step == '4') {
-            document.querySelector('#table_btngroup').classList.remove(styles['invisible']);
+
+            }
+    
+            // setWeight(Number(weight)+(Number(weight)*(varR/360)));
         }
-        if (step == '7') {
-            document.querySelector('#table_btnsetting').classList.remove(styles['invisible']);
+        if(isSetHeight == 1) {
+            if (varR == 0) {
+                console.log('varR=0');
+            } else {
+                let newHeight = Number(height)+(varR/360);
+                console.log(newHeight);
+                setHeight(newHeight.toFixed(1));
+
+
+            }
+    
+            // setWeight(Number(weight)+(Number(weight)*(varR/360)));
         }
+    }, [varR]);
+
+    // FN Setup
+    const handleClick = (event) => {
+        event.currentTarget.classList.add(styles['btn_setting_up_active']);
+        console.log(event.currentTarget);
+    };
+
+    const handleSetWeight = (event) => {
+        event.currentTarget.classList.add(styles['btn_setting_up_active']);
+        setIsSetWeight(1)
+        resetRotate()
+    };
+    const handleSetHeight = (event) => {
+        event.currentTarget.classList.add(styles['btn_setting_up_active']);
+        setIsSetHeight(1)
+        resetRotate()
+    };
+
+
+    const resetRotate = () => {
+        console.log('reset');
+        setVarR(0);
+        setFrame(
+            {
+                translate: [0,0],
+                rotate: 1,
+            }
+        )
     }
-    function removeActiveBtn(step) {
-        if (step == '2') {
-            document.querySelector('#btn'+step.toString())?.classList.remove(styles['genderBoxActive']);
-        } else if (step == '4' || step == '5' || step == '6') {
-            document.querySelector('#btn'+step.toString())?.classList.remove(styles['setupCaptionActive2']);
-        } else {
-            document.querySelector('#btn'+step.toString())?.classList.remove(styles['btn_setting_up_active']);
-        }
-    }
+    // if(isSetWeight == 1) {
+    //     let newWeight = Number(weight)+1;
+    //     console.log(newWeight);
+    //     // setWeight(newWeight);
 
-    function handleNextStep(stepCount) {
-        let stepCountNew = stepCount+1;
-        setStepCount(stepCountNew);
-        console.log(stepCount);
-
-        removeActiveBtn(stepCount);
-        activeBtn(stepCountNew);
-        setIntroductionTitle('Instruction #'+stepCountNew);
-
-        if (stepCount == 8) {
-            document.querySelector('#introductionBox')?.classList.add(styles['hidden']);
-        }
-    }
+    //     // setWeight(weight+(weight*(varR/360)));
+    // }
 
     return (
         <section className={styles.vent_container}>
@@ -98,7 +129,7 @@ export default function VentInto() {
                         <div className={styles.kgbox}>
                             <div className={styles.kg}>
                                 <span className={styles.spnkg}>
-                                    50
+                                    {weight}
                                 </span>
                                 <span className={styles.spnkgc}>
                                     kg
@@ -124,8 +155,8 @@ export default function VentInto() {
                                     <span>Enter predicted body weight</span>
                                 </div>
                                 <div className={styles.weightBox}>
-                                    <div id='btn1' className={styles.btn_setting_up}>
-                                        <div className={styles.btnsLineMid}>50</div>
+                                    <div id='btn1' className={styles.btn_setting_up} onClick={event => handleSetWeight(event)}>
+                                        <div className={styles.btnsLineMid}>{weight}</div>
                                         <div className={styles.btnsLineTop}>kg</div>
                                         <div className={styles.btnsLineBot}>(110)</div>
                                     </div>
@@ -137,7 +168,7 @@ export default function VentInto() {
                                     <span>gender and height</span>
                                 </div>
                                 <div className={styles.genderBox}>
-                                    <div id='btn2' className={styles.genderbtn}>
+                                    <div className={styles.genderbtn}>
                                         <Image
                                             src="/vent/button-gender-male.png"
                                             alt="button-gender-male"
@@ -159,15 +190,15 @@ export default function VentInto() {
                                     </div>
                                 </div>
                                 <div className={styles.heightBox}>
-                                    <div id='btn3' className={styles.btn_setting_up}>
-                                        <div className={styles.btnsLineMid}>50</div>
-                                        <div className={styles.btnsLineTop}>kg</div>
+                                    <div className={styles.btn_setting_up} onClick={event => handleSetHeight(event)}>
+                                        <div className={styles.btnsLineMid}>{height}</div>
+                                        <div className={styles.btnsLineTop}>cm</div>
                                         <div className={styles.btnsLineBot}>(110)</div>
                                     </div>
                                 </div>
                             </div>
                             <div className={styles.rightCol}>
-                                <table id='table_btngroup' className={styles.table_btngroup} width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <table className={styles.table_btngroup} width="100%" border="0" cellpadding="0" cellspacing="0">
                                     <tbody>
                                         <tr>
                                             <td className={styles.td_title}>
@@ -176,7 +207,7 @@ export default function VentInto() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div id='btn4' className={styles.setupbtn}>
+                                                <div className={styles.setupbtn}>
                                                     <span>Invasive</span>
                                                 </div>
                                             </td>
@@ -213,7 +244,7 @@ export default function VentInto() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div id='btn5' className={styles.setupbtn}>
+                                                <div className={styles.setupbtn}>
                                                     <span>Invasive</span>
                                                 </div>
                                             </td>
@@ -267,7 +298,7 @@ export default function VentInto() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div id='btn6' className={styles.setupbtn}>
+                                                <div className={styles.setupbtn}>
                                                     <span>Invasive</span>
                                                 </div>
                                             </td>
@@ -336,7 +367,7 @@ export default function VentInto() {
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table id='table_btnsetting' className={styles.table_btnsetting} width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <table className={styles.table_btnsetting} width="100%" border="0" cellpadding="0" cellspacing="0">
                                     <tbody>
                                     <tr>
                                             <td>
@@ -379,7 +410,7 @@ export default function VentInto() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div id='btn7' className={styles.btn_setting}>
+                                                <div className={styles.btn_setting}>
                                                     <div className={styles.btnsLineTop}>
                                                         P<sub>SUPP</sub>
                                                     </div>
@@ -418,7 +449,7 @@ export default function VentInto() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div id='btn8' className={styles.btn_setting}>
+                                                <div className={styles.btn_setting}>
                                                     <div className={styles.btnsLineTop}>
                                                         P<sub>PEAK</sub>
                                                     </div>
@@ -447,7 +478,7 @@ export default function VentInto() {
                                         
                                         <tr>
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div id='btn2' className={styles.btn_setting}>
                                                     <div className={styles.btnsLineTop}>
                                                         
                                                     </div>
@@ -460,7 +491,7 @@ export default function VentInto() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div id='btn3' className={styles.btn_setting}>
                                                     <div className={styles.btnsLineTop}>
                                                         T<sub>PL</sub>
                                                     </div>
@@ -561,30 +592,16 @@ export default function VentInto() {
                 </div>
             </main>
             <div className={styles.statBar}>
-                
+                {/* <div className={styles.log_box}>
+                    {varR} degree
+                </div> */}
             </div>
             <div className={styles.footer}>
-                <div id='introductionBox' className={styles.introduction_box}>
-                    <h2>
-                        {introductionTitle}
-                    </h2>
-                    <p>
-                        {introductionText}      
-                    </p>
-                    <button id='btnNext' className={styles.btn_next} onClick={() => handleNextStep(stepCount)}>
-                        NEXT
-                    </button>
-                    {/* <button id='btnNext' className={styles.btn_start} onClick={() => handleNextStep(stepCount)}>
+                {/* <div id='introductionBox' className={styles.introduction_box}>
+                    <button id='btnNext' className={styles.btn_start}>
                         FINISH
-                    </button> */}
-                </div>
-                <div id='introductionBox2' className={styles.introduction_box}>
-                    <Link href="/instruction/vent"> 
-                        <button className={styles.introductionBtnLink} target='_blank' rel='noreferrer'>
-                            FINISH
-                        </button>
-                    </Link>
-                </div>
+                    </button>
+                </div> */}
             </div>
             <footer className={styles.controlpanel_wrap}>
                 <div className={styles.controlpanel_row}>
@@ -628,14 +645,14 @@ export default function VentInto() {
                             height={196}
                         />
                     </div>
-                    <div className={styles.controlpanel_knob_box}>
+                    <div id="traget" className={styles.controlpanel_knob_box}>
                         <Image
                             src="/vent/covidienknob.png"
                             alt="covidienknob"
                             // layout="fill"
                             // objectFit="cover"
                             width={196}
-                            height={196}
+                            height={196}                            
                         />
                     </div>
                     <div className={styles.controlpanel}>
@@ -680,6 +697,53 @@ export default function VentInto() {
                     </div>
                 </div>
             </footer>
+            <Moveable
+                target={target}
+                originDraggable={true}
+                originRelative={true}
+                draggable={false}
+                throttleDrag={0}
+                startDragRotate={0}
+                throttleDragRotate={0}
+                zoom={1}
+                // origin={true}
+                origin={false}
+                padding={{"left":0,"top":0,"right":0,"bottom":0}}
+                rotatable={true}
+                pinchable={true}
+                scalable={false}
+                throttleRotate={0}
+                rotationPosition={"top"}
+                onDragOriginStart={e => {
+                    e.dragStart && e.dragStart.set(frame.translate);
+                }}
+                onDragOrigin={e => {
+                    frame.translate = e.drag.beforeTranslate;
+                    frame.transformOrigin = e.transformOrigin;
+                }}
+                onDragStart={e => {
+                    e.set(frame.translate);
+                }}
+                onDrag={e => {
+                    frame.translate = e.beforeTranslate;
+                }}
+                onRotateStart={e => {
+                    e.set(frame.rotate);
+                }}
+                onRotate={e => {
+                    frame.rotate = e.beforeRotate;
+                }}
+                onRender={e => {
+                    const { translate, rotate, transformOrigin } = frame;
+                    e.target.style.transformOrigin = transformOrigin;
+                    e.target.style.transform = `translate(${translate[0]}px, ${translate[1]}px)`
+                        +  ` rotate(${rotate}deg)`;
+                    // console.log(e.target.style.transform);
+                    setVarX(translate[0])
+                    setVarY(translate[1])
+                    setVarR(rotate)
+                }}
+            />
         </section>        
     )
 }

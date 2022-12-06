@@ -1,13 +1,12 @@
 import Head from 'next/head'
-import { useState , useEffect } from 'react';
 import Image from 'next/image'
 import 'bootstrap/dist/css/bootstrap.css'
-import styles from '../../styles/brain/sensor.module.scss'
+import styles from '../../styles/brain/install.module.scss'
 import Link from "next/link";
-import BrainSensor from '../../components/brainsensor';
+// import { useRouter } from 'next/router'
+import BrainInstall from '../../components/brainInstall';
 
-export default function Sensor() {
-  const [message, setMessage] = useState(null);
+export default function Braininstall() {
   return (
     <div className={styles.container}>
       <Head>        
@@ -28,7 +27,7 @@ export default function Sensor() {
             </Link>
       </div>{/* prev_page */}
       <div>
-        <BrainSensor />
+        <BrainInstall />
       </div>
     </div>
   )

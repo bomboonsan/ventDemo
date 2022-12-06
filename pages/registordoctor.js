@@ -17,8 +17,8 @@ export default function Home() {
 
     // FN
     async  function toConsentPage() {
-
-        // const response = await fetch("http://127.0.0.1:8001/api/posts", {
+        // // console.log('hello');
+        // const response = await fetch("http://192.168.1.99:8001/api/posts", {
         // method: 'POST',
         // headers: {
         // 'Accept': 'application/json',
@@ -38,6 +38,7 @@ export default function Home() {
         // `,
         // });
 
+        // // console.log(body);
 
         // response.json().then(data => {
         // // console.log(data[0]);

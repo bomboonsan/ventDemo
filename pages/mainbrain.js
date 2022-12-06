@@ -27,7 +27,7 @@ export default function menu3() {
             />
             </Link>
       </div>{/* prev_page */}
-      <header className={styles.headerbar2}>
+      <header className={styles.headerbar1}>
         <p className='headerbar_text'>
         Brain Monitoring Setup
         </p>
@@ -35,7 +35,7 @@ export default function menu3() {
       <div className={styles.row}>
         <div className={styles.col_item}>
           <div className={styles.card}>
-            <Link href="/brain/howto"> 
+            <Link href="/instruction/equipmentsetup"> 
             <div className={styles.card_thumbnail}>
               <Image
                     className={styles.bisitem}
@@ -49,7 +49,7 @@ export default function menu3() {
             </div>
             <div className={styles.card_title}>
               <p>
-              Setup
+              Equipment Set Up
               </p>
             </div>   
             </Link>         
@@ -57,7 +57,7 @@ export default function menu3() {
         </div>
         <div className={styles.col_item}>
           <div className={styles.card}>
-            <Link href="/brain/install"> 
+            <Link href="/instruction/sensorplacement"> 
             <div className={styles.card_thumbnail}>
               <Image
                     className={styles.bisitem}
@@ -71,7 +71,7 @@ export default function menu3() {
             </div>
             <div className={styles.card_title}>
               <p>
-              Sensor Check
+              Sensor Placement
               </p>
             </div> 
             </Link>             

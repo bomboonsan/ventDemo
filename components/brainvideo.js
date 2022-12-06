@@ -10,8 +10,10 @@ import Image from 'next/image'
 // import video4 from '../video/button4.mp4'
 import { useState } from 'react';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
+import { useRouter } from 'next/router'
 
 export default function BrainVideo() {
+    const router = useRouter()
     const handle = useFullScreenHandle();
     const startVideo = '../video/01-main-menu.mp4'
     const video1 = '../video/button1.mp4'
@@ -47,7 +49,7 @@ export default function BrainVideo() {
         setIsShowBtn(false);
         setVideoStep(4)
     }
-    function reset() {      
+    function reset() {
         if (videoStep == 4) {
             setUrlVideo(video5);
             setVideoStep(5)
@@ -59,6 +61,7 @@ export default function BrainVideo() {
             setTimeout(function(){
                 setUrlVideo(startVideo);
                 setIsShowBtn(true);
+                router.push('/brain/result/howto')
            }, 3500);
         }
         else {

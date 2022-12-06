@@ -36,6 +36,16 @@
     }
 }
 
+.monitorArea {
+    position: absolute;
+    width: 45%;
+    top: 5%;
+    right: 5%;
+    img {
+
+    }
+}
+
 .dropArea {
     content: '';
     background: rgba(204,169,44, 0.4);

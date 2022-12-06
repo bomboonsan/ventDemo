@@ -49,23 +49,7 @@ export default function Main_menu() {
           introduction
           </div>
           </Link>
-        </div>
-        <div className={styles.col_item}>
-          <a href='https://sim.orainteractive.com/' target='_blank' rel='noreferrer'>
-          <Image
-              className={styles.bisitem}
-              src="/images/cardmenu-2.png"
-              alt="Troubleshooting"
-              // layout="fill"
-              // objectFit="cover"
-              width={700}
-              height={1200}
-          />
-          <div className={styles.card_name}>
-          Simulator
-          </div>
-          </a>
-        </div>
+        </div>        
         <div className={styles.col_item}>
           <Link href="/menutroubleshooting"> 
           <Image
@@ -82,6 +66,22 @@ export default function Main_menu() {
           set up
           </div>
           </Link>
+        </div>
+        <div className={styles.col_item}>
+          <a href='https://sim.orainteractive.com/' target='_blank' rel='noreferrer'>
+          <Image
+              className={styles.bisitem}
+              src="/images/cardmenu-2.png"
+              alt="Troubleshooting"
+              // layout="fill"
+              // objectFit="cover"
+              width={700}
+              height={1200}
+          />
+          <div className={styles.card_name}>
+          Simulator
+          </div>
+          </a>
         </div>
       </div>
     </div>

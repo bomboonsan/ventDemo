@@ -135,11 +135,6 @@
     flex-direction: row;
     height: 100%;
 }
-@keyframes blink {
-    50% {
-        opacity: .3;
-    }
-}
 .leftCol {
     flex-basis: 18.4%;
     width: 18.4%;
@@ -150,7 +145,6 @@
         font-size: .9rem;
         font-weight: 300;
         margin-bottom: 1rem;
-        animation: blink .8s infinite;
     }
     .helpText {
         text-align: center;
@@ -485,16 +479,18 @@
 }
 
 
-@keyframes flade {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 
 .invisible{
     visibility: hidden;
+}
+
+
+.log_box {
+    position: relative;
+    top: 4rem;
+    background-color: #FFF;
+    width: 80%;
+    margin: 0 auto;
+    padding: .4rem;
+    border-radius: 1rem;
 }

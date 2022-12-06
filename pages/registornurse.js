@@ -18,7 +18,7 @@ export default function Home() {
     // FN
     async  function toConsentPage() {
 
-        // const response = await fetch("http://127.0.0.1:8001/api/posts", {
+        // const response = await fetch("http://192.168.1.99:8001/api/posts", {
         // method: 'POST',
         // headers: {
         // 'Accept': 'application/json',
@@ -42,7 +42,7 @@ export default function Home() {
         // response.json().then(data => {
         // // console.log(data[0]);
         // if (data[0] == 'Create Member Successfully' ) {
-        //     // router.push('/consent')
+        //     router.push('/consent')
         // }
         // });
 

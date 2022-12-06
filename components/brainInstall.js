@@ -58,10 +58,11 @@ export default function BrainInstall() {
     (
         <div className={styles.hin_area}>
             <h4>ผิด !</h4>
-            <p>ลูกศร ต้องอยู่ ห่างจาก ตา 2 Ince</p>
-            <p>ลูกศร ต้องอยู่ ตรงกับแกนกลางหน้า</p>
-            <p>หมายเลขสาม อยู่ระหว่าง ผม และ หางตา บริเวณขยับ</p>
-            <p>เลข2และเลขสี เรียงไปตามหัวคิ้ว</p>
+            <p>ลูกศรที่หมายเลข 1 ต้องอยู่ห่างจากสันจมูกระหว่างหัวตาขึ้นไป 2 นิ้ว</p>
+            {/* <p>ลูกศร ต้องอยู่ ห่างจาก ตา 2 นิ้ว</p>
+            <p>ลูกศร ต้องอยู่ ตรงกับแกนกลางหน้า</p> */}
+            <p>หมายเลข 3 ติดอยู่บริเวณขมับให้อยู่ในระดับเดียวกับหางตา</p>
+            <p>หมายเลข 2 และเลข 4 เรียงไปตามบริเวณเหนือคิ้ว</p>
         </div>
     )
 
@@ -69,10 +70,10 @@ export default function BrainInstall() {
     (
         <div className={styles.hin_area}>
             <h4>ถูกต้อง !</h4>
-            <p>
+            {/* <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
                 molestiae quas vel sint commodi
-            </p>
+            </p> */}
         </div>
     )
     let hinElement = null
