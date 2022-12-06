@@ -1,0 +1,135 @@
+.container {
+    /* padding: 0 2rem; */
+    background-image: url('../public/images/bg1.png');
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.case_wrapper {
+    position: relative;
+    aspect-ratio: 3532 / 1784;
+    width: 100%;
+    height: auto;
+    background-image: url('../public/images/container1.png');
+    background-size: cover;
+    background-position: bottom center;
+}
+.case_row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 100%;
+    padding: 3%;
+    
+}
+.case_colleft {
+    flex-basis: 21%;
+    height: 100%;
+    padding: 4% 0 0 0;
+}
+.case_colright {
+    flex-basis: 70%;
+    padding: 1% 2%;
+    position: relative;
+}
+.case_thumbnail {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.case_thumbnail img {
+    display: block;
+    max-width: 80%;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.case_name {
+    font-size: 1.6rem;
+    text-align: center;
+    color: #FFF;
+    margin-bottom: 2rem;
+    /* color: #EBA7CA; */
+}
+.case_simpledetail_byline {
+    display: block;
+    margin: 0 auto;
+    max-width: 70%;
+    font-size: 1.45rem;
+}
+.case_simpledetail_byline ul {
+    list-style: none;
+    padding: 0;
+    color: #FFF;
+}
+.case_simpledetail_byline li strong {
+    font-weight: 400;
+    color: #EBA7CA;
+}
+
+
+.right_row {
+    display: flex;
+    height: 100%;
+}
+.right_colbox {
+    padding: 1.5rem 0 0 0;
+    flex-basis: 80%;
+    /* color: #1010EB; */
+}
+.introduction_title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1010EB;
+}
+.introduction_text {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+}
+
+.countdown_area {
+    position: absolute;
+    bottom: 40%;
+    right: 2%;
+    width: 13%;
+}
+.countdown_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;
+    box-shadow: 4px .4rem 1rem rgba(0, 0, 0, 0.5);
+    color: #FFF;
+    font-size: 2.5rem;
+}
+
+.btn_monitor_thumbnail_area {
+    position: absolute;
+    top: -5%;
+    right: -2%;
+    width: 20%;
+}
+
+.btn_area {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    width: 15%;
+}
+.next_btn {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFF;
+    padding: .5rem;
+    width: 100%;
+    background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;
+    box-shadow: 4px .4rem 1rem rgba(0, 0, 0, 0.5);
+    border-radius: 109px;
+    border: 0;
+}
+.next_btn:hover {
+    transform: translateY(-5%);
+}

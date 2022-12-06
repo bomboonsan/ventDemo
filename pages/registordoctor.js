@@ -4,11 +4,49 @@ import 'bootstrap/dist/css/bootstrap.css'
 import styles from '../styles/registor.module.css'
 import Link from "next/link";
 import { useRouter } from 'next/router'
+import { useState } from 'react';
 
 export default function Home() {
     const router = useRouter()
-    function toConsentPage() {
-        router.push('/consent')
+    let [ firstName , setFirstName ] = useState();
+    let [ lastName , setLastName ] = useState();
+    let [ phoneNumber , setPhoneNumber ] = useState('');
+    let [ email , setEmail ] = useState('');
+    let [ speciallty , setSpeciallty ] = useState('');
+    let [ hospital , setHospital ] = useState('');
+
+    // FN
+    async  function toConsentPage() {
+
+        const response = await fetch("http://127.0.0.1:8001/api/posts", {
+        method: 'POST',
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+        },
+
+        body: `
+            {
+                "first_name": "${firstName}",
+                "last_name": "${lastName}",
+                "phone_number": "${phoneNumber}",
+                "email": "${email}",
+                "speciallty": "DEV api speciallty",
+                "type": "Doctor",
+                "hospital": "${hospital}"
+            }
+        `,
+        });
+
+
+        response.json().then(data => {
+        // console.log(data[0]);
+        if (data[0] == 'Create Member Successfully' ) {
+            router.push('/consent')
+        }
+        });
+
+        // router.push('/consent')
     }
   return (
     <div className={styles.container}>
@@ -49,20 +87,44 @@ export default function Home() {
                     </h2>
                     <div className='row mb-3'>
                         <div className='col-6'>
-                            <input type="text" className="form-control border-primary" placeholder="First Name*" />
+                            <input 
+                            type="text" 
+                            value={firstName}
+                            name="firstName"
+                            onChange={e => setFirstName(e.target.value)}
+                            className="form-control border-primary" 
+                            placeholder="First Name*" />
                         </div>
                         <div className='col-6'>
-                            <input type="text" className="form-control border-primary" placeholder="Last Name*" />
+                            <input 
+                            type="text" 
+                            value={lastName}
+                            name="lastName"
+                            onChange={e => setLastName(e.target.value)}
+                            className="form-control border-primary" 
+                            placeholder="Last Name*" />
                         </div>
                     </div>
                     <div className='row mb-3'>
                         <div className='col-12'>
-                            <input type="text" className="form-control border-primary" placeholder="Phone number" />
+                            <input 
+                            type="text" 
+                            value={phoneNumber}
+                            name="phoneNumber"
+                            onChange={e => setPhoneNumber(e.target.value)}
+                            className="form-control border-primary" 
+                            placeholder="Phone number" />
                         </div>
                     </div>
                     <div className='row mb-3'>
                         <div className='col-12'>
-                            <input type="text" className="form-control border-primary" placeholder="E-Mail" />
+                            <input 
+                            type="text" 
+                            value={email}
+                            name="email"
+                            onChange={e => setEmail(e.target.value)}
+                            className="form-control border-primary" 
+                            placeholder="E-Mail" />
                         </div>
                     </div>
                     <div className='row mb-3'>
@@ -79,7 +141,13 @@ export default function Home() {
                     </div>
                     <div className='row mb-5'>
                         <div className='col-12'>
-                            <input type="text" className="form-control border-primary" placeholder="Hospital*" />
+                            <input 
+                            type="text" 
+                            value={hospital}
+                            name="hospital"
+                            onChange={e => setHospital(e.target.value)}
+                            className="form-control border-primary" 
+                            placeholder="Hospital*" />
                         </div>
                     </div>
                     <div className='row mb-3'>

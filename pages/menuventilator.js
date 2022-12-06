@@ -60,7 +60,9 @@ export default function Main_menu() {
               height={1200}
           />
           <div className={styles.card_name}>
-          Troble shooting
+          Brain <br/>
+          monitoring <br/>
+          in ICU
           </div>
         </div>
         {/* <div className={styles.col_item}>

@@ -1,0 +1,51 @@
+.container {
+    /* padding: 0 2rem; */
+    background-image: url('../../public/images/bg1.png');
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.page_wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.BrainMonitoring {
+
+}
+.BrainMonitoring_item {
+    display: block;
+    margin: 1rem auto;
+    width: 45%;
+}
+.Bis_wrap {
+    position: absolute;
+    bottom: 1rem;
+    left: .5rem;
+    // overflow: hidden;
+}
+.BisItem_wrap {
+    position: relative;
+    bottom: 0;
+    width: 45%;
+    // background: rgba(0,0,0,.4);
+}
+.Bis_item {
+    
+}
+
+.btn_group {
+    position: absolute;
+    right: 3rem;
+    bottom: 3rem;
+    button {
+        font-size: 1.4rem;
+        border-radius: .4rem;
+        padding: .4rem 1.5rem;
+        border: 0;
+        outline: 0;
+        color: #FFF;
+        background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;;
+    }
+}

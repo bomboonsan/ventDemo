@@ -8,6 +8,27 @@ body {
   font-family: 'Kanit', sans-serif !important;
 }
 
+
+@media only screen and (orientation:portrait){
+
+  body {
+
+   /* height: 100vw; */
+   /* Detect  portrait*/
+
+
+  }
+
+}
+
+@media only screen and (orientation:landscape){
+
+  body {
+
+
+   }
+}
+
 a {
   color: inherit;
   text-decoration: none;

@@ -48,17 +48,17 @@ export default function CaseDetail() {
                     <div className={styles.case_simpledetail_byline}>
                       <ul>
                         <li>
-                          Age : <strong>49</strong>
+                          Age : <strong>72 yrs. Old</strong>
                         </li>
                         <li>
-                          Sex : <strong>Male</strong>
+                          Sex : <strong>Female</strong>
                         </li>
                         <li>
-                          Weight : <strong>67 kg</strong>
+                          Weight : <strong>55 kg.</strong>
                         </li>
-                        <li>
+                        {/* <li>
                           Height : <strong>167 Cm</strong>
-                        </li>
+                        </li> */}
                       </ul>
                     </div>
                   </div>
@@ -129,6 +129,7 @@ export default function CaseDetail() {
                   </div>
                   <div className={styles.btn_monitor_thumbnail_area}>
                     <div className={styles.btn_monitor_thumbnail}>
+                      <Link href="/case/monitor/1"> 
                       <Image
                           src="/images/monitor.png"
                           alt="case1"
@@ -137,12 +138,15 @@ export default function CaseDetail() {
                           width={500}
                           height={500}
                       />
+                      </Link>
                     </div>
                   </div>
                   <div className={styles.btn_area}>
+                    <Link href="/case/monitor/1"> 
                     <button className={styles.next_btn}>
                       NEXT
                     </button>
+                    </Link>
                   </div>
                 </div>
                 {/* case_colright */}

@@ -129,6 +129,7 @@ export default function CaseDetail() {
                   </div>
                   <div className={styles.btn_monitor_thumbnail_area}>
                     <div className={styles.btn_monitor_thumbnail}>
+                      <Link href="/case/monitor/2"> 
                       <Image
                           src="/images/monitor.png"
                           alt="case1"
@@ -137,6 +138,7 @@ export default function CaseDetail() {
                           width={500}
                           height={500}
                       />
+                      </Link>
                     </div>
                   </div>
                   <div className={styles.btn_area}>

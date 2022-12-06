@@ -13,14 +13,12 @@
     background-size: cover;
     min-height: 100vh;
 }
-
 .row {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2.5vw;
 }
-
 .col_item {
     /* flex: 0 0 18.22%; */
     flex-basis: 18.22%;
@@ -28,7 +26,7 @@
     overflow: hidden;
 }
 .card {
-    position: relative;
+    position: relative;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     aspect-ratio: 700 / 1028;
     width: 100%;
     height: auto;
