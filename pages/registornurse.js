@@ -42,11 +42,11 @@ export default function Home() {
         response.json().then(data => {
         // console.log(data[0]);
         if (data[0] == 'Create Member Successfully' ) {
-            router.push('/consent')
+            // router.push('/consent')
         }
         });
 
-        // router.push('/consent')
+        router.push('/consent')
     }
   return (
     <div className={styles.container}>
