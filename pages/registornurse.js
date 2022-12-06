@@ -18,33 +18,33 @@ export default function Home() {
     // FN
     async  function toConsentPage() {
 
-        const response = await fetch("http://127.0.0.1:8001/api/posts", {
-        method: 'POST',
-        headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-        },
+        // const response = await fetch("http://127.0.0.1:8001/api/posts", {
+        // method: 'POST',
+        // headers: {
+        // 'Accept': 'application/json',
+        // 'Content-Type': 'application/json'
+        // },
 
-        body: `
-            {
-                "first_name": "${firstName}",
-                "last_name": "${lastName}",
-                "phone_number": "${phoneNumber}",
-                "email": "${email}",
-                "speciallty": "DEV api speciallty",
-                "type": "Nurse",
-                "hospital": "${hospital}"
-            }
-        `,
-        });
+        // body: `
+        //     {
+        //         "first_name": "${firstName}",
+        //         "last_name": "${lastName}",
+        //         "phone_number": "${phoneNumber}",
+        //         "email": "${email}",
+        //         "speciallty": "DEV api speciallty",
+        //         "type": "Nurse",
+        //         "hospital": "${hospital}"
+        //     }
+        // `,
+        // });
 
 
-        response.json().then(data => {
-        // console.log(data[0]);
-        if (data[0] == 'Create Member Successfully' ) {
-            // router.push('/consent')
-        }
-        });
+        // response.json().then(data => {
+        // // console.log(data[0]);
+        // if (data[0] == 'Create Member Successfully' ) {
+        //     // router.push('/consent')
+        // }
+        // });
 
         router.push('/consent')
     }
