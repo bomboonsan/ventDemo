@@ -34,7 +34,7 @@ export default function Intruction_1() {
                                 <div className='col-3'>
                                     <div className={styles.thumbnail_frame}>
                                         <Image
-                                            src="/video/video-main-menu.png"
+                                            src="/images/video-main-menu-thumbnail.png"
                                             alt="Women"
                                             // layout="fill"
                                             objectFit="contain"

@@ -19,6 +19,7 @@ export default function VentTest() {
     const [varX, setVarX] = useState();
     const [varY, setVarY] = useState();
     const [varR, setVarR] = useState(0);    
+    const [preVarR, setPreVarR] = useState(0);    
     const [status, setStatus] = useState(null);
     const [frame, setFrame] = useState({
         translate: [0,0],
@@ -62,10 +63,10 @@ export default function VentTest() {
         if(isSetting == 1) {
             resetRotate()
             const currentVar = varBtnSetting;
-            console.log(currentVar)
+            // console.log(currentVar)
             let newVar = Number(currentVar[focusSetting-1])+(varR/360);
-            
             changeVarBtnSetting(newVar.toFixed(1) , focusSetting);
+            
         }
 
 

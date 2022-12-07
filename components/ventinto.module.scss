@@ -388,6 +388,8 @@
 }
 .introduction_box {
     position: relative;
+    width: 90%;
+    margin: 0 auto;
     padding: 3% 5%;
     background: #ffffff;
     border: 3px solid pink;
@@ -396,6 +398,8 @@
     animation: flade 5s;
     h2 {
         font-size: 1.2rem;
+        font-weight: 300;
+        letter-spacing: 0px;
     }
     p {
         font-weight: 300;
@@ -475,6 +479,11 @@
 }
 .controlpanel img {
     cursor: pointer;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
 }
 .controlpanel img:hover {
     box-shadow: 0px 0px 5px 1px #fff, inset 0 0 3px 2px #fff;
@@ -482,6 +491,13 @@
 .controlpanel_knob_box {
     flex-basis: 11%;
     width: 11%;
+    img {
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        user-drag: none;
+    }
 }
 
 

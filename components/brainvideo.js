@@ -105,7 +105,7 @@ export default function BrainVideo() {
             <div className={isShowBtn ? styles.show : styles.hidden}>
                 <Image
                     className={styles.video_main_img}
-                    src="/video/video-main-menu.png"
+                    src="/video/button6_Moment.jpg"
                     alt="VIDEO MENU"
                     // layout="fill"
                     // objectFit="cover"
@@ -122,7 +122,7 @@ export default function BrainVideo() {
                     height={1138}
                 />
             </div>
-            <div className={isShowBtn ? styles.show : styles.hidden}>
+            {/* <div className={isShowBtn ? styles.show : styles.hidden}>
                 <div className={styles.text_equipment_1}>
                     <p>Monitor Interface Cable</p>
                 </div>
@@ -138,7 +138,7 @@ export default function BrainVideo() {
                 <div className={styles.text_equipment_5}>
                     <p>Bispectral Index Sensors</p>
                 </div>
-            </div>
+            </div> */}
 
             <ReactPlayer 
             className={styles.video_item} 
