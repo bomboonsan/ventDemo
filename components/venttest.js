@@ -23,8 +23,6 @@ export default function VentTest() {
         rotate: 1,
         transformOrigin: "50% 50%",
     });
-    
-    
 
     // Var Control
     const [weight, setWeight] = useState(50);
