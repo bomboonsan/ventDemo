@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import styles from './venttest.module.scss'
 import Image from 'next/image'
 import Link from "next/link";
+import { useRouter } from 'next/router'
 import Moveable from "react-moveable"; // preact-moveable
 
 export default function VentTest() {
+    const router = useRouter()
     const [btnSetupRecord, setBtnSetupRecord] = useState([]);
     const [varBtnSetting, setvarBtnSetting] = useState([10,300,39,10,3.0,40,8.0,75,50,0.0,0,5.0,25,3.0,750,'ET']);
     const [btnSetup, setBtnSetup] = useState();
@@ -245,6 +247,19 @@ export default function VentTest() {
             }
         })
         setvarBtnSetting(arrNewVar)
+    }
+    
+
+    // checkAns
+    const checkAns = () => {
+        // arrItemShow = [4,5,6,7,9,13,14];
+        // varBtnSetting
+        if (varBtnSetting[3] == 10 && varBtnSetting[4] == 5 && varBtnSetting[5] == 40 & varBtnSetting[6] == 40 & varBtnSetting[8] == 70 & varBtnSetting[12] == 50 & varBtnSetting[13] == 5 ) {
+            console.log('succecfully')
+            router.push('/vent/finish')
+        } else {
+            console.log('fail')
+        }
     }
 
 
@@ -700,6 +715,13 @@ export default function VentTest() {
                                         
                                     </tbody>
                                 </table>
+                                <div className={styles.btn_group_area}>
+                                    <div className={styles.btn_group}>
+                                        <button className={styles.btnAccept} onClick={checkAns}>
+                                            Accept All
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>

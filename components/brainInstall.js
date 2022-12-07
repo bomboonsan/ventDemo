@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import styles from './brainInstall.module.scss'
 import Moveable from "react-moveable"; // preact-moveable
 // https://daybrush.com/moveable/storybook/?path=/story/basic--origindraggable
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 export default function BrainInstall() {
+    const router = useRouter()
     const size = useWindowSize();
     const handle = useFullScreenHandle();
     let [hin, setHin] = useState(null);
+    const [bg, setBg] = useState('/images/imageBrain1.png');
     const [varX, setVarX] = useState();
     const [varY, setVarY] = useState();
     const [varR, setVarR] = useState();
@@ -33,23 +36,27 @@ export default function BrainInstall() {
       
      }
 
-    if ((size.width / varX ) < 3.8 && (size.width / varX ) > 3.0 && (size.height / varY ) < 5.0 && (size.height / varY ) > 4.0 )  {
+    if ((size.width / varX ) < 3.8 && (size.width / varX ) > 3.0 && (size.height / varY ) < 5.2 && (size.height / varY ) > 4.3 )  {
         if (status==null) {
             setStatus('In Area');
         }
-        if (varR > -12 && varR < -3) {
+        if (varR > -18 && varR < -10) {
             if (status=='In Area') {
-                setStatus('Complete');
+                setStatus('Complete');                
+                document.querySelector('#switchIcon').classList.add(styles['show']);
             } 
         } else if (status=='Complete') {
             setStatus('In Area');
+            document.querySelector('#switchIcon').classList.remove(styles['show']);
         }
     } else {
         if (status=='Complete') {
-            setStatus(null);
+            setStatus(null);       
+            document.querySelector('#switchIcon').classList.remove(styles['show']);     
         }
         if (status=='In Area') {
             setStatus(null);
+            document.querySelector('#switchIcon').classList.remove(styles['show']);
         }
     }
 
@@ -70,10 +77,6 @@ export default function BrainInstall() {
     (
         <div className={styles.hin_area}>
             <h4>ถูกต้อง !</h4>
-            {/* <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                molestiae quas vel sint commodi
-            </p> */}
         </div>
     )
     let hinElement = null
@@ -87,9 +90,26 @@ export default function BrainInstall() {
 
     function handleCheck() {
         if (status == 'Complete') {
-            setHin(1)
+            // setHin(1)
+            router.push('/brain/sensor')
         } else {
             setHin(0)
+        }
+    }
+
+    function handleSwitch() {
+        if (bg == '/images/imageBrain1.png') {
+            setBg('/images/SideView.png');
+            document.querySelector('#traget').classList.add(styles['invisible']);
+            document.querySelector('#dropArea').classList.add(styles['invisible']);
+
+            document.querySelector('#switchIcon').classList.add(styles['rotated']);
+        } else {
+            setBg('/images/imageBrain1.png');
+            document.querySelector('#traget').classList.remove(styles['invisible']);
+            document.querySelector('#dropArea').classList.remove(styles['invisible']);
+
+            document.querySelector('#switchIcon').classList.remove(styles['rotated']);
         }
     }
     
@@ -99,7 +119,7 @@ export default function BrainInstall() {
             <div className={styles.bg_area}>
                 <Image
                     className={styles.womanbg}
-                    src="/images/imageBrain1.png"
+                    src={bg}
                     alt="Women"
                     // layout="fill"
                     // objectFit="cover"
@@ -108,7 +128,7 @@ export default function BrainInstall() {
                     height={2160}
                 />
             </div>
-            <div className={styles.dropArea}></div>
+            <div id="dropArea" className={styles.dropArea}></div>
         <div id="traget" className={styles.traget_item}>
             <Image
                 className={styles.bis_item}
@@ -120,7 +140,7 @@ export default function BrainInstall() {
                 height={605}
             />   
         </div>
-        <div className={styles.log_wrapper}>
+        {/* <div className={styles.log_wrapper}>
             <p>
                 X : {varX}
             </p>
@@ -139,10 +159,22 @@ export default function BrainInstall() {
             <p>
                 Status : {status}
             </p>
-        </div>
+        </div> */}
         {/* <div className={styles.hin_area}>
             {}
         </div> */}
+
+        <div id='switchIcon' className={styles.changeView}>
+            <Image
+                src="/images/switch.png"
+                alt="BIS"
+                // layout="fill"
+                // objectFit="cover"
+                width={1905}
+                height={605}
+                onClick={handleSwitch}
+            />   
+        </div>
         {hinElement}
         <div className={styles.btn_group}>
             <button onClick={handleCheck}>
