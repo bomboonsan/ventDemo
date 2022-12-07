@@ -271,6 +271,7 @@
     }
 
     .setupbtn {
+        cursor: pointer;
         border-radius: .2rem;
         padding: .3rem 0;
         display: flex;
@@ -285,6 +286,7 @@
     }
     .setupCaptionActive2 {
         background: #007fee;
+        box-shadow: 1px 3px 3px 1px rgb(0 0 0 / 50%) inset, -1px -3px 3px 1px rgb(255 255 255 / 50%) inset, 0px 0px 3px 1px rgb(0 0 0 / 50%);
     }
 }
 .setupCaptionActive2 {
@@ -493,4 +495,8 @@
     margin: 0 auto;
     padding: .4rem;
     border-radius: 1rem;
+}
+
+.btn_disable {
+    opacity: .6;
 }

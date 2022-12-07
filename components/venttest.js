@@ -5,9 +5,14 @@ import Link from "next/link";
 import Moveable from "react-moveable"; // preact-moveable
 
 export default function VentTest() {
+    const [btnSetupRecord, setBtnSetupRecord] = useState([]);
+    const [varBtnSetting, setvarBtnSetting] = useState([10,300,39,10,3.0,40,8.0,75,50,0.0,0,5.0,25,3.0,750,'ET']);
+    const [btnSetup, setBtnSetup] = useState();
     const [stepCount, setStepCount] = useState(1);
     const [isSetWeight, setIsSetWeight] = useState(0);
     const [isSetHeight, setIsSetHeight] = useState(0);
+    const [focusSetting, setFocusSetting] = useState(0);
+    const [isSetting, setIsSetting] = useState(0);
     const [target, setTarget] = useState();
     const [varX, setVarX] = useState();
     const [varY, setVarY] = useState();
@@ -23,13 +28,16 @@ export default function VentTest() {
     const [weight, setWeight] = useState(50);
     const [height, setHeight] = useState(152);
 
+    // let showBtnSetting = [10,300,39,10,3.0,40,8.0,75,50,0.0,0,5.0,25,3.0,750,'ET'];
+
     useEffect(() => {
-        // let btn1 = document.querySelector('#btn1');
+        // Var for Moveable
         setTarget(document.querySelector("#traget"));
+        
+
     }, []);
 
     useEffect(() => {
-        // let btn1 = document.querySelector('#btn1');
         if(isSetWeight == 1) {
             if (varR == 0) {
                 console.log('varR=0');
@@ -37,11 +45,8 @@ export default function VentTest() {
                 let newWeight = Number(weight)+(varR/360);
                 console.log(newWeight);
                 setWeight(newWeight.toFixed(1));
-
-
             }
     
-            // setWeight(Number(weight)+(Number(weight)*(varR/360)));
         }
         if(isSetHeight == 1) {
             if (varR == 0) {
@@ -50,13 +55,29 @@ export default function VentTest() {
                 let newHeight = Number(height)+(varR/360);
                 console.log(newHeight);
                 setHeight(newHeight.toFixed(1));
-
-
             }
-    
-            // setWeight(Number(weight)+(Number(weight)*(varR/360)));
         }
+        if(isSetting == 1) {
+            resetRotate()
+            const currentVar = varBtnSetting;
+            console.log(currentVar)
+            let newVar = Number(currentVar[focusSetting-1])+(varR/360);
+            
+            changeVarBtnSetting(newVar.toFixed(1) , focusSetting);
+        }
+
+
+
+        
+        
     }, [varR]);
+
+
+
+    
+
+
+
 
     // FN Setup
     const handleClick = (event) => {
@@ -65,19 +86,93 @@ export default function VentTest() {
     };
 
     const handleSetWeight = (event) => {
+        resetSetupBtn()
         event.currentTarget.classList.add(styles['btn_setting_up_active']);
         setIsSetWeight(1)
+        setIsSetHeight(0)
         resetRotate()
+
+        setFocusSetting(0)
+        setIsSetting(0)
+        resetSettingBtn()
+        console.log(event.currentTarget)
     };
     const handleSetHeight = (event) => {
+        resetSetupBtn()
         event.currentTarget.classList.add(styles['btn_setting_up_active']);
         setIsSetHeight(1)
+        setIsSetWeight(0)
         resetRotate()
+
+        setFocusSetting(0)
+        setIsSetting(0)
+        resetSettingBtn()
     };
 
+    const handleSetupbtn = (event) => {
+        resetSetupBtn()
+        setIsSetHeight(0)
+        setIsSetWeight(0)
+        resetRotate()
+        
+        setFocusSetting(0)
+        setIsSetting(0)
+        resetSettingBtn()
+
+        const btnName = event.currentTarget.getAttribute('data-btnName');
+        console.log(btnName);
+        const btnTrID = event.currentTarget.getAttribute('data-tr');
+        handleResetSetupbtn(btnTrID);
+        event.currentTarget.classList.add(styles['setupCaptionActive2']);
+
+        setBtnSetup(btnName)
+        
+        const btnSetupAll = document.querySelectorAll("#tableBtnsettingGroup tr td div")
+        btnSetupAll.forEach(function (i) {
+            i.classList.remove(styles['btn_disable']);
+        });
+        // START LOGIC
+        if (btnName == 'Invasive') {
+            const arrBtnDisableList = ['CPAP']
+            arrBtnDisableList.forEach(function(name){
+                document.querySelector(`[data-btnName='${name}']`).classList.add(styles['btn_disable']);
+            })
+        }
+        if (btnName == 'SPOINT') {
+            const arrBtnDisableList = ['PC','VC','VC+' ,'CPAP']
+            arrBtnDisableList.forEach(function(name){
+                document.querySelector(`[data-btnName='${name}']`).classList.add(styles['btn_disable']);
+            })
+        }
+        if (btnName == 'TC') {
+            const arrBtnDisableList = ['PC','VC','VC+' ,'CPAP' , 'IE Sync']
+            arrBtnDisableList.forEach(function(name){
+                document.querySelector(`[data-btnName='${name}']`).classList.add(styles['btn_disable']);
+            })
+        }
+        if (btnName == 'P-Trig') {
+            const arrBtnDisableList = ['PC','VC','VC+' ,'CPAP' , 'IE Sync']
+            arrBtnDisableList.forEach(function(name){
+                document.querySelector(`[data-btnName='${name}']`).classList.add(styles['btn_disable']);
+            })
+            logicSettingGridShow()
+        } else {
+            resetSettingGridShow()
+        }
+    }
+
+    function handleResetSetupbtn(index) {
+        const trIndex = Number(index)-1; // DEMO
+        const trAll = document.querySelectorAll("#tableBtnsettingGroup tr");
+        
+        const setupBtnAll = trAll[trIndex].querySelectorAll("td div");
+        setupBtnAll.forEach(function (i) {
+            i.classList.remove(styles['setupCaptionActive2']);
+        });
+    }
 
     const resetRotate = () => {
-        console.log('reset');
+        // console.log('reset');
         setVarR(0);
         setFrame(
             {
@@ -86,13 +181,72 @@ export default function VentTest() {
             }
         )
     }
-    // if(isSetWeight == 1) {
-    //     let newWeight = Number(weight)+1;
-    //     console.log(newWeight);
-    //     // setWeight(newWeight);
 
-    //     // setWeight(weight+(weight*(varR/360)));
-    // }
+    const resetSetupBtn = () => {
+        document.querySelector('#weightSetupBtn')?.classList.remove(styles['btn_setting_up_active']);
+        document.querySelector('#heightSetupBtn')?.classList.remove(styles['btn_setting_up_active']);
+    }
+
+
+    
+    // TAble 2 setupBtn
+
+    function logicSettingGridShow() {        
+        let btnSettingGridAll =  document.querySelectorAll('#tableBtnsettingGrid td > div');
+        btnSettingGridAll.forEach(function(i){
+            i.classList.add(styles['invisible']);
+        })
+        const arrItemShow = [4,5,6,7,9,13,14];
+        arrItemShow.forEach(function(i){
+            btnSettingGridAll[i-1].classList.remove(styles['invisible']);
+        })
+    }
+    function resetSettingGridShow() {
+        let btnSettingGridAll =  document.querySelectorAll('#tableBtnsettingGrid td > div');
+        btnSettingGridAll.forEach(function(i){
+            i.classList.remove(styles['invisible']);
+        })
+    }
+
+    const handleSettingbtn = (event) => {
+        resetSetupBtn()
+        setIsSetHeight(0)
+        setIsSetWeight(0)
+        resetRotate()
+        resetSettingBtn()
+
+        const btnID = event.currentTarget.getAttribute('data-settingid');
+        // const btnName = event.currentTarget.getAttribute('data-btnName');
+        // console.log(btnName);
+        event.currentTarget.classList.add(styles['btn_setting_up_active']);
+
+        setFocusSetting(btnID)
+        setIsSetting(1)
+        
+    }
+    const resetSettingBtn = () => {
+        const settingBtnAll = document.querySelectorAll('#tableBtnsettingGrid td > div')
+        settingBtnAll.forEach( function(i) {
+            i.classList.remove(styles['btn_setting_up_active']);
+        } )
+    }
+    
+
+
+    function changeVarBtnSetting(newVar,indexToChange) {
+        // varBtnSetting
+        // setvarBtnSetting
+        const arrNewVar = [];
+        varBtnSetting.forEach(function(i,index) {
+            if (index == indexToChange-1) {
+                arrNewVar.push(newVar)
+            } else {
+                arrNewVar.push(i)
+            }
+        })
+        setvarBtnSetting(arrNewVar)
+    }
+
 
     return (
         <section className={styles.vent_container}>
@@ -155,7 +309,7 @@ export default function VentTest() {
                                     <span>Enter predicted body weight</span>
                                 </div>
                                 <div className={styles.weightBox}>
-                                    <div id='btn1' className={styles.btn_setting_up} onClick={event => handleSetWeight(event)}>
+                                    <div id="weightSetupBtn" className={styles.btn_setting_up} onClick={event => handleSetWeight(event)}>
                                         <div className={styles.btnsLineMid}>{weight}</div>
                                         <div className={styles.btnsLineTop}>kg</div>
                                         <div className={styles.btnsLineBot}>(110)</div>
@@ -190,7 +344,7 @@ export default function VentTest() {
                                     </div>
                                 </div>
                                 <div className={styles.heightBox}>
-                                    <div className={styles.btn_setting_up} onClick={event => handleSetHeight(event)}>
+                                    <div id="heightSetupBtn" className={styles.btn_setting_up} onClick={event => handleSetHeight(event)}>
                                         <div className={styles.btnsLineMid}>{height}</div>
                                         <div className={styles.btnsLineTop}>cm</div>
                                         <div className={styles.btnsLineBot}>(110)</div>
@@ -198,7 +352,7 @@ export default function VentTest() {
                                 </div>
                             </div>
                             <div className={styles.rightCol}>
-                                <table className={styles.table_btngroup} width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <table id='tableBtnsettingGroup' className={styles.table_btngroup} width="100%" border="0" cellpadding="0" cellspacing="0">
                                     <tbody>
                                         <tr>
                                             <td className={styles.td_title}>
@@ -207,23 +361,18 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
+                                                <div data-btnName='Invasive' data-tr='1' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>Invasive</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='NIV' data-tr='1' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>NIV</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='HFO' data-tr='1' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>HFO<sub>2</sub>T</span>
                                                 </div>
                                             </td>
                                         </tr>
@@ -234,149 +383,114 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='A/C' data-tr='2' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>A/C</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='SIMV' data-tr='2' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>SIMV</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='SPOINT' data-tr='2' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>SPOINT</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='BiLevel' data-tr='2' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>BiLevel</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='CPAP' data-tr='2' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>CPAP</span>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td className={styles.td_title}>
                                                 <div className={styles.setupCaption}>
-                                                    <span>Ventilation Type</span>
+                                                    <span>Mandatory Type</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='PC' data-tr='3' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>PC</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='VC' data-tr='3' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>VC</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='VC+' data-tr='3' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>VC+</span>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td className={styles.td_title}>
                                                 <div className={styles.setupCaption}>
-                                                    <span>Mode</span>
+                                                    <span>Spontaneous Type</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='PS' data-tr='4' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>PS</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='TC' data-tr='4' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>TC</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='VS' data-tr='4' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>VS</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='PAV+' data-tr='4' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>PAV+</span>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td className={styles.td_title}>
                                                 <div className={styles.setupCaption}>
-                                                    <span>Mode</span>
+                                                    <span>Trigger Type</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='P-Trig' data-tr='5' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>P-Trig</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='V-Trig' data-tr='5' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>V-Trig</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                <div data-btnName='IE Sync' data-tr='5' className={styles.setupbtn} onClick={handleSetupbtn}>
+                                                    <span>IE Sync</span>
                                                 </div>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <table className={styles.table_btnsetting} width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <table id='tableBtnsettingGrid' className={styles.table_btnsetting} width="100%" border="0" cellpadding="0" cellspacing="0">
                                     <tbody>
                                     <tr>
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div data-settingid='1' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
                                                         f
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        10
+                                                        {varBtnSetting[0]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         1/min
@@ -384,12 +498,12 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div data-settingid='2' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
                                                         V<sub>T</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        300
+                                                        {varBtnSetting[1]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         mL
@@ -397,12 +511,12 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div data-settingid='3' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
                                                         V<sub>MAX</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        39
+                                                        {varBtnSetting[2]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         L/min
@@ -410,12 +524,12 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div data-settingid='4' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
                                                         P<sub>SUPP</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        10
+                                                        {varBtnSetting[3]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         cmH<sub>2</sub>O
@@ -423,12 +537,12 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div data-settingid='5' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
                                                         V <sub>SENS</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        3.0
+                                                        {varBtnSetting[4]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         L/min
@@ -436,12 +550,12 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div data-settingid='6' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
                                                         O<sub>2</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        40
+                                                    {varBtnSetting[5]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         %
@@ -449,12 +563,12 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div data-settingid='7' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
                                                         P<sub>PEAK</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        8.0
+                                                    {varBtnSetting[6]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         cmH<sub>2</sub>O
@@ -462,12 +576,12 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div data-settingid='8' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
                                                         D<sub>SENS</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        75
+                                                    {varBtnSetting[7]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         L/min
@@ -478,12 +592,12 @@ export default function VentTest() {
                                         
                                         <tr>
                                             <td>
-                                                <div id='btn2' className={styles.btn_setting}>
+                                                <div data-settingid='9' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
                                                         
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        50
+                                                    {varBtnSetting[8]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         %
@@ -491,12 +605,12 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div id='btn3' className={styles.btn_setting}>
+                                                <div data-settingid='10' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
                                                         T<sub>PL</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        0.0
+                                                    {varBtnSetting[9]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         S
@@ -504,12 +618,12 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div data-settingid='11' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
                                                         Ramp
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        XXX
+                                                    {varBtnSetting[10]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         
@@ -517,12 +631,12 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div data-settingid='12' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
-                                                        T<sub>l SPONT</sub>
+                                                        l SPONT
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        3.0
+                                                    {varBtnSetting[11]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         S
@@ -530,12 +644,12 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div data-settingid='13' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
                                                         E<sub>SENS</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        25
+                                                    {varBtnSetting[12]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         %
@@ -543,12 +657,12 @@ export default function VentTest() {
                                                 </div>
                                             </td>                                            
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div data-settingid='14' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
                                                         PEEP
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        3.0
+                                                    {varBtnSetting[13]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         cmH<sub>2</sub>O
@@ -556,12 +670,12 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div data-settingid='15' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
                                                         V<sub>Tl</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        750
+                                                    {varBtnSetting[14]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         mL
@@ -569,12 +683,12 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div className={styles.btn_setting}>
+                                                <div data-settingid='16' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
                                                         Tube
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        ET
+                                                    {varBtnSetting[15]}
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         Type

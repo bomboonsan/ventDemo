@@ -182,17 +182,12 @@ export default function VentInto() {
                                             </td>
                                             <td>
                                                 <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                    <span>NIV</span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                    <span>HFO2T</span>
                                                 </div>
                                             </td>
                                         </tr>
@@ -204,133 +199,98 @@ export default function VentInto() {
                                             </td>
                                             <td>
                                                 <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                    <span>A/C</span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div id='btn5' className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                    <span>SIMV</span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                    <span>SPOINT</span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                    <span>BiLevel</span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                    <span>CPAP</span>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td className={styles.td_title}>
                                                 <div className={styles.setupCaption}>
-                                                    <span>Ventilation Type</span>
+                                                    <span>Mandatory Type</span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td className={styles.td_title}>
-                                                <div className={styles.setupCaption}>
-                                                    <span>Mode</span>
+                                                    <span>PC</span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div id='btn6' className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                    <span>VC</span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                    <span>VC+</span>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td className={styles.td_title}>
                                                 <div className={styles.setupCaption}>
-                                                    <span>Mode</span>
+                                                    <span>Spontaneous Type</span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                    <span>PS</span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                    <span>TC</span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                    <span>VS</span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                    <span>PAV+</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td className={styles.td_title}>
+                                                <div className={styles.setupCaption}>
+                                                    <span>Trigger Type</span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                    <span>P-Trig</span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div className={styles.setupbtn}>
-                                                    <span>Invasive</span>
+                                                    <span>V-Trig</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span>IE Sync</span>
                                                 </div>
                                             </td>
                                         </tr>
