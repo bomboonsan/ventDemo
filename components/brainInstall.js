@@ -102,12 +102,14 @@ export default function BrainInstall() {
             setBg('/images/SideView.png');
             document.querySelector('#traget').classList.add(styles['invisible']);
             document.querySelector('#dropArea').classList.add(styles['invisible']);
+            document.querySelector('.moveable-control').classList.add(styles['invisible']);
 
             document.querySelector('#switchIcon').classList.add(styles['rotated']);
         } else {
             setBg('/images/imageBrain1.png');
             document.querySelector('#traget').classList.remove(styles['invisible']);
             document.querySelector('#dropArea').classList.remove(styles['invisible']);
+            document.querySelector('.moveable-control').classList.remove(styles['invisible']);
 
             document.querySelector('#switchIcon').classList.remove(styles['rotated']);
         }
@@ -115,7 +117,7 @@ export default function BrainInstall() {
     
 
     return (
-        <div className={styles.traget_container}>
+        <div id='brainInstall_container' className={styles.traget_container}>
             <div className={styles.bg_area}>
                 <Image
                     className={styles.womanbg}

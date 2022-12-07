@@ -265,7 +265,7 @@ export default function VentTest() {
 
 
     return (
-        <section className={styles.vent_container}>
+        <section id='ventContainer' className={styles.vent_container}>
             <header className={styles.panel_top}>
                 <div className={styles.panel_top_content}>
                     <h2>New Patient Setup</h2>
@@ -740,7 +740,7 @@ export default function VentTest() {
                     </button>
                 </div> */}
             </div>
-            <footer className={styles.controlpanel_wrap}>
+            <footer id='footer_controlPanel' className={styles.controlpanel_wrap}>
                 <div className={styles.controlpanel_row}>
                     <div className={styles.controlpanel}>
                         <Image

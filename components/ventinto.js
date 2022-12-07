@@ -118,7 +118,7 @@ export default function VentInto() {
         setIntroductionText(listInstructionText[stepCount])
 
 
-        if (stepCount >= 27) {
+        if (stepCount >= 49) {
             document.querySelector('#introductionBox')?.classList.add(styles['hidden']);
             // /instruction/vent
             router.push('/instruction/vent')
@@ -126,7 +126,7 @@ export default function VentInto() {
     }
 
     return (
-        <section className={styles.vent_container}>
+        <section id='ventContainer' className={styles.vent_container}>
             <header className={styles.panel_top}>
                 <div className={styles.panel_top_content}>
                     <h2>New Patient Setup</h2>
@@ -557,8 +557,269 @@ export default function VentInto() {
                                                 </div>
                                             </td> */}
                                         </tr>
-                                        
                                         <tr>
+                                            <td>
+                                                <div id='btn30' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        P
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        50
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        %
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn31' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        PEEP
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        3.0
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        cmH<sub>2</sub>O
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn32' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        P<sub>SUPP</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        10
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        cmH<sub>2</sub>O
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn33' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        E<sub>SENS</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        25
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        %
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn34' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        V<sub>T</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        300
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        mL
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn35' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        V<sub>MAX</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        39
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        L/min
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn36' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        T<sub>PL</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        0.0
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        S
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn37' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        R<sub>amp</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        [\]
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div id='btn38' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        R<sub>amp</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        [|]
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn39' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        V<sub>T</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        750
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        mL
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn40' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        P<sub>H</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        18
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        cmH<sub>2</sub>O
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn41' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        P<sub>L</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        3.0
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        cmH<sub>2</sub>O
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn42' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        T<sub>H</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        0.46
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        S
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn43' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        T<sub>L</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        5.16
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        S
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn44' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        %SUPP
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        70
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        %
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn45' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        Tube I.D.
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        8.0
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        mm
+                                                    </div>
+                                                </div>
+                                            </td>                                            
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div id='btn46' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        Tube
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        ET
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        Type
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn47' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        I<sub>sync</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        []
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        0
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn48' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        E<sub>sync</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        []
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        0
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn49' className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        V<sub>CONT</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        30
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        L/min
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        {/* <tr>
                                             <td>
                                                 <div className={styles.btn_setting}>
                                                     <div className={styles.btnsLineTop}>
@@ -663,7 +924,7 @@ export default function VentInto() {
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr>
+                                        </tr> */}
 
                                         
                                     </tbody>

@@ -385,6 +385,8 @@
     aspect-ratio: 1024 / 180;
     color: #e2eef7;
     text-shadow: 0px 1px 1px #2c818e;
+    display: flex;
+    align-items: flex-end;
 }
 .introduction_box {
     position: relative;
