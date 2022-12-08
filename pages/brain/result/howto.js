@@ -36,7 +36,7 @@ export default function CaseDetail() {
               </h2>
               <div className={styles.image}>
                 <Image
-                    src="/video/video-main-menu.png"
+                    src="/images/video-main-menu-thumbnail.png"
                     alt="Women"
                     // layout="fill"
                     // objectFit="cover"
@@ -46,7 +46,7 @@ export default function CaseDetail() {
               </div>
               <div className={styles.text_wrap}>
                 <p>
-                Bispectral Index คือการรับสัญญาณที่ซับซ้อน (EEG) วิเคราะห์ และประมวลผลผลลัพธ์ เป็นหนึ่งในหลายเทคโนโลยีที่ใช้ในการตรวจสอบความลึกของการระงับความรู้สึก ซึ่งแสดงผลเป็นตัวเลข Bispectral Index Range โดยมีค่าตั้งแต่ 0 (เทียบเท่ากับความเงียบของ EEG) ถึง 100 ค่า BIS ระหว่าง 40 ถึง 60 บ่งชี้ระดับที่เหมาะสมสำหรับการดมยาสลบ 
+                Brain Monitoring คือ อุปกรณ์ที่จะแสดงค่าตัวเลข (Index) บนจอ ซึ่งเป็นค่าชุดตัวเลขอย่างง่าย 0 – 100 ที่ได้จากการดึงเอาสัญญาณคลิ่นไฟฟ้าสมอง (EEG: Electroencephalogram) ผ่านตัวรับ 4 ตัว (electrodes) วางเรียงอยู่บนเซ็นเซอร์ที่ติดบนหน้าผากคนไข้ ผ่านเข้ากับชุดคำสั่งที่สร้างไว้ตามขั้นตอนประมวลผล (Algorithm) ตัวเลขที่ได้จะแสดงผลตั้งแต่ 0 หมายถึง ไม่มีสัญญาณสมอง ไปจนถึง 100 หมายถึง ตื่นตัวเต็มที่ ค่าตัวเลขที่เหมาะสมของการระงับความรูสึกของคนไข้ให้อยู่ในระดับ “General Anesthesia” คือ ช่วงตัวเลข – 40 - 60
                 </p>
               </div>
             </div>
