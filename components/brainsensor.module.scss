@@ -84,7 +84,7 @@
     position: absolute;
     width: 1.5%;
     height: 2.5%;
-    background: rgba(119, 252, 31, 0.6);
+    // background: rgba(119, 252, 31, 0.6);
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 10.5%;
     top: 43.5%;
@@ -95,45 +95,46 @@
     position: absolute;
     width: 1.5%;
     height: 2.5%;
-    background: rgba(119, 252, 31, 0.6);
+    // background: rgba(119, 252, 31, 0.6);
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 10.5%;
     top: 49.5%;
     cursor: pointer;
 }
-
-.touchArea_4_1 {
+.touchArea_4_1 ,.touchArea_4_2,.touchArea_4_3,.touchArea_4_4 {
     content: '';
     position: absolute;
+    background: rgba(119, 252, 31, 0);
+    cursor: pointer;
+}
+.touchArea_4_1 {
     width: 3.5%;
     height: 1.5%;
-    background: rgba(119, 252, 31, 0.6);
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 13.5%;
     top: 30.5%;
-    cursor: pointer;
 }
 .touchArea_4_2 {
-    content: '';
-    position: absolute;
     width: 3.5%;
     height: 1.5%;
-    background: rgba(119, 252, 31, 0.6);
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 14.5%;
     top: 34.5%;
-    cursor: pointer;
 }
 .touchArea_4_3 {
-    content: '';
-    position: absolute;
     width: 2.5%;
     height: 3.5%;
-    background: rgba(119, 252, 31, 0.6);
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 12.5%;
     top: 33.5%;
-    cursor: pointer;
+}
+.touchArea_4_4 {
+    width: .9%;
+    height: 4%;
+    background: rgba(119, 252, 31, 0);
+    transform: translate(-50%, -50%) rotate(-20deg);
+    left: 16%;
+    top: 31.5%;
 }
 
 .touchArea_2_1 {
@@ -141,7 +142,7 @@
     position: absolute;
     width: 3.5%;
     height: 1.5%;
-    background: rgba(119, 252, 31, 0.6);
+    // background: rgba(119, 252, 31, 0.6);
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 18.5%;
     top: 28%;
@@ -152,10 +153,32 @@
     position: absolute;
     width: 3.5%;
     height: 2%;
-    background: rgba(119, 252, 31, 0.6);
+    // background: rgba(119, 252, 31, 0.6);
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 19.5%;
     top: 33%;
+    cursor: pointer;
+}
+.touchArea_2_3 {
+    content: '';
+    position: absolute;
+    width: 1%;
+    height: 5%;
+    // background: rgba(119, 252, 31, 0.6);
+    transform: translate(-50%, -50%) rotate(-20deg);
+    left: 17.5%;
+    top: 31.5%;
+    cursor: pointer;
+}
+.touchArea_2_4 {
+    content: '';
+    position: absolute;
+    width: 1%;
+    height: 5%;
+    // background: rgba(119, 252, 31, 0.6);
+    transform: translate(-50%, -50%) rotate(-20deg);
+    left: 20.5%;
+    top: 30%;
     cursor: pointer;
 }
 
@@ -164,12 +187,89 @@
     position: absolute;
     width: 2.5%;
     height: 6.5%;
-    background: rgba(119, 252, 31, 0.6);
+    // background: rgba(119, 252, 31, 0.6);
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 24.5%;
     top: 27%;
+    // top: 60%;
+    // left: 42%;
     cursor: pointer;
 }
+
+.touchArea_1_2 {
+    content: '';
+    position: absolute;
+    width: 1.8%;
+    height: 6.5%;
+    // background: rgba(119, 252, 31, 0.6);
+    transform: translate(-50%, -50%) rotate(-20deg);
+    left: 24.5%;
+    top: 27%;
+    // top: 58%;
+    // left: 46.4%;
+    cursor: pointer;
+}
+.touchArea_1_1:hover ,.touchArea_1_2:hover,.touchArea_1_3:hover,.touchArea_1_4:hover,
+.touchArea_2_1:hover ,.touchArea_2_2:hover,.touchArea_2_3:hover,.touchArea_2_4:hover,
+.touchArea_3_1:hover ,.touchArea_3_2:hover,.touchArea_3_3:hover,.touchArea_3_4:hover,
+.touchArea_4_1:hover ,.touchArea_4_2:hover,.touchArea_4_3:hover,.touchArea_4_4:hover {
+    background: rgba(119, 252, 31, 0.6);
+}
+
+// Side
+.touchArea_3_1_side {
+    display: none;
+    content: '';
+    position: absolute;
+    width: 1.5%;
+    height: 5.5%;
+    background: rgba(119, 252, 31, 0);
+    transform: translate(-50%, -50%) rotate(-20deg);
+    top: 58%;
+    left: 46.4%;
+    cursor: pointer;
+}
+.touchArea_3_2_side {
+    display: none;
+    content: '';
+    position: absolute;
+    width: 1.5%;
+    height: 5.5%;
+    background: rgba(119, 252, 31, 0);
+    transform: translate(-50%, -50%) rotate(-20deg);
+    top: 59.5%;
+    left: 42.4%;
+    cursor: pointer;
+}
+.touchArea_3_3_side {
+    display: none;
+    content: '';
+    position: absolute;
+    width: 5%;
+    height: 2%;
+    background: rgba(119, 252, 31, 0);
+    transform: translate(-50%, -50%) rotate(-10deg);
+    top: 54.5%;
+    left: 44%;
+    cursor: pointer;
+}
+.touchArea_3_4_side {
+    display: none;
+    content: '';
+    position: absolute;
+    width: 5%;
+    height: 2%;
+    background: rgba(119, 252, 31, 0);
+    transform: translate(-50%, -50%) rotate(-10deg);
+    top: 62.5%;
+    left: 45%;
+    cursor: pointer;
+}
+
+.touchArea_3_1_side:hover , .touchArea_3_2_side:hover , .touchArea_3_3_side:hover , .touchArea_3_4_side:hover {
+    background: rgba(119, 252, 31, 0.6);
+}
+
 
 // No Touch
 
@@ -180,7 +280,7 @@
     height: auto;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    background: rgba(252, 31, 42, 0.6);
+    // background: rgba(252, 31, 42, 0.6);
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 10.5%;
     top: 46.5%;
@@ -190,11 +290,11 @@
 .noTouchArea_4 {
     content: '';
     position: absolute;
-    width: 1.3%;
+    width: 2%;
     height: auto;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    background: rgba(252, 31, 42, 0.6);
+    // background: rgba(252, 31, 42, 0.6);
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 14.5%;
     top: 32%;
@@ -204,37 +304,109 @@
 .noTouchArea_2 {
     content: '';
     position: absolute;
-    width: 1.3%;
+    width: 2%;
     height: auto;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    background: rgba(252, 31, 42, 0.6);
+    // background: rgba(252, 31, 42, 0.6);
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 18.7%;
-    top: 30.2%;
+    top: 30.5%;
     cursor: pointer;
 }
 
 .noTouchArea_1 {
+    // display: none;
     content: '';
     position: absolute;
-    width: 1.5%;
+    width: 2%;
     height: auto;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1/1.3;
     border-radius: 50%;
-    background: rgba(252, 31, 42, 0.6);
+    // background: rgba(252, 31, 42, 0.6);
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 22.4%;
     top: 28.2%;
+    // top: 58.3%;
+    // left: 44.3%;
     cursor: pointer;
+}
+
+.noTouchArea_1:hover ,.noTouchArea_2:hover,.noTouchArea_3:hover,.noTouchArea_4:hover {
+    background: rgba(252, 31, 42, 0.6);
+}
+
+// Side
+
+.noTouchArea_3_side {
+    display: none;
+    content: '';
+    position: absolute;
+    width: 1.7%;
+    height: auto;
+    aspect-ratio: 1/1.5;
+    border-radius: 50%;
+    background: rgba(252, 31, 42, 0.0);
+    transform: translate(-50%, -50%) rotate(-20deg);
+    top: 58.3%;
+    left: 44.3%;
+    cursor: pointer;
+}
+.noTouchArea_3_side:hover {
+    background: rgba(252, 31, 42, 0.6);
 }
 
 
 
 
-
-
-
+.popupArea {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 47%;
+    top: 50%;
+    width: 20%;
+    height: auto;
+    animation: popup 2s;
+    z-index: 999;
+}
+.popUpbtnStart {
+    text-align: right;
+    button {
+        display: block;
+        position: relative;        
+        margin-left: auto;
+        font-size: 1rem;
+        border-radius: .4rem;
+        padding: .4rem 1.5rem;
+        border: 0;
+        outline: 0;
+        color: #FFF;
+        background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;;
+    }
+}
+.popup_wrap {
+    background: rgba(248, 248, 248, 0.73);
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+            0px 1px 18px 0px rgba(0, 0, 0, 0.12),
+            0px 3px 5px -1px rgba(0, 0, 0, 0.2);
+    p {
+        font-size: 1.1rem;
+    }
+}
+@keyframes popup {
+    0% {
+        left: 47%;
+        top: 80%;
+        opacity: .1;
+    }
+    100% {
+        left: 47%;
+        top: 50%;
+        opacity: 1;
+    }
+}
 
 
 .btn_group {
@@ -269,4 +441,58 @@
         -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
         box-shadow: 0 0 0 0 rgba(204,169,44, 0);
     }
-  }
+}
+
+.changeView {
+    position: absolute;
+    z-index: 5;
+    width: 5%;
+    left: 5%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    // display: none;
+    img {
+        cursor: pointer;
+    }
+}
+
+
+
+.show {
+    display: block;
+    animation: rotate 1.5s;
+}
+.hidden {
+    display: none;
+}
+
+.rotated {
+    transform: translate(-50%,-50%) rotate(-45deg);
+    animation: rotated 1.5s;
+}
+
+.invisible{
+    visibility: hidden;
+}
+
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%,-50%) rotate(-45deg);
+        opacity: .1;
+    }
+    100% {
+        transform: translate(-50%,-50%) rotate(0deg);
+        opacity: 1;
+    }
+}
+@keyframes rotated {
+    0% {
+        transform: translate(-50%,-50%) rotate(0deg);
+        opacity: .1;
+    }
+    100% {
+        transform: translate(-50%,-50%) rotate(-45deg);
+        opacity: 1;
+    }
+}

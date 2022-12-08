@@ -19,7 +19,8 @@ export default function BrainVideo() {
     const video1 = '../video/button1.mp4'
     const video2 = '../video/button2.mp4'
     const video3 = '../video/button3.mp4'
-    const video4 = '../video/button4.mp4'
+    // const video4 = '../video/button4.mp4'
+    const video4 = '../video/button7.mp4'
     const video5 = '../video/button5.mp4'
     const video6 = '../video/button6.mp4'
 
@@ -50,26 +51,33 @@ export default function BrainVideo() {
         setVideoStep(4)
     }
     function reset() {
-        if (videoStep == 4) {
-            setUrlVideo(video5);
-            setVideoStep(5)
-        } else if (videoStep == 5) {
-            setUrlVideo(video6);
-            setVideoStep(6)
-        }      
-        else if (videoStep == 6) {
-            setTimeout(function(){
-                setUrlVideo(startVideo);
-                setIsShowBtn(true);
-                router.push('/brain/result/howto')
-           }, 3500);
+        // if (videoStep == 4) {
+        //     setUrlVideo(video5);
+        //     setVideoStep(5)
+        // } else if (videoStep == 5) {
+        //     setUrlVideo(video6);
+        //     setVideoStep(6)
+        // }      
+        // else if (videoStep == 6) {
+        //     setTimeout(function(){
+        //         setUrlVideo(startVideo);
+        //         setIsShowBtn(true);
+        //         router.push('/brain/result/howto')
+        //    }, 3500);
+        // }
+        // else {
+        //     setTimeout(function(){
+        //         setUrlVideo(startVideo);
+        //         setIsShowBtn(true);
+        //    }, 1500);
+        // }
+        if ( videoStep == 4) {
+            router.push('/mainbrain')
         }
-        else {
-            setTimeout(function(){
-                setUrlVideo(startVideo);
-                setIsShowBtn(true);
-           }, 1500);
-        }
+        setTimeout(function(){
+            setUrlVideo(startVideo);
+            setIsShowBtn(true);
+       }, 1500);
     }
     return (
         <FullScreen handle={handle}>
@@ -105,7 +113,7 @@ export default function BrainVideo() {
             <div className={isShowBtn ? styles.show : styles.hidden}>
                 <Image
                     className={styles.video_main_img}
-                    src="/video/button6_Moment.jpg"
+                    src="/video/button7_Moment.jpg"
                     alt="VIDEO MENU"
                     // layout="fill"
                     // objectFit="cover"

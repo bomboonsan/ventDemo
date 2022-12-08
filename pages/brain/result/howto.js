@@ -16,7 +16,7 @@ export default function CaseDetail() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className='prev_page'>
-          <Link href="/brain/howto"> 
+          <Link href="/mainbrain"> 
             <Image
                 src="/images/prev.png"
                 alt="Women"

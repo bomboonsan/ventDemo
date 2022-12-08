@@ -19,9 +19,9 @@
     bottom: 18.5%;
     aspect-ratio: 1/1;
     width: 3%;
-    border: .1rem solid red;
+    // border: .1rem solid red;
     border-radius: 50%;
-    animation: pulsing 1.5s linear infinite;
+    animation: pulsing 2.5s linear infinite;
     z-index: 4;
 }
 
@@ -34,9 +34,9 @@
     bottom: 4%;
     aspect-ratio: 1/1;
     width: 10%;
-    border: .3rem solid red;
+    // border: .3rem solid red;
     border-radius: 50%;
-    animation: pulsing 1.5s linear infinite;
+    animation: pulsing 2.5s linear infinite;
     z-index: 4;
 }
 
@@ -46,12 +46,12 @@
     position: absolute;
     transform: translate(-50% , -50%);
     left: 21.8%;
-    bottom: 20%;
+    bottom: 20.8%;
     aspect-ratio: 1/1;
-    width: 2%;
-    border: .2rem solid rgba(148, 193, 31, .8);
+    width: 1.5%;
+    // border: .2rem solid rgba(148, 193, 31, .8);
     border-radius: 50%;
-    animation: pulsing 1.5s linear infinite;
+    animation: pulsing2 2.5s linear infinite;
     z-index: 4;
 }
 
@@ -59,14 +59,14 @@
     cursor: pointer;
     content: '';
     position: absolute;
-    transform: translate(-50% , -50%);
+    transform: translate(-50% , -50%) rotate(1deg);
     left: 78%;
-    bottom: 13%;
+    bottom: 12%;
     aspect-ratio: 9/1;
     width: 28%;
     // border: .3rem solid green;
     border-radius: 50%;
-    // animation: pulsing 1s linear infinite;
+    animation: pulsing 2.5s linear infinite;
     z-index: 99;
 }
 
@@ -215,13 +215,19 @@
 @keyframes pulsing {
     50% {
         opacity: 1;
-        box-shadow: 0 0 10px .5rem rgba(74, 160, 40, 0.8);
+        box-shadow: 0 0 10px .5rem rgba(44, 180, 204, 0.4);
     }
 }
 @keyframes pulsing1 {
     50% {
         opacity: .9;
-        box-shadow: 0 0 0 1rem rgba(160, 148, 40, 0.4);
+        box-shadow: 0 0 0 1rem rgba(44, 180, 204, 0.4);
+    }
+}
+@keyframes pulsing2 {
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 20px .57rem rgba(204, 121, 44, 0.7);
     }
 }
 @keyframes blink {
