@@ -459,6 +459,15 @@ export default function VentTest() {
     //    }, 2000);
     }
 
+    const genderFemale = () => {
+        document.querySelector('#genderMale')?.classList.remove(styles['genderBoxActive']);
+        document.querySelector('#genderFemale')?.classList.add(styles['genderBoxActive']);
+    }
+    const genderMale = () => {
+        document.querySelector('#genderMale')?.classList.add(styles['genderBoxActive']);
+        document.querySelector('#genderFemale')?.classList.remove(styles['genderBoxActive']);
+    }
+
     
     return (           
         <>
@@ -535,7 +544,7 @@ export default function VentTest() {
                                     <span>gender and height</span>
                                 </div>
                                 <div className={styles.genderBox}>
-                                    <div className={styles.genderbtn}>
+                                    <div id='genderMale' className={styles.genderbtn} onClick={genderMale}>
                                         <Image
                                             src="/vent/button-gender-male.png"
                                             alt="button-gender-male"
@@ -545,7 +554,7 @@ export default function VentTest() {
                                             height={196}
                                         />
                                     </div>
-                                    <div className={styles.genderbtn}>
+                                    <div id='genderFemale' className={styles.genderbtn} onClick={genderFemale}>
                                     <Image
                                             src="/vent/button-gender-female.png"
                                             alt="button-gender-female"
