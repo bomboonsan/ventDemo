@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import 'bootstrap/dist/css/bootstrap.css'
-import styles from '../styles/mainmenu2.module.css'
+// import styles from '../styles/mainmenu2.module.css'
+import styles from '../styles/mainmenu.module.css'
 import Link from "next/link";
 // import { useRouter } from 'next/router'
 
@@ -34,49 +35,49 @@ export default function Main_menu() {
       </header>
       <div className={styles.row}>
         <div className={styles.col_item}>
-          <Link href="/menulearningmode"> 
-          <Image
-              className={styles.bisitem}
-              src="/images/cardmenu-1.png"
-              alt="equipment"
-              // layout="fill"
-              // objectFit="cover"
-              width={700}
-              height={1200}
-          />
-          <div className={styles.card_name}>
-          Learning mode
+          <div className={styles.card}>
+            <Link href="/menulearningmode"> 
+            <div className={styles.card_thumbnail}>
+              <Image
+                    className={styles.bisitem}
+                    src="/images/Ventilator-thumbnail.png"
+                    alt="Ventilator"
+                    // layout="fill"
+                    // objectFit="cover"
+                    width={640}
+                    height={508}
+                />
+            </div>
+            <div className={styles.card_title}>
+              <p>
+              Learning mode
+              </p>
+              {/* ใช้รูป Vent อันเดียวกันกับหน้า Introduction */}
+            </div>   
+            </Link>         
           </div>
-          </Link>
         </div>
         <div className={styles.col_item}>
-          <Image
-              className={styles.bisitem}
-              src="/images/cardmenu-2.png"
-              alt="Troubleshooting"
-              // layout="fill"
-              // objectFit="cover"
-              width={700}
-              height={1200}
-          />
-          <div className={styles.card_name}>
-          {/* Brain <br/>
-          monitoring <br/>
-          in ICU */}
-          Trouble Shooting
+          <div className={styles.card}>
+            <div className={styles.card_thumbnail}>
+              <Image
+                    className={styles.bisitem}
+                    src="/images/troubleshooting-thumbnail.png"
+                    alt="Ventilator"
+                    // layout="fill"
+                    // objectFit="cover"
+                    width={640}
+                    height={508}
+                />
+            </div>
+            <div className={styles.card_title}>
+              <p>
+              Trouble Shooting
+              </p>
+              {/* ใช้รูป ห้อง */}
+            </div>             
           </div>
         </div>
-        {/* <div className={styles.col_item}>
-          <Image
-              className={styles.bisitem}
-              src="/images/cardmenu-3.png"
-              alt="Result"
-              // layout="fill"
-              // objectFit="cover"
-              width={700}
-              height={1200}
-          />
-        </div> */}
       </div>
     </div>
   )
