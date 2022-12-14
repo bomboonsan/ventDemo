@@ -48,7 +48,8 @@
 }
 .card {
     position: relative;
-    aspect-ratio: 700 / 1100;
+    /* aspect-ratio: 700 / 1100; */
+    aspect-ratio: 700 / 1010;
     width: 100%;
     height: auto;
     background-image: url('../public/images/card1.png');
@@ -63,7 +64,8 @@
     left: 0;
     /* bottom: 0; */
     top: 0;
-    aspect-ratio: 400 / 420;
+    /* aspect-ratio: 400 / 380; */
+    aspect-ratio: 400 / 390;
     width: 100%;
     height: auto;
     overflow: hidden;
@@ -76,7 +78,9 @@
 }
 .card_thumbnail img {
     display: block;
-    width: 70%;
+    /* width: 70%; */
+    width: 95%;
+    border-radius: 15px;
 }
 .card_title {
     position: absolute;
@@ -87,7 +91,7 @@
     z-index: 2;
 }
 .card_title p {
-    font-size: 1.4vw;
+    font-size: 1.5vw;
     font-weight: 500;
     color: #FFF;
 }

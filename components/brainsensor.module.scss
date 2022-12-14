@@ -35,6 +35,28 @@
         object-fit: cover;
     }
 }
+.sensorHoverContainer {
+    position: relative;
+    aspect-ratio: 16/9;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    // display: none;
+    z-index: 10;
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.sensorHoverImage {
+    display: none;
+}
+
+.showSensorTouch {
+    display: block;
+}
 
 .monitorArea {
     position: absolute;
@@ -64,6 +86,20 @@
         z-index: 5;
     }
 }
+.statusImage_panel99 {
+    display: none;
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 6;
+    }
+}
+.showPanel {
+    display: block;
+}
 
 .touchArea1 {
     content: '';
@@ -75,11 +111,13 @@
     transform: rotate(-20deg);
     left: 20%;
     top: 25%;
+    z-index: 20;
     cursor: pointer;
 }
 
 
 .touchArea_3_1 {
+    display: none;
     content: '';
     position: absolute;
     width: 1.5%;
@@ -88,9 +126,11 @@
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 10.5%;
     top: 43.5%;
+    z-index: 20;
     cursor: pointer;
 }
 .touchArea_3_2 {
+    display: none;
     content: '';
     position: absolute;
     width: 1.5%;
@@ -99,6 +139,7 @@
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 10.5%;
     top: 49.5%;
+    z-index: 20;
     cursor: pointer;
 }
 .touchArea_4_1 ,.touchArea_4_2,.touchArea_4_3,.touchArea_4_4 {
@@ -106,6 +147,7 @@
     position: absolute;
     background: rgba(119, 252, 31, 0);
     cursor: pointer;
+    z-index: 20;
 }
 .touchArea_4_1 {
     width: 3.5%;
@@ -113,6 +155,7 @@
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 13.5%;
     top: 30.5%;
+    z-index: 20;
 }
 .touchArea_4_2 {
     width: 3.5%;
@@ -120,13 +163,15 @@
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 14.5%;
     top: 34.5%;
+    z-index: 20;
 }
 .touchArea_4_3 {
-    width: 2.5%;
+    width: 1%;
     height: 3.5%;
     transform: translate(-50%, -50%) rotate(-20deg);
-    left: 12.5%;
+    left: 13%;
     top: 33.5%;
+    z-index: 20;
 }
 .touchArea_4_4 {
     width: .9%;
@@ -135,6 +180,7 @@
     transform: translate(-50%, -50%) rotate(-20deg);
     left: 16%;
     top: 31.5%;
+    z-index: 20;
 }
 
 .touchArea_2_1 {
@@ -147,6 +193,7 @@
     left: 18.5%;
     top: 28%;
     cursor: pointer;
+    z-index: 20;
 }
 .touchArea_2_2 {
     content: '';
@@ -158,6 +205,7 @@
     left: 19.5%;
     top: 33%;
     cursor: pointer;
+    z-index: 20;
 }
 .touchArea_2_3 {
     content: '';
@@ -169,6 +217,7 @@
     left: 17.5%;
     top: 31.5%;
     cursor: pointer;
+    z-index: 20;
 }
 .touchArea_2_4 {
     content: '';
@@ -177,15 +226,16 @@
     height: 5%;
     // background: rgba(119, 252, 31, 0.6);
     transform: translate(-50%, -50%) rotate(-20deg);
-    left: 20.5%;
+    left: 20%;
     top: 30%;
     cursor: pointer;
+    z-index: 20;
 }
 
 .touchArea_1_1 {
     content: '';
     position: absolute;
-    width: 2.5%;
+    width: 1.5%;
     height: 6.5%;
     // background: rgba(119, 252, 31, 0.6);
     transform: translate(-50%, -50%) rotate(-20deg);
@@ -194,20 +244,50 @@
     // top: 60%;
     // left: 42%;
     cursor: pointer;
+    z-index: 20;
 }
 
 .touchArea_1_2 {
     content: '';
     position: absolute;
-    width: 1.8%;
+    width: 1%;
     height: 6.5%;
     // background: rgba(119, 252, 31, 0.6);
     transform: translate(-50%, -50%) rotate(-20deg);
-    left: 24.5%;
-    top: 27%;
+    left: 21%;
+    top: 29.5%;
     // top: 58%;
     // left: 46.4%;
     cursor: pointer;
+    z-index: 20;
+}
+.touchArea_1_3 {
+    content: '';
+    position: absolute;
+    width: 4%;
+    height: 1.5%;
+    // background: rgba(119, 252, 31, 0.6);
+    transform: translate(-50%, -50%) rotate(-20deg);
+    left: 21.5%;
+    top: 26%;
+    // top: 58%;
+    // left: 46.4%;
+    cursor: pointer;
+    z-index: 20;
+}
+.touchArea_1_4 {
+    content: '';
+    position: absolute;
+    width: 3%;
+    height: 1.5%;
+    // background: rgba(119, 252, 31, 0.6);
+    transform: translate(-50%, -50%) rotate(-20deg);
+    left: 23%;
+    top: 31.5%;
+    // top: 58%;
+    // left: 46.4%;
+    cursor: pointer;
+    z-index: 20;
 }
 .touchArea_1_1:hover ,.touchArea_1_2:hover,.touchArea_1_3:hover,.touchArea_1_4:hover,
 .touchArea_2_1:hover ,.touchArea_2_2:hover,.touchArea_2_3:hover,.touchArea_2_4:hover,
@@ -228,6 +308,7 @@
     top: 58%;
     left: 46.4%;
     cursor: pointer;
+    z-index: 20;
 }
 .touchArea_3_2_side {
     display: none;
@@ -240,6 +321,7 @@
     top: 59.5%;
     left: 42.4%;
     cursor: pointer;
+    z-index: 20;
 }
 .touchArea_3_3_side {
     display: none;
@@ -252,6 +334,7 @@
     top: 54.5%;
     left: 44%;
     cursor: pointer;
+    z-index: 20;
 }
 .touchArea_3_4_side {
     display: none;
@@ -264,6 +347,7 @@
     top: 62.5%;
     left: 45%;
     cursor: pointer;
+    z-index: 20;
 }
 
 .touchArea_3_1_side:hover , .touchArea_3_2_side:hover , .touchArea_3_3_side:hover , .touchArea_3_4_side:hover {
@@ -333,7 +417,7 @@
 }
 
 .noTouchArea_1:hover ,.noTouchArea_2:hover,.noTouchArea_3:hover,.noTouchArea_4:hover {
-    background: rgba(252, 31, 42, 0.6);
+    // background: rgba(252, 31, 42, 0.6);
 }
 
 // Side
@@ -356,9 +440,23 @@
     background: rgba(252, 31, 42, 0.6);
 }
 
+.touched {
+    background: rgba(119, 252, 31, 0.6);
+}
 
 
 
+.alertPopup {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 47%;
+    top: 50%;
+    width: 20%;
+    height: auto;
+    animation: popup .5s;
+    z-index: 999;
+    display: none;
+}
 .popupArea {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -370,11 +468,12 @@
     z-index: 999;
 }
 .popUpbtnStart {
-    text-align: right;
+    // text-align: center;
     button {
         display: block;
         position: relative;        
         margin-left: auto;
+        margin-right: auto;
         font-size: 1rem;
         border-radius: .4rem;
         padding: .4rem 1.5rem;
@@ -385,13 +484,15 @@
     }
 }
 .popup_wrap {
-    background: rgba(248, 248, 248, 0.73);
+    background-color: #FFF;
     padding: 1rem;
     border-radius: .5rem;
+    border: 4px solid #EAA6C8;
     box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
             0px 1px 18px 0px rgba(0, 0, 0, 0.12),
             0px 3px 5px -1px rgba(0, 0, 0, 0.2);
     p {
+        text-align: center;
         font-size: 1.1rem;
     }
 }
@@ -444,6 +545,7 @@
 }
 
 .changeView {
+    display: none;
     position: absolute;
     z-index: 5;
     width: 5%;
@@ -456,7 +558,36 @@
     }
 }
 
+.video_wrap {
+    display: none;
+    position: absolute;
+    width: 100%;
+    // height: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    // position: relative;
+    z-index: 999;
+    top: 0;
+    left: 0;
+}
 
+.video_item {
+    position: absolute;
+    width: 100%;
+    // height: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    // z-index: 999;
+}
+
+.showVideo{
+    display: block;
+}
+
+.showPopUp {
+    display: block;
+    animation: popup 1.5s;
+}
 
 .show {
     display: block;

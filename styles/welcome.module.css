@@ -59,3 +59,7 @@
     border-radius: 5px;
     border: 0;
 }
+
+.padding-top {
+    margin-top: 6rem;
+}

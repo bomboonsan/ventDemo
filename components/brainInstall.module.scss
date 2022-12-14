@@ -37,6 +37,7 @@
 }
 
 .dropArea {
+    display: none;
     content: '';
     background: rgba(204,169,44, 0.4);
     border-radius: 50%;
@@ -44,7 +45,7 @@
     height: 10vh;
     position: absolute;
     transform: translate(-50%,-50%);
-    left: 49%;
+    left: 49.4%;
     top: 28.5%;
     animation: pulse 1s infinite;
 }
@@ -76,6 +77,42 @@
         text-shadow: 1px 1px #000;
     }
 }
+.lineSight {
+    display: none;
+}
+.lineSightShow {
+    display: block;
+}
+.lineSight_X {
+    content: '';
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 49.4%;
+    width: 2px;
+    height: 60%;
+    background: rgba(204,169,44, 0.7);
+    z-index: 99;
+}
+.lineSight_Y {
+    content: '';
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 44%;
+    left: 49%;
+    width: 60%;
+    height: 2px;
+    background: rgba(204,169,44, 0.5);
+    z-index: 99;
+}
+.lineSight_X , .lineSight_Y {
+    animation: pulseLineSight 1.5s infinite;
+}
+@keyframes pulseLineSight {
+    70% {
+        opacity: .1;
+    }
+}
 
 .changeView {
     position: absolute;
@@ -101,9 +138,15 @@
 }
 .btn_group {
     position: absolute;
-    right: 3rem;
-    bottom: 3rem;
+    right: 3%;
+    bottom: 15%;
+    transform: translate(-50%,-50%);
+    text-align: center;
     button {
+        display: block;
+        text-align: center;
+        width: 13rem;
+        margin-bottom: 1.5rem;
         font-size: 1.4rem;
         border-radius: .4rem;
         padding: .4rem 1.5rem;
@@ -111,6 +154,9 @@
         outline: 0;
         color: #FFF;
         background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;;
+    }
+    button:last-child {
+        margin-bottom: 0;
     }
 }
 

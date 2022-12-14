@@ -215,23 +215,42 @@
 @keyframes pulsing {
     50% {
         opacity: 1;
-        box-shadow: 0 0 10px .5rem rgba(44, 180, 204, 0.4);
+        box-shadow: 0 0 10px .5rem rgba(44, 180, 204, 1);
+        // box-shadow: 0 0 0 1rem rgba(19, 244, 12, 0.4);
     }
 }
 @keyframes pulsing1 {
     50% {
         opacity: .9;
         box-shadow: 0 0 0 1rem rgba(44, 180, 204, 0.4);
+        // box-shadow: 0 0 0 1rem rgba(19, 244, 12, 0.4);
     }
 }
 @keyframes pulsing2 {
     50% {
         opacity: 1;
-        box-shadow: 0 0 20px .57rem rgba(204, 121, 44, 0.7);
+        box-shadow: 0 0 20px .57rem rgba(44, 180, 204, 1);
+        // box-shadow: 0 0 0 1rem rgba(19, 244, 12, 0.4);
     }
 }
 @keyframes blink {
     50% {
         opacity: 0;
     }
+}
+
+.showBtn {
+    display: block;
+    visibility: hidden;
+}
+// .showBtn:first-child {
+//     visibility: inherit;
+// }
+.invisible{
+    visibility: hidden !important;
+}
+
+
+.visible{
+    visibility: inherit;
 }

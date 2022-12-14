@@ -39,7 +39,7 @@ export default function menu3() {
             <div className={styles.card_thumbnail}>
               <Image
                     className={styles.bisitem}
-                    src="/images/BrainMonitoring.png"
+                    src="/images/BrainMonitoring-thumbnail-crop.png"
                     alt="Ventilator"
                     // layout="fill"
                     // objectFit="cover"
@@ -49,7 +49,7 @@ export default function menu3() {
             </div>
             <div className={styles.card_title}>
               <p>
-              Equipment Set Up
+              Equipment Setup
               </p>
             </div>   
             </Link>         
@@ -61,7 +61,8 @@ export default function menu3() {
             <div className={styles.card_thumbnail}>
               <Image
                     className={styles.bisitem}
-                    src="/images/sensorcheck-thumbnail.png"
+                    // src="/images/sensorcheck-thumbnail2.png"
+                    src="/images/x.png"
                     alt="Ventilator"
                     // layout="fill"
                     // objectFit="cover"

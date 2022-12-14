@@ -9,16 +9,20 @@ import { useState, useEffect } from 'react';
 export default function CaseDetail() {
     const router = useRouter()
     const [instructionStep, setInstructionStep] = useState(1);
-    const [instructionImg, setInstructionImg] = useState('/images/imageBrain1.png');
+    const [instructionImg, setInstructionImg] = useState('/images/equipment-success1.png');
     const [instructionText, setInstructionText] = useState('ตำแหน่งการวาง sensor เป็นอีกขั้นตอนสำคัญ เพื่อให้ได้ข้อมูล EEG ที่แม่นยำ  อิเล็กโทรด1  ควรจะวางอยู่กลางหน้าผาก โดยอยู่เหนือกว่าจมูก 2 นิ้ว หรือ 5 เซนติเมตร    ตำแหน่งลูกศรที่อยู่บนอิเล็กโทรด 1 ต้องชี้ตรงกับจมูก');
     const handleClick = () => {
         console.log('click')
         setInstructionStep(instructionStep+1)
         if (instructionStep == 1) {
-            setInstructionText('ตำแหน่งของอิเล็กโทรดที่ 4 ควรอยู่เหนือคิ้ว และ ตำแหน่งของอิเล็กโทรดที่ 3 จะอยู่ระหว่างหางตากับ ไรผม')
-            setInstructionImg('/images/imageBrain2.png')
+            setInstructionText('ตำแหน่งของอิเล็กโทรดที่ 2 และ 4 จะเรียงตัวเหนือคิ้วโดยหลีกเลี่ยงบนเส้นคิ้ว')
+            setInstructionImg('/images/equipment-success2.png')
         }
         if (instructionStep == 2) {
+          setInstructionText('ตำแหน่งของอิเล็กโทรดที่ 3 อยู่บริเวณขมับ และอยู่ในระดับเดียวกับหางคิ้ว')
+          setInstructionImg('/images/equipment-success3.png')
+      }
+        if (instructionStep == 3) {
             router.push('/brain/sensor')
         }
     };

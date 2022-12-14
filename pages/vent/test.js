@@ -16,7 +16,7 @@ export default function Instruction() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className='prev_page'>
-          <Link href="/menulearningmode"> 
+          <Link href="/case/vent"> 
             <Image
                 src="/images/prev.png"
                 alt="Women"

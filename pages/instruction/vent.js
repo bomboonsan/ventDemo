@@ -14,7 +14,7 @@ export default function Intruction_1() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className='prev_page'>
-                <Link href="/mainbrain"> 
+                <Link href="/menulearningmode"> 
                 <Image
                     src="/images/prev.png"
                     alt="Women"
@@ -34,10 +34,10 @@ export default function Intruction_1() {
                                 <div className='col-3'>
                                     <div className={styles.thumbnail_frame}>
                                         <Image
-                                            src="/images/vent-demo.png"
+                                            src="/images/Capturec-ventfinal-learning.png"
                                             alt="Women"
                                             // layout="fill"
-                                            objectFit="contain"
+                                            objectFit="cover"
                                             width={1200}
                                             height={1200}
                                         />
@@ -48,12 +48,9 @@ export default function Intruction_1() {
                                         <div className={styles.contenn_wrap}>
                                             <h2>Instruction</h2>
                                             <p>
-                                                มาช่วยตั้งค่าเครื่องช่วยหายใจให้คนไข้คนนี้กัน <br/>
-                                                ผู้ป่วยชายไทยสูง 170 cm.<br/>
-                                                ใส่ท่อช่วยหายใจ คนไข้หายใจเองได้ โดยคุณหมอต้องการตั้งเครื่องช่วยหายใจ<br/>
-                                                เพื่อช่วยให้คนไข้หายใจสบายขึ้น โดยการตั้งตามรายละเอียดดังต่อไปนี้ 
+                                                ก่อนอื่นเลย เรามาทำความรู้จักพารามิเตอร์ และปุ่มต่างๆของเครื่องช่วยหายใจกัน
                                             </p>
-                                            <ul>
+                                            {/* <ul>
                                                 <li>Flow trigger 5L/min</li>
                                                 <li>PEEP 5 cmH2O </li>
                                                 <li>ให้ pressure support 10 cmH2O </li>
@@ -61,14 +58,14 @@ export default function Intruction_1() {
                                                 <li>%O2 : 40 </li>
                                                 <li>พบว่าคนไข้มี delay cycling เลยปรับ Esens 50%</li>
                                                 <li>ปรับหน้าจอให้เป็น 3 Waveform</li>
-                                            </ul>                                            
+                                            </ul>                                             */}
                                         </div>
                                     </div>  
                                 </div>
                             </div>
                             <div className={styles.btn_area}>
                                 <div className={styles.btn_container}>
-                                    <Link href="/vent/test"> 
+                                    <Link href="/vent/instruction"> 
                                     <button className={styles.next_btn}>
                                     NEXT
                                     </button>

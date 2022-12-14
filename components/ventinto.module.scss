@@ -5,10 +5,16 @@
 // 	src: url('https://sim.orainteractive.com/fonts/Viking-JPN.eot.eot'); /* IE */
 // }
 
+// @font-face {
+// 	font-family:'Viking';	
+//     src: url('https://wish-integrate.com/font/Viking-JPN.ttf') format('truetype');
+// 	// src: url('https://sim.orainteractive.com/fonts/Viking-JPN.ttf') format('truetype');
+// 	font-style: normal;
+// 	font-weight: normal;
+// }
 @font-face {
 	font-family:'Viking';	
-    src: url('https://wish-integrate.com/font/Viking-JPN.ttf') format('truetype');
-	// src: url('https://sim.orainteractive.com/fonts/Viking-JPN.ttf') format('truetype');
+	src: url('.././public/fonts/Viking-JPN.ttf') format('truetype');
 	font-style: normal;
 	font-weight: normal;
 }
@@ -179,6 +185,7 @@
         padding-top: 5px;
         padding-bottom: 5px;
         .btnsLineMid {
+            // font-family: Viking, Georgia, serif;
             flex-basis: 100%;
             width: 100%;
             padding-top: 2%;
@@ -329,6 +336,7 @@
             }
         }
         .btnsLineMid {
+            font-family: Viking, Georgia, serif;
             font-size: 1rem;
             line-height: 1.1rem;
             height: 1.1rem;
@@ -338,6 +346,7 @@
             padding-bottom: .4rem;
             text-align: center;
             font-size: .4rem;
+            font-family: Viking, Georgia, serif;
         }
     }
     .btn_setting_up_active {
@@ -364,6 +373,7 @@
             }
         }
         .btnsLineMid {
+            font-family: Viking, Georgia, serif;
             font-size: 1rem;
             line-height: 1.1rem;
             height: 1.1rem;
@@ -373,7 +383,18 @@
             padding-bottom: .4rem;
             text-align: center;
             font-size: .4rem;
+            font-family: Viking, Georgia, serif;
         }
+    }
+    .s0 {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 54/19;
+        content: '';
+        background: transparent url('.././public/vent/s0.png') no-repeat;
+        background-size: 80%;
+        background-position: center;
     }
 }
 .statBar {
@@ -388,11 +409,31 @@
     display: flex;
     align-items: flex-end;
 }
+.introduction_box_close {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+    line-height: 15px;
+    border-radius: 50%;
+    border: 1px solid #C189A6;
+    color: #C189A6;
+    text-align: center;
+    cursor: pointer;
+}
 .introduction_box {
+    width: 85%;
+    // height: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    // top: 50%;
+    // transform: translateY(-50%);
+    border-radius: .5rem;
     position: relative;
-    width: 90%;
-    margin: 0 auto;
-    padding: 3% 5%;
+    // top -
+    padding: .5rem 1rem;
     background: #ffffff;
     border: 3px solid pink;
     color: #10171D;
@@ -404,10 +445,30 @@
         letter-spacing: 0px;
     }
     p {
+        color: blue;
+        height: 45px;
         font-weight: 300;
-        font-size: .8rem;
+        font-size: .95rem;
+        margin-bottom: 0;
+        padding-right: 15px;
     }
-
+    .btnGroup {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 1rem;
+    }
+    .btnItem {
+        color: #FFF;
+        border: 0;
+        border-radius: .4rem;
+        padding: .1rem 1rem;
+        font-size: .9rem;
+        background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #ECA7CA;
+        // background: #515c2a;
+        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
+    }
     .btn_next {
         right: 3%;
         bottom: 10%;

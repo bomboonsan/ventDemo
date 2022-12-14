@@ -60,9 +60,10 @@ export default function Main_menu() {
               height={1200}
           />
           <div className={styles.card_name}>
-          Brain <br/>
+          {/* Brain <br/>
           monitoring <br/>
-          in ICU
+          in ICU */}
+          Trouble Shooting
           </div>
         </div>
         {/* <div className={styles.col_item}>

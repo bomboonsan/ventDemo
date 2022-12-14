@@ -64,3 +64,84 @@
 .contenn_wrap::-webkit-scrollbar-thumb:hover {
     background: inherit; 
 } 
+
+
+
+
+.container_hint {
+    padding-top: 10vh;
+    padding-left: 6vw;
+    padding-right: 6vw;
+}
+.row_hint {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+    left: 5%;
+}
+.col_text_box {
+    // flex-wrap: 65%;
+    // width: 65%;
+    flex-wrap: 55%;
+    width: 55%;
+}
+.col_text_box_brain_short {
+    margin-top: 5%;
+    flex-wrap: 55%;
+    width: 55%;
+    padding: 0 10%;
+    .text_box_wrap {
+        padding: 3rem;
+    }
+}
+.text_box_wrap {
+    position: relative;
+    top: 2rem;
+    background-color: #FFF;
+    border-radius: 3rem;
+    padding: 1.5rem 6rem 1.5rem 2rem;
+    box-shadow: 0px 0px .5rem rgba(0, 128, 255, 0.5);
+    border: 4px solid #ECA7CA;
+    z-index: 3;
+    text-align: center;
+
+    h2 {
+        color: blue;
+        font-size: 2rem;
+    }
+    p {
+        color: blue;
+        font-size: 1.3rem;
+    }
+}
+
+.col_image {
+    flex-wrap: 30%;
+    width: 30%;
+    img {
+        display: block;
+        position: relative;
+        left: -25%;
+        z-index: 4;
+    }
+}
+
+
+
+.btn_group {
+    margin-top: 4rem;
+    text-align: center;
+    button {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        font-size: 1.4rem;
+        border-radius: .4rem;
+        padding: .4rem 1.5rem;
+        border: 0;
+        outline: 0;
+        color: #FFF;
+        background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;;
+    }
+}

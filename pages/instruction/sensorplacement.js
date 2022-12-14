@@ -9,20 +9,31 @@ import { useState, useEffect } from 'react';
 export default function Intruction_1() {
     const router = useRouter()
     const [instructionStep, setInstructionStep] = useState(1);
-    const [instructionText, setInstructionText] = useState('การติด sensor เริ่มต้นจากบริเวณกลางหน้าผาก ซึ่งคือตำแหน่งของ อิเล็กโทรดหมายเลข 1 ');
+    const [instructionText, setInstructionText] = useState('การติดเซ็นเซอร์เริ่มต้นจากบริเวณกลางหน้าผาก ซึ่งคือตำแหน่งของ อิเล็กโทรดหมายเลข 1 ');
     const handleClick = () => {
         console.log('click')
         setInstructionStep(instructionStep+1)
         if (instructionStep == 1) {
-            setInstructionText('ในหัวข้อนี้ท่านต้องปรับตำแหน่งของ อิเล็กโทรดหมายเลข 1 ให้ถูกต้อง โดยการเลือกบริเวณที่จะติด อิเล็กโทรด และทิศทางที่ถูกต้องของ อิเล็กโทรด')
+            setInstructionText('ในหัวข้อนี้ท่านต้องปรับตำแหน่งของ อิเล็กโทรดหมายเลข 1 ให้ถูกต้อง โดยการเลือกบริเวณที่จะติดอิเล็กโทรด และทิศทางที่ถูกต้องของอิเล็กโทรด')
         }
         if (instructionStep == 2) {
             setInstructionText('โดยกดปุ่มซ้ายของเมาส์เพื่อจับอุปกรณ์ และหมุนลูกศรเพื่อปรับทิศทาง')
         }
         if (instructionStep == 3) {
             router.push('/brain/install')
+            document.documentElement.requestFullscreen();
         }
     };
+    function toggleFullScreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+    }
+    function getFullScreen() {
+        document.documentElement.requestFullscreen();
+    }
     return (
         <div className={styles.container}>
             <Head>

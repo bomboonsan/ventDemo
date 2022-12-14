@@ -5,10 +5,16 @@
 // 	src: url('https://sim.orainteractive.com/fonts/Viking-JPN.eot.eot'); /* IE */
 // }
 
+// @font-face {
+// 	font-family:'Viking';	
+//     src: url('https://wish-integrate.com/font/Viking-JPN.ttf') format('truetype');
+// 	// src: url('https://sim.orainteractive.com/fonts/Viking-JPN.ttf') format('truetype');
+// 	font-style: normal;
+// 	font-weight: normal;
+// }
 @font-face {
 	font-family:'Viking';	
-    src: url('https://wish-integrate.com/font/Viking-JPN.ttf') format('truetype');
-	// src: url('https://sim.orainteractive.com/fonts/Viking-JPN.ttf') format('truetype');
+	src: url('.././public/fonts/Viking-JPN.ttf') format('truetype');
 	font-style: normal;
 	font-weight: normal;
 }
@@ -178,6 +184,16 @@
             padding-top: 2%;
             font-size: .9rem;
         }
+        .inputSetting {
+            flex-basis: 100%;
+            width: 100%;
+            font-size: .9rem;
+            background-color: inherit;
+            outline: inherit;
+            border: 0;
+            text-align: center;
+            color: #FFF;
+        }
         .btnsLineTop {
             font-family: Viking, Georgia, serif;
             flex-basis: 100%;
@@ -209,6 +225,16 @@
             width: 100%;
             padding-top: 2%;
             font-size: .9rem;
+        }
+        .inputSetting {
+            flex-basis: 100%;
+            width: 100%;
+            font-size: .9rem;
+            background-color: inherit;
+            outline: inherit;
+            border: 0;
+            text-align: center;
+            color: #FFF;
         }
         .btnsLineTop {
             font-family: Viking, Georgia, serif;
@@ -324,6 +350,17 @@
                 font-size: .3rem;
             }
         }
+        .inputSetting {
+            width: 100%;
+            font-size: 1rem;
+            line-height: 1.1rem;
+            height: 1.1rem;
+            background-color: inherit;
+            outline: inherit;
+            border: 0;
+            text-align: center;
+            color: #FFF;
+        }
         .btnsLineMid {
             font-size: 1rem;
             line-height: 1.1rem;
@@ -383,8 +420,14 @@
     text-shadow: 0px 1px 1px #2c818e;
 }
 .introduction_box {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: .5rem;
     position: relative;
-    padding: 3% 5%;
+    padding: .5rem 1rem;
     background: #ffffff;
     border: 3px solid pink;
     color: #10171D;
@@ -395,9 +438,25 @@
     }
     p {
         font-weight: 300;
-        font-size: .8rem;
+        font-size: 1.1rem;
     }
-
+    .btnGroup {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 1rem;
+    }
+    .btnItem {
+        color: #FFF;
+        border: 0;
+        border-radius: .4rem;
+        padding: .1rem 1rem;
+        font-size: .9rem;
+        background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #ECA7CA;
+        // background: #515c2a;
+        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
+    }
     .btn_next {
         right: 3%;
         bottom: 10%;
@@ -527,4 +586,68 @@
     outline: 0;
     border-radius: 10px;
     padding: 5px 15px;
+}
+
+.main {
+    // display: none;
+}
+
+.videoContainer {
+    display: none;
+    aspect-ratio: 1024 / 472;
+    padding: 0 2.5%;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.switchWaveFormToggle {
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    // background: rgb(238, 233, 162);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    right: 17%;
+    bottom: -1%;
+    cursor: pointer;
+}
+.switchWaveFormPanel {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 60%;
+    height: auto;
+    aspect-ratio: 848/249;
+}
+.btnTwoWave {
+    content: '';
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 36%;
+    bottom: 0%;
+    width: 11%;
+    height: 40%;
+    cursor: pointer;
+    // background: rgb(159,185,199);
+}
+.btnThreeWave {
+    content: '';
+    position: absolute;
+    // transform: translate(-50%,-50%);
+    left: 49%;
+    bottom: 0%;
+    width: 11%;
+    height: 40%;
+    cursor: pointer;
+    // background: rgb(159,185,199);
+}
+.showVideo {
+    display: block;
+}
+.showPanel {
+    display: block;
+}
+.hidden {
+    display: none;
 }

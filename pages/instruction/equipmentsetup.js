@@ -6,6 +6,21 @@ import Link from "next/link";
 import { useRouter } from 'next/router'
 
 export default function Intruction_1() {
+    const router = useRouter()
+    function nextStep() {
+        router.push('/brain/howto')
+        document.documentElement.requestFullscreen();
+    }
+    function toggleFullScreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+    }
+    function getFullScreen() {
+        document.documentElement.requestFullscreen();
+    }
     return (
         <div className={styles.container}>
             <Head>
@@ -34,7 +49,7 @@ export default function Intruction_1() {
                                 <div className='col-3'>
                                     <div className={styles.thumbnail_frame}>
                                         <Image
-                                            src="/images/video-main-menu-thumbnail.png"
+                                            src="/images/BrainMonitoring-into.png"
                                             alt="Women"
                                             // layout="fill"
                                             objectFit="contain"
@@ -48,7 +63,7 @@ export default function Intruction_1() {
                                         <div className={styles.contenn_wrap}>
                                             <h2>Instruction</h2>
                                             <p>
-                                            เลือกอุปกรณ์ที่ต้องทำการติดตั้งทีละขั้นตอน เพิอทำความเข้าใจวิธีการติดตั้งเครื่อง Brain Monitoring โดยกดที่วงกลมสีแดงบนหน้าจอของอุปกรณ์แต่ละชิ้น
+                                            เลือกอุปกรณ์ที่ต้องทำการติดตั้งทีละขั้นตอน เพื่อทำความเข้าใจวิธีการติดตั้งเครื่อง Brain Monitoring โดยกดที่วงกลมสีแดงบนหน้าจอของอุปกรณ์แต่ละชิ้น
                                             </p>
                                         </div>
                                     </div>  
@@ -56,11 +71,9 @@ export default function Intruction_1() {
                             </div>
                             <div className={styles.btn_area}>
                                 <div className={styles.btn_container}>
-                                    <Link href="/brain/howto"> 
-                                    <button className={styles.next_btn}>
+                                    <button className={styles.next_btn} onClick={nextStep}>
                                     NEXT
                                     </button>
-                                    </Link>
                                 </div>
                             </div>
                         </div>

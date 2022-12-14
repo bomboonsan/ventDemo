@@ -100,6 +100,12 @@
     height: 100%;
     border-bottom: 1px solid #ECA7CA;
 }
+.detail_row_short {
+    padding-top: 1rem;
+    display: flex;
+    /* align-items: center; */
+    height: 100%;
+}
 .detail_colfull {
     flex-basis: 100%;
 }

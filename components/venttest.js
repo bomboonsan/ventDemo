@@ -2,13 +2,22 @@ import { useState, useEffect } from 'react';
 import styles from './venttest.module.scss'
 import Image from 'next/image'
 import Link from "next/link";
+import ReactPlayer from 'react-player'
 import { useRouter } from 'next/router'
 import Moveable from "react-moveable"; // preact-moveable
+// import dynamic from 'next/dynamic'
+
+
+
+// 
+// ถ้าติดผิก ให้แสดงหน้า HINT ของอาจารย์ว่า ลองใหม่อีกครั้ง (เหมือนในหน้าตอบคำถาม)
+// 
+// 
 
 export default function VentTest() {
     const router = useRouter()
     const [btnSetupRecord, setBtnSetupRecord] = useState([]);
-    const [varBtnSetting, setvarBtnSetting] = useState([10,300,39,10,3.0,40,8.0,75,50,0.0,0,5.0,25,3.0,750,'ET']);
+    const [varBtnSetting, setvarBtnSetting] = useState([10,300,39,10,3.0,40,40,75,50,0.0,0,5.0,25,3.0,750,'ET']);
     const [btnSetup, setBtnSetup] = useState();
     const [stepCount, setStepCount] = useState(1);
     const [isSetWeight, setIsSetWeight] = useState(0);
@@ -19,7 +28,9 @@ export default function VentTest() {
     const [varX, setVarX] = useState();
     const [varY, setVarY] = useState();
     const [varR, setVarR] = useState(0);    
-    const [preVarR, setPreVarR] = useState(0);    
+    const [preVarR, setPreVarR] = useState(0);
+    const [footerText, setFooterText] = useState('ตั้งค่า ventilator ใส่ข้อมูลคนไข้เพศชาย สูง 170 ซม.');
+    const [footerTextStep, setFooterTextStep] = useState(0);
     const [status, setStatus] = useState(null);
     const [frame, setFrame] = useState({
         translate: [0,0],
@@ -30,6 +41,14 @@ export default function VentTest() {
     // Var Control
     const [weight, setWeight] = useState(50);
     const [height, setHeight] = useState(152);
+
+
+    const [playing, setPlaying] = useState(false);
+    const [loopSet, setLoopSet] = useState(true);
+    const [mutedSet, setmutedSet] = useState(true);
+    const reset = () => {
+        console.log('Reset')
+    }
 
     // let showBtnSetting = [10,300,39,10,3.0,40,8.0,75,50,0.0,0,5.0,25,3.0,750,'ET'];
 
@@ -77,7 +96,39 @@ export default function VentTest() {
 
 
 
-    
+    // useEffect(() => {
+    //     if (height == 170) {
+    //         setFooterText('ตั้งค่า ventilator mode ตามความเหมาะสมของคนไข้')
+    //     } else {
+    //         setFooterText('ตั้งค่า ventilator ใส่ข้อมูลคนไข้เพศชาย สูง 170 ซม.')
+    //     }       
+    // }, [height]);
+
+
+    let listFooterText = [
+        'ตั้งค่า ventilator ใส่ข้อมูลคนไข้เพศชาย สูง 170 ซม.',
+        'ตั้งค่า ventilator mode ตามความเหมาะสมของคนไข้',
+        'ตั้งค่า Flow trigger 5L/min',
+        'ตั้งค่า Peep 5 cmH2O',
+        'ตั้งค่าให้ pressure support 10 cmH2O',
+        'คนไข้มีภาวะของ Airway resistance ปรับ rise time เป็น 75%',
+        'ตั้งค่า %O2 : 40',
+        'พบว่าคนไข้มีdelay cycling ปรับ Esens 50%',
+        'ปรับหน้าจอให้เป็น 3 Waveform'
+
+    ]
+    const nextText = () => {
+        if (footerTextStep+1 < listFooterText.length) {
+            setFooterTextStep(footerTextStep+1);
+            setFooterText(listFooterText[footerTextStep+1])
+        }        
+    }
+    const previosText = () => {
+        if (footerTextStep-1 >= 0) {
+            setFooterTextStep(footerTextStep-1);
+            setFooterText(listFooterText[footerTextStep-1])
+        }
+    }
 
 
 
@@ -153,7 +204,7 @@ export default function VentTest() {
                 document.querySelector(`[data-btnName='${name}']`).classList.add(styles['btn_disable']);
             })
         }
-        if (btnName == 'P-Trig') {
+        if (btnName == 'V-Trig') {
             const arrBtnDisableList = ['PC','VC','VC+' ,'CPAP' , 'IE Sync']
             arrBtnDisableList.forEach(function(name){
                 document.querySelector(`[data-btnName='${name}']`).classList.add(styles['btn_disable']);
@@ -227,6 +278,12 @@ export default function VentTest() {
         setIsSetting(1)
         
     }
+    const handleInputChange = (event) => {
+        const btnID = event.currentTarget.getAttribute('data-settingid');
+        // changeVarBtnSetting(newVar.toFixed(1) , focusSetting);
+        const valueSetting = event.target.value;
+        changeVarBtnSetting(valueSetting , focusSetting);
+    }
     const resetSettingBtn = () => {
         const settingBtnAll = document.querySelectorAll('#tableBtnsettingGrid td > div')
         settingBtnAll.forEach( function(i) {
@@ -255,16 +312,43 @@ export default function VentTest() {
     const checkAns = () => {
         // arrItemShow = [4,5,6,7,9,13,14];
         // varBtnSetting
-        if (varBtnSetting[3] == 10 && varBtnSetting[4] == 5 && varBtnSetting[5] == 40 & varBtnSetting[6] == 40 & varBtnSetting[8] == 70 & varBtnSetting[12] == 50 & varBtnSetting[13] == 5 ) {
+        if (varBtnSetting[3] == 10 && varBtnSetting[4] == 5 && varBtnSetting[5] == 40 & varBtnSetting[6] == 40 & varBtnSetting[8] == 75 & varBtnSetting[12] == 50 & varBtnSetting[13] == 5 ) {
             console.log('succecfully')
-            router.push('/vent/finish')
+            setPlaying(true)
+            document.querySelector('#main')?.classList.add(styles['hidden']);
+            document.querySelector('#video')?.classList.add(styles['showVideo']);
+            // router.push('/vent/finish')
         } else {
             console.log('fail')
+            router.push('/hint/vent-false')
         }
     }
 
+    const showSwitchPanel = () => {
+        document.querySelector('#switchWaveFormPanel')?.classList.toggle(styles['showPanel']);
+    }
 
-    return (
+    const twoWave = '../video/2wave.mp4'
+    const threeWave = '../video/3wave.mp4'
+    const [waveVideo, setWaveVideo] = useState(twoWave);
+    const showTwoWave = () => {
+        setWaveVideo('../video/2wave.mp4')
+    }
+    const showThreeWave = () => {
+        setWaveVideo('../video/3wave.mp4')
+
+    //     setTimeout(function(){
+    //         router.push('/vent/finish')
+
+    // ซ่อนกล่องข้อความ แล้วใส่ปุ่ม FINISH 
+
+
+    //    }, 2000);
+    }
+
+    
+    return (           
+        <>
         <section id='ventContainer' className={styles.vent_container}>
             <header className={styles.panel_top}>
                 <div className={styles.panel_top_content}>
@@ -272,7 +356,7 @@ export default function VentTest() {
                     <h3>Vent startup in progress</h3>
                 </div>
             </header>
-            <main className={styles.main}>
+            <main id='main' className={styles.main}>
                 <div className={styles.VentSetup}>
                     <section className={styles.sidebar}>
                         <div className={styles.sideLogo}>
@@ -361,7 +445,10 @@ export default function VentTest() {
                                 </div>
                                 <div className={styles.heightBox}>
                                     <div id="heightSetupBtn" className={styles.btn_setting_up} onClick={event => handleSetHeight(event)}>
-                                        <div className={styles.btnsLineMid}>{height}</div>
+                                        {/* <div className={styles.btnsLineMid}>
+                                        {height} 
+                                        </div> */}
+                                        <input type='text' class={styles.inputSetting} value={height} onChange={event => setHeight(event.target.value)} />    
                                         <div className={styles.btnsLineTop}>cm</div>
                                         <div className={styles.btnsLineBot}>(110)</div>
                                     </div>
@@ -505,9 +592,10 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         f
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                         {varBtnSetting[0]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[0]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         1/min
                                                     </div>
@@ -518,9 +606,10 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         V<sub>T</sub>
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                         {varBtnSetting[1]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[1]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         mL
                                                     </div>
@@ -531,9 +620,10 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         V<sub>MAX</sub>
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                         {varBtnSetting[2]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[2]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         L/min
                                                     </div>
@@ -544,9 +634,10 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         P<sub>SUPP</sub>
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                         {varBtnSetting[3]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[3]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         cmH<sub>2</sub>O
                                                     </div>
@@ -557,9 +648,10 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         V <sub>SENS</sub>
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                         {varBtnSetting[4]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[4]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         L/min
                                                     </div>
@@ -570,9 +662,10 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         O<sub>2</sub>
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[5]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[5]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         %
                                                     </div>
@@ -583,9 +676,10 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         P<sub>PEAK</sub>
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[6]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[6]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         cmH<sub>2</sub>O
                                                     </div>
@@ -596,9 +690,10 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         D<sub>SENS</sub>
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[7]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[7]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         L/min
                                                     </div>
@@ -612,9 +707,10 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[8]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[8]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         %
                                                     </div>
@@ -625,9 +721,10 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         T<sub>PL</sub>
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[9]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[9]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         S
                                                     </div>
@@ -638,11 +735,12 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         Ramp
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[10]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[10]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
-                                                        
+                                                    &nbsp;
                                                     </div>
                                                 </div>
                                             </td>
@@ -651,9 +749,10 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         l SPONT
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[11]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[11]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         S
                                                     </div>
@@ -664,9 +763,10 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         E<sub>SENS</sub>
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[12]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[12]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         %
                                                     </div>
@@ -677,9 +777,10 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         PEEP
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[13]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[13]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         cmH<sub>2</sub>O
                                                     </div>
@@ -690,9 +791,10 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         V<sub>Tl</sub>
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[14]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[14]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         mL
                                                     </div>
@@ -703,9 +805,10 @@ export default function VentTest() {
                                                     <div className={styles.btnsLineTop}>
                                                         Tube
                                                     </div>
-                                                    <div className={styles.btnsLineMid}>
+                                                    {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[15]}
-                                                    </div>
+                                                    </div> */}
+                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[15]} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         Type
                                                     </div>
@@ -728,17 +831,50 @@ export default function VentTest() {
                     </section>
                 </div>
             </main>
+            <div id='video' className={styles.videoContainer}>
+                <ReactPlayer 
+                // className={styles.video_item} 
+                url={waveVideo}  
+                playing={playing} 
+                onEnded={reset}
+                muted={mutedSet}
+                loop={loopSet}
+                width='100%'
+                height='100%'
+                />
+                <div className={styles.switchWaveFormToggle} onClick={showSwitchPanel}></div>
+                <div id='switchWaveFormPanel' className={styles.switchWaveFormPanel}>
+                <Image                
+                    src="/images/switchWaveForm.png"
+                    alt="switchWaveForm"
+                    // layout="fill"
+                    // objectFit="cover"
+                    width={2024}
+                    height={1138}
+                />   
+                <div className={styles.btnTwoWave} onClick={showTwoWave}></div>
+                <div className={styles.btnThreeWave} onClick={showThreeWave}></div>
+                </div>
+            </div>
             <div className={styles.statBar}>
                 {/* <div className={styles.log_box}>
                     {varR} degree
                 </div> */}
             </div>
             <div className={styles.footer}>
-                {/* <div id='introductionBox' className={styles.introduction_box}>
-                    <button id='btnNext' className={styles.btn_start}>
-                        FINISH
-                    </button>
-                </div> */}
+                <div id='introductionBox' className={styles.introduction_box}>
+                    <p>
+                        {footerText}
+                    </p>
+                    <div className={styles.btnGroup}>
+                        <button className={styles.btnItem} onClick={previosText}>
+                            PREVIOUS 
+                        </button>
+                        <button id='btnNext' className={styles.btnItem} onClick={nextText}>
+                            NEXT
+                        </button>
+                    </div>
+                </div>
             </div>
             <footer id='footer_controlPanel' className={styles.controlpanel_wrap}>
                 <div className={styles.controlpanel_row}>
@@ -881,6 +1017,7 @@ export default function VentTest() {
                     setVarR(rotate)
                 }}
             />
-        </section>        
+        </section>    
+        </> 
     )
 }

@@ -8,9 +8,12 @@ import Image from 'next/image'
 // import video2 from '../video/button2.mp4'
 // import video3 from '../video/button3.mp4'
 // import video4 from '../video/button4.mp4'
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { useRouter } from 'next/router'
+
+// ที่กระพริบทีละอัน
+
 
 export default function BrainVideo() {
     const router = useRouter()
@@ -25,32 +28,50 @@ export default function BrainVideo() {
     const video6 = '../video/button6.mp4'
 
     
+    // const [playing, setPlaying] = useState(true);
     const [playing, setPlaying] = useState(true);
     const [urlVideo, setUrlVideo] = useState(startVideo);
     const [isShowBtn, setIsShowBtn] = useState(true);    
     const [videoStep, setVideoStep] = useState(0);    
 
+    useEffect(() => {
+        document.querySelector('#actionBtn1')?.classList.add(styles['visible']);
+    }, []);
+
     function actionBtn1() {
+        getFullScreen()
         setUrlVideo(video1);
         setIsShowBtn(false);
-        setVideoStep(1)
+        setVideoStep(1);        
     }
     function actionBtn2() {
+        getFullScreen()
         setUrlVideo(video2);
         setIsShowBtn(false);
         setVideoStep(2)
     }
     function actionBtn3() {
+        getFullScreen()
         setUrlVideo(video3);
         setIsShowBtn(false);
         setVideoStep(3)
     }
     function actionBtn4() {
+        getFullScreen()
         setUrlVideo(video4);
         setIsShowBtn(false);
         setVideoStep(4)
     }
-    function reset() {
+    function nextStepCircle () {
+        const videoNextStepVar = videoStep+1;
+        document.querySelector('#actionBtn'+videoStep).classList.remove(styles['visible']);
+        document.querySelector('#actionBtn'+videoStep).classList.add(styles['invisible']);
+        document.querySelector('#actionBtn'+videoNextStepVar).classList.remove(styles['invisible']);
+        document.querySelector('#actionBtn'+videoNextStepVar).classList.add(styles['visible']);
+        console.log('videoStep'+videoStep);
+        console.log('videoNextStep'+videoNextStepVar);
+    }
+    function reset() {        
         // if (videoStep == 4) {
         //     setUrlVideo(video5);
         //     setVideoStep(5)
@@ -72,39 +93,55 @@ export default function BrainVideo() {
         //    }, 1500);
         // }
         if ( videoStep == 4) {
+            // router.push('/mainbrain')
+            document.exitFullscreen();
+            // router.push('/brain/result/howto')
             router.push('/mainbrain')
         }
         setTimeout(function(){
             setUrlVideo(startVideo);
             setIsShowBtn(true);
-       }, 1500);
+       }, 200);
+       setTimeout(function(){
+            nextStepCircle()
+        }, 300);
+    }
+    function toggleFullScreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+    }
+    function getFullScreen() {
+        document.documentElement.requestFullscreen();
     }
     return (
         <FullScreen handle={handle}>
         <div className={styles.video_container}>
 
-            <div className={isShowBtn ? styles.show : styles.hidden}>
+            <div id='actionBtn1' className={isShowBtn ? styles.showBtn : styles.hidden}>
                 <div 
                 onClick={actionBtn1}
                 className={styles.video_btn1}>
                 </div>
             </div>
 
-            <div className={isShowBtn ? styles.show : styles.hidden}>
+            <div id='actionBtn2' className={isShowBtn ? styles.showBtn : styles.hidden}>
                 <div 
                 onClick={actionBtn2}
                 className={styles.video_btn2}>
                 </div>
             </div>
 
-            <div className={isShowBtn ? styles.show : styles.hidden}>
+            <div id='actionBtn3' className={isShowBtn ? styles.showBtn : styles.hidden}>
                 <div 
                 onClick={actionBtn3}
                 className={styles.video_btn3}>
                 </div>
             </div>
 
-            <div className={isShowBtn ? styles.show : styles.hidden}>
+            <div id='actionBtn4' className={isShowBtn ? styles.showBtn : styles.hidden}>
                 <div 
                 onClick={actionBtn4}
                 className={styles.video_btn4}>
@@ -114,6 +151,7 @@ export default function BrainVideo() {
                 <Image
                     className={styles.video_main_img}
                     src="/video/button7_Moment.jpg"
+                    // src="/video/bgnew.jpg"
                     alt="VIDEO MENU"
                     // layout="fill"
                     // objectFit="cover"
@@ -123,6 +161,7 @@ export default function BrainVideo() {
                 <Image
                     className={styles.video_main_img_blink}
                     src="/video/video-main-menu-blink.png"
+                    // src="/video/bgnew.jpg"
                     alt="VIDEO MENU"
                     // layout="fill"
                     // objectFit="cover"

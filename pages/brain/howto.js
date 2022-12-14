@@ -7,6 +7,7 @@ import Link from "next/link";
 // import { useRouter } from 'next/router'
 import BrainVideo from '../../components/brainvideo';
 import dynamic from 'next/dynamic'
+import { useRouter } from 'next/router'
 
 const TestimonialCard = dynamic(() => import('../../components/brainvideo'), { ssr: false })
 
@@ -17,6 +18,25 @@ export default function Howto() {
   if (!!message) {
     brainElement = <BrainVideo />
   }
+  const router = useRouter()
+    function prevPage() {
+      closeFullscreen()
+      router.push('/mainbrain')
+      // router.push('/mainbrain')
+    }
+    function toggleFullScreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+    }
+    function getFullScreen() {
+        document.documentElement.requestFullscreen();
+    }
+    function closeFullscreen() {
+      document.exitFullscreen()
+    }
   return (
     <div className={styles.container}>
       <Head>
@@ -26,8 +46,8 @@ export default function Howto() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className='prev_page'>
-          <Link href="/mainbrain"> 
             <Image
+                onClick={prevPage}
                 src="/images/prev.png"
                 alt="Women"
                 // layout="fill"
@@ -35,7 +55,6 @@ export default function Howto() {
                 width={196}
                 height={196}
             />
-            </Link>
       </div>{/* prev_page */}
       <div className={styles.video_wrapper}>
         {/* <BrainVideo /> */}

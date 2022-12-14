@@ -142,7 +142,7 @@ export default function CaseDetail() {
                     </div>
                   </div>
                   <div className={styles.btn_area}>
-                    <Link href="/case/monitor/1"> 
+                    <Link href="/case/introduction/1"> 
                     <button className={styles.next_btn}>
                       NEXT
                     </button>

@@ -15,6 +15,9 @@ export default function BrainInstall() {
     const [varX, setVarX] = useState();
     const [varY, setVarY] = useState();
     const [varR, setVarR] = useState();
+    const [heightContainer, setHeightContainer] = useState();
+    const [widthContainer, setWidthContainer] = useState();
+    const [move, setMove] = useState(false);
     const [status, setStatus] = useState(null);
     const [target, setTarget] = useState();
     const [frame, setFrame] = useState({
@@ -25,7 +28,21 @@ export default function BrainInstall() {
     useEffect(() => {
         setTarget(document.querySelector("#traget"));
         setHin('ลูกศร ต้องอยู่ ห่างจาก ตา 2 Ince ลูกศร ต้องอยู่ ตรงกับแกนกลางหน้า');
+
+        const heightContainer = document.getElementById('brainInstall_container').offsetHeight;
+        setHeightContainer(heightContainer)
+        const widthContainer = document.getElementById('brainInstall_container').offsetWidth;
+        setWidthContainer(widthContainer)
     }, []);
+    useEffect(() => {
+        if (move == false) {
+            document.querySelector('#lineSight').classList.remove(styles['lineSightShow']);
+        } else {
+            document.querySelector('#lineSight').classList.add(styles['lineSightShow']);     
+        }
+
+        document.querySelector('#dropArea').classList.add(styles['lineSightShow']);
+    }, [varY,varX]);
 
     const makeFullScreen = (el) => {
         if (!document.fullscreenElement) {
@@ -35,8 +52,8 @@ export default function BrainInstall() {
          document.exitFullscreen();
       
      }
-
-    if ((size.width / varX ) < 3.8 && (size.width / varX ) > 3.0 && (size.height / varY ) < 5.2 && (size.height / varY ) > 4.3 )  {
+    // if ((size.width / varX ) < 3.8 && (size.width / varX ) > 3.0 && (size.height / varY ) < 5.2 && (size.height / varY ) > 4.3 )
+    if ((widthContainer / varX ) < 3.8 && (widthContainer / varX ) > 3.0 && (heightContainer / varY ) < 6.2 && (heightContainer / varY ) > 4.8 )  {
         if (status==null) {
             setStatus('In Area');
         }
@@ -91,7 +108,7 @@ export default function BrainInstall() {
     function handleCheck() {
         if (status == 'Complete') {
             // setHin(1)
-            router.push('/brain/sensor')
+            router.push('/brain/result/install1')
         } else {
             setHin(0)
         }
@@ -114,10 +131,21 @@ export default function BrainInstall() {
             document.querySelector('#switchIcon').classList.remove(styles['rotated']);
         }
     }
+
+    function handleShowLineSight() {
+        // if (move == false) {
+        //     document.querySelector('#lineSight').classList.remove(styles['lineSightShow']);
+        // } else {
+        //     document.querySelector('#lineSight').classList.add(styles['lineSightShow']);     
+        // }
+        document.querySelector('#lineSight').classList.toggle(styles['lineSightShow']);
+        // dropArea
+        document.querySelector('#dropArea').classList.toggle(styles['lineSightShow']);
+    }
     
 
     return (
-        <div id='brainInstall_container' className={styles.traget_container}>
+        <div id='brainInstall_container' className={styles.traget_container}>            
             <div className={styles.bg_area}>
                 <Image
                     className={styles.womanbg}
@@ -159,6 +187,12 @@ export default function BrainInstall() {
                 S H : {size.height}
             </p>
             <p>
+                Element W: {widthContainer}
+            </p>
+            <p>
+                Element H: {heightContainer}
+            </p>
+            <p>
                 Status : {status}
             </p>
         </div> */}
@@ -176,9 +210,16 @@ export default function BrainInstall() {
                 height={605}
                 onClick={handleSwitch}
             />   
+        </div>        
+        <div id='lineSight' className={styles.lineSight}>
+            <div className={styles.lineSight_X}></div>
+            {/* <div className={styles.lineSight_Y}></div> */}
         </div>
         {hinElement}
         <div className={styles.btn_group}>
+            <button onClick={handleShowLineSight}>
+            Position Guide 
+            </button>
             <button onClick={handleCheck}>
             Confirm
             </button>
@@ -228,6 +269,7 @@ export default function BrainInstall() {
                     setVarX(translate[0])
                     setVarY(translate[1])
                     setVarR(rotate)
+                    setMove(true)
                 }}
             />
         </div>

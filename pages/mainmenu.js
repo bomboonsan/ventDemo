@@ -57,7 +57,7 @@ export default function menu3() {
         </div>
         <div className={styles.col_item}>
           <div className={styles.card}>
-          <Link href="/mainbrain"> 
+          <Link href="/case/brain/1"> 
             <div className={styles.card_thumbnail}>
               <Image
                     className={styles.bisitem}
