@@ -19,13 +19,15 @@ export default function BrainVideo() {
     const router = useRouter()
     const handle = useFullScreenHandle();
     const startVideo = '../video/01-main-menu.mp4'
-    const video1 = '../video/button1.mp4'
-    const video2 = '../video/button2.mp4'
-    const video3 = '../video/button3.mp4'
-    // const video4 = '../video/button4.mp4'
-    const video4 = '../video/button7.mp4'
-    const video5 = '../video/button5.mp4'
-    const video6 = '../video/button6.mp4'
+    // const video1 = '../video/button1.mp4'
+    // const video2 = '../video/button2.mp4'
+    // const video3 = '../video/button3.mp4'
+    // // const video4 = '../video/button4.mp4'
+    // const video4 = '../video/videoend2.mp4'
+    const video1 = 'https://wish-integrate.com/bisvideo/1.mp4'
+    const video2 = 'https://wish-integrate.com/bisvideo/2.mp4'
+    const video3 = 'https://wish-integrate.com/bisvideo/3.mp4'
+    const video4 = 'https://wish-integrate.com/bisvideo/4.mp4'
 
     
     // const [playing, setPlaying] = useState(true);
@@ -64,10 +66,10 @@ export default function BrainVideo() {
     }
     function nextStepCircle () {
         const videoNextStepVar = videoStep+1;
-        document.querySelector('#actionBtn'+videoStep).classList.remove(styles['visible']);
-        document.querySelector('#actionBtn'+videoStep).classList.add(styles['invisible']);
-        document.querySelector('#actionBtn'+videoNextStepVar).classList.remove(styles['invisible']);
-        document.querySelector('#actionBtn'+videoNextStepVar).classList.add(styles['visible']);
+        document.querySelector('#actionBtn'+videoStep)?.classList.remove(styles['visible']);
+        document.querySelector('#actionBtn'+videoStep)?.classList.add(styles['invisible']);
+        document.querySelector('#actionBtn'+videoNextStepVar)?.classList.remove(styles['invisible']);
+        document.querySelector('#actionBtn'+videoNextStepVar)?.classList.add(styles['visible']);
         console.log('videoStep'+videoStep);
         console.log('videoNextStep'+videoNextStepVar);
     }
@@ -150,7 +152,8 @@ export default function BrainVideo() {
             <div className={isShowBtn ? styles.show : styles.hidden}>
                 <Image
                     className={styles.video_main_img}
-                    src="/video/button7_Moment.jpg"
+                    // src="/video/button7_Moment.jpg"
+                    src="/video/video-main-menu.png"
                     // src="/video/bgnew.jpg"
                     alt="VIDEO MENU"
                     // layout="fill"

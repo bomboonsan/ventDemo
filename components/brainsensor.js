@@ -10,6 +10,10 @@ import ReactPlayer from 'react-player'
 // แก้ดีไซน์ พวกกล่องข้อความ ให่้ bg:white border:pink color:blue เหมือนกันทั้งโปรเจ็ค
 // ปุ่ม rotate เอาออก
 
+// https://www.freepik.com/premium-vector/hand-cursor_2006824.htm#query=finger%20icon&position=22&from_view=search&track=sph
+// ปกติ 3
+// Hover เป็น 1
+// เวลากดที่ 2,4 แล้วให้มีสีฉาบเป็นสีเหลือง
 
 // ไม่ต้องแสดงในหน้าจอ monitor แบบเรลไทม์แล้ว
 // กด ปุ่ม 1 , 2 , 4 แล้วค่อยหมุนไปด้านข้างเพื่อกดเลข 3
@@ -78,10 +82,12 @@ export default function BrainSensor() {
             showALert()
         }
     }
-    const number2Fail = () => {
+    const number2Fail = (event) => {
         // setStatus2('/images/BrainMonitoring-item-2red.png')
         if (status2 == '/images/BrainMonitoring-item-2red.png') {
             setStatus2('/images/BrainMonitoring-item-2green.png')
+            // onPulse
+            document.querySelector('#noTouchArea_2')?.classList.add(styles['onPulse']);
         } else {
             // setStatus4('/images/BrainMonitoring-item-4red.png')
             setAlertText('การติดเซนเซอร์ควรเริ่มจากกดบริเวณโดยรอบของอิเล็กโทรดเท่านั้นเพื่อให้กาวของเซนเซอร์ยึดติดกับผิวของคนไข้ การกดบริเวณอิเล็กโทรดโดยตรงตั้งแต่เริ่มต้นจะทำให้เจลนำสัญญากระจายออกมาที่บริเวณกาว ทำให้เซนเซอร์ลื่นและไม่ยึดติดกับผิวของคนไข้ทำให้การรับสัญญาณไม่มีประสิทธิภาพ')
@@ -100,6 +106,7 @@ export default function BrainSensor() {
     const number4Fail = () => {
         if (status4 == '/images/BrainMonitoring-item-4red.png') {
             setStatus4('/images/BrainMonitoring-item-4green.png')
+            document.querySelector('#noTouchArea_4')?.classList.add(styles['onPulse']);
         } else {
             // setStatus4('/images/BrainMonitoring-item-4red.png')            
             setAlertText('การติดเซนเซอร์ควรเริ่มจากกดบริเวณโดยรอบของอิเล็กโทรดเท่านั้นเพื่อให้กาวของเซนเซอร์ยึดติดกับผิวของคนไข้ การกดบริเวณอิเล็กโทรดโดยตรงตั้งแต่เริ่มต้นจะทำให้เจลนำสัญญากระจายออกมาที่บริเวณกาว ทำให้เซนเซอร์ลื่นและไม่ยึดติดกับผิวของคนไข้ทำให้การรับสัญญาณไม่มีประสิทธิภาพ')
@@ -107,18 +114,33 @@ export default function BrainSensor() {
         }        
     }
 
-    const number1Hover = (event) => {
+    const numberHover = (event) => {
         const touchID = event.currentTarget.getAttribute('data-touchID');
         console.log(touchID)
 
         document.querySelector('#line'+touchID)?.classList.add(styles['showSensorTouch']);
     }
-    const number1HoverOut = (event) => {
+    const numberHoverOut = (event) => {
         const touchID = event.currentTarget.getAttribute('data-touchID');
         console.log(touchID)
 
         document.querySelector('#line'+touchID)?.classList.remove(styles['showSensorTouch']);
     }
+    const numberTouch = (event) => {
+        // if (status1 == '/images/BrainMonitoring-item-1red.png') {
+            
+        // } else {
+        //     setStatus1('/images/BrainMonitoring-item-1green.png')
+        // }
+        const touchID = event.currentTarget.getAttribute('data-touchID');
+        const newArr = statusCheck;
+        newArr.push(touchID)
+        setStatusCheck(newArr)
+        // event.currentTarget.classList.add(styles['touched']);
+        document.querySelector('#line'+touchID)?.classList.add(styles['showSensorTouched']);
+        checkSwitchStatus()       
+    }
+    
 
     const number1Touch = (event) => {
         // if (status1 == '/images/BrainMonitoring-item-1red.png') {
@@ -192,8 +214,8 @@ export default function BrainSensor() {
             document.querySelector('#touchArea_1_4').classList.add(styles['hidden']);
             document.querySelector('#touchArea_2_1').classList.add(styles['hidden']);
             document.querySelector('#touchArea_2_2').classList.add(styles['hidden']);
-            document.querySelector('#touchArea_2_3').classList.add(styles['hidden']);
-            document.querySelector('#touchArea_2_4').classList.add(styles['hidden']);
+            // document.querySelector('#touchArea_2_3').classList.add(styles['hidden']);
+            // document.querySelector('#touchArea_2_4').classList.add(styles['hidden']);
             document.querySelector('#touchArea_3_1').classList.add(styles['hidden']);
             document.querySelector('#touchArea_3_2').classList.add(styles['hidden']);
             document.querySelector('#touchArea_4_1').classList.add(styles['hidden']);
@@ -250,7 +272,7 @@ export default function BrainSensor() {
     }
 
     function checkSwitchStatus() {
-        if (statusCheck.includes('1_1') && statusCheck.includes('1_2') && statusCheck.includes('1_3') && statusCheck.includes('1_4') && statusCheck.includes('2_1') && statusCheck.includes('2_2') && statusCheck.includes('2_3') && statusCheck.includes('2_4') && statusCheck.includes('3_1') && statusCheck.includes('3_2') && statusCheck.includes('3_3') && statusCheck.includes('3_4') && statusCheck.includes('4_1') && statusCheck.includes('4_2') && statusCheck.includes('4_3') && statusCheck.includes('4_4')) {
+        if (statusCheck.includes('1_1') && statusCheck.includes('1_2') && statusCheck.includes('1_3') && statusCheck.includes('1_4') && statusCheck.includes('2_1') && statusCheck.includes('2_2') && statusCheck.includes('3_1') && statusCheck.includes('3_2') && statusCheck.includes('3_3') && statusCheck.includes('3_4') && statusCheck.includes('4_1') && statusCheck.includes('4_2') && statusCheck.includes('4_3') && statusCheck.includes('4_4')) {
             // switchTopViewStepTwo()
             // showAler2()
 
@@ -258,7 +280,7 @@ export default function BrainSensor() {
 
             // setBtnName('Sensor Check')
 
-        } else if (statusCheck.includes('1_1') && statusCheck.includes('1_2') && statusCheck.includes('1_3') && statusCheck.includes('1_4') && statusCheck.includes('2_1') && statusCheck.includes('2_2') && statusCheck.includes('2_3') && statusCheck.includes('2_4') && statusCheck.includes('4_1') && statusCheck.includes('4_2') && statusCheck.includes('4_3') && statusCheck.includes('4_4') ) {
+        } else if (statusCheck.includes('1_1') && statusCheck.includes('1_2') && statusCheck.includes('1_3') && statusCheck.includes('1_4') && statusCheck.includes('2_1') && statusCheck.includes('2_2') && statusCheck.includes('4_1') && statusCheck.includes('4_2') && statusCheck.includes('4_3') && statusCheck.includes('4_4') ) {
             switchRideView()
 
 
@@ -276,14 +298,30 @@ export default function BrainSensor() {
         document.querySelector('#touchArea_1_4').classList.add(styles['hidden']);
         document.querySelector('#touchArea_2_1').classList.add(styles['hidden']);
         document.querySelector('#touchArea_2_2').classList.add(styles['hidden']);
-        document.querySelector('#touchArea_2_3').classList.add(styles['hidden']);
-        document.querySelector('#touchArea_2_4').classList.add(styles['hidden']);
+        // document.querySelector('#touchArea_2_3').classList.add(styles['hidden']);
+        // document.querySelector('#touchArea_2_4').classList.add(styles['hidden']);
         document.querySelector('#touchArea_3_1').classList.add(styles['hidden']);
         document.querySelector('#touchArea_3_2').classList.add(styles['hidden']);
         document.querySelector('#touchArea_4_1').classList.add(styles['hidden']);
         document.querySelector('#touchArea_4_2').classList.add(styles['hidden']);
         document.querySelector('#touchArea_4_3').classList.add(styles['hidden']);
         document.querySelector('#touchArea_4_4').classList.add(styles['hidden']);
+
+        document.querySelector('#line1_1').classList.add(styles['fhidden']);
+        document.querySelector('#line1_2').classList.add(styles['fhidden']);
+        document.querySelector('#line1_3').classList.add(styles['fhidden']);
+        document.querySelector('#line1_4').classList.add(styles['fhidden']);
+        document.querySelector('#line2_1').classList.add(styles['fhidden']);
+        document.querySelector('#line2_2').classList.add(styles['fhidden']);
+        document.querySelector('#line4_1').classList.add(styles['fhidden']);
+        document.querySelector('#line4_2').classList.add(styles['fhidden']);
+        document.querySelector('#line4_3').classList.add(styles['fhidden']);
+        document.querySelector('#line4_4').classList.add(styles['fhidden']);
+
+        document.querySelector('#line3_1').classList.remove(styles['fhidden']);
+        document.querySelector('#line3_2').classList.remove(styles['fhidden']);
+        document.querySelector('#line3_3').classList.remove(styles['fhidden']);
+        document.querySelector('#line3_4').classList.remove(styles['fhidden']);
 
         document.querySelector('#noTouchArea_1').classList.add(styles['hidden']);
         document.querySelector('#noTouchArea_2').classList.add(styles['hidden']);
@@ -311,14 +349,30 @@ export default function BrainSensor() {
         document.querySelector('#touchArea_1_4').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_2_1').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_2_2').classList.remove(styles['hidden']);
-        document.querySelector('#touchArea_2_3').classList.remove(styles['hidden']);
-        document.querySelector('#touchArea_2_4').classList.remove(styles['hidden']);
+        // document.querySelector('#touchArea_2_3').classList.remove(styles['hidden']);
+        // document.querySelector('#touchArea_2_4').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_3_1').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_3_2').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_4_1').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_4_2').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_4_3').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_4_4').classList.remove(styles['hidden']);
+
+        document.querySelector('#line1_1').classList.remove(styles['fhidden']);
+        document.querySelector('#line1_2').classList.remove(styles['fhidden']);
+        document.querySelector('#line1_3').classList.remove(styles['fhidden']);
+        document.querySelector('#line1_4').classList.remove(styles['fhidden']);
+        document.querySelector('#line2_1').classList.remove(styles['fhidden']);
+        document.querySelector('#line2_2').classList.remove(styles['fhidden']);
+        document.querySelector('#line4_1').classList.remove(styles['fhidden']);
+        document.querySelector('#line4_2').classList.remove(styles['fhidden']);
+        document.querySelector('#line4_3').classList.remove(styles['fhidden']);
+        document.querySelector('#line4_4').classList.remove(styles['fhidden']);
+
+        document.querySelector('#line3_1').classList.add(styles['fhidden']);
+        document.querySelector('#line3_2').classList.add(styles['fhidden']);
+        document.querySelector('#line3_3').classList.add(styles['fhidden']);
+        document.querySelector('#line3_4').classList.add(styles['fhidden']);
 
         document.querySelector('#noTouchArea_1').classList.remove(styles['hidden']);
         document.querySelector('#noTouchArea_2').classList.remove(styles['hidden']);
@@ -378,6 +432,7 @@ export default function BrainSensor() {
             // setBtnName('Sensor Check')
 
             setBg('/images/SideView.png');
+
             document.querySelector('#monitorArea').classList.add(styles['hidden']);
             document.querySelector('#touchArea_1_1').classList.add(styles['hidden']);
             document.querySelector('#touchArea_1_2').classList.add(styles['hidden']);
@@ -385,8 +440,8 @@ export default function BrainSensor() {
             document.querySelector('#touchArea_1_4').classList.add(styles['hidden']);
             document.querySelector('#touchArea_2_1').classList.add(styles['hidden']);
             document.querySelector('#touchArea_2_2').classList.add(styles['hidden']);
-            document.querySelector('#touchArea_2_3').classList.add(styles['hidden']);
-            document.querySelector('#touchArea_2_4').classList.add(styles['hidden']);
+            // document.querySelector('#touchArea_2_3').classList.add(styles['hidden']);
+            // document.querySelector('#touchArea_2_4').classList.add(styles['hidden']);
             document.querySelector('#touchArea_3_1').classList.add(styles['hidden']);
             document.querySelector('#touchArea_3_2').classList.add(styles['hidden']);
             document.querySelector('#touchArea_4_1').classList.add(styles['hidden']);
@@ -394,10 +449,28 @@ export default function BrainSensor() {
             document.querySelector('#touchArea_4_3').classList.add(styles['hidden']);
             document.querySelector('#touchArea_4_4').classList.add(styles['hidden']);
 
+            document.querySelector('#line1_1').classList.add(styles['fhidden']);
+            document.querySelector('#line1_2').classList.add(styles['fhidden']);
+            document.querySelector('#line1_3').classList.add(styles['fhidden']);
+            document.querySelector('#line1_4').classList.add(styles['fhidden']);
+            document.querySelector('#line2_1').classList.add(styles['fhidden']);
+            document.querySelector('#line2_2').classList.add(styles['fhidden']);
+            document.querySelector('#line4_1').classList.add(styles['fhidden']);
+            document.querySelector('#line4_2').classList.add(styles['fhidden']);
+            document.querySelector('#line4_3').classList.add(styles['fhidden']);
+            document.querySelector('#line4_4').classList.add(styles['fhidden']);
+
+            document.querySelector('#line3_1').classList.remove(styles['fhidden']);
+            document.querySelector('#line3_2').classList.remove(styles['fhidden']);
+            document.querySelector('#line3_3').classList.remove(styles['fhidden']);
+            document.querySelector('#line3_4').classList.remove(styles['fhidden']);
+
             document.querySelector('#noTouchArea_1').classList.add(styles['hidden']);
             document.querySelector('#noTouchArea_2').classList.add(styles['hidden']);
             document.querySelector('#noTouchArea_3').classList.add(styles['hidden']);
             document.querySelector('#noTouchArea_4').classList.add(styles['hidden']);
+
+    
 
             document.querySelector('#touchArea_3_1_side').classList.add(styles['show']);
             document.querySelector('#touchArea_3_2_side').classList.add(styles['show']);
@@ -419,14 +492,30 @@ export default function BrainSensor() {
             document.querySelector('#touchArea_1_4').classList.remove(styles['hidden']);
             document.querySelector('#touchArea_2_1').classList.remove(styles['hidden']);
             document.querySelector('#touchArea_2_2').classList.remove(styles['hidden']);
-            document.querySelector('#touchArea_2_3').classList.remove(styles['hidden']);
-            document.querySelector('#touchArea_2_4').classList.remove(styles['hidden']);
+            // document.querySelector('#touchArea_2_3').classList.remove(styles['hidden']);
+            // document.querySelector('#touchArea_2_4').classList.remove(styles['hidden']);
             document.querySelector('#touchArea_3_1').classList.remove(styles['hidden']);
             document.querySelector('#touchArea_3_2').classList.remove(styles['hidden']);
             document.querySelector('#touchArea_4_1').classList.remove(styles['hidden']);
             document.querySelector('#touchArea_4_2').classList.remove(styles['hidden']);
             document.querySelector('#touchArea_4_3').classList.remove(styles['hidden']);
             document.querySelector('#touchArea_4_4').classList.remove(styles['hidden']);
+
+            document.querySelector('#line1_1').classList.remove(styles['fhidden']);
+            document.querySelector('#line1_2').classList.remove(styles['fhidden']);
+            document.querySelector('#line1_3').classList.remove(styles['fhidden']);
+            document.querySelector('#line1_4').classList.remove(styles['fhidden']);
+            document.querySelector('#line2_1').classList.remove(styles['fhidden']);
+            document.querySelector('#line2_2').classList.remove(styles['fhidden']);
+            document.querySelector('#line4_1').classList.remove(styles['fhidden']);
+            document.querySelector('#line4_2').classList.remove(styles['fhidden']);
+            document.querySelector('#line4_3').classList.remove(styles['fhidden']);
+            document.querySelector('#line4_4').classList.remove(styles['fhidden']);
+
+            document.querySelector('#line3_1').classList.add(styles['fhidden']);
+            document.querySelector('#line3_2').classList.add(styles['fhidden']);
+            document.querySelector('#line3_3').classList.add(styles['fhidden']);
+            document.querySelector('#line3_4').classList.add(styles['fhidden']);
 
             document.querySelector('#noTouchArea_1').classList.remove(styles['hidden']);
             document.querySelector('#noTouchArea_2').classList.remove(styles['hidden']);
@@ -467,14 +556,30 @@ export default function BrainSensor() {
         document.querySelector('#touchArea_1_4').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_2_1').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_2_2').classList.remove(styles['hidden']);
-        document.querySelector('#touchArea_2_3').classList.remove(styles['hidden']);
-        document.querySelector('#touchArea_2_4').classList.remove(styles['hidden']);
+        // document.querySelector('#touchArea_2_3').classList.remove(styles['hidden']);
+        // document.querySelector('#touchArea_2_4').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_3_1').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_3_2').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_4_1').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_4_2').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_4_3').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_4_4').classList.remove(styles['hidden']);
+
+        document.querySelector('#line1_1').classList.remove(styles['fhidden']);
+        document.querySelector('#line1_2').classList.remove(styles['fhidden']);
+        document.querySelector('#line1_3').classList.remove(styles['fhidden']);
+        document.querySelector('#line1_4').classList.remove(styles['fhidden']);
+        document.querySelector('#line2_1').classList.remove(styles['fhidden']);
+        document.querySelector('#line2_2').classList.remove(styles['fhidden']);
+        document.querySelector('#line4_1').classList.remove(styles['fhidden']);
+        document.querySelector('#line4_2').classList.remove(styles['fhidden']);
+        document.querySelector('#line4_3').classList.remove(styles['fhidden']);
+        document.querySelector('#line4_4').classList.remove(styles['fhidden']);
+
+        document.querySelector('#line3_1').classList.add(styles['fhidden']);
+        document.querySelector('#line3_2').classList.add(styles['fhidden']);
+        document.querySelector('#line3_3').classList.add(styles['fhidden']);
+        document.querySelector('#line3_4').classList.add(styles['fhidden']);
 
         document.querySelector('#noTouchArea_1').classList.remove(styles['hidden']);
         document.querySelector('#noTouchArea_2').classList.remove(styles['hidden']);
@@ -530,7 +635,7 @@ export default function BrainSensor() {
                     height={2160}
                 />
                 <div className={styles.sensorHoverContainer}>
-                    <div id='line1_1' className={styles.sensorHoverImage}>
+                    {/* <div id='line1_1' className={styles.sensorHoverImage}>
                     <Image
                         src='/images/sensor/line1-1.png'
                         alt="Hover"
@@ -540,7 +645,7 @@ export default function BrainSensor() {
                         width={3840}
                         height={2160}
                     />
-                    </div>
+                    </div> */}
                     <Image
                         id='line1_1'
                         className={styles.sensorHoverImage}
@@ -751,25 +856,25 @@ export default function BrainSensor() {
             </div>
 
 
-            <div id='touchArea_1_1' data-touchID='1_1' className={styles.touchArea_1_1} onClick={number1Touch} onMouseOver={number1Hover} onMouseOut={number1HoverOut}></div>
-            <div id='touchArea_1_2' data-touchID='1_2' className={styles.touchArea_1_2} onClick={number1Touch} onMouseOver={number1Hover}></div>
-            <div id='touchArea_1_3' data-touchID='1_3' className={styles.touchArea_1_3} onClick={number1Touch} onMouseOver={number1Hover}></div>
-            <div id='touchArea_1_4' data-touchID='1_4' className={styles.touchArea_1_4} onClick={number1Touch} onMouseOver={number1Hover}></div>
-            <div id='touchArea_2_1' data-touchID='2_1' className={styles.touchArea_2_1} onClick={number2Touch}></div>
-            <div id='touchArea_2_2' data-touchID='2_2' className={styles.touchArea_2_2} onClick={number2Touch}></div>
-            <div id='touchArea_2_3' data-touchID='2_3' className={styles.touchArea_2_3} onClick={number2Touch}></div>
-            <div id='touchArea_2_4' data-touchID='2_4' className={styles.touchArea_2_4} onClick={number2Touch}></div>
+            <div id='touchArea_1_1' data-touchID='1_1' className={styles.touchArea_1_1} onClick={numberTouch} onMouseOver={numberHover} onMouseOut={numberHoverOut}></div>
+            <div id='touchArea_1_2' data-touchID='1_2' className={styles.touchArea_1_2} onClick={numberTouch} onMouseOver={numberHover} onMouseOut={numberHoverOut}></div>
+            <div id='touchArea_1_3' data-touchID='1_3' className={styles.touchArea_1_3} onClick={numberTouch} onMouseOver={numberHover} onMouseOut={numberHoverOut}></div>
+            <div id='touchArea_1_4' data-touchID='1_4' className={styles.touchArea_1_4} onClick={numberTouch} onMouseOver={numberHover} onMouseOut={numberHoverOut}></div>
+            <div id='touchArea_2_1' data-touchID='2_1' className={styles.touchArea_2_1} onClick={numberTouch} onMouseOver={numberHover} onMouseOut={numberHoverOut}></div>
+            <div id='touchArea_2_2' data-touchID='2_2' className={styles.touchArea_2_2} onClick={numberTouch} onMouseOver={numberHover} onMouseOut={numberHoverOut}></div>
+            {/* <div id='touchArea_2_3' data-touchID='2_3' className={styles.touchArea_2_3} onClick={number2Touch}></div>
+            <div id='touchArea_2_4' data-touchID='2_4' className={styles.touchArea_2_4} onClick={number2Touch}></div> */}
             <div id='touchArea_3_1' data-touchID='3_1' className={styles.touchArea_3_1} onClick={number3Touch}></div>
             <div id='touchArea_3_2' data-touchID='3_2' className={styles.touchArea_3_2} onClick={number3Touch}></div>
-            <div id='touchArea_4_1' data-touchID='4_1' className={styles.touchArea_4_1} onClick={number4Touch}></div>
-            <div id='touchArea_4_2' data-touchID='4_2' className={styles.touchArea_4_2} onClick={number4Touch}></div>
-            <div id='touchArea_4_3' data-touchID='4_3' className={styles.touchArea_4_3} onClick={number4Touch}></div>
-            <div id='touchArea_4_4' data-touchID='4_4' className={styles.touchArea_4_4} onClick={number4Touch}></div>
+            <div id='touchArea_4_1' data-touchID='4_1' className={styles.touchArea_4_1} onClick={numberTouch} onMouseOver={numberHover} onMouseOut={numberHoverOut}></div>
+            <div id='touchArea_4_2' data-touchID='4_2' className={styles.touchArea_4_2} onClick={numberTouch} onMouseOver={numberHover} onMouseOut={numberHoverOut}></div>
+            <div id='touchArea_4_3' data-touchID='4_3' className={styles.touchArea_4_3} onClick={numberTouch} onMouseOver={numberHover} onMouseOut={numberHoverOut}></div>
+            <div id='touchArea_4_4' data-touchID='4_4' className={styles.touchArea_4_4} onClick={numberTouch} onMouseOver={numberHover} onMouseOut={numberHoverOut}></div>
 
-            <div id='touchArea_3_1_side' data-touchID='3_1' className={styles.touchArea_3_1_side} onClick={number3Touch}></div>
-            <div id='touchArea_3_2_side' data-touchID='3_2' className={styles.touchArea_3_2_side} onClick={number3Touch}></div>
-            <div id='touchArea_3_3_side' data-touchID='3_3' className={styles.touchArea_3_3_side} onClick={number3Touch}></div>
-            <div id='touchArea_3_4_side' data-touchID='3_4' className={styles.touchArea_3_4_side} onClick={number3Touch}></div>
+            <div id='touchArea_3_1_side' data-touchID='3_1' className={styles.touchArea_3_1_side} onClick={numberTouch} onMouseOver={numberHover} onMouseOut={numberHoverOut}></div>
+            <div id='touchArea_3_2_side' data-touchID='3_2' className={styles.touchArea_3_2_side} onClick={numberTouch} onMouseOver={numberHover} onMouseOut={numberHoverOut}></div>
+            <div id='touchArea_3_3_side' data-touchID='3_3' className={styles.touchArea_3_3_side} onClick={numberTouch} onMouseOver={numberHover} onMouseOut={numberHoverOut}></div>
+            <div id='touchArea_3_4_side' data-touchID='3_4' className={styles.touchArea_3_4_side} onClick={numberTouch} onMouseOver={numberHover} onMouseOut={numberHoverOut}></div>
 
 
             <div id='noTouchArea_1' className={styles.noTouchArea_1} onClick={number1Fail}></div>

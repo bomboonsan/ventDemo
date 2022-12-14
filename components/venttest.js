@@ -7,6 +7,11 @@ import { useRouter } from 'next/router'
 import Moveable from "react-moveable"; // preact-moveable
 // import dynamic from 'next/dynamic'
 
+// ทำให้กดปุ่มเพศชายได้ด้วย
+// ส่วนสูงกับน้ำหนักให้หมุ่นย้อนกลับได้
+
+// หน้า กด 3 wave ให้หน้าหลังจากที่เปลี่ยนเป็น 3 wave แล้ว  แล้ว
+// ขึ้น FINISH สีเขียว แล้วกดไปที่ เมนู ที่ Leaning Mode
 
 
 // 
@@ -37,10 +42,13 @@ export default function VentTest() {
         rotate: 1,
         transformOrigin: "50% 50%",
     });
+    
 
     // Var Control
     const [weight, setWeight] = useState(50);
     const [height, setHeight] = useState(152);
+
+    
 
 
     const [playing, setPlaying] = useState(false);
@@ -71,21 +79,81 @@ export default function VentTest() {
     
         }
         if(isSetHeight == 1) {
-            if (varR == 0) {
-                console.log('varR=0');
+            // if (varR == 0) {
+            //     console.log('varR=0');
+            // } else {
+            //     let newHeight = Number(height)+(varR/360);
+            //     console.log(newHeight);
+            //     setHeight(newHeight.toFixed(1));
+            // }
+            setPreVarR(varR);
+            if (varR > 0) {
+                if (varR > preVarR) {
+                    let newHeight = Number(height)+(varR/3600);
+                    setHeight(newHeight.toFixed(5));
+                    console.log('height1 :'+height)       
+                    console.log('newHeight :'+newHeight)
+                } else if (varR < preVarR) {
+                    let newHeight = Number(height)-(varR/3600);
+                    setHeight(newHeight.toFixed(5));
+                    console.log('height2 :'+height)       
+                    console.log('newHeight :'+newHeight)
+                }
             } else {
-                let newHeight = Number(height)+(varR/360);
-                console.log(newHeight);
-                setHeight(newHeight.toFixed(1));
+                if (varR > preVarR) {
+                    let newHeight = Number(height)-(varR/3600);
+                    setHeight(newHeight.toFixed(5));
+                    console.log('height3 :'+height)       
+                    console.log('newHeight :'+newHeight)
+                } else if (varR < preVarR) {
+                    let newHeight = Number(height)+(varR/3600);
+                    setHeight(newHeight.toFixed(5));
+                    console.log('height4 :'+height)       
+                    console.log('newHeight :'+newHeight)
+                }
             }
+
+                 
+            console.log('varR :'+varR)
+            console.log('preVarR :'+preVarR)
         }
         if(isSetting == 1) {
-            resetRotate()
+            // resetRotate()
             const currentVar = varBtnSetting;
             // console.log(currentVar)
-            let newVar = Number(currentVar[focusSetting-1])+(varR/360);
-            changeVarBtnSetting(newVar.toFixed(1) , focusSetting);
+            // let newVar = Number(currentVar[focusSetting-1])+(varR/360);
+            // changeVarBtnSetting(newVar.toFixed(1) , focusSetting);
             
+            // setPreVarR
+            // preVarR
+            // varR
+            setPreVarR(varR);
+            // console.log('varR: '+varR)
+            // console.log('preVarR: '+preVarR)
+            // console.log('varR/3600 : '+varR/3600)
+
+            if (varR > 0) {
+                if (varR > preVarR) {
+                    let newVar = Number(currentVar[focusSetting-1])+(varR/10000);
+                    // changeVarBtnSetting(newVar.toFixed(1) , focusSetting);
+                    changeVarBtnSetting(newVar , focusSetting);
+                } else if (varR < preVarR) {
+                    let newVar = Number(currentVar[focusSetting-1])-(varR/10000);
+                    // changeVarBtnSetting(newVar.toFixed(1) , focusSetting);
+                    changeVarBtnSetting(newVar , focusSetting);
+                }
+            } else {
+                if (varR > preVarR) {
+                    let newVar = Number(currentVar[focusSetting-1])-(varR/10000);
+                    // changeVarBtnSetting(newVar.toFixed(1) , focusSetting);
+                    changeVarBtnSetting(newVar , focusSetting);
+                } else if (varR < preVarR) {
+                    let newVar = Number(currentVar[focusSetting-1])+(varR/10000);
+                    // changeVarBtnSetting(newVar.toFixed(1) , focusSetting);
+                    changeVarBtnSetting(newVar , focusSetting);
+                }
+            }
+
         }
 
 
@@ -113,9 +181,8 @@ export default function VentTest() {
         'ตั้งค่าให้ pressure support 10 cmH2O',
         'คนไข้มีภาวะของ Airway resistance ปรับ rise time เป็น 75%',
         'ตั้งค่า %O2 : 40',
-        'พบว่าคนไข้มีdelay cycling ปรับ Esens 50%',
-        'ปรับหน้าจอให้เป็น 3 Waveform'
-
+        'พบว่าคนไข้มีdelay cycling ปรับ Esens 50%'
+        // 'ปรับหน้าจอให้เป็น 3 Waveform'        
     ]
     const nextText = () => {
         if (footerTextStep+1 < listFooterText.length) {
@@ -276,6 +343,7 @@ export default function VentTest() {
 
         setFocusSetting(btnID)
         setIsSetting(1)
+        scrollChange(btnID)
         
     }
     const handleInputChange = (event) => {
@@ -291,7 +359,41 @@ export default function VentTest() {
         } )
     }
     
+    const handleSettingbtnWheel = (event) => {
+        const valueSetting = event.target.value;
+        console.log(valueSetting)
+    }
 
+    function scrollChange(btnID) {
+        // let currentVar = varBtnSetting;
+        let btnIDtest = btnID
+
+        
+        // const btnElement = document.querySelector(`[data-settingid='${btnID}']`);
+        // const inputElement = btnElement.querySelector('input');
+
+        const ventContainer = document.querySelector('#ventContainer');
+        // console.log(inputElement)
+        // const valueSetting = event.target.value;
+        ventContainer.addEventListener('wheel', (event) => {
+            let currentVar = varBtnSetting;
+            if (event.deltaY > 0) {
+                // Scrolling up, increment the number
+                let newVar = Number(currentVar[btnIDtest-1]);
+                newVar = newVar+0.5;
+                // console.log('newVar'+newVar)
+                // console.log('focusSetting'+btnIDtest)
+                changeVarBtnSetting(newVar.toFixed(1) , btnIDtest);
+            } else {
+                // Scrolling down, decrement the number
+                let newVar = Number(currentVar[btnIDtest-1]);
+                newVar = newVar-0.5;
+                // console.log('newVar'+newVar)
+                changeVarBtnSetting(newVar.toFixed(1) , btnIDtest);
+            }
+        });
+        // changeVarBtnSetting(valueSetting , focusSetting);
+    }
 
     function changeVarBtnSetting(newVar,indexToChange) {
         // varBtnSetting
@@ -312,12 +414,16 @@ export default function VentTest() {
     const checkAns = () => {
         // arrItemShow = [4,5,6,7,9,13,14];
         // varBtnSetting
-        if (varBtnSetting[3] == 10 && varBtnSetting[4] == 5 && varBtnSetting[5] == 40 & varBtnSetting[6] == 40 & varBtnSetting[8] == 75 & varBtnSetting[12] == 50 & varBtnSetting[13] == 5 ) {
+        if ( Number(varBtnSetting[3]).toFixed(0) == 10 && Number(varBtnSetting[4]).toFixed(0) == 5 && Number(varBtnSetting[5]).toFixed(0) == 40 & Number(varBtnSetting[6]).toFixed(0) == 40 & Number(varBtnSetting[8]).toFixed(0) == 75 & Number(varBtnSetting[12]).toFixed(0) == 50 & Number(varBtnSetting[13]).toFixed(0) == 5 ) {
             console.log('succecfully')
             setPlaying(true)
             document.querySelector('#main')?.classList.add(styles['hidden']);
             document.querySelector('#video')?.classList.add(styles['showVideo']);
             // router.push('/vent/finish')
+            setFooterText('ปรับหน้าจอให้เป็น 3 Waveform')
+            document.querySelector('#btnGroup')?.classList.add(styles['hidden']);
+            // btnGroup
+            
         } else {
             console.log('fail')
             router.push('/hint/vent-false')
@@ -326,6 +432,9 @@ export default function VentTest() {
 
     const showSwitchPanel = () => {
         document.querySelector('#switchWaveFormPanel')?.classList.toggle(styles['showPanel']);
+    }
+    const closeWaveFormPanel = () => {
+        document.querySelector('#switchWaveFormPanel')?.classList.remove(styles['showPanel']);
     }
 
     const twoWave = '../video/2wave.mp4'
@@ -336,6 +445,10 @@ export default function VentTest() {
     }
     const showThreeWave = () => {
         setWaveVideo('../video/3wave.mp4')
+        document.querySelector('#btnGroup')?.classList.add(styles['hidden']);
+
+        document.querySelector('#introductionBox')?.classList.add(styles['hidden']);
+        document.querySelector('#finishBtn')?.classList.add(styles['finishShow']);
 
     //     setTimeout(function(){
     //         router.push('/vent/finish')
@@ -448,7 +561,7 @@ export default function VentTest() {
                                         {/* <div className={styles.btnsLineMid}>
                                         {height} 
                                         </div> */}
-                                        <input type='text' class={styles.inputSetting} value={height} onChange={event => setHeight(event.target.value)} />    
+                                        <input type='text' class={styles.inputSetting} value={Number(height).toFixed(0)} onChange={event => setHeight(event.target.value)} />    
                                         <div className={styles.btnsLineTop}>cm</div>
                                         <div className={styles.btnsLineBot}>(110)</div>
                                     </div>
@@ -588,14 +701,14 @@ export default function VentTest() {
                                     <tbody>
                                     <tr>
                                             <td>
-                                                <div data-settingid='1' className={styles.btn_setting} onClick={handleSettingbtn}>
+                                                <div data-settingid='1' className={styles.btn_setting} onClick={handleSettingbtn} onWheel={handleSettingbtnWheel}>
                                                     <div className={styles.btnsLineTop}>
                                                         f
                                                     </div>
                                                     {/* <div className={styles.btnsLineMid}>
                                                         {varBtnSetting[0]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[0]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[0]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         1/min
                                                     </div>
@@ -609,7 +722,7 @@ export default function VentTest() {
                                                     {/* <div className={styles.btnsLineMid}>
                                                         {varBtnSetting[1]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[1]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[1]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         mL
                                                     </div>
@@ -623,7 +736,7 @@ export default function VentTest() {
                                                     {/* <div className={styles.btnsLineMid}>
                                                         {varBtnSetting[2]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[2]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[2]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         L/min
                                                     </div>
@@ -637,7 +750,7 @@ export default function VentTest() {
                                                     {/* <div className={styles.btnsLineMid}>
                                                         {varBtnSetting[3]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[3]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[3]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         cmH<sub>2</sub>O
                                                     </div>
@@ -651,7 +764,7 @@ export default function VentTest() {
                                                     {/* <div className={styles.btnsLineMid}>
                                                         {varBtnSetting[4]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[4]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[4]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         L/min
                                                     </div>
@@ -665,7 +778,7 @@ export default function VentTest() {
                                                     {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[5]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[5]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[5]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         %
                                                     </div>
@@ -679,7 +792,7 @@ export default function VentTest() {
                                                     {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[6]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[6]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[6]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         cmH<sub>2</sub>O
                                                     </div>
@@ -693,7 +806,7 @@ export default function VentTest() {
                                                     {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[7]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[7]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[7]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         L/min
                                                     </div>
@@ -710,7 +823,7 @@ export default function VentTest() {
                                                     {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[8]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[8]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[8]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         %
                                                     </div>
@@ -724,7 +837,7 @@ export default function VentTest() {
                                                     {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[9]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[9]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[9]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         S
                                                     </div>
@@ -738,7 +851,7 @@ export default function VentTest() {
                                                     {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[10]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[10]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[10]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                     &nbsp;
                                                     </div>
@@ -752,7 +865,7 @@ export default function VentTest() {
                                                     {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[11]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[11]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[11]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         S
                                                     </div>
@@ -766,7 +879,7 @@ export default function VentTest() {
                                                     {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[12]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[12]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[12]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         %
                                                     </div>
@@ -780,7 +893,7 @@ export default function VentTest() {
                                                     {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[13]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[13]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[13]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         cmH<sub>2</sub>O
                                                     </div>
@@ -794,7 +907,7 @@ export default function VentTest() {
                                                     {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[14]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[14]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[14]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         mL
                                                     </div>
@@ -808,7 +921,7 @@ export default function VentTest() {
                                                     {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[15]}
                                                     </div> */}
-                                                    <input type='text' class={styles.inputSetting} value={varBtnSetting[15]} onChange={handleInputChange} />    
+                                                    <input type='text' class={styles.inputSetting} value={Number(varBtnSetting[15]).toFixed(0)} onChange={handleInputChange} />    
                                                     <div className={styles.btnsLineBot}>
                                                         Type
                                                     </div>
@@ -854,6 +967,7 @@ export default function VentTest() {
                 />   
                 <div className={styles.btnTwoWave} onClick={showTwoWave}></div>
                 <div className={styles.btnThreeWave} onClick={showThreeWave}></div>
+                <div className={styles.closeWaveFormPanel} onClick={closeWaveFormPanel}></div>
                 </div>
             </div>
             <div className={styles.statBar}>
@@ -866,7 +980,7 @@ export default function VentTest() {
                     <p>
                         {footerText}
                     </p>
-                    <div className={styles.btnGroup}>
+                    <div id='btnGroup' className={styles.btnGroup}>
                         <button className={styles.btnItem} onClick={previosText}>
                             PREVIOUS 
                         </button>
@@ -875,7 +989,14 @@ export default function VentTest() {
                         </button>
                     </div>
                 </div>
-            </div>
+                <div id='finishBtn' className={styles.finishBtnContainer}>
+                    <Link href='/menulearningmode'>
+                    <button className={styles.btnItem}>
+                        FINISH
+                    </button>
+                    </Link>
+                </div>
+            </div>            
             <footer id='footer_controlPanel' className={styles.controlpanel_wrap}>
                 <div className={styles.controlpanel_row}>
                     <div className={styles.controlpanel}>

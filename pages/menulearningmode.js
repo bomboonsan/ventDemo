@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import 'bootstrap/dist/css/bootstrap.css'
-import styles from '../styles/mainmenu2.module.css'
+// import styles from '../styles/mainmenu2.module.css'
+import styles from '../styles/mainmenu.module.css'
 import Link from "next/link";
 // import { useRouter } from 'next/router'
 
@@ -34,56 +35,73 @@ export default function Main_menu() {
       </header>
       <div className={styles.row}>
         <div className={styles.col_item}>
-          <Link href="/instruction/vent"> 
-          <Image
-              className={styles.bisitem}
-              src="/images/cardmenu-1.png"
-              alt="equipment"
-              // layout="fill"
-              // objectFit="cover"
-              width={700}
-              height={1200}
-          />
-          <div className={styles.card_name}>
-          Interface<br/>
-          introduction
+          <div className={styles.card}>
+            <Link href="/instruction/vent"> 
+            <div className={styles.card_thumbnail}>
+              <Image
+                    className={styles.bisitem}
+                    src="/images/Capturec-ventfinal-learning.png"
+                    alt="Ventilator"
+                    // layout="fill"
+                    // objectFit="cover"
+                    width={640}
+                    height={508}
+                />
+            </div>
+            <div className={styles.card_title}>
+              <p>
+              Interface introduction
+              </p>
+              {/* ใช้รูป Vent อันเดียวกันกับหน้า Introduction */}
+            </div>   
+            </Link>         
           </div>
-          </Link>
-        </div>        
-        <div className={styles.col_item}>
-          <Link href="/case/vent"> 
-          <Image
-              className={styles.bisitem}
-              src="/images/cardmenu-3.png"
-              alt="Result"
-              // layout="fill"
-              // objectFit="cover"
-              width={700}
-              height={1200}
-          />
-          <div className={styles.card_name}>
-          Case scenario <br/>
-          set up
-          </div>
-          </Link>
         </div>
         <div className={styles.col_item}>
-          <Link href='/instruction/simulator'>
-          <Image
-              className={styles.bisitem}
-              src="/images/cardmenu-2.png"
-              alt="Troubleshooting"
-              // layout="fill"
-              // objectFit="cover"
-              width={700}
-              height={1200}
-          />
-          <div className={styles.card_name}>
-          Simulator
-          <br/>
-          &nbsp;
+          <div className={styles.card}>
+            <Link href="/case/vent"> 
+            <div className={styles.card_thumbnail}>
+              <Image
+                    className={styles.bisitem}
+                    src="/images/case1-thumb2.png"
+                    alt="Ventilator"
+                    // layout="fill"
+                    // objectFit="cover"
+                    width={640}
+                    height={508}
+                />
+            </div>
+            <div className={styles.card_title}>
+              <p>
+              Case scenario set up
+              </p>
+              {/* ใช้รูป คนไข้ */}
+            </div>    
+            </Link>           
           </div>
-          </Link>
+        </div>
+        <div className={styles.col_item}>
+          <div className={styles.card}>
+            <Link href='/instruction/simulator'>
+            <div className={styles.card_thumbnail}>
+              <Image
+                    className={styles.bisitem}
+                    src="/images/Ventilator-thumbnail.png"
+                    alt="Women"
+                    // layout="fill"
+                    // objectFit="cover"
+                    width={504}
+                    height={620}
+                />
+            </div>
+            <div className={styles.card_title}>
+              <p>
+              Simulator
+              </p>
+              {/* ใช้รูป เครื่องอันเดียวกันกับเมนู Vent */}
+            </div>         
+            </Link>       
+          </div>
         </div>
       </div>
     </div>

@@ -413,6 +413,7 @@
     aspect-ratio: 1024 / 40;
 }
 .footer {
+    position: relative;
     background-color: #243442;
     background: -webkit-linear-gradient(bottom, #243442 75%, #10171D 97%);
     aspect-ratio: 1024 / 180;
@@ -620,6 +621,17 @@
     height: auto;
     aspect-ratio: 848/249;
 }
+.closeWaveFormPanel {
+    content: '';
+    position: absolute;
+    transform: translate(-50%,-50%);
+    right: -2%;
+    bottom: 0%;
+    width: 11%;
+    height: 15%;
+    cursor: pointer;
+    // background: rgb(159,185,199);
+}
 .btnTwoWave {
     content: '';
     position: absolute;
@@ -634,7 +646,7 @@
 .btnThreeWave {
     content: '';
     position: absolute;
-    // transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
     left: 49%;
     bottom: 0%;
     width: 11%;
@@ -649,5 +661,39 @@
     display: block;
 }
 .hidden {
+    display: none !important;
+}
+
+.finishBtnContainer {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
     display: none;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    .btnItem {
+        color: #FFF;
+        border: 0;
+        border-radius: .4rem;
+        padding: .1rem 1rem;
+        font-size: 1.4rem;
+        background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #ECA7CA;
+        // background: #515c2a;
+        box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
+
+
+        background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;
+        /* box-shadow: 4px 20px 30px rgba(0, 0, 0, 0.5); */
+        box-shadow: .2rem .2rem 1rem rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+    }
+}
+
+.finishShow {
+    display: flex;
 }

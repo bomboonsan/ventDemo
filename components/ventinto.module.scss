@@ -196,6 +196,7 @@
             flex-basis: 100%;
             width: 100%;
             font-size: .4rem;
+            // font-size: .4vw;
         }
         .btnsLineBot {
             flex-basis: 100%;
@@ -432,7 +433,7 @@
     // transform: translateY(-50%);
     border-radius: .5rem;
     position: relative;
-    // top -
+    bottom: 10%;
     padding: .5rem 1rem;
     background: #ffffff;
     border: 3px solid pink;
@@ -453,6 +454,10 @@
         padding-right: 15px;
     }
     .btnGroup {
+        position: absolute;
+        transform: translateY(-100%);
+        top: -10%;
+        right: 0;
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;

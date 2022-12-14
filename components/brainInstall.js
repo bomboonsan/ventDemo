@@ -6,6 +6,9 @@ import Moveable from "react-moveable"; // preact-moveable
 // https://daybrush.com/moveable/storybook/?path=/story/basic--origindraggable
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
+
+// จับอุปกรณ์แล้ว HInt หาย
+
 export default function BrainInstall() {
     const router = useRouter()
     const size = useWindowSize();
@@ -42,6 +45,10 @@ export default function BrainInstall() {
         }
 
         document.querySelector('#dropArea').classList.add(styles['lineSightShow']);
+
+        document.querySelector('#hinWrong')?.classList.remove(styles['showHint']);
+        document.querySelector('#hinCorrect')?.classList.remove(styles['showHint']);
+        
     }, [varY,varX]);
 
     const makeFullScreen = (el) => {
@@ -80,7 +87,7 @@ export default function BrainInstall() {
     // Element
     let hinWrong =  
     (
-        <div className={styles.hin_area}>
+        <div id='hinWrong' className={styles.hin_area}>
             <h4>ผิด !</h4>
             <p>ลูกศรที่หมายเลข 1 ต้องอยู่ห่างจากสันจมูกระหว่างหัวตาขึ้นไป 2 นิ้ว</p>
             {/* <p>ลูกศร ต้องอยู่ ห่างจาก ตา 2 นิ้ว</p>
@@ -92,17 +99,17 @@ export default function BrainInstall() {
 
     let hinCorrect =  
     (
-        <div className={styles.hin_area}>
+        <div id='hinCorrect' className={styles.hin_area}>
             <h4>ถูกต้อง !</h4>
         </div>
     )
-    let hinElement = null
+    let hinElement = null;
     if (hin===0) {
         hinElement = hinWrong
     } else if (hin===1) {
         hinElement = hinCorrect
     } else {
-        hinElement = null
+        hinElement = null;
     }
 
     function handleCheck() {
@@ -110,7 +117,9 @@ export default function BrainInstall() {
             // setHin(1)
             router.push('/brain/result/install1')
         } else {
-            setHin(0)
+            setHin(0);
+            document.querySelector('#hinWrong')?.classList.add(styles['showHint']);
+            document.querySelector('#hinCorrect')?.classList.add(styles['showHint']);
         }
     }
 
@@ -217,9 +226,9 @@ export default function BrainInstall() {
         </div>
         {hinElement}
         <div className={styles.btn_group}>
-            <button onClick={handleShowLineSight}>
+            {/* <button onClick={handleShowLineSight}>
             Position Guide 
-            </button>
+            </button> */}
             <button onClick={handleCheck}>
             Confirm
             </button>

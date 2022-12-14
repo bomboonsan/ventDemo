@@ -595,7 +595,7 @@ export default function VentInto() {
                                             <td>
                                                 <div id='btn30' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>
-                                                        P
+                                                    
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
                                                         50
@@ -991,7 +991,7 @@ export default function VentInto() {
                         </button>
                         <button id='btnNext' className={styles.btnItem} onClick={() => handleNextStep(stepCount)}>
                             NEXT
-                        </button> 
+                        </button>
                     </div>
                 </div>
                 {/* <div id='introductionBox2' className={styles.introduction_box}>
