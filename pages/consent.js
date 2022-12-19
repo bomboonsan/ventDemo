@@ -34,6 +34,7 @@ export default function Consent() {
                 <div className={styles.card}>
                     <h1>Consent Form</h1>
                     <div className={styles.card_body}>
+                        
                         <p>
                             โปรดอ่านเอกสารให้ความยินยอมนี้อย่างละเอียดและลงชื่อตามที่ระบุไว้ด้านล่าง 
                         </p>
