@@ -4,11 +4,20 @@ import 'bootstrap/dist/css/bootstrap.css'
 import styles from '../styles/consent.module.css'
 import Link from "next/link";
 import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react';
 
 export default function Consent() {
+    const [check1, setCheck1] = useState(false);
+    const [check2, setCheck2] = useState(false);
+    const [check3, setCheck3] = useState(false);
+    const [check4, setCheck4] = useState(false);
     const router = useRouter()
     function toWelcomePage() {
-        router.push('/welcome')
+        if (check1 && check2 && check3 && check4) {
+            router.push('/welcome')
+        } else {
+            alert('Please accept our appreciation');
+        }
     }
     return (
         <div className={styles.container}>
@@ -72,7 +81,12 @@ export default function Consent() {
                                 <label for="checkbox1"> ข้าพเจ้าได้อ่านข้อมูลข้างต้นแล้วและเข้าใจว่าเหตุใดข้อมูลของข้าพเจ้าจึงถูกรวบรวมโดย Medtronic</label>
                             </div>
                             <div className='col-2 text-end'>
-                                <input className={styles.checkboxItem} type="checkbox" id="checkbox1" name="checkbox1" value="checkbox1" />
+                                <input className={styles.checkboxItem} type="checkbox" 
+                                defaultChecked={check1}
+                                onChange={() => setCheck1(!check1)}
+                                id="checkbox1" 
+                                name="checkbox1" 
+                                value="checkbox1" />
                             </div>                          
                         </div>
                         <div className='row mb-4'>
@@ -80,7 +94,10 @@ export default function Consent() {
                                 <label for="checkbox2"> ข้าพเจ้าเข้าใจว่าข้าพเจ้าไม่จำเป็นต้องให้ข้อมูลใด ๆ ที่ร้องขอจากข้าพเจ้า แต่การไม่ทำเช่นนั้นจะทำให้ได้รับการสนับสนุนทางเทคนิคจาก Medtronic ลดลง</label>
                             </div>
                             <div className='col-2 text-end'>
-                                <input className={styles.checkboxItem} type="checkbox" id="checkbox2" name="checkbox2" value="checkbox2" />
+                                <input className={styles.checkboxItem} type="checkbox" 
+                                defaultChecked={check2}
+                                onChange={() => setCheck2(!check2)}
+                                id="checkbox2" name="checkbox2" value="checkbox2" />
                             </div>                          
                         </div>
                         <div className='row mb-4'>
@@ -88,7 +105,10 @@ export default function Consent() {
                                 <label for="checkbox3"> ข้าพเจ้ารับทราบถึงสิทธิ์ของข้าพเจ้าในการเข้าถึงข้อมูลที่รวบรวมเกี่ยวกับตัวข้าพเจ้า ยกเว้นในบางกรณีที่การเข้าถึงอาจถูกระงับโดยชอบด้วยกฎหมาย (โดยที่ข้าพเจ้าจะได้รับคำอธิบายในสถานการณ์เหล่านี้)</label>
                             </div>
                             <div className='col-2 text-end'>
-                                <input className={styles.checkboxItem} type="checkbox" id="checkbox3" name="checkbox3" value="checkbox3" />
+                                <input className={styles.checkboxItem} type="checkbox" 
+                                defaultChecked={check3}
+                                onChange={() => setCheck3(!check3)}
+                                id="checkbox3" name="checkbox3" value="checkbox3" />
                             </div>                          
                         </div>
                         <div className='row'>
@@ -96,7 +116,10 @@ export default function Consent() {
                                 <label for="checkbox4"> ข้าพเจ้ายินยอมให้ Medtronic จัดการข้อมูลของข้าพเจ้าตามวัตถุประสงค์ที่กำหนดไว้ข้างต้น</label>
                             </div>
                             <div className='col-2 text-end'>
-                                <input className={styles.checkboxItem} type="checkbox" id="checkbox4" name="checkbox4" value="checkbox4" />
+                                <input className={styles.checkboxItem} type="checkbox" 
+                                defaultChecked={check4}
+                                onChange={() => setCheck4(!check4)}
+                                id="checkbox4" name="checkbox4" value="checkbox4" />
                             </div>                          
                         </div>
                     </div>

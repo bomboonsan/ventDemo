@@ -449,7 +449,8 @@
         color: blue;
         height: 45px;
         font-weight: 300;
-        font-size: .95rem;
+        // font-size: .95rem;
+        font-size: 1.05rem;
         margin-bottom: 0;
         padding-right: 15px;
     }
@@ -498,6 +499,12 @@
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 
         // opacity: 0;
+    }
+}
+@media only screen and (max-width: 1000px)  {
+    .introduction_box p {
+        font-weight: 300;
+        font-size: 1.1rem;
     }
 }
 

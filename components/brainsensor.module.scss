@@ -1,9 +1,12 @@
+
 .traget_container {
     position: relative;
     width: 100%;
     height: auto;
     // min-height: 100vh;
     overflow: hidden;
+    // cursor: url('https://wish-integrate.com/vent-images/normal.png') 16 16, auto;
+    cursor: url('https://wish-integrate.com/vent-images/normal2.png') 8 8, auto;
 }
 .traget_item {
     position: absolute;
@@ -12,10 +15,12 @@
     top: 0;
     display: block;
     width: 35%;
-    cursor: move; /* fallback if grab cursor is unsupported */
-    cursor: grab;
-    cursor: -moz-grab;
-    cursor: -webkit-grab;
+    // cursor: move; /* fallback if grab cursor is unsupported */
+    // cursor: grab;
+    // cursor: -moz-grab;
+    // cursor: -webkit-grab;
+
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
 }
 .bis_item {
     width: 100%;
@@ -116,6 +121,7 @@
     top: 25%;
     z-index: 20;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
 }
 
 
@@ -131,6 +137,7 @@
     top: 43.5%;
     z-index: 20;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
 }
 .touchArea_3_2 {
     display: none;
@@ -144,6 +151,7 @@
     top: 49.5%;
     z-index: 20;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
 }
 .touchArea_4_1 ,.touchArea_4_2,.touchArea_4_3,.touchArea_4_4 {
     content: '';
@@ -151,6 +159,7 @@
     background: rgba(119, 252, 31, 0);
     
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
     z-index: 20;
 }
 .touchArea_4_1 {
@@ -200,6 +209,7 @@
     left: 18.5%;
     top: 28%;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
     z-index: 20;
 }
 .touchArea_2_2 {
@@ -212,6 +222,7 @@
     left: 19.5%;
     top: 33%;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
     z-index: 20;
 }
 // .touchArea_2_3 {
@@ -251,6 +262,7 @@
     // top: 60%;
     // left: 42%;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
     z-index: 20;
 }
 
@@ -266,6 +278,7 @@
     // top: 58%;
     // left: 46.4%;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
     z-index: 20;
 }
 .touchArea_1_3 {
@@ -280,6 +293,7 @@
     // top: 58%;
     // left: 46.4%;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
     z-index: 20;
 }
 .touchArea_1_4 {
@@ -294,6 +308,7 @@
     // top: 58%;
     // left: 46.4%;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
     z-index: 20;
 }
 .touchArea_1_1:hover ,.touchArea_1_2:hover,.touchArea_1_3:hover,.touchArea_1_4:hover,
@@ -315,6 +330,7 @@
     top: 58%;
     left: 46.4%;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
     z-index: 20;
 }
 .touchArea_3_2_side {
@@ -328,6 +344,7 @@
     top: 59.5%;
     left: 42.4%;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
     z-index: 20;
 }
 .touchArea_3_3_side {
@@ -341,6 +358,7 @@
     top: 54.5%;
     left: 44%;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
     z-index: 20;
 }
 .touchArea_3_4_side {
@@ -354,6 +372,7 @@
     top: 62.5%;
     left: 45%;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
     z-index: 20;
 }
 
@@ -377,6 +396,7 @@
     top: 46.5%;
     z-index: 98;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
 }
 
 .noTouchArea_4 {
@@ -392,6 +412,7 @@
     top: 32.3%;
     z-index: 98;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
 }
 
 .noTouchArea_2 {
@@ -407,6 +428,7 @@
     top: 30.5%;
     z-index: 98;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
 }
 
 .noTouchArea_1 {
@@ -425,10 +447,11 @@
     // left: 44.3%;
     z-index: 98;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
 }
 
-.noTouchArea_1:hover ,.noTouchArea_2:hover,.noTouchArea_3:hover,.noTouchArea_4:hover {
-    // background: rgba(252, 31, 42, 0.6);
+.noTouchArea_1:hover ,.noTouchArea_2:hover,.noTouchArea_4:hover {
+    background: rgba(252, 31, 42, 0.6);
 }
 
 // Side
@@ -447,6 +470,7 @@
     left: 44.3%;
     z-index: 98;
     cursor: pointer;
+    cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
 }
 .noTouchArea_3_side:hover {
     background: rgba(252, 31, 42, 0.6);
@@ -570,6 +594,7 @@
     // display: none;
     img {
         cursor: pointer;
+        cursor: url('https://wish-integrate.com/vent-images/hover2.png'), auto;
     }
 }
 

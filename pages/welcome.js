@@ -30,40 +30,42 @@ export default function Welcomepage() {
             />
             </Link>
         </div>{/* prev_page */}
-        <div className='container'>
-          <div className='row justify-content-center padding-top'>
-            <div className='col-7'>
-              <div className={styles.card}>
-                <h1 className={styles.card_title}>
-                  ยินดีต้อนรับทุกท่าน!
-                </h1>
-                <p className={styles.card_text}>
-                  เข้าสู่โปรแกรมจำลองการจัดการอุปกรณ์เพื่อดูแลผู้ป่วยหน่วยเวชบำบัดวิกฤต ในสถานการณ์ต่างๆโดยโปรแกรมจำลองนี้ออกแบบมาเพื่อให้ท่านได้ฝึกฝนทักษะ
-                  ในภาคปฎิบัติ ผ่านโปรแกรมจำลองจากสถานการณ์จริงที่เกิดขึ้น
-                </p>
-                <div className={styles.btn_area}>
-                  <button
-                  onClick={nextPage}
-                  className={styles.submit_btn} >
-                    NEXT
-                  </button>
+        <div className={styles.mid_screen}>
+          <div className='container'>
+            <div className='row justify-content-center padding-top'>
+              <div className='col-12 col-lg-7'>
+                <div className={styles.card}>
+                  <h1 className={styles.card_title}>
+                    ยินดีต้อนรับทุกท่าน!
+                  </h1>
+                  <p className={styles.card_text}>
+                    เข้าสู่โปรแกรมจำลองการจัดการอุปกรณ์เพื่อดูแลผู้ป่วยหน่วยเวชบำบัดวิกฤต ในสถานการณ์ต่างๆโดยโปรแกรมจำลองนี้ออกแบบมาเพื่อให้ท่านได้ฝึกฝนทักษะ
+                    ในภาคปฎิบัติ ผ่านโปรแกรมจำลองจากสถานการณ์จริงที่เกิดขึ้น
+                  </p>
+                  <div className={styles.btn_area}>
+                    <button
+                    onClick={nextPage}
+                    className={styles.submit_btn} >
+                      NEXT
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className='row justify-content-center padding-top'>
-            <div className='col-9'>
-              <Image
-                  src="/images/group2.png"
-                  alt="group2"
-                  // layout="fill"
-                  // objectFit="cover"
-                  width={3026}
-                  height={1179}
-              />
+            <div className='row justify-content-center padding-top'>
+              <div className='col-9'>
+                <Image
+                    src="/images/group2.png"
+                    alt="group2"
+                    // layout="fill"
+                    // objectFit="cover"
+                    width={3026}
+                    height={1179}
+                />
+              </div>
             </div>
-          </div>
-        </div>        
+          </div>   
+        </div>             
       </div>
   )
 }

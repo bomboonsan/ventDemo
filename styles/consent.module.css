@@ -11,14 +11,12 @@
     padding: 2vw 7vw;
     min-height: 100vh;
 }
-.col {
-    
+.col {    
     flex-basis: 50%;
     width: 50%;
     padding: 0 2vw;
     /* overflow: hidden; */
 }
-
 .card {
     width: 100%;
     background-color: #FFF;
@@ -80,4 +78,21 @@
 .checkboxItem {
     width: 50%;
     /* height: 80%; */
+}
+
+@media only screen and (max-width: 800px)  {
+    .col {
+        flex-basis: 70%;
+        width: 70%;
+    }
+    .card_body {
+        font-size: 90%;
+        height: 45vh;
+    }
+}
+@media only screen and (max-width: 600px)  {
+    .col {
+        flex-basis: 100%;
+        width: 100%;
+    }
 }

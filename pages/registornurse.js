@@ -72,10 +72,20 @@ export default function Home() {
             <div className={styles.registor_wrap}>
 
             <div className={styles.registor_block}>
-                    <div className={styles.registor_thumbnail}>
+                    {/* <div className={styles.registor_thumbnail}>
                         <Image
                             src="/images/registor-nurse.png"
-                            alt="Women"
+                            alt="Nurse"
+                            // layout="fill"
+                            // objectFit="cover"
+                            width={196}
+                            height={196}
+                        />
+                    </div> */}
+                    <div className={styles.registor_thumbnail2}>
+                        <Image
+                            src="/images/nurse-4.png"
+                            alt="Nurse"
                             // layout="fill"
                             // objectFit="cover"
                             width={196}
@@ -130,7 +140,7 @@ export default function Home() {
                     <div className='row mb-3'>
                         <div className='col-12'>
                             <select className="form-select border-primary" aria-label="Default select example">
-                                <option selected>Please Select your speciality*</option>
+                                <option selected>Please select your speciality*</option>
                                 <option value="CriticalCare">Critical care</option>
                                 <option value="Anesthesiology">Anesthesiology</option>
                                 <option value="InternistGP">Internist/GP</option>

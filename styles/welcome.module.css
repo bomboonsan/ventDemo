@@ -4,6 +4,14 @@
     background-image: url('../public/images/bg1.png');
     background-size: cover;
     min-height: 100vh;
+    position: relative;
+}
+.mid_screen {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 100%;
 }
 .row {
     display: flex;
@@ -12,18 +20,10 @@
     padding: 2vw 7vw;
     min-height: 100vh;
 }
-.col {
-    
-    flex-basis: 50%;
-    width: 50%;
-    padding: 0 2vw;
-    /* overflow: hidden; */
-}
-
 .card {
     width: 100%;
     background-color: #FFF;
-    padding: 2rem;
+    padding: 1rem 2rem;
     border-radius: 1rem;
     /* box-shadow: 5px 8px 6px rgba(0, 0, 0, 0.25); */
     /* filter: drop-shadow(5px 8px 6px rgba(0, 0, 0, 0.25)); */
@@ -43,7 +43,19 @@
     font-weight: 300;
     color: #1010EB;
 }
-
+@media only screen and (max-width: 860px)  {
+    .card {
+        padding: 1rem;
+    }
+    .card h1 {
+        text-align: center;
+        font-size: 1.1rem !important;
+        color: #1010EB;
+    }
+    .card_text {
+        font-size: .9rem;
+    }
+}
 .btn_area {
     text-align: right;
 }
@@ -52,7 +64,7 @@
     font-weight: bold;
     color: #FFF;
     padding: .3rem;
-    width: 10%;
+    /* width: 10%; */
     background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;
     /* box-shadow: 4px 20px 30px rgba(0, 0, 0, 0.5); */
     box-shadow: .2rem .2rem 1rem rgba(0, 0, 0, 0.3);

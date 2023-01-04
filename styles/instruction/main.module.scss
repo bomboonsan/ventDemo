@@ -104,3 +104,25 @@
     border-radius: 109px;
     border: 0;
 }
+
+@media only screen and (max-width: 860px)  {
+    .thumbnail_frame {
+        position: absolute;
+        bottom: -.5rem;
+        width: 20%;
+    }
+    .contenn_wrap {
+        aspect-ratio: 11/4;
+        padding: 2rem 2rem 2rem 6rem;
+        p {
+            color: blue;
+            font-size: 1.1rem;
+        }
+        li {
+            color: blue;
+        }
+        .text_lg {
+            font-size: 1.2rem;
+        }
+    }
+}

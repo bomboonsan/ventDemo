@@ -131,7 +131,8 @@ img {
 
 #brainInstall_container .moveable-control {
   top: 0rem;
-  background-image: url('../public/images/rotate_icon.png') !important;
+  /* background-image: url('../public/images/rotate_icon.png') !important; */
+  background-image: url('https://wish-integrate.com/vent-images/rotate_icon.png') !important;
   background-size: cover !important;
   height: 3rem !important;
   width: 3rem !important;

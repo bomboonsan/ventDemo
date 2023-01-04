@@ -45,7 +45,8 @@
 }
 .card_thumbnail img {
     display: block;
-    width: 60%;
+    /* width: 60%; */
+    width: 90%;
     margin: 5% auto;
 }
 .card_title {

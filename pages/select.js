@@ -23,12 +23,13 @@ export default function Select() {
             <div className={styles.card_thumbnail}>
               <Image
                     className={styles.bisitem}
-                    src="/images/doctor.png"
+                    // src="/images/doctor.png"
+                    src="/images/doctor-4.png"
                     alt="Women"
                     // layout="fill"
                     // objectFit="cover"
-                    width={460}
-                    height={810}
+                    width={600}
+                    height={600}
                 />
             </div>
             <div className={styles.card_title}>
@@ -45,12 +46,12 @@ export default function Select() {
             <div className={styles.card_thumbnail}>
               <Image
                     className={styles.bisitem}
-                    src="/images/nurse.png"
+                    src="/images/nurse-4.png"
                     alt="Women"
                     // layout="fill"
                     // objectFit="cover"
-                    width={460}
-                    height={810}
+                    width={600}
+                    height={600}
                 />
             </div>
             <div className={styles.card_title}>

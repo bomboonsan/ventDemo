@@ -60,9 +60,19 @@ export default function Intruction_1() {
                             </button>
                         </div>
                     </div>
-                    <div className={styles.col_image}>
+                    {/* <div className={styles.col_image}>
                         <Image
                             src="/images/hin.png"
+                            alt="Women"
+                            // layout="fill"
+                            // objectFit="cover"
+                            width={1279}
+                            height={1739}
+                        />
+                    </div> */}
+                    <div className={styles.col_image}>
+                        <Image
+                            src="/images/hin-ture.png"
                             alt="Women"
                             // layout="fill"
                             // objectFit="cover"

@@ -34,7 +34,7 @@ export default function BrainVideo() {
     const [playing, setPlaying] = useState(true);
     const [urlVideo, setUrlVideo] = useState(startVideo);
     const [isShowBtn, setIsShowBtn] = useState(true);    
-    const [videoStep, setVideoStep] = useState(0);    
+    const [videoStep, setVideoStep] = useState(0);
 
     useEffect(() => {
         document.querySelector('#actionBtn1')?.classList.add(styles['visible']);
@@ -96,9 +96,12 @@ export default function BrainVideo() {
         // }
         if ( videoStep == 4) {
             // router.push('/mainbrain')
-            document.exitFullscreen();
+            // document.exitFullscreen();
             // router.push('/brain/result/howto')
-            router.push('/mainbrain')
+            // router.push('/mainbrain')
+            setUrlVideo(startVideo);
+            // setIsShowBtn(true);
+            document.querySelector('#btn_finish')?.classList.add(styles['visible']);
         }
         setTimeout(function(){
             setUrlVideo(startVideo);
@@ -117,6 +120,9 @@ export default function BrainVideo() {
     }
     function getFullScreen() {
         document.documentElement.requestFullscreen();
+    }
+    function handleFinish() {
+        router.push('/mainbrain')
     }
     return (
         <FullScreen handle={handle}>
@@ -148,6 +154,11 @@ export default function BrainVideo() {
                 onClick={actionBtn4}
                 className={styles.video_btn4}>
                 </div>
+            </div>
+            <div id='btn_finish' className={styles.btn_group}>                
+                <button onClick={handleFinish}>
+                    FINISH
+                </button>
             </div>
             <div className={isShowBtn ? styles.show : styles.hidden}>
                 <Image

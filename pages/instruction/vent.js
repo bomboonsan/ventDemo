@@ -28,10 +28,10 @@ export default function Intruction_1() {
 
             <div className='container'>
                 <div className='row justify-content-center align-items-center min-h-screen'>
-                    <div className='col-11'>
+                    <div className='col-12 col-lg-11'>
                         <div className={styles.intruction_wrapper}>
                             <div className='row'>
-                                <div className='col-3'>
+                                <div className='col-3 col-lg-3'>
                                     <div className={styles.thumbnail_frame}>
                                         <Image
                                             src="/images/Capturec-ventfinal-learning.png"
@@ -43,7 +43,7 @@ export default function Intruction_1() {
                                         />
                                     </div>
                                 </div>
-                                <div className='col-9'>
+                                <div className='col-9 col-lg-9'>
                                     <div className={styles.content_container}>
                                         <div className={styles.contenn_wrap}>
                                             <h2>Instruction</h2>
