@@ -19,6 +19,8 @@ import Moveable from "react-moveable"; // preact-moveable
 // 
 // 
 
+// NEXT  สุดท้าย -> ข้อความ "กด Accept all เพื่อยืนยันการตั้งค่า โปรดตรวจสอบให้แน่ใจว่าคำตอบของท่านถูกต้อง"
+
 export default function VentTest() {
     const router = useRouter()
     const [btnSetupRecord, setBtnSetupRecord] = useState([]);
@@ -64,6 +66,9 @@ export default function VentTest() {
         // Var for Moveable
         setTarget(document.querySelector("#traget"));
         
+        // Hidden Previos : step = 0
+        const btnPrevios = document.querySelector("#btnPrevios")
+        btnPrevios?.classList.add(styles['hidden']);
 
     }, []);
 
@@ -181,19 +186,36 @@ export default function VentTest() {
         'ตั้งค่าให้ pressure support 10 cmH2O',
         'คนไข้มีภาวะของ Airway resistance ปรับ rise time เป็น 75%',
         'ตั้งค่า %O2 : 40',
-        'พบว่าคนไข้มีdelay cycling ปรับ Esens 50%'
+        'พบว่าคนไข้มีdelay cycling ปรับ Esens 50%',
+        'กด Accept All เพื่อยืนยันการตั้งค่า โปรดตรวจสอบให้แน่ใจว่าคำตอบของท่านถูกต้อง'
         // 'ปรับหน้าจอให้เป็น 3 Waveform'        
     ]
     const nextText = () => {
         if (footerTextStep+1 < listFooterText.length) {
             setFooterTextStep(footerTextStep+1);
             setFooterText(listFooterText[footerTextStep+1])
-        }        
+            // show Previos
+            const btnPrevios = document.querySelector("#btnPrevios")
+            btnPrevios.classList.remove(styles['hidden']);
+            if (footerTextStep+2 == listFooterText.length) {
+                // #hidden NEXT
+                const btnNext = document.querySelector("#btnNext")
+                btnNext.classList.add(styles['hidden']);
+            }
+        }
     }
     const previosText = () => {
         if (footerTextStep-1 >= 0) {
             setFooterTextStep(footerTextStep-1);
             setFooterText(listFooterText[footerTextStep-1])
+            const btnNext = document.querySelector("#btnNext")
+            btnNext.classList.remove(styles['hidden']);
+
+            if (footerTextStep-1 == 0) {
+                // hidden Previos
+                const btnPrevios = document.querySelector("#btnPrevios")
+                btnPrevios.classList.add(styles['hidden']);
+            }
         }
     }
 
@@ -990,7 +1012,7 @@ export default function VentTest() {
                         {footerText}
                     </p>
                     <div id='btnGroup' className={styles.btnGroup}>
-                        <button className={styles.btnItem} onClick={previosText}>
+                        <button id='btnPrevios' className={styles.btnItem} onClick={previosText}>
                             PREVIOUS 
                         </button>
                         <button id='btnNext' className={styles.btnItem} onClick={nextText}>

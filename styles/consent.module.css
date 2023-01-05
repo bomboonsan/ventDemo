@@ -76,8 +76,11 @@
 }
 
 .checkboxItem {
-    width: 50%;
-    /* height: 80%; */
+    /* width: 50%; */
+    width: 60%;
+    height: auto;
+    aspect-ratio: 1/1;
+    /* height: 60%; */
 }
 
 @media only screen and (max-width: 800px)  {
@@ -89,10 +92,17 @@
         font-size: 90%;
         height: 45vh;
     }
+    .checkboxItem {
+        /* width: 50%; */
+        width: 60%;
+        height: auto;
+        aspect-ratio: 1/1;
+        /* height: 60%; */
+    }
 }
 @media only screen and (max-width: 600px)  {
     .col {
         flex-basis: 100%;
         width: 100%;
-    }
+    }    
 }

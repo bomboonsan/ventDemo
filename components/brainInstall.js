@@ -171,7 +171,7 @@ export default function BrainInstall() {
         <div id="traget" className={styles.traget_item}>
             <Image
                 className={styles.bis_item}
-                src="/images/bis.png"
+                src="/images/bis2.png"
                 alt="BIS"
                 // layout="fill"
                 // objectFit="cover"

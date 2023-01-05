@@ -55,7 +55,7 @@ export default function Welcomepage() {
             <div className='row justify-content-center padding-top'>
               <div className='col-9'>
                 <Image
-                    src="/images/group2.png"
+                    src="/images/group3.png"
                     alt="group2"
                     // layout="fill"
                     // objectFit="cover"

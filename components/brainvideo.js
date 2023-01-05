@@ -164,7 +164,7 @@ export default function BrainVideo() {
                 <Image
                     className={styles.video_main_img}
                     // src="/video/button7_Moment.jpg"
-                    src="/video/video-main-menu.png"
+                    src="/video/video-main-menu2.png"
                     // src="/video/bgnew.jpg"
                     alt="VIDEO MENU"
                     // layout="fill"

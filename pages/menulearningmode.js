@@ -63,7 +63,7 @@ export default function Main_menu() {
             <div className={styles.card_thumbnail}>
               <Image
                     className={styles.bisitem}
-                    src="/images/case1-thumb2.png"
+                    src="/images/case1-thumb3.png"
                     alt="Ventilator"
                     // layout="fill"
                     // objectFit="cover"

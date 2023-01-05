@@ -29,7 +29,8 @@ export default function BrainSensor() {
     const [btnName, setBtnName] = useState(null);
 
     // video 
-    const videoInstall = '../video/brainVideo.mp4'
+    // const videoInstall = '../video/brainVideo.mp4'
+    const videoInstall = 'https://wish-integrate.com/vent-video/bismonitor.mp4'
     const [playing, setPlaying] = useState(false);
     const [urlVideo, setUrlVideo] = useState(videoInstall);
 
@@ -43,7 +44,7 @@ export default function BrainSensor() {
     }, [btnName]);
 
 
-    const [bg, setBg] = useState('/images/imageBrain4.png');
+    const [bg, setBg] = useState('/images/imageBrain6.png');
 
 
     const [statusCheck, setStatusCheck] = useState([]);
@@ -344,7 +345,7 @@ export default function BrainSensor() {
         // document.querySelector('#switchIcon').classList.add(styles['rotated']);
     }
     function switchTopView() {
-        setBg('/images/imageBrain4.png');
+        setBg('/images/imageBrain6.png');
         document.querySelector('#monitorArea').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_1_1').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_1_2').classList.remove(styles['hidden']);
@@ -431,7 +432,7 @@ export default function BrainSensor() {
     }
 
     function handleSwitch() {
-        if (bg == '/images/imageBrain4.png') {
+        if (bg == '/images/imageBrain6.png') {
             // setBtnName('Sensor Check')
 
             setBg('/images/SideView.png');
@@ -487,7 +488,7 @@ export default function BrainSensor() {
 
             document.querySelector('#switchIcon').classList.add(styles['rotated']);
         } else {
-            setBg('/images/imageBrain4.png');
+            setBg('/images/imageBrain6.png');
             document.querySelector('#monitorArea').classList.remove(styles['hidden']);
             document.querySelector('#touchArea_1_1').classList.remove(styles['hidden']);
             document.querySelector('#touchArea_1_2').classList.remove(styles['hidden']);
@@ -849,7 +850,7 @@ export default function BrainSensor() {
                     </div>
                     <div id='panel_99' className={styles.statusImage_panel99}>
                         <Image
-                            src='/images/brainMonitor99-panel.png'
+                            src='/images/brainMonitor99-panel2.png'
                             alt="BIS"
                             width={1905}
                             height={605}

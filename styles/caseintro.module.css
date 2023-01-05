@@ -43,6 +43,18 @@
     border-radius: 50%;
     overflow: hidden;
 }
+.case_thumbnail2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.case_thumbnail2 img {
+    display: block;
+    max-width: 80%;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #EBA7CA;
+}
 .case_name {
     font-size: 1.6rem;
     text-align: center;

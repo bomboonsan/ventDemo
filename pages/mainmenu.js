@@ -61,7 +61,7 @@ export default function menu3() {
             <div className={styles.card_thumbnail}>
               <Image
                     className={styles.bisitem}
-                    src="/images/BrainMonitoring-thumbnail-crop.png"
+                    src="/images/BrainMonitoring-thumbnail-crop-shadow.png"
                     alt="Ventilator"
                     // layout="fill"
                     // objectFit="cover"
