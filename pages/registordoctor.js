@@ -4,17 +4,17 @@ import 'bootstrap/dist/css/bootstrap.css'
 import styles from '../styles/registor.module.css'
 import Link from "next/link";
 import { useRouter } from 'next/router'
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 
 export default function Home() {
     const router = useRouter()
-    let [ firstName , setFirstName ] = useState();
-    let [ lastName , setLastName ] = useState();
+    let [ firstName , setFirstName ] = useState('');
+    let [ lastName , setLastName ] = useState('');
     let [ phoneNumber , setPhoneNumber ] = useState('');
     let [ email , setEmail ] = useState('');
     let [ speciallty , setSpeciallty ] = useState('');
     let [ hospital , setHospital ] = useState('');
-
+    
     // FN
     async  function toConsentPage() {
         // // console.log('hello');
@@ -47,8 +47,76 @@ export default function Home() {
         // }
         // });
 
-        router.push('/consent')
+        if (firstName != '') {
+            document.querySelector('#firstName').classList.remove(styles['border_red']);
+        } else {
+            document.querySelector('#firstName').classList.add(styles['border_red']);
+        }
+        if (lastName != '') {
+            document.querySelector('#lastName').classList.remove(styles['border_red']);
+        } else {
+            document.querySelector('#lastName').classList.add(styles['border_red']);
+        }
+        if (phoneNumber != '') {
+            document.querySelector('#phoneNumber').classList.remove(styles['border_red']);
+        } else {
+            document.querySelector('#phoneNumber').classList.add(styles['border_red']);
+        }
+        if (email != '') {
+            document.querySelector('#email').classList.remove(styles['border_red']);
+        } else {
+            document.querySelector('#email').classList.add(styles['border_red']);
+        }
+        if (hospital != '') {
+            document.querySelector('#hospital').classList.remove(styles['border_red']);
+        } else {
+            document.querySelector('#hospital').classList.add(styles['border_red']);
+        }
+
+        if ( firstName != '' && lastName != '' && phoneNumber != '' && email != '' && hospital != '' ) {
+            router.push('/consent')
+        }
     }
+
+    useEffect(() => {
+        // 
+        if (firstName != '') {
+            document.querySelector('#firstName').classList.remove(styles['border_red']);
+        } else {
+            document.querySelector('#firstName').classList.add(styles['border_red']);
+        }
+        if (lastName != '') {
+            document.querySelector('#lastName').classList.remove(styles['border_red']);
+        } else {
+            document.querySelector('#lastName').classList.add(styles['border_red']);
+        }
+        if (phoneNumber != '') {
+            document.querySelector('#phoneNumber').classList.remove(styles['border_red']);
+        } else {
+            document.querySelector('#phoneNumber').classList.add(styles['border_red']);
+        }
+        if (email != '') {
+            document.querySelector('#email').classList.remove(styles['border_red']);
+        } else {
+            document.querySelector('#email').classList.add(styles['border_red']);
+        }
+        if (hospital != '') {
+            document.querySelector('#hospital').classList.remove(styles['border_red']);
+        } else {
+            document.querySelector('#hospital').classList.add(styles['border_red']);
+        }
+    }, [firstName , lastName , phoneNumber , email , hospital]);
+
+    
+    useEffect(() => {
+        // 
+        document.querySelector('#firstName').classList.remove(styles['border_red']);
+        document.querySelector('#lastName').classList.remove(styles['border_red']);
+        document.querySelector('#phoneNumber').classList.remove(styles['border_red']);
+        document.querySelector('#email').classList.remove(styles['border_red']);
+        document.querySelector('#hospital').classList.remove(styles['border_red']);
+    }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -99,6 +167,7 @@ export default function Home() {
                     <div className='row mb-3'>
                         <div className='col-6'>
                             <input 
+                            id='firstName'
                             type="text" 
                             value={firstName}
                             name="firstName"
@@ -108,6 +177,7 @@ export default function Home() {
                         </div>
                         <div className='col-6'>
                             <input 
+                            id='lastName'
                             type="text" 
                             value={lastName}
                             name="lastName"
@@ -119,6 +189,7 @@ export default function Home() {
                     <div className='row mb-3'>
                         <div className='col-12'>
                             <input 
+                            id='phoneNumber'
                             type="text" 
                             value={phoneNumber}
                             name="phoneNumber"
@@ -130,6 +201,7 @@ export default function Home() {
                     <div className='row mb-3'>
                         <div className='col-12'>
                             <input 
+                            id='email'
                             type="text" 
                             value={email}
                             name="email"
@@ -153,6 +225,7 @@ export default function Home() {
                     <div className='row mb-5'>
                         <div className='col-12'>
                             <input 
+                            id='hospital'
                             type="text" 
                             value={hospital}
                             name="hospital"

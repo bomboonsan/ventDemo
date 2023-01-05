@@ -73,3 +73,9 @@
     border-radius: 109px;
     border: 0;
 }
+
+
+
+.border_red {
+    border: 1px solid red !important;
+}

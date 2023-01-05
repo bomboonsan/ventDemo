@@ -495,6 +495,17 @@
     z-index: 999;
     display: none;
 }
+.alertPopupSideview {
+    position: absolute;
+    // transform: translate(-50%, -50%);
+    right: 10%;
+    top: 10%;
+    width: 20%;
+    height: auto;
+    animation: popupSideview .5s;
+    z-index: 999;
+    display: none;
+}
 .popupArea {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -546,7 +557,18 @@
         opacity: 1;
     }
 }
-
+@keyframes popupSideview {
+    0% {
+        right: 10%;
+        top: 20%;
+        opacity: .1;
+    }
+    100% {
+        right: 10%;
+        top: 10%;
+        opacity: 1;
+    }
+}
 
 .btn_group {
     position: absolute;
@@ -627,6 +649,10 @@
 .showPopUp {
     display: block;
     animation: popup 1.5s;
+}
+.showPopUpSideview {
+    display: block;
+    animation: popupSideview 1.5s;
 }
 
 .show {

@@ -62,50 +62,50 @@ export default function VentInto() {
         
         'การใช้เครื่องช่วยหายใจผ่านท่อช่วยหายใจหรือการเจาะคอ',
         'การใช้เครื่องช่วยหายใจผ่านทางหน้ากากครอบจมูกและปาก',
-        'การใช้เครื่องเครื่องช่วยหายใจที่ควบคุมการให้ออกซิเจนอัตราการไหลสูง (High flow)',
-        'Assist – control ventilation คือ โหมดที่ผสมผสานระหว่าง assisted และ Control ventilation โดยผู้ป่วยสามารถช่วยกำหนดจุดเริ่มต้นของการหายใจเข้าได้เอง (assisted) ',
-        'Synchromized intermittent mandatory ventilation คือโหมดที่ผู้ป่วยหายใจเอง (Spontaneous ventilation) สลับกับการหายใจจากเครื่องตามที่ตั้งไว้ ',
-        'Spontaneous คือ โหมดที่ผู้ป่วยสามารถกำหนดอัตราการหายใจ Inspiration time และ VT ด้วยตัวเอง',
+        'การใช้เครื่องเครื่องช่วยหายใจที่ควบคุมการให้ออกซิเจนอัตราการไหลสูง (high flow)',
+        'Assist – control ventilation คือ โหมดที่ผสมผสานระหว่าง assisted และ control ventilation โดยผู้ป่วยสามารถช่วยกำหนดจุดเริ่มต้นของการหายใจเข้าได้เอง (assisted) ',
+        'Synchromized intermittent mandatory ventilation คือโหมดที่ผู้ป่วยหายใจเอง (spontaneous ventilation) สลับกับการหายใจจากเครื่องตามที่ตั้งไว้ ',
+        'Spontaneous คือ โหมดที่ผู้ป่วยสามารถกำหนดอัตราการหายใจ inspiration time และ VT ด้วยตัวเอง',
         'Bilevel ventilator คือโหมดที่สามารถหายใจบนแรงดันบวก 2 ระดับ ',
         'Continuous position airway pressure คือเครื่องอัดแรงดันอากาศผ่านทางจมูกหรือปากขณะหายใจเข้า เพื่อเปิดช่องทางเดินหายใจส่วนต้นให้กว้างขึ้น ',
         'Pressure control ',
-        'Volume control ',
+        'Volume control',
         'Volume control plus : Pressure control guarantee volume',
         'Pressure support ventilation ',
-        'Tube compensation ',
+        'Tube compensation',
         'Volume support ventilation',
         'Proportional assist ventilation',
         'Pressure - trigger ผู้ป่วย trigger เครื่องด้วยหลักการของ pressure',
         'Flow trigger ผู้ป่วย trigger เครื่องด้วยหลักการของ flow',
-        'IE synchrony software ',
+        'IE synchrony software',
         'Total respiratory rate :  อัตราการหายใจของผู้ป่วยทั้งหมด',
         'Inspiratory pressure : แรงดันอากาศหายใจเข้า',
         'Inspiratory time : ช่วงเวลาในการหายใจเข้า ',
         'Expiratory  time : ช่วงเวลาในการหายใจออก',
         'Flow  sensitivity : ค่าความไวในการ trigger เครื่องด้วยหลักการของ flow',
-        'Pressure  sensitivity  : ค่าความไวในการ trigger เครื่องด้วยหลักการของ pressure',
+        'Pressure  sensitivity : ค่าความไวในการ trigger เครื่องด้วยหลักการของ pressure',
         'Oxygen percentage : ความเข้มข้นของออกซิเจนในอากาศที่จ่ายให้ผู้ป่วย',
-        'set limitation of  high peak circuit pressure : ค่าขีดจำกัดความดันลมในสายเครื่องช่วยหายใจสูงสุดที่ต้องการกำหนด โดยจะเตือนเมื่อความดันในสายสูงเกินกำหนด ',
+        'Set limitation of  high peak circuit pressure : ค่าขีดจำกัดความดันลมในสายเครื่องช่วยหายใจสูงสุดที่ต้องการกำหนด โดยจะเตือนเมื่อความดันในสายสูงเกินกำหนด ',
         '%Rise time : การตั้งอัตราเร่งการไหลของลมขณะหายใจเข้า หน่วยเป็น %',
         'Positive end expiratory pressure : แรงดันบวกของอากาศหายใจที่ค้างอยู่ในปอดเมื่อสิ้นสุดการหายใจออก',
-        'Pressure  Support :แรงดันสนับสนุนเมื่อผู้ป่วยหายใจด้วย spontaneoue mode หรือ Spontaneouse breath ใน SIMV หน่วยเป็น cmH2O ',
-        'Expiratory sensitivity :ระดับความไวในการหายใจออก หน่วยเป็น % ',
+        'Pressure  Support : แรงดันสนับสนุนเมื่อผู้ป่วยหายใจด้วย spontaneoue mode หรือ spontaneouse breath ใน SIMV หน่วยเป็น cmH2O ',
+        'Expiratory sensitivity : ระดับความไวในการหายใจออก หน่วยเป็น % ',
         'Tidal volume : ปริมาตรของลมหายใจหนึ่งครั้ง',
-        'Peak inspiratory flow อัตราการไหลของอากาศหายใจเข้าสูงสุด',
+        'Peak inspiratory flow : อัตราการไหลของอากาศหายใจเข้าสูงสุด',
         'Plateau time : เวลาที่ตั้งให้ลมหายใจเข้าหยุดค้างในปอดก่อนหายใจออก ',
         'Ramp : flow pattern ramp : รูปแบบการไหลเวียนของอากาศ แบบ Ramp',
         'Squre : flow pattern square รูปแบบการไหลเวียนของอากาศ แบบ Squre',
-        'set limitation of  high inspire tidal volume  : ค่าขีดจำกัดขอปริมาตรอากาศลมหายใจเข้าสูงสุดหนึ่งครั้ง โดยจะเตือนเมื่อปริมาตรสูงกว่ากำหนด  ',
-        'High pressure (in bilevel)  ระดับความดันในช่วงหายใจเข้า ของโหมด bilevel ',
+        'Set limitation of  high inspire tidal volume : ค่าขีดจำกัดขอปริมาตรอากาศลมหายใจเข้าสูงสุดหนึ่งครั้ง โดยจะเตือนเมื่อปริมาตรสูงกว่ากำหนด  ',
+        'High pressure (in bilevel) : ระดับความดันในช่วงหายใจเข้า ของโหมด bilevel ',
         'Low pressure (in bilevel) : ระดับความดันในช่วงหายใจออก ของโหมด bilevel ',
         'High time (in bilevel) : ช่วงเวลา หน่วยเป็นวินาที เพื่อกำหนดระยะเวลาของ high pressure (inspiratory) โหมด bilevel ',
-        'Low time (in bilevel) :ช่วงเวลา หน่วยเป็นวินาที เพื่อกำหนดระยะเวลาของ low pressure (expiratory)โหมด bilevel ',
+        'Low time (in bilevel) : ช่วงเวลา หน่วยเป็นวินาที เพื่อกำหนดระยะเวลาของ low pressure (expiratory)โหมด bilevel ',
         'Precent support มีเฉพาะในโหมด PAV+ และ TC ',
         'ขนาดไซส์ของท่อช่วยหายใจ ใช้สำหรับ โหมด PAV+ และ TC ',
         'ชนิดของท่อช่วยหายใจ ใช้สำหรับ โหมด PAV+ และ TC ',
         'Inspiratory  ระดับความไวในช่วง (-2 ถึง 2) ในการช่วยให้คนไข้กระตุ้นเครื่องช่วยหายใจเวลาหายใจเข้า ',
         'Expiratiory ระดับความไวในช่วง (-2 ถึง 2) ในการช่วยให้คนไข้กระตุ้นเครื่องช่วยหายใจเวลาหายใจออก',
-        'Constant flow ในโหมด high flow Oxygentherapy คือการตั้งอัตราการไหลของอากาศในขณะที่ต้องการใช้ high flow therapy ',
+        'Constant flow ในโหมด high flow oxygentherapy : คือการตั้งอัตราการไหลของอากาศในขณะที่ต้องการใช้ high flow therapy ',
     ]
     const handlePreviosStep = () => {
         if (stepCount-1 >= 0) {
@@ -116,7 +116,6 @@ export default function VentInto() {
             activeBtn(stepCount-1);
         }
         console.log(stepCount)
-        
     }
     function handleNextStep(stepCount) {
         let stepCountNew = stepCount+1;
@@ -149,7 +148,9 @@ export default function VentInto() {
         btnID = btnID.replace('btn','')
 
         document.querySelector('#introductionBox').classList.remove(styles['hidden']);
-        document.querySelector('#btnGroup').classList.add(styles['invisible']);
+        document.querySelector('#btnNext').classList.add(styles['hidden']);
+        document.querySelector('#btnPrevious').classList.add(styles['hidden']);
+        document.querySelector('#btnFinish').classList.add(styles['showbtn']);
         document.querySelector('#table_btngroup').classList.remove(styles['invisible']);
         document.querySelector('#table_btnsetting').classList.remove(styles['invisible']);
         setIntroductionText(listInstructionText[btnID-1])
@@ -157,6 +158,10 @@ export default function VentInto() {
         setStepCount(btnID);
         removeActiveBtn(stepCount);
         activeBtn(btnID);
+    }
+
+    const handleFinish = () => {
+        router.push('/menulearningmode')
     }
 
     return (
@@ -986,7 +991,10 @@ export default function VentInto() {
                         {introductionText}      
                     </p>
                     <div id='btnGroup' className={styles.btnGroup}>
-                        <button className={styles.btnItem} onClick={handlePreviosStep}>
+                        <button id='btnFinish' className={styles.btnItem_finish} onClick={handleFinish}>
+                            FINISH 
+                        </button>
+                        <button id='btnPrevious' className={styles.btnItem} onClick={handlePreviosStep}>
                             PREVIOUS 
                         </button>
                         <button id='btnNext' className={styles.btnItem} onClick={() => handleNextStep(stepCount)}>

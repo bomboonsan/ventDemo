@@ -62,7 +62,7 @@ export default function BrainSensor() {
         setVarImage('/images/BrainMonitoring-item2.png')
     }
 
-    const popUpStart = () => {
+    function popUpStart() {
         document.querySelector('#popupContent').classList.add(styles['hidden']);
         // document.documentElement.requestFullscreen();
     }
@@ -78,6 +78,8 @@ export default function BrainSensor() {
         // setStatus1('/images/BrainMonitoring-item-1red.png')
         if (status1 == '/images/BrainMonitoring-item-1red.png') {
             setStatus2('/images/BrainMonitoring-item-1green.png')
+        } else if (status1 == '/images/BrainMonitoring-item-1green.png') {
+            showAler3()
         } else {
             setAlertText('ระวัง! การติดเซนเซอร์ควรเริ่มจากกดบริเวณโดยรอบของอิเล็กโทรดเท่านั้นเพื่อให้กาวของเซนเซอร์ยึดติดกับผิวของคนไข้ การกดบริเวณอิเล็กโทรดโดยตรงตั้งแต่เริ่มต้นจะทำให้เจลนำสัญญากระจายออกมาที่บริเวณกาว ทำให้เซนเซอร์ลื่นและไม่ยึดติดกับผิวของคนไข้ทำให้การรับสัญญาณไม่มีประสิทธิภาพ')
             showALert()
@@ -99,9 +101,16 @@ export default function BrainSensor() {
         // setStatus3('/images/BrainMonitoring-item-3red.png')
         if (status3 == '/images/BrainMonitoring-item-3red.png') {
             setStatus2('/images/BrainMonitoring-item-3green.png')
+        } else if (status3 == '/images/BrainMonitoring-item-3green.png') {            
+            showAler3()
         } else {
-            setAlertText('ระวัง! การติดเซนเซอร์ควรเริ่มจากกดบริเวณโดยรอบของอิเล็กโทรดเท่านั้นเพื่อให้กาวของเซนเซอร์ยึดติดกับผิวของคนไข้ การกดบริเวณอิเล็กโทรดโดยตรงตั้งแต่เริ่มต้นจะทำให้เจลนำสัญญากระจายออกมาที่บริเวณกาว ทำให้เซนเซอร์ลื่นและไม่ยึดติดกับผิวของคนไข้ทำให้การรับสัญญาณไม่มีประสิทธิภาพ')
-            showALert()
+            if (statusCheck.includes('1_1') && statusCheck.includes('1_2') && statusCheck.includes('1_3') && statusCheck.includes('1_4') && statusCheck.includes('2_1') && statusCheck.includes('2_2') && statusCheck.includes('4_1') && statusCheck.includes('4_2') && statusCheck.includes('4_3') && statusCheck.includes('4_4')) {
+                setAlertText('ระวัง! การติดเซนเซอร์ควรเริ่มจากกดบริเวณโดยรอบของอิเล็กโทรดเท่านั้นเพื่อให้กาวของเซนเซอร์ยึดติดกับผิวของคนไข้ การกดบริเวณอิเล็กโทรดโดยตรงตั้งแต่เริ่มต้นจะทำให้เจลนำสัญญากระจายออกมาที่บริเวณกาว ทำให้เซนเซอร์ลื่นและไม่ยึดติดกับผิวของคนไข้ทำให้การรับสัญญาณไม่มีประสิทธิภาพ')
+                showAlertsideview()
+            } else {
+                setAlertText('ระวัง! การติดเซนเซอร์ควรเริ่มจากกดบริเวณโดยรอบของอิเล็กโทรดเท่านั้นเพื่อให้กาวของเซนเซอร์ยึดติดกับผิวของคนไข้ การกดบริเวณอิเล็กโทรดโดยตรงตั้งแต่เริ่มต้นจะทำให้เจลนำสัญญากระจายออกมาที่บริเวณกาว ทำให้เซนเซอร์ลื่นและไม่ยึดติดกับผิวของคนไข้ทำให้การรับสัญญาณไม่มีประสิทธิภาพ')
+                showALert()
+            }            
         }
     }
     const number4Fail = () => {
@@ -232,7 +241,7 @@ export default function BrainSensor() {
         } 
         if (btnName == 'Next') {
             // router.push('/brain/result/sensor')
-            router.push('/mainbrain')
+            router.push('/mainmenu')
         }
         if (btnName == 'Sensor Check') {
             showVideo()
@@ -545,13 +554,8 @@ export default function BrainSensor() {
     function showVideo() {
         setPlaying(true);        
         document.querySelector('#videoWrap').classList.add(styles['showVideo']);
-    }
 
-    function reset() {
-        document.querySelector('#videoWrap').classList.remove(styles['showVideo']);
-        setBtnName('Confirm');
-        showAler2()
-
+        // ป้องกันการหน่วงเวลาโหลด
         setBg('/images/imageBrain3.png');
         document.querySelector('#monitorArea').classList.remove(styles['hidden']);
         document.querySelector('#touchArea_1_1').classList.remove(styles['hidden']);
@@ -603,9 +607,69 @@ export default function BrainSensor() {
         setStatus4('/images/BrainMonitoring-item-4red.png')
     }
 
+    function reset() {       
+
+        setBg('/images/imageBrain3.png');
+        document.querySelector('#monitorArea').classList.remove(styles['hidden']);
+        document.querySelector('#touchArea_1_1').classList.remove(styles['hidden']);
+        document.querySelector('#touchArea_1_2').classList.remove(styles['hidden']);
+        document.querySelector('#touchArea_1_3').classList.remove(styles['hidden']);
+        document.querySelector('#touchArea_1_4').classList.remove(styles['hidden']);
+        document.querySelector('#touchArea_2_1').classList.remove(styles['hidden']);
+        document.querySelector('#touchArea_2_2').classList.remove(styles['hidden']);
+        // document.querySelector('#touchArea_2_3').classList.remove(styles['hidden']);
+        // document.querySelector('#touchArea_2_4').classList.remove(styles['hidden']);
+        document.querySelector('#touchArea_3_1').classList.remove(styles['hidden']);
+        document.querySelector('#touchArea_3_2').classList.remove(styles['hidden']);
+        document.querySelector('#touchArea_4_1').classList.remove(styles['hidden']);
+        document.querySelector('#touchArea_4_2').classList.remove(styles['hidden']);
+        document.querySelector('#touchArea_4_3').classList.remove(styles['hidden']);
+        document.querySelector('#touchArea_4_4').classList.remove(styles['hidden']);
+
+        document.querySelector('#line1_1').classList.remove(styles['fhidden']);
+        document.querySelector('#line1_2').classList.remove(styles['fhidden']);
+        document.querySelector('#line1_3').classList.remove(styles['fhidden']);
+        document.querySelector('#line1_4').classList.remove(styles['fhidden']);
+        document.querySelector('#line2_1').classList.remove(styles['fhidden']);
+        document.querySelector('#line2_2').classList.remove(styles['fhidden']);
+        document.querySelector('#line4_1').classList.remove(styles['fhidden']);
+        document.querySelector('#line4_2').classList.remove(styles['fhidden']);
+        document.querySelector('#line4_3').classList.remove(styles['fhidden']);
+        document.querySelector('#line4_4').classList.remove(styles['fhidden']);
+
+        document.querySelector('#line3_1').classList.add(styles['fhidden']);
+        document.querySelector('#line3_2').classList.add(styles['fhidden']);
+        document.querySelector('#line3_3').classList.add(styles['fhidden']);
+        document.querySelector('#line3_4').classList.add(styles['fhidden']);
+
+        document.querySelector('#noTouchArea_1').classList.remove(styles['hidden']);
+        document.querySelector('#noTouchArea_2').classList.remove(styles['hidden']);
+        document.querySelector('#noTouchArea_3').classList.remove(styles['hidden']);
+        document.querySelector('#noTouchArea_4').classList.remove(styles['hidden']);
+
+        document.querySelector('#touchArea_3_1_side').classList.remove(styles['show']);
+        document.querySelector('#touchArea_3_2_side').classList.remove(styles['show']);
+        document.querySelector('#touchArea_3_3_side').classList.remove(styles['show']);
+        document.querySelector('#touchArea_3_4_side').classList.remove(styles['show']);
+
+        document.querySelector('#noTouchArea_3_side').classList.remove(styles['show']);
+
+        setStatus1('/images/BrainMonitoring-item-1green.png')
+        setStatus2('/images/BrainMonitoring-item-2red.png')
+        setStatus3('/images/BrainMonitoring-item-3green.png')
+        setStatus4('/images/BrainMonitoring-item-4red.png')
+
+
+        document.querySelector('#videoWrap').classList.remove(styles['showVideo']);
+        setBtnName('Confirm');
+        showAler2()
+    }
+
     // Alert
 
     function showALert() {
+        // ปิด popup เริ่มต้น
+        popUpStart()
         // if (alertText == null) {
         //     document.querySelector('#alertPopup').classList.remove(styles['showPopUp']);
         // } else {
@@ -623,6 +687,20 @@ export default function BrainSensor() {
     }
     function closeAlert2() {
         document.querySelector('#alertPopup2').classList.remove(styles['showPopUp']);
+    }
+    function showAler3() {
+        document.querySelector('#alertPopup3').classList.add(styles['showPopUp']);
+        // setBtnName('Sensor Check')
+    }
+    function closeAlert3() {
+        document.querySelector('#alertPopup3').classList.remove(styles['showPopUp']);
+    }
+    function showAlertsideview() {
+        document.querySelector('#alertPopupsideview').classList.add(styles['showPopUpSideview']);
+        // setBtnName('Sensor Check')
+    }
+    function closeAlertsidview() {
+        document.querySelector('#alertPopupsideview').classList.remove(styles['showPopUpSideview']);
     }
 
     return (
@@ -936,6 +1014,30 @@ export default function BrainSensor() {
                     </p>
                     <div className={styles.popUpbtnStart}>
                         <button onClick={closeAlert2}>
+                            Got it
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id='alertPopupsideview' className={styles.alertPopupSideview}>
+                <div className={styles.popup_wrap}>
+                    <p>
+                    {alertText}
+                    </p>
+                    <div className={styles.popUpbtnStart}>
+                        <button onClick={closeAlertsidview}>
+                            Got it
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id='alertPopup3' className={styles.alertPopup}>
+                <div className={styles.popup_wrap}>
+                    <p>
+                    เซนเซอร์ตัวนี้ สามารถรับสัญญาณได้อย่างมีประสิทธิภาพแล้ว กรุณาตรวจสอบเซนเซอร์ตัวอื่น
+                    </p>
+                    <div className={styles.popUpbtnStart}>
+                        <button onClick={closeAlert3}>
                             Got it
                         </button>
                     </div>

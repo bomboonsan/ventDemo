@@ -1,7 +1,8 @@
 
 .container {
     /* padding: 0 2rem; */
-    background-image: url('../public/images/bg1.png');
+    /* background-image: url('../public/images/bg1.png'); */
+    background-image: url('../public/images/bg-icu2.png');
     background-size: cover;
     min-height: 100vh;
     position: relative;

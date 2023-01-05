@@ -1,6 +1,7 @@
 .container {
     /* padding: 0 2rem; */
-    background-image: url('../public/images/bg3.png');
+    /* background-image: url('../public/images/bg3.png'); */
+    background-image: url('../public/images/bg-icu2.png');
     background-size: cover;
     min-height: 100vh;
 }
@@ -105,4 +106,10 @@
         flex-basis: 100%;
         width: 100%;
     }    
+}
+.alert_text {
+    display: none;
+}
+.show_alert_text {
+    display: block;
 }

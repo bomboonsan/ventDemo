@@ -20,6 +20,8 @@ export default function Consent() {
         } else {
             const endElement = document.getElementById("checkbox2");
             endElement.scrollIntoView({ behavior: 'smooth'});
+
+            document.getElementById("alert_text").classList.add(styles['show_alert_text']);
         }
     }
     return (
@@ -125,6 +127,11 @@ export default function Consent() {
                                 id="checkbox4" name="checkbox4" value="checkbox4" />
                             </div>                          
                         </div>
+                    </div>
+                    <div id='alert_text' className={styles.alert_text}>
+                        <p className='text-center text-danger'>
+                        กรุณาเลือกแสดงความยินยอมในกล่องสี่เหลี่ยมทุกข้อก่อนตกลง
+                        </p>
                     </div>
                     <div className={styles.btn_area}>
                         <button 
