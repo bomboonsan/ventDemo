@@ -10,6 +10,8 @@ export default function VentInto() {
     const [introductionText, setIntroductionText] = useState();
     const [stepCount, setStepCount] = useState(1);
 
+    const [fontSize, setFontSize] = useState(100);
+
     useEffect(() => {
         let btn1 = document.querySelector('#btn1');
         let btn2 = document.querySelector('#btn2');
@@ -171,8 +173,20 @@ export default function VentInto() {
                     <h2>New Patient Setup</h2>
                     <h3>Vent startup in progress</h3>
                 </div>
+                <div className={styles.font_control}>
+                    <div className={styles.font_control_wrap}>
+                        <button onClick={() => setFontSize(fontSize - 3)}>
+                            -
+                        </button>
+                        <button onClick={() => setFontSize(fontSize + 3)}>
+                            +
+                        </button>
+                    </div>
+                </div>
             </header>
-            <main className={styles.main}>
+            <main className={styles.main} style={{
+                fontSize: `${fontSize}%`
+            }}>
                 <div className={styles.VentSetup}>
                     <section className={styles.sidebar}>
                         <div className={styles.sideLogo}>

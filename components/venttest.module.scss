@@ -1,3 +1,6 @@
+$fontTD: 80%;
+$fontBtn: 90%; // .4rem
+$fontBtnNumber: 150%; // 1rem
 // @font-face {
 // 	font-family: Viking;
 // 	font-style:  normal;
@@ -29,7 +32,27 @@
     border-radius: 1rem;
 }
 
+.font_control {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 99;
+}
+.font_control_wrap {    
+    button {
+        background: #ffffff;
+        font-weight: bolder;
+        color: #283E4F;
+        border: 0;
+        margin-inline: 5px;
+        line-height: 1.5rem;
+        font-size: 1.5rem;
+        border-radius: 50%;
+    }
+}
+
 .panel_top {
+    position: relative;
     aspect-ratio: 1024 / 108;
     background-image: url('../public/vent/panel-top.png');
     background-size: cover;
@@ -198,7 +221,7 @@
             font-family: Viking, Georgia, serif;
             flex-basis: 100%;
             width: 100%;
-            font-size: .4rem;
+            font-size: $fontBtn;
         }
         .btnsLineBot {
             flex-basis: 100%;
@@ -240,7 +263,7 @@
             font-family: Viking, Georgia, serif;
             flex-basis: 100%;
             width: 100%;
-            font-size: .4rem;
+            font-size: $fontBtn;
         }
         .btnsLineBot {
             flex-basis: 100%;
@@ -286,7 +309,7 @@
     overflow: hidden;
     // opacity: 0;
     td {
-        font-size: 50%;
+        font-size: $fontTD;
     }
     .td_title {
         width: 37%;
@@ -326,7 +349,7 @@
     // opacity: 0;
     td {
         width: 12.5%;
-        font-size: 50%;
+        font-size: $fontTD;
     }
     .btn_setting {
         width: 100%;
@@ -345,7 +368,7 @@
             font-family: Viking, Georgia, serif;
             padding-top: .4rem;
             text-align: center;
-            font-size: .4rem;
+            font-size: $fontBtn;
             height: 1.4rem;
             sub {
                 font-size: .3rem;
@@ -371,7 +394,7 @@
         .btnsLineBot {
             padding-bottom: .4rem;
             text-align: center;
-            font-size: .4rem;
+            font-size: $fontBtn;
         }
     }
     .btn_setting_up_active {
@@ -391,7 +414,7 @@
             font-family: Viking, Georgia, serif;
             padding-top: .4rem;
             text-align: center;
-            font-size: .4rem;
+            font-size: $fontBtn;
             height: 1.4rem;
             sub {
                 font-size: .3rem;
@@ -406,7 +429,7 @@
         .btnsLineBot {
             padding-bottom: .4rem;
             text-align: center;
-            font-size: .4rem;
+            font-size: $fontBtn;
         }
     }
 }

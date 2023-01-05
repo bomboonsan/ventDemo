@@ -44,6 +44,8 @@ export default function VentTest() {
         rotate: 1,
         transformOrigin: "50% 50%",
     });
+
+    const [fontSize, setFontSize] = useState(100);
     
 
     // Var Control
@@ -499,8 +501,20 @@ export default function VentTest() {
                     <h2>New Patient Setup</h2>
                     <h3>Vent startup in progress</h3>
                 </div>
+                <div className={styles.font_control}>
+                    <div className={styles.font_control_wrap}>
+                        <button onClick={() => setFontSize(fontSize - 3)}>
+                            -
+                        </button>
+                        <button onClick={() => setFontSize(fontSize + 3)}>
+                            +
+                        </button>
+                    </div>
+                </div>
             </header>
-            <main id='main' className={styles.main}>
+            <main className={styles.main} style={{
+                fontSize: `${fontSize}%`
+            }}>
                 <div className={styles.VentSetup}>
                     <section className={styles.sidebar}>
                         <div className={styles.sideLogo}>
