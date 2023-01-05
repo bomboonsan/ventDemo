@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import 'bootstrap/dist/css/bootstrap.css'
 // import styles from '../styles/mainmenu2.module.css'
-import styles from '../styles/mainmenu.module.css'
+import styles from '../styles/mainmenu-dev.module.scss'
 import Link from "next/link";
 // import { useRouter } from 'next/router'
 
@@ -58,7 +58,7 @@ export default function Main_menu() {
           </div>
         </div>
         <div className={styles.col_item}>
-          <div className={styles.card}>
+          <div className={styles.card2}>
             <Link href="/case/vent"> 
             <div className={styles.card_thumbnail}>
               <Image
@@ -71,7 +71,7 @@ export default function Main_menu() {
                     height={508}
                 />
             </div>
-            <div className={styles.card_title}>
+            <div className={styles.card_title2}>
               <p>
               Case scenario set up
               </p>
