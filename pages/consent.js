@@ -81,11 +81,11 @@ export default function Consent() {
                         <p>
                         ในฐานะที่เป็นส่วนหนึ่งของกลุ่มบริษัทข้ามชาติ เราอาจเปิดเผยข้อมูลของท่านแก่บริษัทหรือฐานข้อมูลของ Medtronic ในต่างประเทศ แต่เราจะตรวจสอบให้แน่ใจว่าการใช้และการเปิดเผยข้อมูลส่วนบุคคลที่ถ่ายโอนจะได้รับการจัดการตามนโยบายนี้และการป้องกันภายใต้กฎหมายที่บังคับใช้
                         </p>
-                        <div className='row mb-4 pt-4'>
-                            <div className='col-8 col-lg-10'>
+                        <div className='row g-1 mb-4 pt-4'>
+                            <div className='col-9 col-lg-11'>
                                 <label for="checkbox1"> ข้าพเจ้าได้อ่านข้อมูลข้างต้นแล้วและเข้าใจว่าเหตุใดข้อมูลของข้าพเจ้าจึงถูกรวบรวมโดย Medtronic</label>
                             </div>
-                            <div className='col-4 col-lg-2 text-end'>
+                            <div className='col-3 col-lg-1 text-end'>
                                 <input className={styles.checkboxItem} type="checkbox" 
                                 defaultChecked={check1}
                                 onChange={() => setCheck1(!check1)}
@@ -94,33 +94,33 @@ export default function Consent() {
                                 value="checkbox1" />
                             </div>                          
                         </div>
-                        <div className='row mb-4'>
-                            <div className='col-8 col-lg-10'>
+                        <div className='row g-1 mb-4'>
+                            <div className='col-9 col-lg-11'>
                                 <label for="checkbox2"> ข้าพเจ้าเข้าใจว่าข้าพเจ้าไม่จำเป็นต้องให้ข้อมูลใด ๆ ที่ร้องขอจากข้าพเจ้า แต่การไม่ทำเช่นนั้นจะทำให้ได้รับการสนับสนุนทางเทคนิคจาก Medtronic ลดลง</label>
                             </div>
-                            <div className='col-4 col-lg-2 text-end'>
+                            <div className='col-3 col-lg-1 text-end'>
                                 <input className={styles.checkboxItem} type="checkbox" 
                                 defaultChecked={check2}
                                 onChange={() => setCheck2(!check2)}
                                 id="checkbox2" name="checkbox2" value="checkbox2" />
                             </div>                          
                         </div>
-                        <div className='row mb-4'>
-                            <div className='col-8 col-lg-10'>
+                        <div className='row g-1 mb-4'>
+                            <div className='col-9 col-lg-11'>
                                 <label for="checkbox3"> ข้าพเจ้ารับทราบถึงสิทธิ์ของข้าพเจ้าในการเข้าถึงข้อมูลที่รวบรวมเกี่ยวกับตัวข้าพเจ้า ยกเว้นในบางกรณีที่การเข้าถึงอาจถูกระงับโดยชอบด้วยกฎหมาย (โดยที่ข้าพเจ้าจะได้รับคำอธิบายในสถานการณ์เหล่านี้)</label>
                             </div>
-                            <div className='col-4 col-lg-2 text-end'>
+                            <div className='col-3 col-lg-1 text-end'>
                                 <input className={styles.checkboxItem} type="checkbox" 
                                 defaultChecked={check3}
                                 onChange={() => setCheck3(!check3)}
                                 id="checkbox3" name="checkbox3" value="checkbox3" />
                             </div>                          
                         </div>
-                        <div className='row'>
-                            <div className='col-8 col-lg-10'>
+                        <div className='row g-1'>
+                            <div className='col-9 col-lg-11'>
                                 <label for="checkbox4"> ข้าพเจ้ายินยอมให้ Medtronic จัดการข้อมูลของข้าพเจ้าตามวัตถุประสงค์ที่กำหนดไว้ข้างต้น</label>
                             </div>
-                            <div className='col-4 col-lg-2 text-end'>
+                            <div className='col-3 col-lg-1 text-end'>
                                 <input className={styles.checkboxItem} type="checkbox" 
                                 defaultChecked={check4}
                                 onChange={() => setCheck4(!check4)}

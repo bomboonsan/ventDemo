@@ -1,8 +1,21 @@
-
+.welcomebg {
+    position: relative;
+}
+.nextbtn {
+    content: '';
+    position: absolute;
+    transform: translate(-50% , -50%);
+    top: 36%;
+    right: 10%;
+    width: 4%;
+    height: 3%;
+    /* background-color: black; */
+    cursor: pointer;
+}
 .container {
     /* padding: 0 2rem; */
     /* background-image: url('../public/images/bg1.png'); */
-    background-image: url('../public/images/bg-icu2.png');
+    /* background-image: url('../public/images/bg-icu2.png'); */
     background-size: cover;
     min-height: 100vh;
     position: relative;
