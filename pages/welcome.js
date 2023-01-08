@@ -33,7 +33,7 @@ export default function Welcomepage() {
         <div className={styles.mid_screen}>
           <div className={styles.welcomebg}>
           <Image
-                src="/images/bg-welcome.png"
+                src="/images/bg-welcome-3.png"
                 alt="welcome"
                 // layout="fill"
                 // objectFit="cover"
