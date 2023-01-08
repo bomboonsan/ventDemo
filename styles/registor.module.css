@@ -1,7 +1,8 @@
 .container {
     position: relative;
     /* padding: 0 2rem; */
-    background-image: url('../public/images/bg2.png');
+    /* background-image: url('../public/images/bg2-2.png'); */
+    background-image: url('https://wish-integrate.com/vent-images/bg2-2.png');
     background-size: cover;
     min-height: 100vh;
 }
