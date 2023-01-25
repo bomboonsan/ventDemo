@@ -441,7 +441,7 @@ export default function VentTest() {
         if ( Number(varBtnSetting[3]).toFixed(0) == 10 && Number(varBtnSetting[4]).toFixed(0) == 5 && Number(varBtnSetting[5]).toFixed(0) == 40 & Number(varBtnSetting[6]).toFixed(0) == 40 & Number(varBtnSetting[8]).toFixed(0) == 75 & Number(varBtnSetting[12]).toFixed(0) == 50 & Number(varBtnSetting[13]).toFixed(0) == 5 ) {
             console.log('succecfully')
             setPlaying(true)
-            document.querySelector('#main')?.classList.add(styles['hidden']);
+            document.querySelector('#main')?.classList.add(styles['hidden_force']);
             document.querySelector('#video')?.classList.add(styles['showVideo']);
             // router.push('/vent/finish')
             setFooterText('ปรับหน้าจอให้เป็น 3 Waveform')
@@ -512,7 +512,7 @@ export default function VentTest() {
                     </div>
                 </div>
             </header>
-            <main className={styles.main} style={{
+            <main id='main' className={styles.main} style={{
                 fontSize: `${fontSize}%`
             }}>
                 <div className={styles.VentSetup}>

@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export default function Intruction_1() {
     const router = useRouter()
-    const [textHint, setTextHint] = useState('การให้ยาระงับความรู้สึก (Anesthesia) ต่อคนไข้ จะส่งผลต่อการเปลี่ยนแปลงลักษณะของคลื่นไฟฟ้าสมอง (EEG: Electroencephalogram) ซึ่งการใช้ยาระงับความรูสึกในคนไข้ภาวะวิกฤตใน ICU เป็นไปเพื่อให้คนไข้มีระดับความรู้สึกที่เหมาะสมต่อวิธีการรักษาและสอดคล้องกับอุปกรณ์ทางการแพทย์ที่ใช้กับคนไข้เพื่อทำการพยุงชีพและฟื้นฟูสุขภาพ');
+    const [textHint, setTextHint] = useState('การให้ยาระงับความรู้สึก (Sedation) ต่อคนไข้ จะส่งผลต่อการเปลี่ยนแปลงลักษณะของคลื่นไฟฟ้าสมอง (EEG: Electroencephalogram) ซึ่งการใช้ยาระงับความรูสึกในคนไข้ภาวะวิกฤตใน ICU เป็นไปเพื่อให้คนไข้มีระดับความรู้สึกที่เหมาะสมต่อวิธีการรักษาและสอดคล้องกับอุปกรณ์ทางการแพทย์ที่ใช้กับคนไข้เพื่อทำการพยุงชีพและฟื้นฟูสุขภาพ');
     const [stepCount, setStepCount] = useState(0);
     function nextStep() {
         if ( stepCount+1 < 3 ) {

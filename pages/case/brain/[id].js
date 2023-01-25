@@ -118,7 +118,7 @@ export default function CaseMonitor() {
                                 {/* Physical Examination:<br/> */}
                                 <br/>
                                 <strong>Physical Examination:</strong><br/>
-                                BP 180/100 mmHG<br/>
+                                BP 180/100 mmHg<br/>
                                 HR 130 /min<br/>
                                 RASS -5<br/>
                                 No Hx HT<br/>

@@ -275,8 +275,8 @@ export default function VentInto() {
                                 </div>
                                 <div className={styles.heightBox}>
                                     <div id='btn2' className={styles.btn_setting_up} onClick={handleShowIntroduction}>
-                                        <div className={styles.btnsLineMid}>50</div>
-                                        <div className={styles.btnsLineTop}>kg</div>
+                                        <div className={styles.btnsLineMid}>150</div>
+                                        <div className={styles.btnsLineTop}>cm</div>
                                         <div className={styles.btnsLineBot}>(110)</div>
                                     </div>
                                 </div>
@@ -324,7 +324,7 @@ export default function VentInto() {
                                             </td>
                                             <td>
                                                 <div id='btn9' className={styles.setupbtn} onClick={handleShowIntroduction}>
-                                                    <span>SPOINT</span>
+                                                    <span>SPONT</span>
                                                 </div>
                                             </td>
                                             <td>
