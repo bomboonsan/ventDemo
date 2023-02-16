@@ -4,25 +4,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 import styles from '../../styles/instruction/main.module.scss'
 import Link from "next/link";
 import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react';
 
 export default function Intruction_1() {
     const router = useRouter()
-    const [instructionStep, setInstructionStep] = useState(1);
-    const [instructionText, setInstructionText] = useState('ในหัวข้อนี้ ท่านจะสามารถทำความรู้จักความหมายของพารามิเตอร์ และปุ่มต่างๆของเครื่องช่วยหายใจ ในส่วนของ Setup Vent และ Setup Apnea เท่านั้น');
-    const handleClick = () => {
-        console.log('click')
-        setInstructionStep(instructionStep+1)
-        if (instructionStep == 1) {
-            setInstructionText('คำอธิบายต่างๆจะแสดงบริเวณด้านล่างของหน้าต่าง Set up ท่านสามารถดูคำอธิบายไปตามลำดับ โดยกดปุ่ม NEXT ย้อนกลับได้โดยกดปุ่ม Previous หากท่านต้องการทราบคำอธิบายของพารามิเตอร์หรือปุ่ม ท่านสามารถกดไปที่ค่าต่างๆได้โดยตรง')
-        }
-        if (instructionStep == 2) {
-            setInstructionText('หมายเหตุ: โปรแกรมนี้ออกแบบมาเพื่อให้ท่านได้เห็นทุกพารามิเตอร์และปุ่ม ดังนั้นโปรแกรมที่จัดจำลองขึ้นนี้ จะมีส่วนที่ไม่เหมือนเครื่องช่วยหายใจทั้งหมด')
-        }
-        if (instructionStep == 3) {
-            router.push('/vent/instruction')
-        }
-    };
+    function handleNext() {
+        router.push('/quiz/trouble-shooting')
+    }
     return (
         <div className={styles.container}>
             <Head>
@@ -31,7 +18,7 @@ export default function Intruction_1() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className='prev_page'>
-                <Link href="/menulearningmode"> 
+                <Link href="/menuventilator"> 
                 <Image
                     src="/images/prev.png"
                     alt="Women"
@@ -45,13 +32,13 @@ export default function Intruction_1() {
 
             <div className='container'>
                 <div className='row justify-content-center align-items-center min-h-screen'>
-                    <div className='col-12 col-lg-11'>
+                    <div className='col-11'>
                         <div className={styles.intruction_wrapper}>
                             <div className='row'>
-                                <div className='col-3 col-lg-3'>
+                                <div className='col-3'>
                                     <div className={styles.thumbnail_frame}>
                                         <Image
-                                            src="/images/Capturec-ventfinal-learning.png"
+                                            src="/images/troubleshooting-thumbnail-2.png"
                                             alt="Women"
                                             // layout="fill"
                                             objectFit="cover"
@@ -60,20 +47,30 @@ export default function Intruction_1() {
                                         />
                                     </div>
                                 </div>
-                                <div className='col-9 col-lg-9'>
+                                <div className='col-9'>
                                     <div className={styles.content_container}>
                                         <div className={styles.contenn_wrap}>
                                             <h2>Instruction</h2>
                                             <p>
-                                                {instructionText}
+                                            ในหัวข้อนี้เป็นการจำลองสถานการณ์การแก้ปัญหาเบื้องต้นของเครื่องช่วยหายใจในรูปแบบต่างๆ <br/>
+                                            ท่านจะได่วิเคราะห์อาการ สาเหตุของสถานการณ์นั้นๆ และดำเนินการแก้ไขปัญหาดังกล่าวให้เหมาะสม
                                             </p>
+                                            {/* <ul>
+                                                <li>Flow trigger 5L/min</li>
+                                                <li>PEEP 5 cmH2O </li>
+                                                <li>ให้ pressure support 10 cmH2O </li>
+                                                <li>เนื่องจากคนไข้มีภาวะของ Airway resistance เลยอยากปรับ rise time เป็น 75% </li>
+                                                <li>%O2 : 40 </li>
+                                                <li>พบว่าคนไข้มี delay cycling เลยปรับ Esens 50%</li>
+                                                <li>ปรับหน้าจอให้เป็น 3 Waveform</li>
+                                            </ul>                                             */}
                                         </div>
                                     </div>  
                                 </div>
                             </div>
                             <div className={styles.btn_area}>
                                 <div className={styles.btn_container}>
-                                    <button className={styles.next_btn} onClick={handleClick}>
+                                    <button className={styles.next_btn} onClick={handleNext}>
                                     NEXT
                                     </button>
                                 </div>

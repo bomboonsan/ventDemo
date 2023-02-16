@@ -51,7 +51,6 @@ export default function VentTest() {
     // Var Control
     const [weight, setWeight] = useState(50);
     const [height, setHeight] = useState(152);
-    const [heightIn, setHeightIn] = useState(59.2);
 
     
 
@@ -99,13 +98,11 @@ export default function VentTest() {
                 if (varR > preVarR) {
                     let newHeight = Number(height)+(varR/3600);
                     setHeight(newHeight.toFixed(5));
-                    setHeightIn(newHeight*0.393700787)
                     console.log('height1 :'+height)       
                     console.log('newHeight :'+newHeight)
                 } else if (varR < preVarR) {
                     let newHeight = Number(height)-(varR/3600);
                     setHeight(newHeight.toFixed(5));
-                    setHeightIn(newHeight*0.393700787)
                     console.log('height2 :'+height)       
                     console.log('newHeight :'+newHeight)
                 }
@@ -118,7 +115,6 @@ export default function VentTest() {
                 } else if (varR < preVarR) {
                     let newHeight = Number(height)+(varR/3600);
                     setHeight(newHeight.toFixed(5));
-                    setHeightIn(newHeight*0.393700787)
                     console.log('height4 :'+height)       
                     console.log('newHeight :'+newHeight)
                 }
@@ -258,13 +254,6 @@ export default function VentTest() {
         resetSettingBtn()
 
         document.querySelector('#rightCol')?.classList.add(styles['showPanel']);
-        // บังคับการแสดงผลปุ่ม setting
-        const arrBtnDisableList = ['PC','VC','VC+' ,'CPAP' , 'IE Sync']
-        arrBtnDisableList.forEach(function(name){
-            document.querySelector(`[data-btnName='${name}']`).classList.add(styles['btn_disable']);
-        })
-        logicSettingGridShow()
-        // จบ
     };
 
     const handleSetupbtn = (event) => {
@@ -501,14 +490,6 @@ export default function VentTest() {
         document.querySelector('#genderFemale')?.classList.add(styles['genderBoxActive']);
 
         document.querySelector('#rightCol')?.classList.add(styles['showPanel']);
-
-        // บังคับการแสดงผลปุ่ม setting
-        const arrBtnDisableList = ['PC','VC','VC+' ,'CPAP' , 'IE Sync']
-        arrBtnDisableList.forEach(function(name){
-            document.querySelector(`[data-btnName='${name}']`).classList.add(styles['btn_disable']);
-        })
-        logicSettingGridShow()
-        // จบ
     }
     const genderMale = () => {
         document.querySelector('#genderMale')?.classList.add(styles['genderBoxActive']);
@@ -516,13 +497,6 @@ export default function VentTest() {
 
 
         document.querySelector('#rightCol')?.classList.add(styles['showPanel']);
-        // บังคับการแสดงผลปุ่ม setting
-        const arrBtnDisableList = ['PC','VC','VC+' ,'CPAP' , 'IE Sync']
-        arrBtnDisableList.forEach(function(name){
-            document.querySelector(`[data-btnName='${name}']`).classList.add(styles['btn_disable']);
-        })
-        logicSettingGridShow()
-        // จบ
 
 
     }
@@ -605,7 +579,7 @@ export default function VentTest() {
                                     <div id="weightSetupBtn" className={styles.btn_setting_up} onClick={event => handleSetWeight(event)}>
                                         <div className={styles.btnsLineMid}>{weight}</div>
                                         <div className={styles.btnsLineTop}>kg</div>
-                                        <div className={styles.btnsLineBot}>(110lb)</div>
+                                        <div className={styles.btnsLineBot}>(110)</div>
                                     </div>
                                 </div>
                                 <div className={styles.orBox}>
@@ -643,7 +617,7 @@ export default function VentTest() {
                                         </div> */}
                                         <input type='text' class={styles.inputSetting} value={Number(height).toFixed(0)} onChange={event => setHeight(event.target.value)} />    
                                         <div className={styles.btnsLineTop}>cm</div>
-                                        <div className={styles.btnsLineBot}>({Number(heightIn).toFixed(1)}in)</div>
+                                        <div className={styles.btnsLineBot}>(110)</div>
                                     </div>
                                 </div>
                             </div>
@@ -657,17 +631,17 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='Invasive' data-tr='1' className={styles.setupbtn_active}>
+                                                <div data-btnName='Invasive' data-tr='1' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>Invasive</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='NIV' data-tr='1' className={styles.setupbtn}>
+                                                <div data-btnName='NIV' data-tr='1' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>NIV</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='HFO' data-tr='1' className={styles.setupbtn}>
+                                                <div data-btnName='HFO' data-tr='1' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>HFO<sub>2</sub>T</span>
                                                 </div>
                                             </td>
@@ -679,27 +653,27 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='A/C' data-tr='2' className={styles.setupbtn}>
+                                                <div data-btnName='A/C' data-tr='2' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>A/C</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='SIMV' data-tr='2' className={styles.setupbtn}>
+                                                <div data-btnName='SIMV' data-tr='2' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>SIMV</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='SPOINT' data-tr='2' className={styles.setupbtn_active}>
+                                                <div data-btnName='SPOINT' data-tr='2' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>SPOINT</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='BiLevel' data-tr='2' className={styles.setupbtn}>
+                                                <div data-btnName='BiLevel' data-tr='2' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>BiLevel</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='CPAP' data-tr='2' className={styles.setupbtn_disable}>
+                                                <div data-btnName='CPAP' data-tr='2' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>CPAP</span>
                                                 </div>
                                             </td>
@@ -711,17 +685,17 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='PC' data-tr='3' className={styles.setupbtn_disable}>
+                                                <div data-btnName='PC' data-tr='3' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>PC</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='VC' data-tr='3' className={styles.setupbtn_disable}>
+                                                <div data-btnName='VC' data-tr='3' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>VC</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='VC+' data-tr='3' className={styles.setupbtn_disable}>
+                                                <div data-btnName='VC+' data-tr='3' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>VC+</span>
                                                 </div>
                                             </td>
@@ -733,22 +707,22 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='PS' data-tr='4' className={styles.setupbtn_active}>
+                                                <div data-btnName='PS' data-tr='4' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>PS</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='TC' data-tr='4' className={styles.setupbtn}>
+                                                <div data-btnName='TC' data-tr='4' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>TC</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='VS' data-tr='4' className={styles.setupbtn}>
+                                                <div data-btnName='VS' data-tr='4' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>VS</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='PAV+' data-tr='4' className={styles.setupbtn}>
+                                                <div data-btnName='PAV+' data-tr='4' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>PAV+</span>
                                                 </div>
                                             </td>
@@ -760,17 +734,17 @@ export default function VentTest() {
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='P-Trig' data-tr='5' className={styles.setupbtn}>
+                                                <div data-btnName='P-Trig' data-tr='5' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>P-Trig</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='V-Trig' data-tr='5' className={styles.setupbtn_active}>
+                                                <div data-btnName='V-Trig' data-tr='5' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>V-Trig</span>
                                                 </div>
                                             </td>
                                             <td>
-                                                <div data-btnName='IE Sync' data-tr='5' className={styles.setupbtn}>
+                                                <div data-btnName='IE Sync' data-tr='5' className={styles.setupbtn} onClick={handleSetupbtn}>
                                                     <span>IE Sync</span>
                                                 </div>
                                             </td>

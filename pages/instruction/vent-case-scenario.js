@@ -9,18 +9,18 @@ import { useState, useEffect } from 'react';
 export default function Intruction_1() {
     const router = useRouter()
     const [instructionStep, setInstructionStep] = useState(1);
-    const [instructionText, setInstructionText] = useState('ในหัวข้อนี้ ท่านจะสามารถทำความรู้จักความหมายของพารามิเตอร์ และปุ่มต่างๆของเครื่องช่วยหายใจ ในส่วนของ Setup Vent และ Setup Apnea เท่านั้น');
+    const [instructionText, setInstructionText] = useState('ในหัวข้อนี้ ท่านจะได้ฝึกทดลองการตั้งค่าเครื่องช่วยหายใจเบื้อง ให้เหมาะสมกับคนไข้สถานการณ์จำลอง');
     const handleClick = () => {
         console.log('click')
         setInstructionStep(instructionStep+1)
         if (instructionStep == 1) {
-            setInstructionText('คำอธิบายต่างๆจะแสดงบริเวณด้านล่างของหน้าต่าง Set up ท่านสามารถดูคำอธิบายไปตามลำดับ โดยกดปุ่ม NEXT ย้อนกลับได้โดยกดปุ่ม Previous หากท่านต้องการทราบคำอธิบายของพารามิเตอร์หรือปุ่ม ท่านสามารถกดไปที่ค่าต่างๆได้โดยตรง')
+            setInstructionText('ท่านต้องทำการตั้งค่าเครื่องตามคำแนะนำที่ขึ้นด้านล่างของหน้าต่าง Set up กดเม้าส์ด้านซ้ายบนปุ่มและพารามิเตอร์ต่างๆเพื่อทำการเลือก กดเม้าส์และหมุนไปทางซ้ายหรือขวาของ knob เพื่อปรับค่าที่ท่านต้องการ')
         }
         if (instructionStep == 2) {
-            setInstructionText('หมายเหตุ: โปรแกรมนี้ออกแบบมาเพื่อให้ท่านได้เห็นทุกพารามิเตอร์และปุ่ม ดังนั้นโปรแกรมที่จัดจำลองขึ้นนี้ จะมีส่วนที่ไม่เหมือนเครื่องช่วยหายใจทั้งหมด')
+            setInstructionText('หมายเหตุ: โปรแกรมนี้ออกแบบมาเพื่อจำลองการตั้งค่าเครื่องช่วยหายใจเบื้องต้น ดังนั้นโปรแกรมที่จัดจำลองขึ้นนี้ จะมีส่วนที่ไม่เหมือนเครื่องช่วยหายใจทั้งหมด')
         }
         if (instructionStep == 3) {
-            router.push('/vent/instruction')
+            router.push('/case/vent')
         }
     };
     return (
@@ -51,7 +51,7 @@ export default function Intruction_1() {
                                 <div className='col-3 col-lg-3'>
                                     <div className={styles.thumbnail_frame}>
                                         <Image
-                                            src="/images/Capturec-ventfinal-learning.png"
+                                            src="/images/case1-thumb3.png"
                                             alt="Women"
                                             // layout="fill"
                                             objectFit="cover"

@@ -59,7 +59,7 @@ export default function Main_menu() {
         </div>
         <div className={styles.col_item}>
           <div className={styles.card2}>
-            <Link href="/case/vent"> 
+            <Link href="/instruction/vent-case-scenario"> 
             <div className={styles.card_thumbnail}>
               <Image
                     className={styles.bisitem}

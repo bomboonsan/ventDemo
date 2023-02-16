@@ -14,20 +14,18 @@ export default function Home() {
     console.log('value is:', event.target.value);    
     setMessage(null);
   };
+
   const checkPassword = () => {
-    var correctPassword = '9876543';
+    const correctPassword = '9876543';
     if (password === correctPassword) {
-      router.push('/select')
+      router.push('/select');
     } else {
-      setMessage('1');
+      setMessage('Incorrect password');
     }
-  }
+  };
 
   // Elements
-  let alertElement = null
-  if (!!message) {
-      alertElement = <HomeAlert />
-  }
+  const alertElement = message ? <HomeAlert message={message} /> : null;
 
   return (
     <div className={styles.container}>

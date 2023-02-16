@@ -3,7 +3,6 @@ import Image from 'next/image'
 import 'bootstrap/dist/css/bootstrap.css'
 import styles from '../../styles/vent/instruction.module.scss'
 import Link from "next/link";
-// import { useRouter } from 'next/router'
 import VentInto from '../../components/ventinto'
 
 
@@ -20,42 +19,14 @@ export default function Instruction() {
             <Image
                 src="/images/prev.png"
                 alt="Women"
-                // layout="fill"
-                // objectFit="cover"
                 width={196}
                 height={196}
             />
             </Link>
       </div>{/* prev_page */}
       <div className={styles.row}>
-        {/* <div className={styles.col_left}>
-          <div className={styles.col_left_wrap}>
-            <div className={styles.instruction_box}>
-              <h2 className={styles.instruction_box_title}>
-                Instruction
-              </h2>
-              <p>
-                Detail
-              </p>
-            </div>
-            <div className={styles.btn_area}>
-              <button className={styles.next_btn}>NEXT</button>
-            </div>
-          </div>          
-        </div> */}
         <div className={styles.col}>
           <VentInto />
-          {/* <div className={styles.demo}>
-            <Image
-                className={styles.vent_demo}
-                src="/images/vent-demo.png"
-                alt="Women"
-                // layout="fill"
-                // objectFit="cover"
-                width={2372}
-                height={2158}
-            />
-          </div> */}
         </div>
       </div>
     </div>

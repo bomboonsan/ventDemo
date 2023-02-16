@@ -59,10 +59,11 @@ export default function Main_menu() {
         </div>
         <div className={styles.col_item}>
           <div className={styles.card}>
+            <Link href="/instruction/trouble-shooting"> 
             <div className={styles.card_thumbnail}>
               <Image
                     className={styles.bisitem}
-                    src="/images/troubleshooting-thumbnail.png"
+                    src="/images/troubleshooting-thumbnail-2.png"
                     alt="Ventilator"
                     // layout="fill"
                     // objectFit="cover"
@@ -75,7 +76,8 @@ export default function Main_menu() {
               Trouble Shooting
               </p>
               {/* ใช้รูป ห้อง */}
-            </div>             
+            </div>      
+            </Link>    
           </div>
         </div>
       </div>

@@ -299,7 +299,7 @@ $fontBtnNumber: 150%; // 1rem
     flex-basis: 81.5%;
     width: 81.5%;
     padding: 3% 2%;
-    // display: none;
+    display: none;
 }
 
 // TABLE
@@ -337,6 +337,37 @@ $fontBtnNumber: 150%; // 1rem
     .setupCaptionActive2 {
         background: #007fee;
         box-shadow: 1px 3px 3px 1px rgb(0 0 0 / 50%) inset, -1px -3px 3px 1px rgb(255 255 255 / 50%) inset, 0px 0px 3px 1px rgb(0 0 0 / 50%);
+    }
+
+    .setupbtn_active {
+        cursor: pointer;
+        border-radius: .2rem;
+        padding: .3rem 0;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        background: #007fee;
+        box-shadow: 1px 3px 3px 1px rgb(0 0 0 / 50%) inset, -1px -3px 3px 1px rgb(255 255 255 / 50%) inset, 0px 0px 3px 1px rgb(0 0 0 / 50%);
+        span {
+            // font-size: .4rem;
+            cursor: pointer;
+        }
+    }
+
+    .setupbtn_disable {
+        cursor: pointer;
+        border-radius: .2rem;
+        padding: .3rem 0;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        background: linear-gradient(to bottom,  rgb(159,185,199) 0%,rgb(35,84,110) 35%,rgb(0,51,82) 60%,rgb(0,51,82) 100%,rgb(0,31,51) 100%);
+        box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 50%);
+        opacity: .6;
+        span {
+            // font-size: .4rem;
+            cursor: pointer;
+        }
     }
 }
 .setupCaptionActive2 {

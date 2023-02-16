@@ -3,11 +3,17 @@ import Image from 'next/image'
 import 'bootstrap/dist/css/bootstrap.css'
 import styles from '../../styles/casedetail.module.css'
 import Link from "next/link";
+import { useState , useEffect } from 'react';
+import ReactPlayer from 'react-player'
 // import { useRouter } from 'next/router'
 
 
 export default function CaseDetail() {
-  
+  const [playing, setPlaying] = useState(true);
+  const troubleShootingVideo = 'https://wish-integrate.com/vent-video/trouble-shooting.mp4'
+  function reset() {
+    
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -55,27 +61,24 @@ export default function CaseDetail() {
                   </div> */}
                   <div className={styles.case_thumbnail2}>
                     <Image
-                        src="/images/case1-thumb3.png"
+                        src="/images/case4-thumb3.png"
                         alt="case1"
                         width={500}
                         height={500}
                     />
                   </div>
                   <div className={styles.case_simpledetail}>
-                    <h2 className={styles.case_name}>Patient 3</h2>
+                    <h2 className={styles.case_name}>Patient 1</h2>
                     <div className={styles.case_simpledetail_byline}>
                       <ul>
                         <li>
-                          Age : <strong>60</strong>
+                          Age : <strong>80</strong>
                         </li>
                         <li>
                           Sex : <strong>Male</strong>
                         </li>
                         <li>
-                          Weight : <strong>67 kg</strong>
-                        </li>
-                        <li>
-                          Height : <strong>170 Cm</strong>
+                          Weight : <strong>50 kg</strong>
                         </li>
                       </ul>
                     </div>
@@ -87,19 +90,17 @@ export default function CaseDetail() {
                       <div className={styles.detail_row_short}>
                         <div className={styles.detail_colfull}>
                           <div className={styles.case_fulldetail}>
-                            {/* <p>
-                            มาช่วยตั้งค่าเครื่องช่วยหายใจให้คนไข้คนนี้กัน
-                            </p>
+                            {/* trouble-shooting.mp4 */}
+                            <ReactPlayer 
+                            className={styles.video_item} 
+                            url={troubleShootingVideo}  
+                            playing={playing} 
+                            onEnded={reset}
+                            width='100%'
+                            height='100%'
+                            />
                             <p>
-                            ผู้ป่วยใส่ท่อช่วยหายใจ สามารถหายใจเองได้ 
-                            </p>
-                            <p>
-                            คุณหมอต้องการตั้งเครื่องช่วยหายใจเพื่อช่วยให้คนไข้หายใจสบายขึ้น
-                            </p> */}
-                            <p>
-                              ผู้ป่วยมีการใส่ท่อช่วยหายใจ โดยมีการหายใจเหนื่อยแต่ยังสามารถหายใจเองได้
-                              เครื่องช่วยหายใจได้ตั้งค่าโหมดเรียบร้อยแล้ว ท่านต้องช่วยตั้งค่าพารามิเตอร์
-                              ตามค่าของพารามิเตอร์ที่กำหนดเพื่อช่วยให้คนไข้หายใจสบายขึ้น
+                            คนไข้เริ่มมีการหายใจหอบเหนื่อย
                             </p>
 
                           </div>
@@ -122,7 +123,7 @@ export default function CaseDetail() {
                     </div>
                   </div> */}
                   <div className={styles.btn_area}>
-                    <Link href='/vent/test'>
+                    <Link href='/quiz/trouble-shooting-case1'>
                     <button className={styles.next_btn}>
                       NEXT
                     </button>

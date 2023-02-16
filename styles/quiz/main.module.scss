@@ -41,3 +41,80 @@
 .quiz_item:hover {
     background: #729A35;
 }
+.quiz_item_center {
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #8EBB21;
+    padding: .6rem 1.5rem;
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    p {
+        cursor: pointer;
+        text-align: center;
+        margin-bottom: 0;
+    }
+}
+.quiz_item_center:last-child {
+    margin-bottom: 0;
+}
+
+.quiz_item_center:hover {
+    background: #729A35;
+}
+
+
+.quiz_row {
+    display: grid;
+    gap: 35px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.quiz_col {
+    background: #8EBB21;
+    padding: .6rem 1.5rem;
+    color: #fff;
+    font-size: 1.4rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    p {
+        text-align: center;
+        cursor: pointer;
+        margin-bottom: 0;
+    }
+}
+.quiz_col:hover {
+    // background: #729A35;
+}
+.quiz_col:active {
+    background: #2f4115;
+}
+
+.quiz_active {
+    background: #2f4115;
+}
+
+.btn_area {
+    position: relative;
+    width: 100%;
+}
+.btn_container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2rem;
+}
+.next_btn {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFF;
+    padding: .5rem 3rem;
+    width: 100%;
+    background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;
+    box-shadow: 4px .4rem 1rem rgba(0, 0, 0, 0.5);
+    border-radius: 109px;
+    border: 0;
+}

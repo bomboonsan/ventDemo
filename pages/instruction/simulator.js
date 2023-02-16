@@ -6,6 +6,14 @@ import Link from "next/link";
 import { useRouter } from 'next/router'
 
 export default function Intruction_1() {
+    const router = useRouter()
+    function handleNext() {
+        router.push('/menulearningmode').then(
+            function () {
+                window.open('https://sim.orainteractive.com/','_blank')
+            }
+        )
+    }
     return (
         <div className={styles.container}>
             <Head>
@@ -48,7 +56,9 @@ export default function Intruction_1() {
                                         <div className={styles.contenn_wrap}>
                                             <h2>Instruction</h2>
                                             <p>
-                                            สำหรับ Simulation Mode นี้ ท่านจะสามารถทดลองตั้งค่าเครื่องช่วยหายใจใน Mode ต่างๆ เพื่อให้ท่านได้เรียนรู้การตั้งค่าเครื่องช่วยหายใจเสมือนจริง ก่อนที่ท่านจะไปตั้งค่ากับผู้ป่วย
+                                            สำหรับ Simulation Mode นี้ ท่านจะสามารถทดลองตั้งค่าเครื่องช่วยหายใจใน Mode ต่างๆ ได้อย่างอิสระ เพื่อให้ท่านได้เรียนรู้การตั้งค่าเครื่องช่วยหายใจเสมือนจริง ก่อนที่ท่านจะไปตั้งค่ากับผู้ป่วย
+โดย Simulator นี้จะขึ้นแยกในอีกหน้าต่างหนึ่ง
+กรุณากลับมายังหน้าต่างเดิม เพื่อไปสู่บทเรียนถัดไป
                                             </p>
                                             {/* <ul>
                                                 <li>Flow trigger 5L/min</li>
@@ -65,11 +75,9 @@ export default function Intruction_1() {
                             </div>
                             <div className={styles.btn_area}>
                                 <div className={styles.btn_container}>
-                                    <a href='https://sim.orainteractive.com/' target='_blank' rel='noreferrer'>
-                                    <button className={styles.next_btn}>
+                                    <button className={styles.next_btn} onClick={handleNext}>
                                     NEXT
                                     </button>
-                                    </a>
                                 </div>
                             </div>
                         </div>
