@@ -94,8 +94,13 @@
     color: #1010EB;
 }
 .introduction_text {
+    color: #1010EB;
     font-size: 1.4rem;
     line-height: 2.4rem;
+}
+.introduction_linkExternal {
+    font-size: 1.5rem;
+    color: #1010EB;
 }
 
 .countdown_area {

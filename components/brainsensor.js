@@ -982,7 +982,7 @@ export default function BrainSensor() {
             <div id='popupContent' className={styles.popupArea}>
                 <div className={styles.popup_wrap}>
                     <p>
-                        หลังจากวางตำแหน่งของเซนเซอร์เรียบร้อยแล้วเราจะต้องทำการติดอิเล็กโทรดกับคนไข้ <br/> โดยให้ท่านทำการกดตำแหน่งที่จะช่วยให้เซนเซอร์ติดกับคนไข้และเก็บสัญญาณได้ดี
+                        หลังจากวางตำแหน่งของเซนเซอร์เรียบร้อยแล้วเราจะต้องทำการติดอิเล็กโทรดกับคนไข้ <br/> โดยให้ท่านทำการกดตำแหน่งที่จะช่วยให้เซนเซอร์ติดกับคนไข้และนำส่งสัญญาณได้ดี
                     </p>
                     <div className={styles.popUpbtnStart}>
                         <button onClick={popUpStart}>

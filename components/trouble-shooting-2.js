@@ -62,7 +62,9 @@ export default function HomeAlert() {
     // ตำแหน่งของคนไข้
     const PatientElement = () => {
         return (
-            <div className={styles.patientElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>                
+            <div className={styles.patientElement}>     
+                <div className={styles.alertIconElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>
+                </div>                       
             </div>
         )
     }
@@ -91,7 +93,10 @@ export default function HomeAlert() {
                         width={200}
                         height={200}
                     />
-                    </div>
+                </div>
+                <button className={styles.alertSubmitBtn} onClick={() => setPatientAlertStep(2)}>
+                    NEXT
+                </button>
             </div>
         )
     }
@@ -118,7 +123,10 @@ export default function HomeAlert() {
                         width={200}
                         height={200}
                     />
-                    </div>
+                </div>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}>
+                    NEXT
+                </button>
             </div>
         )
     }
@@ -143,6 +151,9 @@ export default function HomeAlert() {
                 width='100%'
                 height='100%'
                 />
+                <button className={styles.alertSubmitBtn} onClick={closeBox}>
+                    GOT IT
+                </button>
             </div>
         )
     }
@@ -151,7 +162,9 @@ export default function HomeAlert() {
     // ตำแหน่งของ Ventilator (เครื่องช่วยหายใจ)
     const VentilatorElement = () => {
         return (
-            <div className={styles.ventilatorElement} onClick={() => {setPlayingVent(true) ; setShowElement('Ventilator') ; handleMission('Ventilator')}}>                
+            <div className={styles.ventilatorElement}>        
+                <div className={styles.alertIconElement} onClick={() => {setPlayingVent(true) ; setShowElement('Ventilator') ; handleMission('Ventilator')}}>
+                </div>         
             </div>
         )
     }
@@ -185,7 +198,9 @@ export default function HomeAlert() {
     // ตำแหน่งของ Circuits (เครื่องช่วยหายใจ)
     const CircuitsElement = () => {
         return (
-            <div className={styles.circuitsElement} onClick={() => {setShowElement('Circuits') ; handleMission('Circuits')}}>                
+            <div className={styles.circuitsElement}>    
+                <div className={styles.alertIconElement} onClick={() => {setShowElement('Circuits') ; handleMission('Circuits')}}>
+                </div>                
             </div>
         )
     }
@@ -201,6 +216,9 @@ export default function HomeAlert() {
                     (ไม่มี Condensate)
                 </p>
                 </div>
+                <button className={styles.alertSubmitBtn} onClick={closeBox}>
+                    NEXT
+                </button>
             </div>
         )
     }
@@ -209,7 +227,9 @@ export default function HomeAlert() {
     // ตำแหน่งของ Tube
     const TubeElement = () => {
         return (
-            <div className={styles.tubeElement} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>                
+            <div className={styles.tubeElement}> 
+                <div className={styles.alertIconElement} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>
+                </div>               
             </div>
         )
     }
@@ -224,6 +244,9 @@ export default function HomeAlert() {
                 ตรวจพบเสมหะจำนวนมาก
                 </p>
                 </div>
+                <button className={styles.alertSubmitBtn} onClick={closeBox}>
+                    NEXT
+                </button>
             </div>
         )
     }
@@ -231,7 +254,9 @@ export default function HomeAlert() {
     // ตำแหน่งของ Tube (เครื่องช่วยหายใจ)
     const CloseSuctionElement = () => {
         return (
-            <div className={styles.closeSuctionElement} onClick={() => {setShowElement('CloseSuction') ; handleMission('CloseSuction')}}>                
+            <div className={styles.closeSuctionElement}>                
+                <div className={styles.alertIconElement} onClick={() => {setShowElement('CloseSuction') ; handleMission('CloseSuction')}}>
+                </div>  
             </div>
         )
     }
@@ -259,21 +284,21 @@ export default function HomeAlert() {
         <div className={styles.room_bg}>
             {!isStart && <StartBox />}
 
-            <PatientElement />
+            {isStart && <PatientElement />}
             {showElement=='Patient' && patientAlertStep==1 && <PatientAlertBox1 />}
             {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox2 />}
             {showElement=='Patient' && patientAlertStep==3 && <PatientAlertBox3 />}
 
-            <VentilatorElement />
+            {isStart && <VentilatorElement />}
             {showElement=='Ventilator' && <VentilatorMonitor />}
 
-            <CircuitsElement />
+            {isStart && <CircuitsElement />}
             {showElement=='Circuits' && <CircuitsAlertBox />}
 
-            <TubeElement />
+            {isStart && <TubeElement />}
             {showElement=='Tube' && <TubeAlertBox />}
 
-            <CloseSuctionElement />
+            {isStart && <CloseSuctionElement />}
             {showElement=='CloseSuction' && <CloseSuctionAlertBox />}
         </div>        
     )

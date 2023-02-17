@@ -25,7 +25,7 @@ export default function BrainVideo() {
     // // const video4 = '../video/button4.mp4'
     // const video4 = '../video/videoend2.mp4'
     const video1 = 'https://wish-integrate.com/bisvideo/1.mp4'
-    const video2 = 'https://wish-integrate.com/bisvideo/2-edit.mp4'
+    const video2 = 'https://wish-integrate.com/bisvideo/2.mp4'
     const video3 = 'https://wish-integrate.com/bisvideo/3.mp4'
     const video4 = 'https://wish-integrate.com/bisvideo/4.mp4'
 

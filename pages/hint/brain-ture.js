@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export default function Intruction_1() {
     const router = useRouter()
-    const [textHint, setTextHint] = useState('การให้ยาระงับความรู้สึก (Sedation) ต่อคนไข้ จะส่งผลต่อการเปลี่ยนแปลงลักษณะของคลื่นไฟฟ้าสมอง (EEG: Electroencephalogram) ซึ่งการใช้ยาระงับความรูสึกในคนไข้ภาวะวิกฤตใน ICU เป็นไปเพื่อให้คนไข้มีระดับความรู้สึกที่เหมาะสมต่อวิธีการรักษาและสอดคล้องกับอุปกรณ์ทางการแพทย์ที่ใช้กับคนไข้เพื่อทำการพยุงชีพและฟื้นฟูสุขภาพ');
+    const [textHint, setTextHint] = useState('การให้ยาระงับความรู้สึก (Sedation) ต่อคนไข้ จะส่งผลต่อการเปลี่ยนแปลงลักษณะของคลื่นไฟฟ้าสมอง (EEG: Electroencephalogram) ซึ่งการใช้ยาระงับความรู้สึกในคนไข้ภาวะวิกฤตใน ICU เป็นไปเพื่อให้คนไข้มีระดับความรู้สึกที่เหมาะสมต่อวิธีการรักษาและสอดคล้องกับอุปกรณ์ทางการแพทย์ที่ใช้กับคนไข้');
     const [stepCount, setStepCount] = useState(0);
     function nextStep() {
         if ( stepCount+1 < 3 ) {
@@ -17,10 +17,25 @@ export default function Intruction_1() {
             router.push('/mainbrain')
         }
         if ( stepCount+1 == 1 ) {
-            setTextHint('การใช้เครื่องประมวลผลสัญญาณคลื่นไฟฟ้าสมองออกมาเป็นตัวเลข (processed-EEG monitor) หรือ เรียกว่า Brain Monitoring จะช่วยทำให้สามารถวางแผนการใช้ยาระงับความรู้สึกได้อย่างแม่นยำเหมาะสมเฉพาะรายบุคคลตามสภาวะการตอบสนองของคลื่นไฟฟ้าสมอง ผ่านการดูตัวเลขง่าย ๆ ในช่วง 0-100 พร้อมกับกราฟแนวโน้มของสภาวะตอบสนองต่อยาระงับความรู้สึก')
+            setTextHint('การใช้เครื่องประมวลผลสัญญาณคลื่นไฟฟ้าสมองออกมาเป็นตัวเลข (processed-EEG monitor) จะช่วยทำให้สามารถวางแผนการใช้ยาระงับความรู้สึกได้อย่างแม่นยำเหมาะสมเฉพาะรายบุคคลตามสภาวะการตอบสนองของคลื่นไฟฟ้าสมอง ผ่านการดูตัวเลขง่าย ๆ ในช่วง 0-100 พร้อมกับกราฟแนวโน้มของสภาวะตอบสนองต่อยาระงับความรู้สึก')
         } else if ( stepCount+1 == 2 ) {
             setTextHint('ดังนั้นเรามาทำความรู้จักกับการทำงานของ Brain Monitoring และ ฝึกหัดการติดอุปกรณ์ให้กับคนไข้กันเถอะ')
         }
+    }
+
+    const BrainImage = () => {
+        return (
+            <div>
+                <Image
+                    src="/images/brain-ture.png"
+                    alt="Women"
+                    // layout="fill"
+                    // objectFit="cover"
+                    width={250}
+                    height={400}
+                />
+            </div>
+        )
     }
 
     return (
@@ -59,6 +74,7 @@ export default function Intruction_1() {
                                 GOT IT
                             </button>
                         </div>
+                        {stepCount+1 == 2 && <BrainImage />}
                     </div>
                     {/* <div className={styles.col_image}>
                         <Image

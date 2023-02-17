@@ -8,6 +8,16 @@
     background-position: center;
     position: relative;
 }
+.room_bg_female {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1600/905;
+    padding:0;
+    background-image: url('.././public/troubleshooting/Room-Female70.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
 
 .startBox {
     position: absolute;
@@ -51,13 +61,33 @@
     display: block;
     position: absolute;
     transform: translate(-50% , 50%);
-    left: 48.5%;
-    bottom: 47.3%;
-    width: 5%;
-    height: 8%;
-    background: rgb(255, 0, 0,.5);
+    left: 48%;
+    bottom: 56.3%;
+    width: 2%;
+    height: 2%;
+    // background: rgb(255, 0, 0,.5);
     z-index: 3;
+    // cursor: pointer;
+}
+
+.alertIconElement {
+    content: '';
+    display: block;
+    position: relative;
+    background-image: url('.././public/images/alerticon2.png');
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 1/1;
+    width: 3vw;
+    height: auto;
     cursor: pointer;
+    animation: push 1s infinite;
+}
+
+@keyframes push {
+    50% {
+        transform: scale(1.2);
+    }
 }
 
 .alertBox {
@@ -74,6 +104,21 @@
     background-color: #FFF;
     border: 3px solid pink;
     box-shadow: 4px .4rem 1rem rgba(0, 0, 0, 0.5);
+}
+.alertSubmitBtn {
+    position: relative;
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #FFF;
+    padding: .5rem;
+    width: 40%;
+    margin: 1rem auto 0 auto;
+    background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;
+    // box-shadow: 4px .4rem 1rem rgba(0, 0, 0, 0.5);
+    border-radius: 109px;
+    border: 0;
+    cursor: pointer;
 }
 .alertClose {
     position: absolute;
@@ -144,13 +189,13 @@
     display: block;
     position: absolute;
     transform: translate(-50% , 50%);
-    left: 77.2%;
-    bottom: 73.3%;
-    width: 9.5%;
-    height: 10%;
-    background: rgb(255, 0, 0,.5);
+    left: 76.6%;
+    bottom: 83.3%;
+    width: 2%;
+    height: 2%;
+    // background: rgb(255, 0, 0,.5);
     z-index: 3;
-    cursor: pointer;
+    // cursor: pointer;
 }
 .ventilatorMonitor {
     content: '';
@@ -210,13 +255,13 @@
     display: block;
     position: absolute;
     transform: translate(-50% , 50%);
-    left: 57.2%;
-    bottom: 59.8%;
+    left: 56.4%;
+    bottom: 65.8%;
     width: 2%;
     height: 2%;
-    background: rgb(255, 0, 0,.5);
+    // background: rgb(255, 0, 0,.5);
     z-index: 3;
-    cursor: pointer;
+    // cursor: pointer;
 }
 
 .tubeElement {
@@ -225,13 +270,13 @@
     display: block;
     position: absolute;
     transform: translate(-50% , 50%);
-    left: 48.5%;
-    bottom: 40.3%;
-    width: 3%;
-    height: 4%;
-    background: rgb(255, 0, 0,.5);
+    left: 52.5%;
+    bottom: 45.3%;
+    width: 2%;
+    height: 2%;
+    // background: rgb(255, 0, 0,.5);
     z-index: 3;
-    cursor: pointer;
+    // cursor: pointer;
 }
 
 .closeSuctionElement {
@@ -239,14 +284,15 @@
     content: '';
     display: block;
     position: absolute;
-    transform: translate(-50% , 50%) rotate(135deg);
-    left: 45.5%;
-    bottom: 34.3%;
-    width: 5%;
+    // transform: translate(-50% , 50%) rotate(315deg);
+    transform: translate(-50% , 50%);
+    left: 43.5%;
+    bottom: 36.3%;
+    width: 2%;
     height: 2%;
-    background: rgb(255, 0, 0,.5);
+    // background: rgb(255, 0, 0,.5);
     z-index: 3;
-    cursor: pointer;
+    // cursor: pointer;
 }
 
 .cuffElement {
@@ -254,12 +300,13 @@
     content: '';
     display: block;
     position: absolute;
-    transform: translate(-50% , 50%) rotate(135deg);
-    left: 50.5%;
-    bottom: 34.3%;
-    width: 3%;
-    height: 3%;
-    background: rgb(255, 0, 0,.5);
+    transform: translate(-50% , 50%);
+    // transform: translate(-50% , 50%) rotate(135deg);
+    left: 28%;
+    bottom: 90.3%;
+    width: 2%;
+    height: 2%;
+    // background: rgb(255, 0, 0,.5);
     z-index: 3;
-    cursor: pointer;
+    // cursor: pointer;
 }

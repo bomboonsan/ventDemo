@@ -113,17 +113,26 @@ export default function CaseMonitor() {
                         <div className={styles.right_colbox}>
                             <h2 className={styles.introduction_title}>Introduction</h2>
                             <p  className={styles.introduction_text}>
-                                ผู้ป่วยอยู่ในภาวะ ARDS ถูก paralysed Ventilated ด้วยยา Neuromuscular blocking และมีการให้ยาระงับความรู้สึกด้วย propofol <br/>
+                            ผู้ป่วย ARDS ใส่เครื่องช่วยหายใจ และช่วยผู้ป่วยให้หายใจสัมพันธ์กับเครื่อง
+                            ด้วยยา Neuromuscular blocking รวมถึงมีการให้ยาระงับความรู้สึกด้วย propofol <br/>
 
                                 {/* Physical Examination:<br/> */}
                                 <br/>
                                 <strong>Physical Examination:</strong><br/>
                                 BP 180/100 mmHg<br/>
                                 HR 130 /min<br/>
-                                RASS -5<br/>
-                                No Hx HT<br/>
+                                ผู้ป่วยไม่รู้สึกตัว กระตุ้นแล้วไม่มีการตอบสนอง (RASS -5)<br/>
                                 ไม่พบประวัติเป็นโรคความดันสูงมาก่อน
                             </p>
+                            <p  className={styles.introduction_linkExternal}>
+                            <Image
+                                src="/images/alerticon.png"
+                                alt="case1"
+                                width={25}
+                                height={25}
+                            /> <span> </span>
+                            RASS Score
+                            </p>                            
                         </div>
                       </div>
                       <div className={styles.btn_area}>

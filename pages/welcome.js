@@ -31,7 +31,7 @@ export default function Welcomepage() {
             </Link>
         </div>{/* prev_page */}
         <div className={styles.mid_screen}>
-          <div className={styles.welcomebg}>
+          {/* <div className={styles.welcomebg}>
           <Image
                 src="/images/bg-welcome-3.png"
                 alt="welcome"
@@ -41,8 +41,8 @@ export default function Welcomepage() {
                 height={1080}
             />
             <div className={styles.nextbtn} onClick={nextPage}></div>
-          </div>
-          {/* <div className='container'>
+          </div> */}
+          <div className='container'>
             <div className='row justify-content-center padding-top'>
               <div className='col-12 col-lg-7'>
                 <div className={styles.card}>
@@ -75,7 +75,7 @@ export default function Welcomepage() {
                 />
               </div>
             </div>
-          </div>    */}
+          </div>   
         </div>             
       </div>
   )

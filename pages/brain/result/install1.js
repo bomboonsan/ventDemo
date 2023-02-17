@@ -19,7 +19,7 @@ export default function CaseDetail() {
             setInstructionImg('/images/equipment-success2.png')
         }
         if (instructionStep == 2) {
-          setInstructionText('ตำแหน่งของอิเล็กโทรดที่ 3 อยู่บริเวณขมับ และอยู่ในระดับเดียวกับหางคิ้ว')
+          setInstructionText('ตำแหน่งของอิเล็กโทรดที่ 3 อยู่บริเวณขมับ และอยู่ในระดับเดียวกับหางตา')
           setInstructionImg('/images/equipment-success3.png')
       }
         if (instructionStep == 3) {
