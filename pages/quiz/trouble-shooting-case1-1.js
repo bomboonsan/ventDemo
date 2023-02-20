@@ -45,7 +45,8 @@ export default function Main_menu() {
     // เรียงลำดับ Array
     const ansArrSort = ansArr.sort();
     
-    if (ansArrSort.toString() == 'ans1,ans2' || ansArrSort.toString() == 'ans2,ans1') {
+    // if (ansArrSort.toString() == 'ans1,ans2' || ansArrSort.toString() == 'ans2,ans1') {
+    if (ansArrSort.toString() == 'ans2') {
       router.push('/trouble-shooting/case1-step2')
     } else {
       router.push('/hint/trouble-shooting-1-false')

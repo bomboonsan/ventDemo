@@ -64,8 +64,14 @@ export default function HomeAlert() {
     const PatientElement = () => {
         return (
             <div className={styles.patientElement}>             
+                {missions.includes("Patient") &&
+                <div className={styles.checkedIconElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>
+                </div>                
+                }
+                {!missions.includes("Patient") &&
                 <div className={styles.alertIconElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>
-                </div>         
+                </div>                
+                }        
             </div>
         )
     }
@@ -114,7 +120,8 @@ export default function HomeAlert() {
                 </div>
                 <div>
                     <Image
-                        onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}
+                        // onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}
+                        onClick={() =>  {setPlayingYoutube(true) ; handleMission('Patient')}}
                         className={styles.alertImage}
                         src='/troubleshooting/01.png'
                         alt="Hover"
@@ -125,37 +132,52 @@ export default function HomeAlert() {
                         height={200}
                     />
                 </div>
-                <button className={styles.alertSubmitBtn} onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}>
+                <PatientAlertBox3 />
+                {/* <button className={styles.alertSubmitBtn} onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}>
                     NEXT
+                </button> */}
+                <button className={styles.alertSubmitBtn} onClick={closeBox}>
+                    GOT IT
                 </button>
             </div>
         )
     }
     const [playingYoutube, setPlayingYoutube] = useState(false);
-    const [urlYoutube, setUrlYoutube] = useState('https://www.youtube.com/watch?v=aSor2XBc9K8?start=46');
+    // const [urlYoutube, setUrlYoutube] = useState('https://www.youtube.com/watch?v=aSor2XBc9K8?start=46');
+    const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble-shooting2.mp3');
     const resetYoutube = () => {
         setPatientAlertStep(1)
         setShowElement('')
     }
     const PatientAlertBox3 = () => {
         return (
-            <div className={styles.alertBox}>
-                <div className={styles.alertClose} onClick={closeBox}>
-                    X
-                </div>
-                <ReactPlayer 
-                className={styles.alertYoutube}
-                url={urlYoutube}
-                playing={playingYoutube} 
-                onEnded={resetYoutube}
-                
-                width='100%'
-                height='100%'
-                />
-                <button className={styles.alertSubmitBtn} onClick={closeBox}>
-                    GOT IT
-                </button>
-            </div>
+            // <div className={styles.alertBox}>
+            //     <div className={styles.alertClose} onClick={closeBox}>
+            //         X
+            //     </div>
+            //     <ReactPlayer 
+            //     className={styles.alertYoutube}
+            //     url={urlYoutube}
+            //     playing={playingYoutube} 
+            //     onEnded={resetYoutube}
+            //     controls={true}
+            //     width="400px"
+            //     height="50px"
+            //     />
+            //     <button className={styles.alertSubmitBtn} onClick={closeBox}>
+            //         GOT IT
+            //     </button>
+            // </div>
+
+            <ReactPlayer 
+            className={styles.alertYoutube}
+            url={urlYoutube}
+            playing={playingYoutube} 
+            onEnded={resetYoutube}
+            controls={true}
+            width="100%"
+            height="40px"
+            />
         )
     }
 
@@ -164,8 +186,14 @@ export default function HomeAlert() {
     const VentilatorElement = () => {
         return (
             <div className={styles.ventilatorElement}>        
+                {missions.includes("Ventilator") &&
+                <div className={styles.checkedIconElement} onClick={() => {setPlayingVent(true) ; setShowElement('Ventilator') ; handleMission('Ventilator')}}>
+                </div>                
+                }
+                {!missions.includes("Ventilator") &&
                 <div className={styles.alertIconElement} onClick={() => {setPlayingVent(true) ; setShowElement('Ventilator') ; handleMission('Ventilator')}}>
-                </div>             
+                </div>                
+                }          
             </div>
         )
     }
@@ -200,8 +228,14 @@ export default function HomeAlert() {
     const CircuitsElement = () => {
         return (
             <div className={styles.circuitsElement}>   
+                {missions.includes("Circuits") &&
+                <div className={styles.checkedIconElement} onClick={() => {setShowElement('Circuits') ; handleMission('Circuits')}}>
+                </div>                
+                }
+                {!missions.includes("Circuits") &&
                 <div className={styles.alertIconElement} onClick={() => {setShowElement('Circuits') ; handleMission('Circuits')}}>
-                </div>               
+                </div>                
+                }             
             </div>
         )
     }
@@ -229,12 +263,35 @@ export default function HomeAlert() {
     const CuffElement = () => {
         return (
             <div className={styles.cuffElement}>     
+                {missions.includes("Cuff") &&
+                <div className={styles.checkedIconElement} onClick={() => {setShowElement('Cuff')}}>
+                </div>                
+                }
+                {!missions.includes("Cuff") &&
                 <div className={styles.alertIconElement} onClick={() => {setShowElement('Cuff')}}>
                 </div>                
+                }             
             </div>
         )
     }
     const CuffAlertBox = () => {
+        return (
+            <div className={styles.alertBox}>
+                {/* <div className={styles.alertClose} onClick={closeBox}>
+                    X
+                </div>                 */}
+                <div className={styles.alertText}>
+                <p>
+                Inflate ลมกลับเข้าไปใน cuff
+                </p>
+                </div>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {setShowElement('Cuff2')}}>
+                    NEXT
+                </button>
+            </div>
+        )
+    }
+    const CuffAlertBox2 = () => {
         return (
             <div className={styles.alertBox}>
                 {/* <div className={styles.alertClose} onClick={closeBox}>
@@ -258,13 +315,13 @@ export default function HomeAlert() {
                         height={200}
                     />
                 </div>
-                <button className={styles.alertSubmitBtn} onClick={() =>  {setShowElement('Cuff2') ; handleMission('Cuff')}}>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {setShowElement('Cuff3') ; handleMission('Cuff')}}>
                     NEXT
                 </button>
             </div>
         )
-    }
-    const CuffAlertBox2 = () => {
+    }    
+    const CuffAlertBox3 = () => {
         return (
             <div className={styles.alertBox}>
                 {/* <div className={styles.alertClose} onClick={closeBox}>
@@ -287,8 +344,14 @@ export default function HomeAlert() {
     const TubeElement = () => {
         return (
             <div className={styles.tubeElement}>   
+                {missions.includes("Tube") &&
+                <div className={styles.checkedIconElement} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>
+                </div>                
+                }
+                {!missions.includes("Tube") &&
                 <div className={styles.alertIconElement} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>
-                </div>                  
+                </div>                
+                }                   
             </div>
         )
     }
@@ -314,8 +377,14 @@ export default function HomeAlert() {
     const CloseSuctionElement = () => {
         return (
             <div className={styles.closeSuctionElement}> 
+                {missions.includes("CloseSuction") &&
+                <div className={styles.checkedIconElement} onClick={() => {setShowElement('CloseSuction') ; handleMission('CloseSuction')}}>
+                </div>                
+                }
+                {!missions.includes("CloseSuction") &&
                 <div className={styles.alertIconElement} onClick={() => {setShowElement('CloseSuction') ; handleMission('CloseSuction')}}>
-                </div>                   
+                </div>                
+                }                   
             </div>
         )
     }
@@ -357,6 +426,7 @@ export default function HomeAlert() {
             {isStart && <CuffElement />}
             {showElement=='Cuff' && <CuffAlertBox />}
             {showElement=='Cuff2' && <CuffAlertBox2 />}
+            {showElement=='Cuff3' && <CuffAlertBox3 />}
 
             {isStart && <TubeElement />}
             {showElement=='Tube' && <TubeAlertBox />}

@@ -1,6 +1,10 @@
 .welcomebg {
     position: relative;
 }
+.welcomebg img {
+    width: 100%;
+    height: auto;
+}
 .nextbtn {
     content: '';
     position: absolute;

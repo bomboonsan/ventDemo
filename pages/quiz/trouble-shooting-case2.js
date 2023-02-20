@@ -85,13 +85,12 @@ export default function Main_menu() {
               </h1>
 
               <div className={styles.quiz_row}>        
-                <div id='ans1' className={styles.quiz_col} onClick={handleAnsClick}>
+                {/* <div id='ans1' className={styles.quiz_col} onClick={handleAnsClick}>
                   <p>XX</p> 
-                  {/*  */}
                 </div>
                 <div id='ans2' className={styles.quiz_col} onClick={handleAnsClick}>
                   <p>XX</p>
-                </div>
+                </div> */}
                 <div id='ans3' className={styles.quiz_col} onClick={handleAnsClick}>
                   <p>Low volume alarm</p>
                 </div>

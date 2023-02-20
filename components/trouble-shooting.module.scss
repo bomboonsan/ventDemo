@@ -83,13 +83,25 @@
     cursor: pointer;
     animation: push 1s infinite;
 }
+.checkedIconElement {
+    content: '';
+    display: block;
+    position: relative;
+    background-image: url('.././public/images/checkedicon2.png');
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 1/1;
+    width: 3vw;
+    height: auto;
+    cursor: pointer;
+    animation: none;
+}
 
 @keyframes push {
     50% {
         transform: scale(1.2);
     }
 }
-
 .alertBox {
     display: block;
     position: absolute;
@@ -221,8 +233,54 @@
     aspect-ratio: 16/9;
     overflow: hidden;
     border-radius: 2rem;
+    position: relative;
 }
-
+.ventilatorMonitorVideo_alarm {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 72.5%;
+    top: 82%;
+    aspect-ratio: 1/1;
+    width: 5%;
+    height: auto;
+    border: 3px solid rgb(131, 57, 8);
+    border-radius: 50%;
+    animation: blinkAlarm 1s infinite;
+}
+@keyframes blinkAlarm {
+    50% {
+        border: 3px solid rgb(184, 153, 15);
+    }
+}
+.ventilatorMonitorVideo_alarmText {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    width: 40%;
+    height: auto;
+    z-index: 5;
+    background-color: #FFF;
+    border-radius: 15px;
+    padding-inline: 15px;
+    p {
+        text-align: center;
+    }
+}
+.ventilatorMonitorVideo_alarmClose {
+    position: absolute;
+    right: -.7rem;
+    top: -.7rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    background-color: #FFF;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    color: #000;
+    font-size: 1rem;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
 .ventilatorMonitor2 {
     content: '';
     display: block;
@@ -302,8 +360,8 @@
     position: absolute;
     transform: translate(-50% , 50%);
     // transform: translate(-50% , 50%) rotate(135deg);
-    left: 28%;
-    bottom: 90.3%;
+    left: 46%;
+    bottom: 45.3%;
     width: 2%;
     height: 2%;
     // background: rgb(255, 0, 0,.5);
