@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import 'bootstrap/dist/css/bootstrap.css'
-import styles from '../../styles/hint/main.module.scss'
+import styles from '../../styles/hint/false.module.scss'
 import Link from "next/link";
 import { useRouter } from 'next/router'
 

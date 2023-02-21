@@ -36,6 +36,7 @@
         font-size: 1.3rem;
         line-height: 2rem;
         color: black;
+        text-align: center;
     }
 }
 .startBtn {
@@ -110,8 +111,10 @@
     left: 50%;
     bottom: 50%;
     width: 30%;
+    // width: auto;
     height: auto;
     padding: 2rem;
+    // padding: 1rem 2rem;
     border-radius: 2rem;
     z-index: 4;
     background-color: #FFF;
@@ -167,7 +170,8 @@
     background: #8EBB21;
     color: #FFF;
     border-radius: 2rem;
-    padding: .3rem;
+    // padding: .3rem;
+    padding: .3rem 2rem;
     margin-bottom: 1rem;
     p {
         text-align: center;
@@ -282,6 +286,7 @@
     border-radius: 15px;
     padding-inline: 15px;
     p {
+        color: black;
         text-align: center;
     }
 }

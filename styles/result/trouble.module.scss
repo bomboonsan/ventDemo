@@ -1,0 +1,71 @@
+.container {
+    /* padding: 0 2rem; */
+    background-image: url('../../public/images/bg1.png');
+    background-size: cover;
+    min-height: 100vh;
+    color: blue;
+}
+
+.box_wrapper {
+    border: 3px solid #ECA7CA;
+    border-radius: 1rem;
+    padding: 0rem;
+    background: #FFF;
+    overflow: hidden;
+    h2 {
+        font-size: 1.65rem;
+        color: blue;
+        text-align: center;
+    }
+}
+.image {
+    margin-top: 2rem;
+    img {
+        display: block;
+        margin: 0 auto;
+        width: 30%;
+        height: auto;
+        overflow: hidden;
+        border-radius: 1rem;
+    }
+}
+
+.video {
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    video {
+        display: block;
+    }
+}
+.text_wrap {
+    max-width: 85%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    p {
+        text-align: center;
+        color: blue;
+        font-size: 1.3rem;
+    }
+}
+
+
+.btn_area {
+    position: relative;
+    width: 100%;
+}
+.btn_container {
+    position: relative;
+    text-align: center;
+}
+.next_btn {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #FFF;
+    padding: .5rem 3rem;
+    width: auto;
+    background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;
+    box-shadow: 4px .4rem 1rem rgba(0, 0, 0, 0.5);
+    border-radius: 109px;
+    border: 0;
+}

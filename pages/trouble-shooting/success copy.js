@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import 'bootstrap/dist/css/bootstrap.css'
-import styles from '../../styles/result/trouble.module.scss'
+import styles from '../../styles/result/main.module.scss'
 import Link from "next/link";
 import { useRouter } from 'next/router'
 import ReactPlayer from 'react-player'
@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
 
 export default function CaseDetail() {
   const [playingYoutube, setPlayingYoutube] = useState(true);
-  const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble-success2.mp4');
+  const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble-success.mp4');
   const resetYoutube = () => {
       // setPatientAlertStep(1)
       // setShowElement('')
@@ -24,7 +24,7 @@ export default function CaseDetail() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className='prev_page'>
-          <Link href="/trouble-shooting/case2-step2"> 
+          <Link href="/trouble-shooting/case1-step2"> 
             <Image
                 src="/images/prev.png"
                 alt="Women"
@@ -37,11 +37,11 @@ export default function CaseDetail() {
       </div>{/* prev_page */}
       <div className='container'>
         <div className='row justify-content-center align-items-center min-h-screen'>
-          <div className='col-11 col-md-8 col-lg-6'>
-            <h2 className='text-center mb-4'>
-                Success
-            </h2>
+          <div className='col-11'>
             <div className={styles.box_wrapper}>
+              <h2>
+                Success
+              </h2>
               <div className={styles.video}>
                 <ReactPlayer 
                   className={styles.alertYoutube}
@@ -53,16 +53,18 @@ export default function CaseDetail() {
                   height='100%'
                   />
               </div>
-            </div>
-            <div className={styles.text_wrap}>
+              <div className={styles.text_wrap}>
                 <p>
-                เสียงลมออกปากของคนไข้หายไป <br/>
+                คนไข้หายใจเป็นปกติ <br/>
                 ท่านใช้เวลาไป  .........................                
                 </p>
+              </div>
             </div>
+          </div>
+          <div className='col-11 position-relative'>
             <div className={styles.btn_area}>
               <div className={styles.btn_container}>
-                  <Link href="/mainmenu"> 
+                  <Link href="/case/trouble-shooting2"> 
                   <button className={styles.next_btn}>
                   NEXT
                   </button>
