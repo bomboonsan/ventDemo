@@ -18,7 +18,8 @@ import { useRouter } from 'next/router'
 export default function BrainVideo() {
     const router = useRouter()
     const handle = useFullScreenHandle();
-    const startVideo = '../video/01-main-menu.mp4'
+    const startVideo = '../video/01-main-menu.mp4-blank'
+    // const startVideo = 'https://www.youtube.com/watch?v=zm8_SDEYjtw'
     // const video1 = '../video/button1.mp4'
     // const video2 = '../video/button2.mp4'
     // const video3 = '../video/button3.mp4'
