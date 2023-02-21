@@ -135,7 +135,7 @@ export default function HomeAlert() {
                 {/* <button className={styles.alertSubmitBtn} onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}>
                     NEXT
                 </button> */}
-                <button className={styles.alertSubmitBtn} onClick={closeBox}>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient')}}>
                     GOT IT
                 </button>
             </div>
@@ -204,7 +204,7 @@ export default function HomeAlert() {
     const VentilatorMonitor = () => {
         return (
             <div className={styles.ventilatorMonitor}>          
-                <div className={styles.alertClose} onClick={closeBox}>
+                <div className={styles.alertCloseXL} onClick={closeBox}>
                 X
                 </div>
                 <div className={styles.ventilatorMonitorVideo}>

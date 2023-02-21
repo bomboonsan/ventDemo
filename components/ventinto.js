@@ -24,8 +24,8 @@ export default function VentInto() {
         let nextBtn = document.querySelector('#nextBtn');  
         
         btn1?.classList.add(styles['genderBoxActive']);
-        tableBtngroup.classList.add(styles['invisible']);
-        tableBtnsetting.classList.add(styles['invisible']);
+        tableBtngroup?.classList.add(styles['invisible']);
+        tableBtnsetting?.classList.add(styles['invisible']);
 
 
         setIntroductionText(listInstructionText[0])
@@ -43,7 +43,7 @@ export default function VentInto() {
         }
 
         if (step >= 4) {
-            document.querySelector('#table_btngroup').classList.remove(styles['invisible']);
+            document.querySelector('#table_btngroup')?.classList.remove(styles['invisible']);
         }
         if (step >= 21) {
             document.querySelector('#table_btnsetting').classList.remove(styles['invisible']);
@@ -143,9 +143,9 @@ export default function VentInto() {
     const handleIntroductionClose = () => {
         setStepCount(0);
         removeActiveBtn(stepCount);
-        document.querySelector('#introductionBox').classList.add(styles['hidden']);
-        document.querySelector('#table_btngroup').classList.remove(styles['invisible']);
-        document.querySelector('#table_btnsetting').classList.remove(styles['invisible']);
+        document.querySelector('#introductionBox')?.classList.add(styles['hidden']);
+        document.querySelector('#table_btngroup')?.classList.remove(styles['invisible']);
+        document.querySelector('#table_btnsetting')?.classList.remove(styles['invisible']);
     }
 
     const handleShowIntroduction = (event) => {
@@ -199,13 +199,28 @@ export default function VentInto() {
                         </div>
                         <div className={styles.sideList}>
                             <ul>
+                                {setupTab =='vent' &&
                                 <li className={styles.active} onClick={() => {setSetupTab('vent')}}>
                                     <span>Vent</span>
                                 </li>
+                                }
+                                {setupTab =='apnea' &&
+                                <li onClick={() => {setSetupTab('vent')}}>
+                                    <span>Vent</span>
+                                </li>
+                                }
+                                {setupTab =='vent' &&
                                 <li onClick={() => {setSetupTab('apnea')}}>
                                     <span>Apnea</span>
                                     <i className={styles.alert}></i>
                                 </li>
+                                }
+                                {setupTab =='apnea' &&
+                                <li className={styles.active} onClick={() => {setSetupTab('apnea')}}>
+                                    <span>Apnea</span>
+                                    <i className={styles.alert}></i>
+                                </li>
+                                }
                                 <li>
                                     <Image
                                         src="/vent/icon-bell.png"

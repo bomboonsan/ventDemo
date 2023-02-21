@@ -30,6 +30,7 @@
 }
 .login_container p {
   text-align: center;
+  color: black;
 }
 .login_input {
   width: 100%;

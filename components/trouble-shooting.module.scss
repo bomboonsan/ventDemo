@@ -22,19 +22,20 @@
 .startBox {
     position: absolute;
     bottom: 10%;
-    left: 5%;
-    width: 20%;
+    left: 1.5%;
+    width: 27%;
     height: auto;
     border: 2px solid pink;
     background-color: #FFF;
     z-index: 2;
-    padding: 2rem;
+    padding: 1rem 2rem 2rem 2rem;
     border-radius: 2rem;
 
     p {
         margin-bottom: 0;
-        font-size: 1rem;
-        line-height: 1.6rem;
+        font-size: 1.3rem;
+        line-height: 2rem;
+        color: black;
     }
 }
 .startBtn {
@@ -116,6 +117,7 @@
     background-color: #FFF;
     border: 3px solid pink;
     box-shadow: 4px .4rem 1rem rgba(0, 0, 0, 0.5);
+    color: black;
 }
 .alertSubmitBtn {
     position: relative;
@@ -145,6 +147,21 @@
     border-radius: 50%;
     text-align: center;
     cursor: pointer;
+}
+.alertCloseXL {
+    position: absolute;
+    right: -1.4rem;
+    top: -1.4rem;
+    width: 3.6rem;
+    height: 3.6rem;
+    background-color: #FFF;
+    border: 3px solid pink;
+    color: pink;
+    font-size: 2rem;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    z-index: 8;
 }
 .alertHead {
     background: #8EBB21;
@@ -257,7 +274,8 @@
     transform: translate(-50%,-50%);
     left: 50%;
     top: 50%;
-    width: 40%;
+    // width: 40%;
+    width: auto;
     height: auto;
     z-index: 5;
     background-color: #FFF;
