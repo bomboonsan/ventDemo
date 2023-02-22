@@ -19,6 +19,7 @@ export default function CaseMonitor() {
 
     let [countDown, setCountDown] = useState(5);
     let [countDownTrack, setCountDownTrack] = useState(null);
+    let [showTable, setShowTable] = useState(false);
 
     // FN
     function countDownStart() {
@@ -31,6 +32,26 @@ export default function CaseMonitor() {
             }, 1000);
         }
     }, [countDown,countDownTrack]);
+
+
+    // ตารางข้อมูล RASS
+    const RassElement = () => {
+      return (
+            <div className={styles.RassElement}>          
+                <div className={styles.alertCloseXL} onClick={() => setShowTable(false)}>
+                    X
+                </div>  
+              <Image
+                    src="/images/RASS.png"
+                    alt="Women"
+                    // layout="fill"
+                    // objectFit="cover"
+                    width={196}
+                    height={196}
+                />
+            </div>
+      )
+  }
     
 
     return (
@@ -52,7 +73,9 @@ export default function CaseMonitor() {
               />
               </Link>
         </div>{/* prev_page */}
-          <div className='container'>
+          <div className='container position-relative'>
+            {showTable && <RassElement />}
+            {/* <RassElement /> */}
             <div className='row justify-content-center align-items-center min-h-screen'>
               <div className='col-11'>
                 <div className={styles.case_wrapper}>
@@ -124,7 +147,7 @@ export default function CaseMonitor() {
                                 ผู้ป่วยไม่รู้สึกตัว กระตุ้นแล้วไม่มีการตอบสนอง (RASS -5)<br/>
                                 ไม่พบประวัติเป็นโรคความดันสูงมาก่อน
                             </p>
-                            <p  className={styles.introduction_linkExternal}>
+                            <p className={styles.introduction_linkExternal} onClick={() => setShowTable(true)}>
                             <Image
                                 src="/images/alerticon.png"
                                 alt="case1"
