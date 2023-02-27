@@ -27,6 +27,7 @@
     "sass": "^1.56.1",
     "screenfull": "^6.0.2",
     "typewriter-effect": "^2.19.0",
+    "use-text-fit": "^2.0.1",
     "video-react": "^0.16.0",
     "webpack": "^5.75.0",
     "x-frame-bypass": "^1.0.2"

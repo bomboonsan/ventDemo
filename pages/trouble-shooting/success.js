@@ -5,7 +5,8 @@ import styles from '../../styles/result/trouble.module.scss'
 import Link from "next/link";
 import { useRouter } from 'next/router'
 import ReactPlayer from 'react-player'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import screenfull from 'screenfull'
 
 export default function CaseDetail() {
   const [playingYoutube, setPlayingYoutube] = useState(true);
@@ -14,6 +15,13 @@ export default function CaseDetail() {
       // setPatientAlertStep(1)
       // setShowElement('')
   }
+
+  const playerRef = useRef(null);
+  const onClickFullscreen = () => {
+    if (screenfull.isEnabled && playerRef.current) {
+      screenfull.toggle(playerRef.current.wrapper);
+    }
+  };
 
 
   return (
@@ -43,12 +51,23 @@ export default function CaseDetail() {
             </h2>
             <div className={styles.box_wrapper}>
               <div className={styles.video}>
-                <ReactPlayer 
+                {/* <ReactPlayer 
                   className={styles.alertYoutube}
                   url={urlYoutube}
                   playing={playingYoutube} 
                   onEnded={resetYoutube}
                   
+                  width='100%'
+                  height='100%'
+                  /> */}
+                  <ReactPlayer 
+                  onClick={onClickFullscreen}
+                  className={styles.alertYoutube} 
+                  url={urlYoutube}  
+                  playing={playingYoutube} 
+                  ref={playerRef}
+                  loop={true}
+                  onEnded={resetYoutube}
                   width='100%'
                   height='100%'
                   />

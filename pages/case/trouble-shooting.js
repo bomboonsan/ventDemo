@@ -133,18 +133,25 @@ export default function CaseDetail() {
                       </Link>
                     </div>
                   </div> */}
-                  <div className={styles.btn_area}>
+                  {/* <div className={styles.btn_area}>
                     <Link href='/quiz/trouble-shooting-case1'>
                     <button className={styles.next_btn}>
                       NEXT
                     </button>
                     </Link>                    
-                  </div>
+                  </div> */}
                 </div>
-                {/* case_colright */}
-              </div>
+                {/* case_colright */}                
+              </div>              
             </div> 
-          </div>          
+            <div className={styles.btn_area_outside}>
+                <Link href='/quiz/trouble-shooting-case1'>
+                <button className={styles.next_btn}>
+                  NEXT
+                </button>
+                </Link>                    
+            </div>
+          </div>       
         </div>
       </div>
     </div>

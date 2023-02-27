@@ -154,3 +154,33 @@
 .next_btn:hover {
     transform: translateY(-5%);
 }
+
+.btn_area_outside {
+    position: relative;
+    bottom: -5%;
+    right: 0%;
+    width: 15%;
+    padding-right: 25px;
+    margin-left: auto;
+}
+@media only screen and (max-width: 1024px)  {
+    .case_simpledetail_byline {
+        font-size: 1.6vw;
+    }
+    .case_fulldetail h3 {
+        font-size: 1.6vw;
+        color: #4CAF50;
+    }
+    .case_fulldetail p {
+        font-size: 1.8vw;
+        color: #1010EB;
+    }
+    .btn_area_outside {
+        position: relative;
+        bottom: -5%;
+        right: 0%;
+        width: 15%;
+        padding-right: 15px;
+        margin-left: auto;
+    }
+}

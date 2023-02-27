@@ -20,6 +20,7 @@ specifiers:
   sass: ^1.56.1
   screenfull: ^6.0.2
   typewriter-effect: ^2.19.0
+  use-text-fit: ^2.0.1
   video-react: ^0.16.0
   webpack: ^5.75.0
   x-frame-bypass: ^1.0.2
@@ -42,6 +43,7 @@ dependencies:
   sass: 1.56.1
   screenfull: 6.0.2
   typewriter-effect: 2.19.0_biqbaboplfbrettd7655fr4n2y
+  use-text-fit: 2.0.1_biqbaboplfbrettd7655fr4n2y
   video-react: 0.16.0_biqbaboplfbrettd7655fr4n2y
   webpack: 5.75.0
   x-frame-bypass: 1.0.2
@@ -2622,6 +2624,16 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /use-text-fit/2.0.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-0OdXNLAQB71s6tO8+YSsZfki6r1uWkHx0Zu0a6Pbn2ibmeGSSCh1LYduLM78UhB6yb5wg7ynDYfY+HAQ+h70sA==}
+    peerDependencies:
+      react: ^16.13.1 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /video-react/0.16.0_biqbaboplfbrettd7655fr4n2y:

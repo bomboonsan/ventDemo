@@ -1,8 +1,20 @@
+// .room_bg {
+//     width: 100%;
+//     height: auto;
+//     aspect-ratio: 1600/905;
+//     padding:0;
+//     background-image: url('.././public/troubleshooting/Room-male80.jpg');
+//     background-size: cover;
+//     background-position: center;
+//     position: relative;
+// }
+
 .room_bg {
     width: 100%;
     height: auto;
     aspect-ratio: 1600/905;
     padding:0;
+    background-color: #D8E9F9;
     background-image: url('.././public/troubleshooting/Room-male80.jpg');
     background-size: cover;
     background-position: center;
@@ -33,8 +45,10 @@
 
     p {
         margin-bottom: 0;
-        font-size: 1.3rem;
-        line-height: 2rem;
+        // font-size: 1.3rem;
+        font-size: 1.3vw;
+        // line-height: 2rem;
+        line-height: 2vw;
         color: black;
         text-align: center;
     }
@@ -45,7 +59,8 @@
     left: 50%;
     bottom: -10%;
     display: block;
-    font-size: 1.1rem;
+    // font-size: 1.1rem;
+    font-size: 1.2vw;
     font-weight: bold;
     color: #FFF;
     padding: .5rem;
@@ -110,10 +125,11 @@
     transform: translate(-50% , 50%);
     left: 50%;
     bottom: 50%;
-    width: 30%;
-    // width: auto;
+    // width: 30%;
+    width: auto;
     height: auto;
-    padding: 2rem;
+    // padding: 2rem;
+    padding: 1rem 2rem;
     // padding: 1rem 2rem;
     border-radius: 2rem;
     z-index: 4;
@@ -125,11 +141,14 @@
 .alertSubmitBtn {
     position: relative;
     display: block;
-    font-size: 1.1rem;
+    // font-size: 1.1rem;
+    font-size: 1.2vw;
     font-weight: bold;
     color: #FFF;
-    padding: .5rem;
-    width: 40%;
+    // padding: .5rem;
+    padding: .5rem 2rem;
+    // width: 40%;
+    width: auto;
     margin: 1rem auto 0 auto;
     background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;
     // box-shadow: 4px .4rem 1rem rgba(0, 0, 0, 0.5);
@@ -195,20 +214,25 @@
     overflow: hidden;
     p {
         text-align: center;
-        font-size: 1.3rem;
+        // font-size: 1.3rem;
+        font-size: 1.5vw;
+        margin-bottom: 0;
     }
 }
 .finishBtn {
     position: absolute;
     transform: translate(-50%);
     left: 50%;
-    bottom: -10%;
+    bottom: -2vw;
     display: block;
-    font-size: 1.1rem;
+    // font-size: 1.1rem;
+    font-size: 1.2vw;
     font-weight: bold;
     color: #FFF;
-    padding: .5rem;
-    width: 40%;
+    // padding: .5rem;
+    padding: .5rem 2rem;
+    // width: 40%;
+    width: auto;
     background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;
     // box-shadow: 4px .4rem 1rem rgba(0, 0, 0, 0.5);
     border-radius: 109px;

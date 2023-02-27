@@ -6,7 +6,12 @@ import Link from "next/link";
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react';
 
+import useTextFit from 'use-text-fit';
+// https://www.npmjs.com/package/use-text-fit
+
 export default function Intruction_1() {
+    // const {ref} = useTextFit();
+    
     const router = useRouter()
     const [instructionStep, setInstructionStep] = useState(1);
     const [instructionText, setInstructionText] = useState('ในหัวข้อนี้ ท่านจะสามารถทำความรู้จักความหมายของพารามิเตอร์ และปุ่มต่างๆของเครื่องช่วยหายใจ ในส่วนของ Setup Vent และ Setup Apnea เท่านั้น');
