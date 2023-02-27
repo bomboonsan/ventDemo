@@ -10,6 +10,9 @@ export default function VentInto() {
     const [introductionText, setIntroductionText] = useState();
     const [stepCount, setStepCount] = useState(1);
 
+
+    const [setupTab, setSetupTab] = useState('vent');
+
     const [fontSize, setFontSize] = useState(100);
 
     useEffect(() => {
@@ -20,9 +23,9 @@ export default function VentInto() {
         let tableBtnsetting = document.querySelector('#table_btnsetting');  
         let nextBtn = document.querySelector('#nextBtn');  
         
-        btn1.classList.add(styles['genderBoxActive']);
-        tableBtngroup.classList.add(styles['invisible']);
-        tableBtnsetting.classList.add(styles['invisible']);
+        btn1?.classList.add(styles['genderBoxActive']);
+        tableBtngroup?.classList.add(styles['invisible']);
+        tableBtnsetting?.classList.add(styles['invisible']);
 
 
         setIntroductionText(listInstructionText[0])
@@ -40,7 +43,7 @@ export default function VentInto() {
         }
 
         if (step >= 4) {
-            document.querySelector('#table_btngroup').classList.remove(styles['invisible']);
+            document.querySelector('#table_btngroup')?.classList.remove(styles['invisible']);
         }
         if (step >= 21) {
             document.querySelector('#table_btnsetting').classList.remove(styles['invisible']);
@@ -108,7 +111,6 @@ export default function VentInto() {
         'Inspiratory  ระดับความไวในช่วง (-2 ถึง 2) ในการช่วยให้คนไข้กระตุ้นเครื่องช่วยหายใจเวลาหายใจเข้า ',
         'Expiratiory ระดับความไวในช่วง (-2 ถึง 2) ในการช่วยให้คนไข้กระตุ้นเครื่องช่วยหายใจเวลาหายใจออก',
         'Constant flow ในโหมด high flow oxygentherapy : คือการตั้งอัตราการไหลของอากาศในขณะที่ต้องการใช้ high flow therapy ',
-        'Apnea Mode : รอข้อความ ',
     ]
     const handlePreviosStep = () => {
         if (stepCount-1 >= 0) {
@@ -141,9 +143,9 @@ export default function VentInto() {
     const handleIntroductionClose = () => {
         setStepCount(0);
         removeActiveBtn(stepCount);
-        document.querySelector('#introductionBox').classList.add(styles['hidden']);
-        document.querySelector('#table_btngroup').classList.remove(styles['invisible']);
-        document.querySelector('#table_btnsetting').classList.remove(styles['invisible']);
+        document.querySelector('#introductionBox')?.classList.add(styles['hidden']);
+        document.querySelector('#table_btngroup')?.classList.remove(styles['invisible']);
+        document.querySelector('#table_btnsetting')?.classList.remove(styles['invisible']);
     }
 
     const handleShowIntroduction = (event) => {
@@ -197,13 +199,28 @@ export default function VentInto() {
                         </div>
                         <div className={styles.sideList}>
                             <ul>
-                                <li className={styles.active}>
+                                {setupTab =='vent' &&
+                                <li className={styles.active} onClick={() => {setSetupTab('vent')}}>
                                     <span>Vent</span>
                                 </li>
-                                <li id='btn50' onClick={handleShowIntroduction}>
+                                }
+                                {setupTab =='apnea' &&
+                                <li onClick={() => {setSetupTab('vent')}}>
+                                    <span>Vent</span>
+                                </li>
+                                }
+                                {setupTab =='vent' &&
+                                <li onClick={() => {setSetupTab('apnea')}}>
                                     <span>Apnea</span>
                                     <i className={styles.alert}></i>
                                 </li>
+                                }
+                                {setupTab =='apnea' &&
+                                <li className={styles.active} onClick={() => {setSetupTab('apnea')}}>
+                                    <span>Apnea</span>
+                                    <i className={styles.alert}></i>
+                                </li>
+                                }
                                 <li>
                                     <Image
                                         src="/vent/icon-bell.png"
@@ -221,6 +238,7 @@ export default function VentInto() {
                                 </li>
                             </ul>
                         </div>
+                        <div className={styles.space_leftbar}></div>
                         <div className={styles.kgbox}>
                             <div className={styles.kg}>
                                 <span className={styles.spnkg}>
@@ -242,6 +260,9 @@ export default function VentInto() {
                     </section>
                     <section className={styles.Ventcontent}>
                         <div className={styles.settings_box}>
+                            
+                            {/* VENT TAB setupTab */}
+                            {setupTab =='vent' &&
                             <div className={styles.leftCol}>
                                 <h4>
                                     Setup Vent
@@ -292,6 +313,8 @@ export default function VentInto() {
                                     </div>
                                 </div>
                             </div>
+                            }
+                            {setupTab =='vent' &&
                             <div className={styles.rightCol}>
                                 <table id='table_btngroup' className={styles.table_btngroup} width="100%" border="0" cellpadding="0" cellspacing="0">
                                     <tbody>
@@ -1002,6 +1025,272 @@ export default function VentInto() {
                                     </tbody>
                                 </table>
                             </div>
+                            }
+
+
+                            {/* APNEA TAB */}
+                            {setupTab =='apnea' &&
+                            <div className={styles.leftCol}>
+                                <h4>
+                                Setup Apnea
+                                </h4>
+                                <div className={styles.heightBox}>
+                                    <div className={styles.btn_setting_up}>
+                                        <div className={styles.btnsLineMid}>T<sub>A</sub></div>
+                                        <div className={styles.btnsLineTop}>20</div>
+                                        <div className={styles.btnsLineBot}>S</div>
+                                    </div>
+                                </div>
+                            </div>
+                            }                                                       
+                            {setupTab=='apnea' &&
+                            <div className={styles.rightCol}>
+                                <table className={styles.table_btngroup} width="100%" border="0" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td className={styles.td_title}>
+                                                <div className={styles.setupCaption}>
+                                                    <span>Ventilation Type</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn} >
+                                                    <span>Invasive</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span>NIV</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td className={styles.td_title}>
+                                                <div className={styles.setupCaption}>
+                                                    <span>Mode</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn} >
+                                                    <span>A/C</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span className={styles.invisible}>ABCD</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span className={styles.invisible}>ABCD</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span className={styles.invisible}>ABCD</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span className={styles.invisible}>ABCD</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td className={styles.td_title}>
+                                                <div className={styles.setupCaption}>
+                                                    <span>Mandatory Type</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span>PC</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span>VC</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span>&nbsp; </span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td className={styles.td_title}>
+                                                <div className={styles.setupCaption}>
+                                                    <span>Spontaneous Type</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span className={styles.invisible}>ABCD</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span className={styles.invisible}>ABCD</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span className={styles.invisible}>ABCD</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span className={styles.invisible}>ABCD</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span className={styles.invisible}>ABCD</span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td className={styles.td_title}>
+                                                <div className={styles.setupCaption}>
+                                                    <span>Trigger Type</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span>P-Trig</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                    <span>-Trig</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.setupbtn}>
+                                                <span>&nbsp; </span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table className={styles.table_btnsetting} width="100%" border="0" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        fA
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        10
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        1/min
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        V<sub>T</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        300
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        mL
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        <sub>MAX</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        39
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        L/min
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        T<sub>PL</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        3.0
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        S
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        Ramp
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        3.0
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                    &nbsp;
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        O<sub>2</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        40
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        %
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        P<sub>l</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        15
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        cmH<sub>2</sub>O
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div className={styles.btn_setting}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        T<sub>l</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        0.84
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        S
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                        
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            }
                         </div>
                     </section>
                 </div>

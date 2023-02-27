@@ -4,8 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import styles from '../../styles/vent/instruction.module.scss'
 import Link from "next/link";
 // import { useRouter } from 'next/router'
-import VentTest from '../../components/venttest'
-
+import VentFinish from '../../components/ventfinish'
 
 export default function Finish() {
   return (
@@ -29,14 +28,7 @@ export default function Finish() {
       </div>{/* prev_page */}
       <div className={styles.row}>
         <div className={styles.col}>
-        <Image
-                src="/images/Capturec-ventfinal.png"
-                alt="Women"
-                // layout="fill"
-                // objectFit="cover"
-                width={1500}
-                height={1500}
-            />
+          <VentFinish />
         </div>
       </div>
     </div>

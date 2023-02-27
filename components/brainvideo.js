@@ -28,14 +28,18 @@ export default function BrainVideo() {
     const video1 = 'https://wish-integrate.com/bisvideo/1.mp4'
     const video2 = 'https://wish-integrate.com/bisvideo/2.mp4'
     const video3 = 'https://wish-integrate.com/bisvideo/3.mp4'
+    const video4_1 = 'https://wish-integrate.com/bisvideo/4-1.mp4'
     const video4 = 'https://wish-integrate.com/bisvideo/4.mp4'
 
     
     // const [playing, setPlaying] = useState(true);
     const [playing, setPlaying] = useState(true);
     const [urlVideo, setUrlVideo] = useState(startVideo);
-    const [isShowBtn, setIsShowBtn] = useState(true);    
+    const [isShowBtn, setIsShowBtn] = useState(true);        
     const [videoStep, setVideoStep] = useState(0);
+
+    // const [showNext, setShowNext] = useState(false);   
+    const [showNext, setShowNext] = useState(false);   
 
     useEffect(() => {
         document.querySelector('#actionBtn1')?.classList.add(styles['visible']);
@@ -61,7 +65,7 @@ export default function BrainVideo() {
     }
     function actionBtn4() {
         getFullScreen()
-        setUrlVideo(video4);
+        setUrlVideo(video4_1);
         setIsShowBtn(false);
         setVideoStep(4)
     }
@@ -74,7 +78,17 @@ export default function BrainVideo() {
         console.log('videoStep'+videoStep);
         console.log('videoNextStep'+videoNextStepVar);
     }
+    function showBtnNextVideo() {
+        if(videoStep == 4) {
+            setUrlVideo(video4);
+            setIsShowBtn(false);
+            setVideoStep(5)
+        } else {
+            setShowNext(true)
+        }
+    }
     function reset() {        
+        setShowNext(false)
         // if (videoStep == 4) {
         //     setUrlVideo(video5);
         //     setVideoStep(5)
@@ -95,7 +109,7 @@ export default function BrainVideo() {
         //         setIsShowBtn(true);
         //    }, 1500);
         // }
-        if ( videoStep == 4) {
+        if ( videoStep == 5) {
             // router.push('/mainbrain')
             // document.exitFullscreen();
             // router.push('/brain/result/howto')
@@ -125,6 +139,17 @@ export default function BrainVideo() {
     function handleFinish() {
         router.push('/mainbrain')
     }
+
+    const NextBtn = () => {
+        return (
+            <div className={styles.nextBtn}>
+                <button className={styles.nextBtnItem} onClick={reset}>
+                    NEXT
+                </button>
+            </div>
+        )
+    }
+
     return (
         <FullScreen handle={handle}>
         <div className={styles.video_container}>
@@ -206,10 +231,12 @@ export default function BrainVideo() {
             className={styles.video_item} 
             url={urlVideo}  
             playing={playing} 
-            onEnded={reset}
+            onEnded={showBtnNextVideo}
             width='100%'
             height='100%'
             />
+
+            {showNext && <NextBtn />}
         </div>
         </FullScreen>
     )

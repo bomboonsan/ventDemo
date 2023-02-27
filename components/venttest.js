@@ -24,7 +24,7 @@ import Moveable from "react-moveable"; // preact-moveable
 export default function VentTest() {
     const router = useRouter()
     const [btnSetupRecord, setBtnSetupRecord] = useState([]);
-    const [varBtnSetting, setvarBtnSetting] = useState([10,300,39,10,3.0,40,40,75,50,0.0,0,5.0,25,3.0,750,'ET']);
+    const [varBtnSetting, setvarBtnSetting] = useState([10,300,39,10,2.0,30,8.0,75,0.0,0.0,0,5.0,3,5.0,750,'ET']);
     const [btnSetup, setBtnSetup] = useState();
     const [stepCount, setStepCount] = useState(1);
     const [isSetWeight, setIsSetWeight] = useState(0);
@@ -195,12 +195,19 @@ export default function VentTest() {
     let listFooterText = [
         'ตั้งค่า ventilator ใส่ข้อมูลคนไข้เพศชาย สูง 170 ซม.',
         'ตั้งค่า ventilator mode ตามความเหมาะสมของคนไข้',
-        'ตั้งค่า Flow trigger 5L/min',
-        'ตั้งค่า Peep 3 cmH2O',
-        'ตั้งค่าให้ pressure support 10 cmH2O',
-        'คนไข้มีภาวะของ Airway resistance ปรับ rise time เป็น 25%',
-        'ตั้งค่า %O2 : 40',
-        'พบว่าคนไข้มีdelay cycling ปรับ Esens 50%',
+        // 'ตั้งค่า Flow trigger 3L/min',
+        // 'ตั้งค่า Peep 3 cmH2O',
+        // 'ตั้งค่าให้ pressure support 10 cmH2O',
+        // 'คนไข้มีภาวะของ Airway resistance ปรับ rise time เป็น 25%',
+        // 'ตั้งค่า %O2 : 40',
+        // 'พบว่าคนไข้มีdelay cycling ปรับ Esens 50%',
+        'ตั้งค่า Pressure Support เป็น 10 cmH2O',
+        'ตั้งค่า Flow trigger เป็น 3L/min',
+        'ตั้งค่า % O2 เป็น 40%',
+        'ตั้งค่า Pmax 35 cmH2O',
+        'ปรับ Esense เป็น 25%',
+        'PEEP 5 cmH2O',
+        'ปรับ P Rise เป็น 50%',
         'กด Accept All เพื่อยืนยันการตั้งค่า โปรดตรวจสอบให้แน่ใจว่าคำตอบของท่านถูกต้อง'
         // 'ปรับหน้าจอให้เป็น 3 Waveform'        
     ]
@@ -467,15 +474,17 @@ export default function VentTest() {
 
         // arrItemShow = [4,5,6,7,9,13,14];
         // varBtnSetting
-        if ( Number(varBtnSetting[3]).toFixed(0) == 10 && Number(varBtnSetting[4]).toFixed(0) == 3 && Number(varBtnSetting[5]).toFixed(0) == 40 & Number(varBtnSetting[6]).toFixed(0) == 35 & Number(varBtnSetting[8]).toFixed(0) == 25 & Number(varBtnSetting[12]).toFixed(0) == 50 & Number(varBtnSetting[13]).toFixed(0) == 3 ) {
+        if ( Number(varBtnSetting[3]).toFixed(0) == 10 && Number(varBtnSetting[4]).toFixed(0) == 3 && Number(varBtnSetting[5]).toFixed(0) == 40 & Number(varBtnSetting[6]).toFixed(0) == 35 & Number(varBtnSetting[8]).toFixed(0) == 50 & Number(varBtnSetting[12]).toFixed(0) == 25 & Number(varBtnSetting[13]).toFixed(0) == 5 ) {
             console.log('succecfully')
-            setPlaying(true)
-            document.querySelector('#main')?.classList.add(styles['hidden_force']);
-            document.querySelector('#video')?.classList.add(styles['showVideo']);
-            // router.push('/vent/finish')
-            setFooterText('ปรับหน้าจอให้เป็น 3 Waveform')
-            document.querySelector('#btnGroup')?.classList.add(styles['hidden']);
-            // btnGroup
+            // setPlaying(true)
+            // document.querySelector('#main')?.classList.add(styles['hidden_force']);
+            // document.querySelector('#video')?.classList.add(styles['showVideo']);
+            // // router.push('/vent/finish')
+            // setFooterText('ปรับหน้าจอให้เป็น 3 Waveform')
+            // document.querySelector('#btnGroup')?.classList.add(styles['hidden']);
+            // // btnGroup
+
+            router.push('/vent/finish')
             
         } else {
             console.log('fail')
@@ -855,7 +864,7 @@ export default function VentTest() {
                                             <td>
                                                 <div data-settingid='5' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
-                                                        V <sub>SENS</sub>
+                                                         <sub>SENS</sub>
                                                     </div>
                                                     {/* <div className={styles.btnsLineMid}>
                                                         {varBtnSetting[4]}
@@ -883,7 +892,7 @@ export default function VentTest() {
                                             <td>
                                                 <div data-settingid='7' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
-                                                        P<sub>PEAK</sub>
+                                                        P<sub>PEAK</sub>
                                                     </div>
                                                     {/* <div className={styles.btnsLineMid}>
                                                     {varBtnSetting[6]}
@@ -1040,7 +1049,7 @@ export default function VentTest() {
                     </section>
                 </div>
             </main>
-            <div id='video' className={styles.videoContainer}>
+            {/* <div id='video' className={styles.videoContainer}>
                 <ReactPlayer 
                 // className={styles.video_item} 
                 url={waveVideo}  
@@ -1065,7 +1074,7 @@ export default function VentTest() {
                 <div className={styles.btnThreeWave} onClick={showThreeWave}></div>
                 <div className={styles.closeWaveFormPanel} onClick={closeWaveFormPanel}></div>
                 </div>
-            </div>
+            </div> */}
             <div className={styles.statBar}>
                 {/* <div className={styles.log_box}>
                     {varR} degree

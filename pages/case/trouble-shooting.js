@@ -3,14 +3,22 @@ import Image from 'next/image'
 import 'bootstrap/dist/css/bootstrap.css'
 import styles from '../../styles/casedetail.module.css'
 import Link from "next/link";
-import { useState , useEffect } from 'react';
+import { useState , useEffect , useRef  } from 'react';
 import ReactPlayer from 'react-player'
+import { findDOMNode } from 'react-dom'
 // import { useRouter } from 'next/router'
-
+import screenfull from 'screenfull'
 
 export default function CaseDetail() {
   const [playing, setPlaying] = useState(true);
   const troubleShootingVideo = 'https://wish-integrate.com/vent-video/trouble-shooting.mp4'
+
+  const playerRef = useRef(null);
+  const onClickFullscreen = () => {
+    if (screenfull.isEnabled && playerRef.current) {
+      screenfull.toggle(playerRef.current.wrapper);
+    }
+  };
   function reset() {
     
   }
@@ -92,9 +100,12 @@ export default function CaseDetail() {
                           <div className={styles.case_fulldetail}>
                             {/* trouble-shooting.mp4 */}
                             <ReactPlayer 
+                            onClick={onClickFullscreen}
                             className={styles.video_item} 
                             url={troubleShootingVideo}  
                             playing={playing} 
+                            ref={playerRef}
+                            loop={true}
                             onEnded={reset}
                             width='100%'
                             height='100%'

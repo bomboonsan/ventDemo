@@ -30,7 +30,7 @@ export default function BrainSensor() {
 
     // video 
     // const videoInstall = '../video/brainVideo.mp4'
-    const videoInstall = 'https://wish-integrate.com/vent-video/bismonitor.mp4'
+    const videoInstall = 'https://wish-integrate.com/vent-video/bismonitor_Trim.mp4'
     const [playing, setPlaying] = useState(false);
     const [urlVideo, setUrlVideo] = useState(videoInstall);
 

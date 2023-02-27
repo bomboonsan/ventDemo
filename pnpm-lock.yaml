@@ -18,6 +18,7 @@ specifiers:
   react-player: ^2.11.0
   redux: ^4.2.0
   sass: ^1.56.1
+  screenfull: ^6.0.2
   typewriter-effect: ^2.19.0
   video-react: ^0.16.0
   webpack: ^5.75.0
@@ -39,6 +40,7 @@ dependencies:
   react-player: 2.11.0_react@18.2.0
   redux: 4.2.0
   sass: 1.56.1
+  screenfull: 6.0.2
   typewriter-effect: 2.19.0_biqbaboplfbrettd7655fr4n2y
   video-react: 0.16.0_biqbaboplfbrettd7655fr4n2y
   webpack: 5.75.0
@@ -2344,6 +2346,11 @@ packages:
       '@types/json-schema': 7.0.11
       ajv: 6.12.6
       ajv-keywords: 3.5.2_ajv@6.12.6
+
+  /screenfull/6.0.2:
+    resolution: {integrity: sha512-AQdy8s4WhNvUZ6P8F6PB21tSPIYKniic+Ogx0AacBMjKP1GUHN2E9URxQHtCusiwxudnCKkdy4GrHXPPJSkCCw==}
+    engines: {node: ^14.13.1 || >=16.0.0}
+    dev: false
 
   /semver/6.3.0:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
