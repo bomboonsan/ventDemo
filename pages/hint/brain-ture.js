@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import 'bootstrap/dist/css/bootstrap.css'
-import styles from '../../styles/hint/main.module.scss'
+import styles from '../../styles/hint/brain.module.scss'
 import Link from "next/link";
 import { useRouter } from 'next/router'
 import { useState } from 'react';
@@ -25,15 +25,17 @@ export default function Intruction_1() {
 
     const BrainImage = () => {
         return (
-            <div>
+            <div className={styles.col_image_left}>
+                <div className={styles.table_iTem}>
                 <Image
-                    src="/images/brain-ture.png"
+                    src="/images/brain-ture@4x.png"
                     alt="Women"
                     // layout="fill"
                     // objectFit="cover"
                     width={250}
                     height={400}
                 />
+                </div>
             </div>
         )
     }
@@ -60,32 +62,39 @@ export default function Intruction_1() {
 
             <div className={styles.container_hint}>
                 <div className={styles.row_hint}>
+                    {stepCount+1 == 2 && <BrainImage />}
+                    {stepCount+1 == 2 && 
+                    <div className={styles.col_text_box2}>
+                        <div className={styles.text_box_wrap}>
+                            <p>
+                                {textHint}
+                            </p>
+                        </div>
+
+                        <div className={styles.btn_group}>
+                            <button onClick={nextStep}>
+                                GOT IT
+                            </button>
+                        </div>                        
+                    </div>    
+                    }
+
+                    {stepCount+1 !== 2 && 
                     <div className={styles.col_text_box}>
                         <div className={styles.text_box_wrap}>
                             <p>
                                 {textHint}
                             </p>
                         </div>
+
                         <div className={styles.btn_group}>
-                            {/* <button onClick={replace}>
-                            Try again
-                            </button> */}
                             <button onClick={nextStep}>
                                 GOT IT
                             </button>
-                        </div>
-                        {stepCount+1 == 2 && <BrainImage />}
-                    </div>
-                    {/* <div className={styles.col_image}>
-                        <Image
-                            src="/images/hin.png"
-                            alt="Women"
-                            // layout="fill"
-                            // objectFit="cover"
-                            width={1279}
-                            height={1739}
-                        />
-                    </div> */}
+                        </div>                        
+                    </div>    
+                    }                
+                    
                     <div className={styles.col_image}>
                         <Image
                             src="/images/hin-ture.png"

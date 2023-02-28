@@ -26,9 +26,10 @@ export default function BrainVideo() {
     // // const video4 = '../video/button4.mp4'
     // const video4 = '../video/videoend2.mp4'
     const video1 = 'https://wish-integrate.com/bisvideo/1.mp4'
-    const video2 = 'https://wish-integrate.com/bisvideo/2.mp4'
+    const video2 = 'https://wish-integrate.com/bisvideo/2_Trim.mp4'
     const video3 = 'https://wish-integrate.com/bisvideo/3.mp4'
-    const video4_1 = 'https://wish-integrate.com/bisvideo/4-1.mp4'
+    // const video4_1 = 'https://wish-integrate.com/bisvideo/4-1.mp4'
+    const video4_1 = 'https://wish-integrate.com/bisvideo/4_1_Trim.mp4'
     const video4 = 'https://wish-integrate.com/bisvideo/4.mp4'
 
     
@@ -79,52 +80,64 @@ export default function BrainVideo() {
         console.log('videoNextStep'+videoNextStepVar);
     }
     function showBtnNextVideo() {
+        // if(videoStep == 4) {
+        //     setUrlVideo(video4);
+        //     setIsShowBtn(false);
+        //     setVideoStep(5)
+        // } else {
+        //     setShowNext(true)
+        // }
+
+        setShowNext(true)
+    }
+    function reset() {        
         if(videoStep == 4) {
+            setShowNext(false)
             setUrlVideo(video4);
             setIsShowBtn(false);
             setVideoStep(5)
         } else {
-            setShowNext(true)
-        }
-    }
-    function reset() {        
-        setShowNext(false)
-        // if (videoStep == 4) {
-        //     setUrlVideo(video5);
-        //     setVideoStep(5)
-        // } else if (videoStep == 5) {
-        //     setUrlVideo(video6);
-        //     setVideoStep(6)
-        // }      
-        // else if (videoStep == 6) {
-        //     setTimeout(function(){
-        //         setUrlVideo(startVideo);
-        //         setIsShowBtn(true);
-        //         router.push('/brain/result/howto')
-        //    }, 3500);
-        // }
-        // else {
-        //     setTimeout(function(){
-        //         setUrlVideo(startVideo);
-        //         setIsShowBtn(true);
-        //    }, 1500);
-        // }
-        if ( videoStep == 5) {
-            // router.push('/mainbrain')
-            // document.exitFullscreen();
-            // router.push('/brain/result/howto')
-            // router.push('/mainbrain')
-            setUrlVideo(startVideo);
-            // setIsShowBtn(true);
-            document.querySelector('#btn_finish')?.classList.add(styles['visible']);
-        }
-        setTimeout(function(){
-            setUrlVideo(startVideo);
-            setIsShowBtn(true);
-       }, 200);
-       setTimeout(function(){
-            nextStepCircle()
-        }, 300);
+
+            setShowNext(false)
+            // if (videoStep == 4) {
+            //     setUrlVideo(video5);
+            //     setVideoStep(5)
+            // } else if (videoStep == 5) {
+            //     setUrlVideo(video6);
+            //     setVideoStep(6)
+            // }      
+            // else if (videoStep == 6) {
+            //     setTimeout(function(){
+            //         setUrlVideo(startVideo);
+            //         setIsShowBtn(true);
+            //         router.push('/brain/result/howto')
+            //    }, 3500);
+            // }
+            // else {
+            //     setTimeout(function(){
+            //         setUrlVideo(startVideo);
+            //         setIsShowBtn(true);
+            //    }, 1500);
+            // }        
+
+            if ( videoStep == 5) {
+                // router.push('/mainbrain')
+                // document.exitFullscreen();
+                // router.push('/brain/result/howto')
+                // router.push('/mainbrain')
+                setUrlVideo(startVideo);
+                // setIsShowBtn(true);
+                document.querySelector('#btn_finish')?.classList.add(styles['visible']);
+            }
+            setTimeout(function(){
+                setUrlVideo(startVideo);
+                setIsShowBtn(true);
+            }, 200);
+            setTimeout(function(){
+                nextStepCircle()
+            }, 300);
+
+        }        
     }
     function toggleFullScreen() {
         if (!document.fullscreenElement) {
