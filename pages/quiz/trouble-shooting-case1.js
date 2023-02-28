@@ -81,7 +81,7 @@ export default function Main_menu() {
               <h1 className={styles.quiz_title}>
                 เกิดปัญหาขึ้นกับคนไข้! <br/>
                 ระหว่างที่คุณปฏิบัติงาน พบความผิดปกติกับคนไข้ <br/>
-                จากการสังเกตุความผิดปกติที่เกิด คุณพบว่า
+                จากการสังเกตความผิดปกติที่เกิด คุณพบว่า
               </h1>
 
               <div className={styles.quiz_row}>        
