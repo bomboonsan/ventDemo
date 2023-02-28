@@ -61,11 +61,12 @@ export default function Intruction_1() {
             </div>{/* prev_page */}
 
             <div className={styles.container_hint}>
-                <div className={styles.row_hint}>
+                {stepCount+1 == 2 && 
+                <div className={styles.row_hint2}>
                     {stepCount+1 == 2 && <BrainImage />}
                     {stepCount+1 == 2 && 
                     <div className={styles.col_text_box2}>
-                        <div className={styles.text_box_wrap}>
+                        <div className={styles.text_box_wrap2}>
                             <p>
                                 {textHint}
                             </p>
@@ -106,6 +107,57 @@ export default function Intruction_1() {
                         />
                     </div>
                 </div>
+                }
+
+
+                {stepCount+1 !== 2 && 
+                <div className={styles.row_hint}>
+                    {stepCount+1 == 2 && <BrainImage />}
+                    {stepCount+1 == 2 && 
+                    <div className={styles.col_text_box2}>
+                        <div className={styles.text_box_wrap2}>
+                            <p>
+                                {textHint}
+                            </p>
+                        </div>
+
+                        <div className={styles.btn_group}>
+                            <button onClick={nextStep}>
+                                GOT IT
+                            </button>
+                        </div>                        
+                    </div>    
+                    }
+
+                    {stepCount+1 !== 2 && 
+                    <div className={styles.col_text_box}>
+                        <div className={styles.text_box_wrap}>
+                            <p>
+                                {textHint}
+                            </p>
+                        </div>
+
+                        <div className={styles.btn_group}>
+                            <button onClick={nextStep}>
+                                GOT IT
+                            </button>
+                        </div>                        
+                    </div>    
+                    }                
+                    
+                    <div className={styles.col_image}>
+                        <Image
+                            src="/images/hin-ture.png"
+                            alt="Women"
+                            // layout="fill"
+                            // objectFit="cover"
+                            width={1279}
+                            height={1739}
+                        />
+                    </div>
+                </div>
+                }
+
             </div>            
         
         </div>
