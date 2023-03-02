@@ -45,10 +45,20 @@ export default function CaseDetail() {
       </div>{/* prev_page */}
       <div className='container'>
         <div className='row justify-content-center align-items-center min-h-screen'>
-          <div className='col-11 col-md-8 col-lg-6'>
-            <h2 className='text-center mb-4'>
+          <div className='col-11 col-md-9 col-lg-9'>
+            {/* <h2 className='text-center mb-4'>
                 Success
-            </h2>
+            </h2> */}
+            <div className={styles.success_btn}>
+            <Image
+                src="/images/success_btn.png"
+                alt="success"
+                // layout="fill"
+                // objectFit="cover"
+                width={196}
+                height={196}
+            />
+            </div>
             <div className={styles.box_wrapper}>
               <div className={styles.video}>
                 {/* <ReactPlayer 
@@ -75,7 +85,7 @@ export default function CaseDetail() {
             </div>
             <div className={styles.text_wrap}>
                 <p>
-                เสียงลมออกปากของคนไข้หายไป <br/>
+                เสียงลมออกปากของคนไข้หายไป 
                 ท่านใช้เวลาไป  .........................                
                 </p>
             </div>
