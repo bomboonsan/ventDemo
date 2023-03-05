@@ -18,11 +18,16 @@ export default function Home() {
   const checkPassword = () => {
     const correctPassword = '9876543';
     if (password === correctPassword) {
-      router.push('/select');
+      // router.push('/select');
+      router.push('/welcome');
     } else {
       setMessage('Incorrect password');
     }
   };
+
+  const handleRegister = () => {
+    router.push('/select');
+  }
 
   // Elements
   const alertElement = message ? <HomeAlert message={message} /> : null;
@@ -36,7 +41,7 @@ export default function Home() {
       </Head>
       <div className={styles.login_page}>
         <div className={styles.login_container}>
-          <p>password :: 9876543</p>
+          <h1>i-MEDucation</h1>
           <p>{alertElement}</p>
           <input 
           className={styles.login_input} 
@@ -45,9 +50,27 @@ export default function Home() {
           onChange={handleChange}
           value={password} />
 
-          <button 
+          {/* <button 
           onClick={checkPassword}
           className={styles.submit_btn}>Login</button>
+
+          <button 
+          onClick={handleRegister}
+          className={styles.submit_btn}>Register</button> */}
+
+          <div className={styles.btn_group}>
+            <div>
+              <button 
+              onClick={checkPassword}
+              className={styles.submit_btn}>Login</button>          
+            </div>
+            <div>
+              <button 
+              onClick={handleRegister}
+              className={styles.submit_btn}>Register</button>
+            </div>
+          </div>
+
         </div>        
       </div>
     </div>

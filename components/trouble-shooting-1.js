@@ -86,7 +86,7 @@ export default function HomeAlert() {
                 </div>
                 <div>
                     <Image
-                        onClick={() => setPatientAlertStep(2)}
+                        onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}
                         className={styles.alertImage}
                         src='/troubleshooting/04.png'
                         alt="Hover"
@@ -97,7 +97,7 @@ export default function HomeAlert() {
                         height={200}
                     />
                 </div>
-                <button className={styles.alertSubmitBtn} onClick={() => setPatientAlertStep(2)}>
+                <button className={styles.alertSubmitBtn} onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}>
                     NEXT
                 </button>
             </div>
@@ -132,7 +132,7 @@ export default function HomeAlert() {
                 {/* <button className={styles.alertSubmitBtn} onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}>
                     NEXT
                 </button> */}
-                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient')}}>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient') ; setPlayingYoutube(false)}}>
                     GOT IT
                 </button>
             </div>

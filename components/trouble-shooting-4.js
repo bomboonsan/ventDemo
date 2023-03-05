@@ -13,11 +13,29 @@ export default function HomeAlert() {
 
     const [missions, setMissions] = useState([]);
 
+    const [seconds, setSeconds] = useState(0);
+    const [minutes, setMinutes] = useState(0);
+    useEffect(() => {
+        const interval = setInterval(() => {
+          setSeconds((prevSeconds) => prevSeconds + 1);
+        }, 1000);
+    
+        return () => clearInterval(interval);
+    }, []);
+    
+    useEffect(() => {
+        if (seconds === 60) {
+            setSeconds(0);
+            setMinutes((prevMinutes) => prevMinutes + 1);
+        }
+    }, [seconds]);
+
     function handleStart() {
         setisStart(true);
     }
     function handleFinish() {
-        router.push('/trouble-shooting/success2')
+        // router.push('/trouble-shooting/success2')
+        router.push('/trouble-shooting/success/?timer='+seconds)
     }
     function closeBox() {
         setShowElement('')
@@ -83,6 +101,23 @@ export default function HomeAlert() {
                 <div className={styles.alertClose} onClick={closeBox}>
                     X
                 </div>
+                <div className={styles.alertText}>
+                <p>
+                ผู้ป่วยมีลมออกปาก
+                </p>
+                </div>
+                <button className={styles.alertSubmitBtn} onClick={() => {setPatientAlertStep(2)}}>
+                    NEXT
+                </button>
+            </div>
+        )
+    }
+    const PatientAlertBox2 = () => {
+        return (
+            <div className={styles.alertBox}>
+                <div className={styles.alertClose} onClick={closeBox}>
+                    X
+                </div>
                 <div className={styles.alertHead}>
                     <p>
                         ตรวจร่างกายผู้ป่วย
@@ -90,7 +125,7 @@ export default function HomeAlert() {
                 </div>
                 <div>
                     <Image
-                        onClick={() => setPatientAlertStep(2)}
+                        onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(3)}}
                         className={styles.alertImage}
                         src='/troubleshooting/04.png'
                         alt="Hover"
@@ -101,13 +136,13 @@ export default function HomeAlert() {
                         height={200}
                     />
                 </div>
-                <button className={styles.alertSubmitBtn} onClick={() => setPatientAlertStep(2)}>
+                <button className={styles.alertSubmitBtn} onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(3)}}>
                     NEXT
                 </button>
             </div>
         )
     }
-    const PatientAlertBox2 = () => {
+    const PatientAlertBox3 = () => {
         return (
             <div className={styles.alertBox}>
                 <div className={styles.alertClose} onClick={closeBox}>
@@ -132,7 +167,7 @@ export default function HomeAlert() {
                         height={200}
                     />
                 </div>
-                <PatientAlertBox3 />
+                <PatientAlertBox4 />
                 {/* <button className={styles.alertSubmitBtn} onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}>
                     NEXT
                 </button> */}
@@ -149,7 +184,7 @@ export default function HomeAlert() {
         setPatientAlertStep(1)
         setShowElement('')
     }
-    const PatientAlertBox3 = () => {
+    const PatientAlertBox4 = () => {
         return (
             // <div className={styles.alertBox}>
             //     <div className={styles.alertClose} onClick={closeBox}>
@@ -396,8 +431,8 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                 <p>
-                {/* ตรวจไม่พบลมรั่วบริเวณโถ suction */}
-                ดูดได้เสมหะจำนวนมาก
+                ตรวจไม่พบลมรั่วบริเวณโถ suction
+                {/* ดูดได้เสมหะจำนวนมาก */}
                 </p>
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={closeBox}>

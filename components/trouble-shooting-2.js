@@ -13,11 +13,28 @@ export default function HomeAlert() {
 
     const [missions, setMissions] = useState([]);
 
+    const [seconds, setSeconds] = useState(0);
+    const [minutes, setMinutes] = useState(0);
+    useEffect(() => {
+        const interval = setInterval(() => {
+          setSeconds((prevSeconds) => prevSeconds + 1);
+        }, 1000);
+    
+        return () => clearInterval(interval);
+    }, []);
+    
+    useEffect(() => {
+        if (seconds === 60) {
+            setSeconds(0);
+            setMinutes((prevMinutes) => prevMinutes + 1);
+        }
+    }, [seconds]);
+
     function handleStart() {
         setisStart(true);
     }
     function handleFinish() {
-        router.push('/trouble-shooting/success')
+        router.push('/trouble-shooting/success?timer='+seconds)
     }
     function closeBox() {
         setShowElement('')
@@ -89,7 +106,7 @@ export default function HomeAlert() {
                 </div>
                 <div>
                     <Image
-                        onClick={() => setPatientAlertStep(2)}
+                        onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}
                         className={styles.alertImage}
                         src='/troubleshooting/04.png'
                         alt="Hover"
@@ -100,7 +117,7 @@ export default function HomeAlert() {
                         height={200}
                     />
                 </div>
-                <button className={styles.alertSubmitBtn} onClick={() => setPatientAlertStep(2)}>
+                <button className={styles.alertSubmitBtn} onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}>
                     NEXT
                 </button>
             </div>
@@ -346,6 +363,12 @@ export default function HomeAlert() {
 
             {isStart && <CloseSuctionElement />}
             {showElement=='CloseSuction' && <CloseSuctionAlertBox />}
+
+            {/* DEV */}
+            {/* <div className={styles.timeup}>
+                <p>{`${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}</p>
+            </div> */}
+            {/* DEV */}
         </div>        
     )
 }

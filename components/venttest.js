@@ -24,7 +24,7 @@ import Moveable from "react-moveable"; // preact-moveable
 export default function VentTest() {
     const router = useRouter()
     const [btnSetupRecord, setBtnSetupRecord] = useState([]);
-    const [varBtnSetting, setvarBtnSetting] = useState([10,300,39,10,2.0,30,8.0,75,0.0,0.0,0,5.0,3,5.0,750,'ET']);
+    const [varBtnSetting, setvarBtnSetting] = useState([10,300,39,10,2.0,30,8.0,75,0.0,0.0,0,5.0,3,3,750,'ET']);
     const [btnSetup, setBtnSetup] = useState();
     const [stepCount, setStepCount] = useState(1);
     const [isSetWeight, setIsSetWeight] = useState(0);
@@ -195,22 +195,24 @@ export default function VentTest() {
     let listFooterText = [
         'ตั้งค่า ventilator ใส่ข้อมูลคนไข้เพศชาย สูง 170 ซม.',
         'ตั้งค่า ventilator mode ตามความเหมาะสมของคนไข้',
-        // 'ตั้งค่า Flow trigger 3L/min',
-        // 'ตั้งค่า Peep 3 cmH2O',
-        // 'ตั้งค่าให้ pressure support 10 cmH2O',
-        // 'คนไข้มีภาวะของ Airway resistance ปรับ rise time เป็น 25%',
-        // 'ตั้งค่า %O2 : 40',
-        // 'พบว่าคนไข้มีdelay cycling ปรับ Esens 50%',
-        'ตั้งค่า Pressure Support เป็น 10 cmH2O',
+        // 'ตั้งค่า Pressure Support เป็น 10 cmH2O',
         'ตั้งค่า Flow trigger เป็น 3L/min',
         'ตั้งค่า % O2 เป็น 40%',
-        'ตั้งค่า Pmax 35 cmH2O',
+        // 'ตั้งค่า Pmax 35 cmH2O',
         'ปรับ Esense เป็น 25%',
-        'PEEP 5 cmH2O',
+        // 'PEEP 5 cmH2O',
         'ปรับ P Rise เป็น 50%',
         'กด Accept All เพื่อยืนยันการตั้งค่า โปรดตรวจสอบให้แน่ใจว่าคำตอบของท่านถูกต้อง'
         // 'ปรับหน้าจอให้เป็น 3 Waveform'        
     ]
+
+    // insert <sub> tag at index 1
+    listFooterText.splice(2, 0, <span>ตั้งค่า Pressure Support เป็น 10 cmH<sub>2</sub>O</span>);
+    // insert <sub> tag at index 6
+    listFooterText.splice(5, 0, <span>ตั้งค่า Pmax 35 cmH<sub>2</sub>O</span>);
+    // insert <sub> tag at index 8
+    listFooterText.splice(7, 0, <span>PEEP 5 cmH<sub>2</sub>O</span>);
+
     const nextText = () => {
         if (footerTextStep+1 < listFooterText.length) {
             setFooterTextStep(footerTextStep+1);

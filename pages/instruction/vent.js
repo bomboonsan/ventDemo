@@ -14,7 +14,7 @@ export default function Intruction_1() {
     
     const router = useRouter()
     const [instructionStep, setInstructionStep] = useState(1);
-    const [instructionText, setInstructionText] = useState('ในหัวข้อนี้ ท่านจะสามารถทำความรู้จักความหมายของพารามิเตอร์ และปุ่มต่างๆของเครื่องช่วยหายใจ ในส่วนของ Setup Vent และ Setup Apnea เท่านั้น');
+    const [instructionText, setInstructionText] = useState('ในหัวข้อนี้ ท่านสามารถทำความรู้จักความหมายของพารามิเตอร์ และปุ่มต่างๆของเครื่องช่วยหายใจ ในโหมด Setup Vent และ Setup Apnea');
     const handleClick = () => {
         console.log('click')
         setInstructionStep(instructionStep+1)
@@ -22,7 +22,7 @@ export default function Intruction_1() {
             setInstructionText('คำอธิบายต่างๆจะแสดงบริเวณด้านล่างของหน้าต่าง Set up ท่านสามารถดูคำอธิบายไปตามลำดับ โดยกดปุ่ม NEXT ย้อนกลับได้โดยกดปุ่ม Previous หากท่านต้องการทราบคำอธิบายของพารามิเตอร์หรือปุ่ม ท่านสามารถกดไปที่ค่าต่างๆได้โดยตรง')
         }
         if (instructionStep == 2) {
-            setInstructionText('หมายเหตุ: โปรแกรมนี้ออกแบบมาเพื่อให้ท่านได้เห็นทุกพารามิเตอร์และปุ่ม ดังนั้นโปรแกรมที่จัดจำลองขึ้นนี้ จะมีส่วนที่ไม่เหมือนเครื่องช่วยหายใจทั้งหมด')
+            setInstructionText('หมายเหตุ: โปรแกรมนี้จัดจำลองขึ้นเพื่อให้ท่านได้รู้จักความหมายของปุ่มและพารามิเตอร์ต่างๆ โปรดศึกษาเพิ่มเติมในหัวข้อถัดไปสำหรับการใช้งานเครื่องจริง')
         }
         if (instructionStep == 3) {
             router.push('/vent/instruction')

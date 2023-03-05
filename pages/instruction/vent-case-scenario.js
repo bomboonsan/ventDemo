@@ -9,15 +9,15 @@ import { useState, useEffect } from 'react';
 export default function Intruction_1() {
     const router = useRouter()
     const [instructionStep, setInstructionStep] = useState(1);
-    const [instructionText, setInstructionText] = useState('ในหัวข้อนี้ ท่านจะได้ฝึกทดลองการตั้งค่าเครื่องช่วยหายใจเบื้อง ให้เหมาะสมกับคนไข้สถานการณ์จำลอง');
+    const [instructionText, setInstructionText] = useState('ในหัวข้อนี้ ท่านจะได้ฝึกทดลองการตั้งค่าเครื่องช่วยหายใจเบื้องต้น ให้เหมาะสมกับคนไข้ในสถานการณ์จำลองที่กำหนดไว้');
     const handleClick = () => {
         console.log('click')
         setInstructionStep(instructionStep+1)
         if (instructionStep == 1) {
-            setInstructionText('ท่านต้องทำการตั้งค่าเครื่องตามคำแนะนำที่ขึ้นด้านล่างของหน้าต่าง Set up กดเม้าส์ด้านซ้ายบนปุ่มและพารามิเตอร์ต่างๆเพื่อทำการเลือก กดเม้าส์และหมุนไปทางซ้ายหรือขวาของ knob เพื่อปรับค่าที่ท่านต้องการ')
+            setInstructionText('ท่านต้องทำการตั้งค่าเครื่องตามคำแนะนำที่ขึ้นด้านล่างของหน้าจอ กดบนปุ่มและพารามิเตอร์ต่างๆเพื่อทำการเลือก กดและหมุนไปทางซ้ายหรือขวาบน knob เพื่อปรับค่าที่ท่านต้องการ')
         }
         if (instructionStep == 2) {
-            setInstructionText('หมายเหตุ: โปรแกรมนี้ออกแบบมาเพื่อจำลองการตั้งค่าเครื่องช่วยหายใจเบื้องต้น ดังนั้นโปรแกรมที่จัดจำลองขึ้นนี้ จะมีส่วนที่ไม่เหมือนเครื่องช่วยหายใจทั้งหมด')
+            setInstructionText('โปรแกรมนี้ออกแบบมาเพื่อจำลองการตั้งค่าเครื่องช่วยหายใจเบื้องต้นเท่านั้น โปรดศึกษาเพิ่มเติมในหัวข้อถัดไปสำหรับการใช้งานเครื่องจริง')
         }
         if (instructionStep == 3) {
             router.push('/case/vent')

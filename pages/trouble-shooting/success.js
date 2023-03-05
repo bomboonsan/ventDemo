@@ -23,6 +23,10 @@ export default function CaseDetail() {
     }
   };
 
+  // Get Param
+  const router = useRouter();
+  const { timer } = router.query;
+
 
   return (
     <div className={styles.container}>
@@ -86,7 +90,7 @@ export default function CaseDetail() {
             <div className={styles.text_wrap}>
                 <p>
                 เสียงลมออกปากของคนไข้หายไป 
-                ท่านใช้เวลาไป  .........................                
+                ท่านใช้เวลาไป {timer} วินาที
                 </p>
             </div>
             <div className={styles.btn_area}>
