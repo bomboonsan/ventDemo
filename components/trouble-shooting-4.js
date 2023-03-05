@@ -35,7 +35,7 @@ export default function HomeAlert() {
     }
     function handleFinish() {
         // router.push('/trouble-shooting/success2')
-        router.push('/trouble-shooting/success/?timer='+seconds)
+        router.push('/trouble-shooting/success2/?timer='+seconds)
     }
     function closeBox() {
         setShowElement('')
