@@ -116,6 +116,59 @@
     animation: none;
 }
 
+.alertIconElementLeft {
+    content: '';
+    display: block;
+    position: relative;
+    background-image: url('.././public/images/alerticon2_left.png');
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 1/1;
+    width: 3vw;
+    height: auto;
+    cursor: pointer;
+    animation: push 1s infinite;
+}
+.checkedIconElementLeft {
+    content: '';
+    display: block;
+    position: relative;
+    background-image: url('.././public/images/checkedicon2_left.png');
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 1/1;
+    width: 3vw;
+    height: auto;
+    cursor: pointer;
+    animation: none;
+}
+.alertIconElementRight {
+    content: '';
+    display: block;
+    position: relative;
+    background-image: url('.././public/images/alerticon2_right.png');
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 1/1;
+    width: 3vw;
+    height: auto;
+    cursor: pointer;
+    animation: push 1s infinite;
+}
+.checkedIconElementRight {
+    content: '';
+    display: block;
+    position: relative;
+    background-image: url('.././public/images/checkedicon2_right.png');
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 1/1;
+    width: 3vw;
+    height: auto;
+    cursor: pointer;
+    animation: none;
+}
+
 @keyframes push {
     50% {
         transform: scale(1.2);

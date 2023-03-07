@@ -276,11 +276,11 @@ export default function HomeAlert() {
             <div className={styles.tubeElement}>   
 
                 {missions.includes("Tube") &&
-                <div className={styles.checkedIconElement} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>
+                <div className={styles.checkedIconElementLeft} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>
                 </div>                
                 }
                 {!missions.includes("Tube") &&
-                <div className={styles.alertIconElement} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>
+                <div className={styles.alertIconElementLeft} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>
                 </div>                
                 }  
 

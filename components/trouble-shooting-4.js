@@ -299,11 +299,11 @@ export default function HomeAlert() {
         return (
             <div className={styles.cuffElement}>     
                 {missions.includes("Cuff") &&
-                <div className={styles.checkedIconElement} onClick={() => {setShowElement('Cuff')}}>
+                <div className={styles.checkedIconElementRight} onClick={() => {setShowElement('Cuff')}}>
                 </div>                
                 }
                 {!missions.includes("Cuff") &&
-                <div className={styles.alertIconElement} onClick={() => {setShowElement('Cuff')}}>
+                <div className={styles.alertIconElementRight} onClick={() => {setShowElement('Cuff')}}>
                 </div>                
                 }             
             </div>
@@ -380,11 +380,11 @@ export default function HomeAlert() {
         return (
             <div className={styles.tubeElement}>   
                 {missions.includes("Tube") &&
-                <div className={styles.checkedIconElement} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>
+                <div className={styles.checkedIconElementLeft} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>
                 </div>                
                 }
                 {!missions.includes("Tube") &&
-                <div className={styles.alertIconElement} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>
+                <div className={styles.alertIconElementLeft} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>
                 </div>                
                 }                   
             </div>
