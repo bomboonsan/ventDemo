@@ -10,7 +10,7 @@ import screenfull from 'screenfull'
 
 export default function CaseDetail() {
   const [playingYoutube, setPlayingYoutube] = useState(true);
-  const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble-success-crop.mp4');
+  const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble-success1-Trim.mp4');
   const resetYoutube = () => {
       // setPatientAlertStep(1)
       // setShowElement('')
@@ -89,7 +89,7 @@ export default function CaseDetail() {
             </div>
             <div className={styles.text_wrap}>
                 <p>
-                เสียงลมออกปากของคนไข้หายไป 
+                คนไข้หายใจเป็นปกติ 
                 ท่านใช้เวลาไป {timer} วินาที
                 </p>
             </div>

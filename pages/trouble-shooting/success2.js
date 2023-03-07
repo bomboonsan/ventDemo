@@ -10,7 +10,7 @@ import screenfull from 'screenfull'
 
 export default function CaseDetail() {
   const [playingYoutube, setPlayingYoutube] = useState(true);
-  const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble-success2.mp4');
+  const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble-success2-Trim.mp4');
   const resetYoutube = () => {
       // setPatientAlertStep(1)
       // setShowElement('')
