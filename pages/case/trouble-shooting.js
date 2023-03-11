@@ -11,7 +11,7 @@ import screenfull from 'screenfull'
 
 export default function CaseDetail() {
   const [playing, setPlaying] = useState(true);
-  const troubleShootingVideo = 'https://wish-integrate.com/vent-video/trouble-shooting.mp4'
+  const troubleShootingVideo = 'https://wish-integrate.com/vent-video/trouble-shooting-edit.mp4'
 
   const playerRef = useRef(null);
   const onClickFullscreen = () => {
@@ -113,7 +113,6 @@ export default function CaseDetail() {
                             <p>
                             คนไข้เริ่มมีการหายใจหอบเหนื่อย
                             </p>
-
                           </div>
                         </div>
                       </div>

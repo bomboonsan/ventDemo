@@ -214,7 +214,8 @@ export default function HomeAlert() {
         )
     }
     const [playingVent, setPlayingVent] = useState(false);
-    const [urlVent, setUrlVent] = useState('https://wish-integrate.com/vent-video/trouble-ventilator.mp4');
+    // const [urlVent, setUrlVent] = useState('https://wish-integrate.com/vent-video/trouble-ventilator.mp4');
+    const [urlVent, setUrlVent] = useState('https://wish-integrate.com/vent-video/trouble-shooting-edit.mp4');
     const resetVent = () => {
         setShowElement('')
     }

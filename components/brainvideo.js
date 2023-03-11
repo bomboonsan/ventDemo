@@ -30,7 +30,7 @@ export default function BrainVideo() {
     const video3 = 'https://wish-integrate.com/bisvideo/3.mp4'
     // const video4_1 = 'https://wish-integrate.com/bisvideo/4-1.mp4'
     const video4_1 = 'https://wish-integrate.com/bisvideo/4_1_Trim.mp4'
-    const video4 = 'https://wish-integrate.com/bisvideo/4.mp4'
+    const video4 = 'https://wish-integrate.com/bisvideo/4_2.mp4'
 
     
     // const [playing, setPlaying] = useState(true);

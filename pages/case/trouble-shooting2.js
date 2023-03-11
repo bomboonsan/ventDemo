@@ -11,7 +11,7 @@ import screenfull from 'screenfull'
 
 export default function CaseDetail() {
   const [playing, setPlaying] = useState(true);
-  const troubleShootingVideo = 'https://wish-integrate.com/vent-video/trouble-shooting2.mp4'
+  const troubleShootingVideo = 'https://wish-integrate.com/vent-video/trouble-shooting2-edit.mp4'
   const playerRef = useRef(null);
   const onClickFullscreen = () => {
     if (screenfull.isEnabled && playerRef.current) {
