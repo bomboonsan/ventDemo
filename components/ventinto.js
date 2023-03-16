@@ -108,6 +108,8 @@ export default function VentInto() {
         'Inspiratory  ระดับความไวในช่วง (-2 ถึง 2) ในการช่วยให้คนไข้กระตุ้นเครื่องช่วยหายใจเวลาหายใจเข้า ',
         'Expiratiory ระดับความไวในช่วง (-2 ถึง 2) ในการช่วยให้คนไข้กระตุ้นเครื่องช่วยหายใจเวลาหายใจออก',
         'Constant flow ในโหมด high flow oxygentherapy : คือการตั้งอัตราการไหลของอากาศในขณะที่ต้องการใช้ high flow therapy ',
+        'D SENS : รอข้อความ ',
+        'T SPONT : รอข้อความ ',
         'Apnea Mode : รอข้อความ ',
     ]
     const handlePreviosStep = () => {
@@ -200,7 +202,7 @@ export default function VentInto() {
                                 <li className={styles.active}>
                                     <span>Vent</span>
                                 </li>
-                                <li id='btn50' onClick={handleShowIntroduction}>
+                                <li id='btn52' onClick={handleShowIntroduction}>
                                     <span>Apnea</span>
                                     <i className={styles.alert}></i>
                                 </li>
@@ -441,7 +443,7 @@ export default function VentInto() {
                                             <td>
                                                 <div id='btn23' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>
-                                                        P<sub>i</sub>
+                                                        P<sub>I</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
                                                         15
@@ -454,7 +456,7 @@ export default function VentInto() {
                                             <td>
                                                 <div id='btn24' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>
-                                                        T<sub>i</sub>
+                                                        T<sub>I</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
                                                         0.84
@@ -519,7 +521,7 @@ export default function VentInto() {
                                             <td>
                                                 <div id='btn29' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>
-                                                    P<sub>peak</sub>
+                                                    P<sub>PEAK</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
                                                         40
@@ -677,7 +679,7 @@ export default function VentInto() {
                                             <td>
                                                 <div id='btn34' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>
-                                                        <sub>T</sub>
+                                                        V<sub>T</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
                                                         300
@@ -690,7 +692,7 @@ export default function VentInto() {
                                             <td>
                                                 <div id='btn35' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>
-                                                        V<sub>MAX</sub>
+                                                        <sub>MAX</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
                                                         39
@@ -853,7 +855,7 @@ export default function VentInto() {
                                             <td>
                                                 <div id='btn47' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>
-                                                        I<sub>sync</sub>
+                                                        I<sub>SYNC</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
                                                     <span className={styles.s0}></span>
@@ -866,7 +868,7 @@ export default function VentInto() {
                                             <td>
                                                 <div id='btn48' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>
-                                                        E<sub>sync</sub>
+                                                        E<sub>SYNC</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
                                                     <span className={styles.s0}></span>
@@ -879,13 +881,39 @@ export default function VentInto() {
                                             <td>
                                                 <div id='btn49' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>
-                                                        <sub>CONT</sub>
+                                                        <sub>CONST</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
                                                         30
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         L/min
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn50' className={styles.btn_setting} onClick={handleShowIntroduction}>
+                                                    <div className={styles.btnsLineTop}>
+                                                        P<sub>SENS</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        60
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        L/min
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div id='btn51' className={styles.btn_setting} onClick={handleShowIntroduction}>
+                                                    <div className={styles.btnsLineTop}>
+                                                    T<sub>l SPONT</sub>
+                                                    </div>
+                                                    <div className={styles.btnsLineMid}>
+                                                        3.0
+                                                    </div>
+                                                    <div className={styles.btnsLineBot}>
+                                                        Squre
                                                     </div>
                                                 </div>
                                             </td>

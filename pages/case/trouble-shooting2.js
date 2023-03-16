@@ -11,7 +11,8 @@ import screenfull from 'screenfull'
 
 export default function CaseDetail() {
   const [playing, setPlaying] = useState(true);
-  const troubleShootingVideo = 'https://wish-integrate.com/vent-video/trouble-shooting2-edit.mp4'
+  // const troubleShootingVideo = 'https://wish-integrate.com/vent-video/trouble-shooting2-edit.mp4'
+  const troubleShootingVideo = 'https://wish-integrate.com/vent-video/trouble/Patient2Pre.mp4'
   const playerRef = useRef(null);
   const onClickFullscreen = () => {
     if (screenfull.isEnabled && playerRef.current) {
@@ -21,6 +22,10 @@ export default function CaseDetail() {
   function reset() {
     
   }
+  const videoStyle = {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -108,8 +113,9 @@ export default function CaseDetail() {
                             onEnded={reset}
                             width='80%'
                             height='80%'
+                            style={videoStyle}
                             />
-                            <p>
+                            <p className='text-center'>
                             มีการร้องเตือนขึ้นกับคนไข้ใส่ท่อช่วยหายใจ
                             </p>
 

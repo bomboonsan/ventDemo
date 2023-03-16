@@ -13,38 +13,20 @@ export default function HomeAlert() {
 
     const [missions, setMissions] = useState([]);
 
-    const [seconds, setSeconds] = useState(0);
-    const [minutes, setMinutes] = useState(0);
-    useEffect(() => {
-        const interval = setInterval(() => {
-          setSeconds((prevSeconds) => prevSeconds + 1);
-        }, 1000);
-    
-        return () => clearInterval(interval);
-    }, []);
-    
-    useEffect(() => {
-        if (seconds === 60) {
-            setSeconds(0);
-            setMinutes((prevMinutes) => prevMinutes + 1);
-        }
-    }, [seconds]);
-
     function handleStart() {
         setisStart(true);
     }
     function handleFinish() {
-        // router.push('/trouble-shooting/success2')
-        router.push('/trouble-shooting/success2/?timer='+seconds)
+        router.push('/trouble-shooting/success')
     }
     function closeBox() {
         setShowElement('')
 
         // Step นี้ไม่ต้องตรวจสอบ Mission ว่าครบหรือยัง ()
-        // if (missions.includes("Patient") && missions.includes("Ventilator") && missions.includes("Circuits") && missions.includes("Tube") && missions.includes("CloseSuction") && missions.includes("Cuff")) {
-        //     // console.log('Next')
-        //     router.push('/quiz/trouble-shooting-case2-1')
-        // }
+        if (missions.includes("Patient") && missions.includes("Ventilator") && missions.includes("Circuits") && missions.includes("Tube") && missions.includes("CloseSuction") && missions.includes("Cuff")) {
+            // console.log('Next')
+            router.push('/quiz/trouble-shooting-case2-1')
+        }
     }
     function handleMission(mission) {
         missions.push(mission);
@@ -67,8 +49,8 @@ export default function HomeAlert() {
         return (
             <div className={styles.startBox}>
                 <p>
-                ท่านพบสาเหตุของปัญหานี้แล้ว
-ท่านต้องเลือกอุปกรณ์ที่ท่านจะทำการแก้ไขปัญหานี้
+                จากสถานการณ์ที่เกิดขึ้น ท่านจะตรวจสอบ และจัดการแก้ไขปัญหานี้อย่างไร <br/>
+                ท่านต้องเลือกสิ่งที่ท่านต้องการตรวจตรวจสอบ เพื่อหาสาเหตุของปัญหานี้
 
                 </p>
                 <button className={styles.startBtn} onClick={handleStart}>
@@ -81,7 +63,7 @@ export default function HomeAlert() {
     // ตำแหน่งของคนไข้
     const PatientElement = () => {
         return (
-            <div className={styles.patientElement}>             
+            <div className={styles.patientElement}>          
                 {missions.includes("Patient") &&
                 <div className={styles.checkedIconElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>
                 </div>                
@@ -89,7 +71,7 @@ export default function HomeAlert() {
                 {!missions.includes("Patient") &&
                 <div className={styles.alertIconElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>
                 </div>                
-                }        
+                }   
             </div>
         )
     }
@@ -179,7 +161,7 @@ export default function HomeAlert() {
     }
     const [playingYoutube, setPlayingYoutube] = useState(false);
     // const [urlYoutube, setUrlYoutube] = useState('https://www.youtube.com/watch?v=aSor2XBc9K8?start=46');
-    const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble-shooting2-edit.mp3');
+    const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble-shooting2.mp3');
     const resetYoutube = () => {
         setPatientAlertStep(1)
         setShowElement('')
@@ -220,7 +202,7 @@ export default function HomeAlert() {
     // ตำแหน่งของ Ventilator (เครื่องช่วยหายใจ)
     const VentilatorElement = () => {
         return (
-            <div className={styles.ventilatorElement}>        
+            <div className={styles.ventilatorElement}>          
                 {missions.includes("Ventilator") &&
                 <div className={styles.checkedIconElement} onClick={() => {setPlayingVent(true) ; setShowElement('Ventilator') ; handleMission('Ventilator')}}>
                 </div>                
@@ -228,7 +210,7 @@ export default function HomeAlert() {
                 {!missions.includes("Ventilator") &&
                 <div className={styles.alertIconElement} onClick={() => {setPlayingVent(true) ; setShowElement('Ventilator') ; handleMission('Ventilator')}}>
                 </div>                
-                }          
+                } 
             </div>
         )
     }
@@ -263,7 +245,9 @@ export default function HomeAlert() {
     // ตำแหน่งของ Circuits (เครื่องช่วยหายใจ)
     const CircuitsElement = () => {
         return (
-            <div className={styles.circuitsElement}>   
+            <div className={styles.circuitsElement}> 
+                {/* <div className={styles.alertIconElement} onClick={() => {setPlayingVent(true) ; setShowElement('Ventilator') ; handleMission('Ventilator')}}>
+                </div>                  */}
                 {missions.includes("Circuits") &&
                 <div className={styles.checkedIconElement} onClick={() => {setShowElement('Circuits') ; handleMission('Circuits')}}>
                 </div>                
@@ -271,7 +255,8 @@ export default function HomeAlert() {
                 {!missions.includes("Circuits") &&
                 <div className={styles.alertIconElement} onClick={() => {setShowElement('Circuits') ; handleMission('Circuits')}}>
                 </div>                
-                }             
+                }  
+
             </div>
         )
     }
@@ -298,7 +283,7 @@ export default function HomeAlert() {
     // ตำแหน่งของ Cuff
     const CuffElement = () => {
         return (
-            <div className={styles.cuffElement}>     
+            <div className={styles.cuffElement}>      
                 {missions.includes("Cuff") &&
                 <div className={styles.checkedIconElementRight} onClick={() => {setShowElement('Cuff')}}>
                 </div>                
@@ -306,33 +291,16 @@ export default function HomeAlert() {
                 {!missions.includes("Cuff") &&
                 <div className={styles.alertIconElementRight} onClick={() => {setShowElement('Cuff')}}>
                 </div>                
-                }             
+                }  
             </div>
         )
     }
     const CuffAlertBox = () => {
         return (
             <div className={styles.alertBox}>
-                {/* <div className={styles.alertClose} onClick={closeBox}>
+                <div className={styles.alertClose} onClick={closeBox}>
                     X
-                </div>                 */}
-                <div className={styles.alertText}>
-                <p>
-                Inflate ลมกลับเข้าไปใน cuff
-                </p>
-                </div>
-                <button className={styles.alertSubmitBtn} onClick={() =>  {setShowElement('Cuff2')}}>
-                    NEXT
-                </button>
-            </div>
-        )
-    }
-    const CuffAlertBox2 = () => {
-        return (
-            <div className={styles.alertBox}>
-                {/* <div className={styles.alertClose} onClick={closeBox}>
-                    X
-                </div>                 */}
+                </div>                
                 <div className={styles.alertHead}>
                     <p>
                     ตรวจสอบอุปกรณ์
@@ -351,25 +319,25 @@ export default function HomeAlert() {
                         height={200}
                     />
                 </div>
-                <button className={styles.alertSubmitBtn} onClick={() =>  {setShowElement('Cuff3') ; handleMission('Cuff')}}>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {setShowElement('Cuff2') ; handleMission('Cuff')}}>
                     NEXT
                 </button>
             </div>
         )
-    }    
-    const CuffAlertBox3 = () => {
+    }
+    const CuffAlertBox2 = () => {
         return (
             <div className={styles.alertBox}>
-                {/* <div className={styles.alertClose} onClick={closeBox}>
+                <div className={styles.alertClose} onClick={closeBox}>
                     X
-                </div>                 */}
+                </div>                
                 <div className={styles.alertText}>
                 <p>
-                ความดันที่วัดได้อยู่ที่ 25 cm/H2O
+                ความดันที่วัดได้อยู่ที่ 5 cm/H2O
                 </p>
                 </div>
-                <button className={styles.finishBtn} onClick={handleFinish}>
-                    FINISH
+                <button className={styles.alertSubmitBtn} onClick={closeBox}>
+                    NEXT
                 </button>
             </div>
         )
@@ -379,7 +347,7 @@ export default function HomeAlert() {
     // ตำแหน่งของ Tube
     const TubeElement = () => {
         return (
-            <div className={styles.tubeElement}>   
+            <div className={styles.tubeElement}>     
                 {missions.includes("Tube") &&
                 <div className={styles.checkedIconElementLeft} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>
                 </div>                
@@ -387,7 +355,7 @@ export default function HomeAlert() {
                 {!missions.includes("Tube") &&
                 <div className={styles.alertIconElementLeft} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>
                 </div>                
-                }                   
+                }  
             </div>
         )
     }
@@ -412,7 +380,7 @@ export default function HomeAlert() {
     // ตำแหน่งของ Tube (เครื่องช่วยหายใจ)
     const CloseSuctionElement = () => {
         return (
-            <div className={styles.closeSuctionElement}> 
+            <div className={styles.closeSuctionElement}>         
                 {missions.includes("CloseSuction") &&
                 <div className={styles.checkedIconElement} onClick={() => {setShowElement('CloseSuction') ; handleMission('CloseSuction')}}>
                 </div>                
@@ -420,7 +388,7 @@ export default function HomeAlert() {
                 {!missions.includes("CloseSuction") &&
                 <div className={styles.alertIconElement} onClick={() => {setShowElement('CloseSuction') ; handleMission('CloseSuction')}}>
                 </div>                
-                }                   
+                }  
             </div>
         )
     }
@@ -433,7 +401,6 @@ export default function HomeAlert() {
                 <div className={styles.alertText}>
                 <p>
                 ตรวจไม่พบลมรั่วบริเวณโถ suction
-                {/* ดูดได้เสมหะจำนวนมาก */}
                 </p>
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={closeBox}>
@@ -453,9 +420,10 @@ export default function HomeAlert() {
             {showElement=='Patient' && patientAlertStep==1 && <PatientAlertBox1 />}
             {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox2 />}
             {showElement=='Patient' && patientAlertStep==3 && <PatientAlertBox3 />}
+            {showElement=='Patient' && patientAlertStep==4 && <PatientAlertBox4 />}
 
-            {/* {isStart && <VentilatorElement />}
-            {showElement=='Ventilator' && <VentilatorMonitor />} */}
+            {isStart && <VentilatorElement />}
+            {showElement=='Ventilator' && <VentilatorMonitor />}
 
             {isStart && <CircuitsElement />}
             {showElement=='Circuits' && <CircuitsAlertBox />}
@@ -463,13 +431,12 @@ export default function HomeAlert() {
             {isStart && <CuffElement />}
             {showElement=='Cuff' && <CuffAlertBox />}
             {showElement=='Cuff2' && <CuffAlertBox2 />}
-            {showElement=='Cuff3' && <CuffAlertBox3 />}
 
             {isStart && <TubeElement />}
             {showElement=='Tube' && <TubeAlertBox />}
 
-            {/* {isStart && <CloseSuctionElement />}
-            {showElement=='CloseSuction' && <CloseSuctionAlertBox />} */}
+            {isStart && <CloseSuctionElement />}
+            {showElement=='CloseSuction' && <CloseSuctionAlertBox />}
         </div>        
     )
 }

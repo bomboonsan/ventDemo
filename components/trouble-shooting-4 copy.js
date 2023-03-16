@@ -179,7 +179,7 @@ export default function HomeAlert() {
     }
     const [playingYoutube, setPlayingYoutube] = useState(false);
     // const [urlYoutube, setUrlYoutube] = useState('https://www.youtube.com/watch?v=aSor2XBc9K8?start=46');
-    const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble-shooting2-edit.mp3');
+    const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble-shooting2.mp3');
     const resetYoutube = () => {
         setPatientAlertStep(1)
         setShowElement('')
@@ -454,8 +454,8 @@ export default function HomeAlert() {
             {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox2 />}
             {showElement=='Patient' && patientAlertStep==3 && <PatientAlertBox3 />}
 
-            {/* {isStart && <VentilatorElement />}
-            {showElement=='Ventilator' && <VentilatorMonitor />} */}
+            {isStart && <VentilatorElement />}
+            {showElement=='Ventilator' && <VentilatorMonitor />}
 
             {isStart && <CircuitsElement />}
             {showElement=='Circuits' && <CircuitsAlertBox />}
@@ -468,8 +468,8 @@ export default function HomeAlert() {
             {isStart && <TubeElement />}
             {showElement=='Tube' && <TubeAlertBox />}
 
-            {/* {isStart && <CloseSuctionElement />}
-            {showElement=='CloseSuction' && <CloseSuctionAlertBox />} */}
+            {isStart && <CloseSuctionElement />}
+            {showElement=='CloseSuction' && <CloseSuctionAlertBox />}
         </div>        
     )
 }

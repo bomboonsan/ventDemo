@@ -1,5 +1,5 @@
 $fontTD: 80%;
-$fontBtn: 90%; // .4rem
+$fontBtn: 100%; // .4rem
 $fontBtnNumber: 150%; // 1rem
 // @font-face {
 // 	font-family: Viking;
@@ -401,8 +401,14 @@ $fontBtnNumber: 150%; // 1rem
             text-align: center;
             font-size: $fontBtn;
             height: 1.4rem;
+            // sub {
+            //     font-size: .3rem;
+            // }
             sub {
-                font-size: .3rem;
+                font-size: $fontBtn/1.2;
+            }
+            sup {
+                font-size: $fontBtn/1.2;
             }
         }
         .inputSetting {
@@ -421,11 +427,23 @@ $fontBtnNumber: 150%; // 1rem
             line-height: 1.1rem;
             height: 1.1rem;
             text-align: center;
+            sub {
+                font-size: $fontBtn/1.2;
+            }
+            sup {
+                font-size: $fontBtn/1.2;
+            }
         }
         .btnsLineBot {
             padding-bottom: .4rem;
             text-align: center;
             font-size: $fontBtn;
+            sub {
+                font-size: $fontBtn/1.2;
+            }
+            sup {
+                font-size: $fontBtn/1.2;
+            }
         }
     }
     .btn_setting_up_active {
@@ -447,8 +465,14 @@ $fontBtnNumber: 150%; // 1rem
             text-align: center;
             font-size: $fontBtn;
             height: 1.4rem;
+            // sub {
+            //     font-size: .3rem;
+            // }
             sub {
-                font-size: .3rem;
+                font-size: $fontBtn/1.2;
+            }
+            sup {
+                font-size: $fontBtn/1.2;
             }
         }
         .btnsLineMid {
@@ -456,11 +480,23 @@ $fontBtnNumber: 150%; // 1rem
             line-height: 1.1rem;
             height: 1.1rem;
             text-align: center;
+            sub {
+                font-size: $fontBtn/1.2;
+            }
+            sup {
+                font-size: $fontBtn/1.2;
+            }
         }
         .btnsLineBot {
             padding-bottom: .4rem;
             text-align: center;
             font-size: $fontBtn;
+            sub {
+                font-size: $fontBtn/1.2;
+            }
+            sup {
+                font-size: $fontBtn/1.2;
+            }
         }
     }
 }
