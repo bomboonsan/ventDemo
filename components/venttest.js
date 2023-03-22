@@ -793,7 +793,7 @@ export default function VentTest() {
                                             </td>
                                             <td>
                                                 <div data-btnName='V-Trig' data-tr='5' className={styles.setupbtn_active}>
-                                                    <span>V-Trig</span>
+                                                <span>-Trig</span>
                                                 </div>
                                             </td>
                                             <td>
@@ -866,7 +866,7 @@ export default function VentTest() {
                                             <td>
                                                 <div data-settingid='5' className={styles.btn_setting} onClick={handleSettingbtn}>
                                                     <div className={styles.btnsLineTop}>
-                                                         <sub>SENS</sub>
+                                                        <sub>SENS</sub>
                                                     </div>
                                                     {/* <div className={styles.btnsLineMid}>
                                                         {varBtnSetting[4]}

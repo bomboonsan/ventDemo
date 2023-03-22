@@ -380,15 +380,25 @@ $fontBtnNumber: 150%; // 1rem
             text-align: center;
             font-size: $fontBtn;
             height: 1.4rem;
+            word-break: break-all;
             // sub {
             //     font-size: .3rem;
             // }
             sub {
-                font-size: $fontBtn/1.2;
+                // font-size: $fontBtn/1.2;
+                font-size: $fontBtn*.7;
             }
             sup {
-                font-size: $fontBtn/1.2;
+                // font-size: $fontBtn/1.2;
+                font-size: $fontBtn*.7;
             }
+        }
+        .btnsLineTop {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .btnsLineTop::-webkit-scrollbar {
+            display: none;
         }
         .btnsLineMid {
             font-family: Viking, Georgia, serif;
@@ -398,10 +408,12 @@ $fontBtnNumber: 150%; // 1rem
             // height: 1.1rem;
             text-align: center;
             sub {
-                font-size: $fontBtn/1.2;
+                // font-size: $fontBtn/1.2;
+                font-size: $fontBtn*.7;
             }
             sup {
-                font-size: $fontBtn/1.2;
+                // font-size: $fontBtn/1.2;
+                font-size: $fontBtn*.7;
             }
         }
         .btnsLineBot {
@@ -410,10 +422,12 @@ $fontBtnNumber: 150%; // 1rem
             font-size: $fontBtn;
             font-family: Viking, Georgia, serif;
             sub {
-                font-size: $fontBtn/1.2;
+                // font-size: $fontBtn/1.2;
+                font-size: $fontBtn*.7;
             }
             sup {
-                font-size: $fontBtn/1.2;
+                // font-size: $fontBtn/1.2;
+                font-size: $fontBtn*.7;
             }
         }
     }
@@ -439,6 +453,14 @@ $fontBtnNumber: 150%; // 1rem
             sub {
                 font-size: .3rem;
             }
+            sub {
+                // font-size: $fontBtn/1.2;
+                font-size: $fontBtn*.7;
+            }
+            sup {
+                // font-size: $fontBtn/1.2;
+                font-size: $fontBtn*.7;
+            }
         }
         .btnsLineMid {
             font-family: Viking, Georgia, serif;
@@ -447,12 +469,29 @@ $fontBtnNumber: 150%; // 1rem
             margin-top: 4px;
             // height: 1.1rem;
             text-align: center;
+            sub {
+                // font-size: $fontBtn/1.2;
+                font-size: $fontBtn*.7;
+            }
+            sup {
+                // font-size: $fontBtn/1.2;
+                font-size: $fontBtn*.7;
+            }
         }
         .btnsLineBot {
             padding-bottom: .4rem;
             text-align: center;
             font-size: $fontBtn;
             font-family: Viking, Georgia, serif;
+            sub {
+                // font-size: $fontBtn/1.2;
+                font-size: $fontBtn*.7;
+            }
+            sup {
+                // font-size: $fontBtn/1.2;
+                font-size: $fontBtn*.7;
+            }
+            
         }
     }
     .s0 {

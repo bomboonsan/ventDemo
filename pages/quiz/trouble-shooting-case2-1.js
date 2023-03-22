@@ -85,7 +85,7 @@ export default function Main_menu() {
 
               <div className={styles.quiz_lists}>                
                 <div id='ans1' className={styles.quiz_item_center} onClick={handleAnsClick}>
-                  <p>เกิดการรั่วในระบบเครื่องช่วยหายใจ</p>
+                  <p>เกิดการรั่วที่ท่อช่วยหายใจ</p>
                 </div>
                 <div id='ans2' className={styles.quiz_item_center} onClick={handleAnsClick}>
                   <p>เกิดการอุดตันในระบบเครื่องช่วยหายใจ</p>

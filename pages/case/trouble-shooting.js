@@ -35,7 +35,7 @@ export default function CaseDetail() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className='prev_page'>
-          <Link href="/menulearningmode"> 
+          <Link href="/trouble-all"> 
             <Image
                 src="/images/prev.png"
                 alt="Women"

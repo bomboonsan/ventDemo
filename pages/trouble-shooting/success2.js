@@ -87,7 +87,7 @@ export default function CaseDetail() {
             </div>
             <div className={styles.btn_area}>
               <div className={styles.btn_container}>
-                  <Link href="/mainmenu"> 
+                  <Link href="/trouble-all"> 
                   <button className={styles.next_btn}>
                   NEXT
                   </button>
