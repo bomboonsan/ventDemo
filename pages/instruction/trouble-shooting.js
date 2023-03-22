@@ -8,7 +8,7 @@ import { useRouter } from 'next/router'
 export default function Intruction_1() {
     const router = useRouter()
     function handleNext() {
-        router.push('/case/trouble-shooting')
+        router.push('/trouble-all')
     }
     return (
         <div className={styles.container}>
