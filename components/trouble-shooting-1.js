@@ -13,6 +13,12 @@ export default function HomeAlert() {
 
     const [missions, setMissions] = useState([]);
 
+    useEffect(() => {
+        if (missions.includes("Patient_1") && missions.includes("Patient_2") && missions.includes("Patient_3") && !missions.includes("Patient")) {
+            handleMission('Patient')
+        }
+    }, [missions]);
+
     function handleStart() {
         setisStart(true);
     }
@@ -20,10 +26,22 @@ export default function HomeAlert() {
         setShowElement('')
 
         // ตรวจสอบ Mission ว่าครบหรือยัง ()
-        if (missions.includes("Patient") && missions.includes("Ventilator") && missions.includes("Circuits") && missions.includes("Tube") && missions.includes("CloseSuction")) {
+        // if (missions.includes("Patient") && missions.includes("Ventilator") && missions.includes("Circuits") && missions.includes("Tube") && missions.includes("CloseSuction")) {
+        //     // console.log('Next')
+        //     router.push('/quiz/trouble-shooting-case1-1')
+        // }
+
+        if (missions.includes("Patient_1") && missions.includes("Patient_2") && missions.includes("Patient_3") && missions.includes("Ventilator") ) {
             // console.log('Next')
             router.push('/quiz/trouble-shooting-case1-1')
         }
+
+
+        // if (missions.includes("Patient_1") && missions.includes("Patient_2") && missions.includes("Patient_3")) {
+        //     // console.log('Next')
+        //     // router.push('/quiz/trouble-shooting-case1-1')
+        //     handleMission('Patient')
+        // }
     }
     function handleMission(mission) {
         missions.push(mission);
@@ -84,22 +102,50 @@ export default function HomeAlert() {
                         ตรวจร่างกายผู้ป่วย
                     </p>                    
                 </div>
-                <div>
-                    <Image
-                        onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}
-                        className={styles.alertImage}
-                        src='/troubleshooting/04.png'
-                        alt="Hover"
-                        // layout="fill"
-                        // objectFit="cover"
-                        draggable='false'
-                        width={200}
-                        height={200}
-                    />
-                </div>
-                <button className={styles.alertSubmitBtn} onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}>
+                <div className={styles.d_flex}>
+                    <div>
+                        <Image
+                            onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(4)}}
+                            className={styles.alertImage}
+                            src='/images/case4-thumb3.png'
+                            alt="Hover"
+                            // layout="fill"
+                            // objectFit="cover"
+                            draggable='false'
+                            width={200}
+                            height={200}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}
+                            className={styles.alertImage}
+                            src='/troubleshooting/04.png'
+                            alt="Hover"
+                            // layout="fill"
+                            // objectFit="cover"
+                            draggable='false'
+                            width={200}
+                            height={200}
+                        />
+                    </div>
+                    <div>
+                        <Image
+                            onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(5)}}
+                            className={styles.alertImage}
+                            src='/troubleshooting/09.png'
+                            alt="Hover"
+                            // layout="fill"
+                            // objectFit="cover"
+                            draggable='false'
+                            width={200}
+                            height={200}
+                        />
+                    </div>
+                </div>                
+                {/* <button className={styles.alertSubmitBtn} onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}>
                     NEXT
-                </button>
+                </button> */}
             </div>
         )
     }
@@ -117,7 +163,7 @@ export default function HomeAlert() {
                 <div>
                     <Image
                         // onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}
-                        onClick={() =>  {setPlayingYoutube(true) ; handleMission('Patient')}}
+                        onClick={() =>  {setPlayingYoutube(true) ; handleMission('Patient_1')}}
                         className={styles.alertImage}
                         src='/troubleshooting/01.png'
                         alt="Hover"
@@ -132,12 +178,17 @@ export default function HomeAlert() {
                 {/* <button className={styles.alertSubmitBtn} onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}>
                     NEXT
                 </button> */}
-                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient') ; setPlayingYoutube(false)}}>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_1') ; setPlayingYoutube(false)}}>
                     GOT IT
                 </button>
             </div>
         )
-    }
+    }  
+
+
+
+
+
     const [playingYoutube, setPlayingYoutube] = useState(false);
     // const [urlYoutube, setUrlYoutube] = useState('https://www.youtube.com/watch?v=aSor2XBc9K8?start=46');
     const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble-shooting1.mp3');
@@ -174,6 +225,44 @@ export default function HomeAlert() {
             width="100%"
             height="40px"
             />
+        )
+    }
+
+
+    const PatientAlertBox4 = () => {
+        return (
+            <div className={styles.alertBox}>
+                <div className={styles.alertClose} onClick={closeBox}>
+                    X
+                </div>
+                <div className={styles.alertText}>
+                    <p>
+                    Tube อยู่มุมปากตำแหน่งเดิม
+                    ผู้ป่วยมีลมออกปาก
+                    </p>                    
+                </div>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_2') ; setPlayingYoutube(false)}}>
+                    GOT IT
+                </button>
+            </div>
+        )
+    }
+
+    const PatientAlertBox5 = () => {
+        return (
+            <div className={styles.alertBox}>
+                <div className={styles.alertClose} onClick={closeBox}>
+                    X
+                </div>
+                <div className={styles.alertText}>
+                    <p>
+                    ความดันที่วัดได้อยู่ที่ 5 cm/H2O
+                    </p>                    
+                </div>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_3') ; setPlayingYoutube(false)}}>
+                    GOT IT
+                </button>
+            </div>
         )
     }
 
@@ -350,19 +439,24 @@ export default function HomeAlert() {
             {isStart && <PatientElement />}
             {showElement=='Patient' && patientAlertStep==1 && <PatientAlertBox1 />}
             {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox2 />}
+            {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox3 />}
+            {showElement=='Patient' && patientAlertStep==4 && <PatientAlertBox4 />}
+            {showElement=='Patient' && patientAlertStep==5 && <PatientAlertBox5 />}
             {/* {showElement=='Patient' && patientAlertStep==3 && <PatientAlertBox3 />} */}
 
             {isStart && <VentilatorElement />}
             {showElement=='Ventilator' && <VentilatorMonitor />}
 
-            {isStart && <CircuitsElement />}
+            {/* {isStart && <CircuitsElement />} */}
             {showElement=='Circuits' && <CircuitsAlertBox />}
 
-            {isStart && <TubeElement />}
+            {/* {isStart && <TubeElement />} */}
             {showElement=='Tube' && <TubeAlertBox />}
+            
 
-            {isStart && <CloseSuctionElement />}
+            {/* {isStart && <CloseSuctionElement />} */}
             {showElement=='CloseSuction' && <CloseSuctionAlertBox />}
+            
         </div>        
     )
 }

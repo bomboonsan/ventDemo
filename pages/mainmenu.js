@@ -77,7 +77,7 @@ export default function menu3() {
             </Link>           
           </div>
         </div>
-        <div className={styles.col_item}>
+        {/* <div className={styles.col_item}>
           <div className={styles.card}>
             <div className={styles.card_thumbnail}>
               <Image
@@ -96,7 +96,7 @@ export default function menu3() {
               </p>
             </div>            
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )

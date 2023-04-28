@@ -241,7 +241,8 @@ export default function BrainSensor() {
         } 
         if (btnName == 'Next') {
             // router.push('/brain/result/sensor')
-            router.push('/mainmenu')
+            // router.push('/mainmenu')
+            router.push('/quiz/brain3')
         }
         if (btnName == 'Sensor Check') {
             showVideo()

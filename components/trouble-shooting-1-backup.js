@@ -13,43 +13,17 @@ export default function HomeAlert() {
 
     const [missions, setMissions] = useState([]);
 
-    useEffect(() => {
-        if (missions.includes("Patient_1") && missions.includes("Patient_2") && missions.includes("Patient_3") && !missions.includes("Patient")) {
-            handleMission('Patient')
-        }
-    }, [missions]);
-
-    const [seconds, setSeconds] = useState(0);
-    const [minutes, setMinutes] = useState(0);
-    useEffect(() => {
-        const interval = setInterval(() => {
-          setSeconds((prevSeconds) => prevSeconds + 1);
-        }, 1000);
-    
-        return () => clearInterval(interval);
-    }, []);
-    
-    useEffect(() => {
-        if (seconds === 60) {
-            setSeconds(0);
-            setMinutes((prevMinutes) => prevMinutes + 1);
-        }
-    }, [seconds]);
-
     function handleStart() {
         setisStart(true);
-    }
-    function handleFinish() {
-        router.push('/trouble-shooting/success?timer='+seconds)
     }
     function closeBox() {
         setShowElement('')
 
-        // Step นี้ไม่ต้องตรวจสอบ Mission ว่าครบหรือยัง ()
-        // if (missions.includes("Patient") && missions.includes("Ventilator") && missions.includes("Circuits") && missions.includes("Tube") && missions.includes("CloseSuction")) {
-        //     // console.log('Next')
-        //     router.push('/quiz/trouble-shooting1')
-        // }
+        // ตรวจสอบ Mission ว่าครบหรือยัง ()
+        if (missions.includes("Patient") && missions.includes("Ventilator") && missions.includes("Circuits") && missions.includes("Tube") && missions.includes("CloseSuction")) {
+            // console.log('Next')
+            router.push('/quiz/trouble-shooting-case1-1')
+        }
     }
     function handleMission(mission) {
         missions.push(mission);
@@ -72,8 +46,8 @@ export default function HomeAlert() {
         return (
             <div className={styles.startBox}>
                 <p>
-                    ท่านพบสาเหตุของปัญหานี้แล้ว<br/>
-                    ท่านต้องเลือกอุปกรณ์ที่ท่านจะทำการแก้ไขปัญหานี้
+                จากสถานการณ์ที่เกิดขึ้น ท่านจะตรวจสอบ และจัดการแก้ไขปัญหานี้อย่างไร   <br/>
+                ท่านต้องเลือกสิ่งที่ท่านต้องการตรวจตรวจสอบ เพื่อหาสาเหตุของปัญหานี้
                 </p>
                 <button className={styles.startBtn} onClick={handleStart}>
                     NEXT
@@ -85,7 +59,7 @@ export default function HomeAlert() {
     // ตำแหน่งของคนไข้
     const PatientElement = () => {
         return (
-            <div className={styles.patientElement}>     
+            <div className={styles.patientElement}>
                 {missions.includes("Patient") &&
                 <div className={styles.checkedIconElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>
                 </div>                
@@ -93,7 +67,7 @@ export default function HomeAlert() {
                 {!missions.includes("Patient") &&
                 <div className={styles.alertIconElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>
                 </div>                
-                }                     
+                }
             </div>
         )
     }
@@ -110,50 +84,22 @@ export default function HomeAlert() {
                         ตรวจร่างกายผู้ป่วย
                     </p>                    
                 </div>
-                <div className={styles.d_flex}>
-                    <div>
-                        <Image
-                            onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(4)}}
-                            className={styles.alertImage}
-                            src='/images/case4-thumb3.png'
-                            alt="Hover"
-                            // layout="fill"
-                            // objectFit="cover"
-                            draggable='false'
-                            width={200}
-                            height={200}
-                        />
-                    </div>
-                    <div>
-                        <Image
-                            onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}
-                            className={styles.alertImage}
-                            src='/troubleshooting/04.png'
-                            alt="Hover"
-                            // layout="fill"
-                            // objectFit="cover"
-                            draggable='false'
-                            width={200}
-                            height={200}
-                        />
-                    </div>
-                    <div>
-                        <Image
-                            onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(5)}}
-                            className={styles.alertImage}
-                            src='/troubleshooting/09.png'
-                            alt="Hover"
-                            // layout="fill"
-                            // objectFit="cover"
-                            draggable='false'
-                            width={200}
-                            height={200}
-                        />
-                    </div>
-                </div>         
-                {/* <button className={styles.alertSubmitBtn} onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}>
+                <div>
+                    <Image
+                        onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}
+                        className={styles.alertImage}
+                        src='/troubleshooting/04.png'
+                        alt="Hover"
+                        // layout="fill"
+                        // objectFit="cover"
+                        draggable='false'
+                        width={200}
+                        height={200}
+                    />
+                </div>
+                <button className={styles.alertSubmitBtn} onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}>
                     NEXT
-                </button> */}
+                </button>
             </div>
         )
     }
@@ -171,7 +117,7 @@ export default function HomeAlert() {
                 <div>
                     <Image
                         // onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}
-                        onClick={() =>  {setPlayingYoutube(true) ; handleMission('Patient_1')}}
+                        onClick={() =>  {setPlayingYoutube(true) ; handleMission('Patient')}}
                         className={styles.alertImage}
                         src='/troubleshooting/01.png'
                         alt="Hover"
@@ -186,7 +132,7 @@ export default function HomeAlert() {
                 {/* <button className={styles.alertSubmitBtn} onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}>
                     NEXT
                 </button> */}
-                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_1')}}>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient') ; setPlayingYoutube(false)}}>
                     GOT IT
                 </button>
             </div>
@@ -231,87 +177,12 @@ export default function HomeAlert() {
         )
     }
 
-    const PatientAlertBox4 = () => {
-        return (
-            <div className={styles.alertBox}>
-                <div className={styles.alertClose} onClick={closeBox}>
-                    X
-                </div>
-                {/* <div className={styles.alertText}>
-                    <p>
-                    Tube อยู่มุมปากตำแหน่งเดิม
-                    ผู้ป่วยมีลมออกปาก
-                    </p>                    
-                </div>
-                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_2') ; setPlayingYoutube(false)}}>
-                    GOT IT
-                </button> */}
-                <div className={styles.alertText}>
-                    <div className={styles.d_flex}>
-                        <div>
-                            <button className={styles.alertSubmitBtn2} onClick={() =>  {setPatientAlertStep(6)}}>
-                                Inflate ลมกลับเข้าไปใน cuff
-                            </button>
-                        </div>
-                        <div>
-                            <button className={styles.alertSubmitBtn2} onClick={closeBox}>
-                                ปรับตำแหน่งของ Tube
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
-    const PatientAlertBox5 = () => {
-        return (
-            <div className={styles.alertBox}>
-                <div className={styles.alertClose} onClick={closeBox}>
-                    X
-                </div>
-                <div className={styles.alertText}>
-                    <p>
-                    ความดันที่วัดได้อยู่ที่ 25 cm/H2O
-                    </p>                    
-                </div>
-                {/* <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_3') ; setPlayingYoutube(false)}}>
-                    GOT IT
-                </button> */}
-                <button className={styles.finishBtn} onClick={handleFinish}>
-                    FINISH
-                </button>
-            </div>
-        )
-    }
-
-
-    const PatientAlertBox6 = () => {
-        return (
-            <div className={styles.alertBox}>
-                <div className={styles.alertClose} onClick={closeBox}>
-                    X
-                </div>
-                <div className={styles.alertText}>
-                    <p>
-                    กลับไปกด ตรวจสอบอุปกรณ์โดย Cuff pressure gauge
-                    </p>                    
-                </div>
-                {/* <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_3') ; setPlayingYoutube(false)}}>
-                    GOT IT
-                </button> */}
-                <button className={styles.alertSubmitBtn} onClick={closeBox}>
-                    GOT IT
-                </button>
-            </div>
-        )
-    }
-
 
     // ตำแหน่งของ Ventilator (เครื่องช่วยหายใจ)
     const VentilatorElement = () => {
         return (
             <div className={styles.ventilatorElement}>        
+
                 {missions.includes("Ventilator") &&
                 <div className={styles.checkedIconElement} onClick={() => {setPlayingVent(true) ; setShowElement('Ventilator') ; handleMission('Ventilator')}}>
                 </div>                
@@ -319,7 +190,8 @@ export default function HomeAlert() {
                 {!missions.includes("Ventilator") &&
                 <div className={styles.alertIconElement} onClick={() => {setPlayingVent(true) ; setShowElement('Ventilator') ; handleMission('Ventilator')}}>
                 </div>                
-                }       
+                }
+
             </div>
         )
     }
@@ -329,6 +201,7 @@ export default function HomeAlert() {
     const resetVent = () => {
         setShowElement('')
     }
+    const [showAlarm, setShowAlarm] = useState(false);
     const VentilatorMonitor = () => {
         return (
             <div className={styles.ventilatorMonitor}>          
@@ -345,6 +218,16 @@ export default function HomeAlert() {
                     width='100%'
                     height='100%'
                 />
+                <div className={styles.ventilatorMonitorVideo_alarm} onClick={() => {setShowAlarm(true)}}></div>
+                {showAlarm &&
+                    <div className={styles.ventilatorMonitorVideo_alarmText}>
+                        <div className={styles.ventilatorMonitorVideo_alarmClose} onClick={() => {setShowAlarm(false)}}>X</div>
+                        <p>
+                            P<sub>PEAK</sub> alarm เท่ากับ 35
+                        </p>
+                    </div>           
+                }                
+
                 </div>
             </div>
         )
@@ -354,18 +237,17 @@ export default function HomeAlert() {
     // ตำแหน่งของ Circuits (เครื่องช่วยหายใจ)
     const CircuitsElement = () => {
         return (
-            <div className={styles.circuitsElement}>    
-                {/* {missions.includes("Circuits") &&
+            <div className={styles.circuitsElement}>        
+
+                {missions.includes("Circuits") &&
                 <div className={styles.checkedIconElement} onClick={() => {setShowElement('Circuits') ; handleMission('Circuits')}}>
                 </div>                
                 }
                 {!missions.includes("Circuits") &&
                 <div className={styles.alertIconElement} onClick={() => {setShowElement('Circuits') ; handleMission('Circuits')}}>
                 </div>                
-                }      */}
+                }  
 
-                <div className={styles.alertIconElement} onClick={() => {setShowElement('Circuits') ; handleMission('Circuits')}}>
-                </div>             
             </div>
         )
     }
@@ -376,24 +258,14 @@ export default function HomeAlert() {
                     X
                 </div>
                 <div className={styles.alertText}>
-                    <div className={styles.d_flex}>
-                        <div>
-                            <button className={styles.alertSubmitBtn2} onClick={closeBox}>
-                                ตรวจสอบการรั่ว <br/>
-                                ventilator circuits
-                            </button>
-                        </div>
-                        <div>
-                            <button className={styles.alertSubmitBtn2} onClick={closeBox}>
-                                เปลี่ยน <br/>
-                                ventilator circuits
-                            </button>
-                        </div>
-                    </div>
+                <p>
+                    ไม่มีน้ำใน ventilator circuits <br/>
+                    (ไม่มี Condensate)
+                </p>
                 </div>
-                {/* <button className={styles.alertSubmitBtn} onClick={closeBox}>
+                <button className={styles.alertSubmitBtn} onClick={closeBox}>
                     NEXT
-                </button> */}
+                </button>
             </div>
         )
     }
@@ -402,7 +274,8 @@ export default function HomeAlert() {
     // ตำแหน่งของ Tube
     const TubeElement = () => {
         return (
-            <div className={styles.tubeElement}> 
+            <div className={styles.tubeElement}>   
+
                 {missions.includes("Tube") &&
                 <div className={styles.checkedIconElementLeft} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>
                 </div>                
@@ -410,7 +283,8 @@ export default function HomeAlert() {
                 {!missions.includes("Tube") &&
                 <div className={styles.alertIconElementLeft} onClick={() => {setShowElement('Tube') ; handleMission('Tube')}}>
                 </div>                
-                }             
+                }  
+
             </div>
         )
     }
@@ -435,7 +309,8 @@ export default function HomeAlert() {
     // ตำแหน่งของ Tube (เครื่องช่วยหายใจ)
     const CloseSuctionElement = () => {
         return (
-            <div className={styles.closeSuctionElement}>                
+            <div className={styles.closeSuctionElement}>     
+
                 {missions.includes("CloseSuction") &&
                 <div className={styles.checkedIconElement} onClick={() => {setShowElement('CloseSuction') ; handleMission('CloseSuction')}}>
                 </div>                
@@ -444,23 +319,24 @@ export default function HomeAlert() {
                 <div className={styles.alertIconElement} onClick={() => {setShowElement('CloseSuction') ; handleMission('CloseSuction')}}>
                 </div>                
                 }  
+
             </div>
         )
     }
     const CloseSuctionAlertBox = () => {
         return (
             <div className={styles.alertBox}>
-                {/* <div className={styles.alertClose} onClick={closeBox}>
+                <div className={styles.alertClose} onClick={closeBox}>
                     X
-                </div> */}
+                </div>
                 <div className={styles.alertText}>
                 <p>
-                    ดูดได้เสมหะจำนวนมาก
+                ตรวจพบเสมหะจำนวนมาก
                 </p>
-                <button className={styles.finishBtn} onClick={handleFinish}>
-                    FINISH
-                </button>
                 </div>
+                <button className={styles.alertSubmitBtn} onClick={closeBox}>
+                    NEXT
+                </button>
             </div>
         )
     }
@@ -474,10 +350,7 @@ export default function HomeAlert() {
             {isStart && <PatientElement />}
             {showElement=='Patient' && patientAlertStep==1 && <PatientAlertBox1 />}
             {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox2 />}
-            {showElement=='Patient' && patientAlertStep==3 && <PatientAlertBox3 />}
-            {showElement=='Patient' && patientAlertStep==4 && <PatientAlertBox4 />}
-            {showElement=='Patient' && patientAlertStep==5 && <PatientAlertBox5 />}
-            {showElement=='Patient' && patientAlertStep==6 && <PatientAlertBox6 />}
+            {/* {showElement=='Patient' && patientAlertStep==3 && <PatientAlertBox3 />} */}
 
             {isStart && <VentilatorElement />}
             {showElement=='Ventilator' && <VentilatorMonitor />}
@@ -485,17 +358,11 @@ export default function HomeAlert() {
             {isStart && <CircuitsElement />}
             {showElement=='Circuits' && <CircuitsAlertBox />}
 
-            {/* {isStart && <TubeElement />} */}
+            {isStart && <TubeElement />}
             {showElement=='Tube' && <TubeAlertBox />}
 
-            {/* {isStart && <CloseSuctionElement />} */}
+            {isStart && <CloseSuctionElement />}
             {showElement=='CloseSuction' && <CloseSuctionAlertBox />}
-
-            {/* DEV */}
-            {/* <div className={styles.timeup}>
-                <p>{`${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}</p>
-            </div> */}
-            {/* DEV */}
         </div>        
     )
 }

@@ -213,6 +213,30 @@
     border: 0;
     cursor: pointer;
 }
+
+.alertSubmitBtn2 {
+    position: relative;
+    height: 4rem;
+    display: block;
+    // font-size: 1.1rem;
+    font-size: 1.1vw;
+    font-family: kanit;
+    font-weight: normal;
+    color: #FFF;
+    // padding: .5rem;
+    // padding: .5rem 2rem;
+    padding: 0 2rem;
+    // width: 40%;
+    width: auto;
+    margin: 1rem auto 0 auto;
+    background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;
+    // box-shadow: 4px .4rem 1rem rgba(0, 0, 0, 0.5);
+    border-radius: 109px;
+    border: 0;
+    cursor: pointer;
+}
+
+
 .alertClose {
     position: absolute;
     right: -.7rem;
@@ -486,4 +510,13 @@
     bottom: 5%;
     width: auto;
     z-index: 4;
+}
+
+
+
+.d_flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 15px;
 }

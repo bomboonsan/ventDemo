@@ -4,12 +4,41 @@ import 'bootstrap/dist/css/bootstrap.css'
 import styles from '../../styles/quiz/main.module.scss'
 import Link from "next/link";
 import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react';
+import { useState, useEffect , useRef } from 'react';
 
+import ReactPlayer from 'react-player'
+import { findDOMNode } from 'react-dom'
+// import { useRouter } from 'next/router'
+import screenfull from 'screenfull'
+
+import Lottie from 'react-lottie';
+import animationData from '../../lottiefiles/checkmark.json';
 
 export default function Main_menu() {
   const router = useRouter()
+  const [inputValue1, setInputValue1] = useState('');
+  const [inputValue2, setInputValue2] = useState('');
+  const [stepQuiz, setStepQuiz] = useState('1');
   const [ansArr, setAnsArr] = useState([]);  
+  const [showLottie, setShowLottie] = useState(false);
+
+  const [playing, setPlaying] = useState(true);
+  // const troubleShootingVideo = 'https://wish-integrate.com/vent-video/trouble-shooting-edit.mp4'
+  const troubleShootingVideo = 'https://wish-integrate.com/vent-video/trouble/Patient2Pre.mp4'
+
+  const playerRef = useRef(null);
+  const onClickFullscreen = () => {
+    if (screenfull.isEnabled && playerRef.current) {
+      screenfull.toggle(playerRef.current.wrapper);
+    }
+  };
+  function reset() {
+    
+  }
+  const videoStyle = {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  };
 
   const handleAnsClick = (event) => {
 
@@ -40,20 +69,83 @@ export default function Main_menu() {
 
   }
 
-  const checkAns = () => {
+  const handleInputChange1 = (event) => {
+    setInputValue1(event.target.value);
+  }
+  const handleInputChange2 = (event) => {
+    setInputValue2(event.target.value);
+  }
+
+  const checkAns2 = () => {
     
-    // เรียงลำดับ Array
-    const ansArrSort = ansArr.sort();
     
-    if (ansArrSort.toString() == 'ans3,ans4' || ansArrSort.toString() == 'ans4,ans3') {
-      router.push('/trouble-shooting/case2-step1')
+    if (inputValue1 == '300' && inputValue2 == '216') {
+      
+      setStepQuiz("3")
+      const mainWrap = document.querySelector('#main')
+      mainWrap.classList.remove(styles['flade']);
+      mainWrap.classList.add(styles['hidden']);
+      
+      setTimeout(() => { 
+        mainWrap.classList.remove(styles['hidden']);
+        mainWrap.classList.add(styles['flade']);
+      }, 200)
+
     } else {
       router.push('/hint/trouble-shooting-2-false')
     }
     
   }
 
+  const checkAns = () => {
+    
+    // เรียงลำดับ Array
+    const ansArrSort = ansArr.sort();
+    
+    if (ansArrSort.toString() == 'ans1,ans3' || ansArrSort.toString() == 'ans4,ans1') {
+      
 
+      setShowLottie(true)
+      const mainWrap = document.querySelector('#main')
+      mainWrap.classList.add(styles['hidden']);
+
+      setTimeout(() => { 
+        router.push('/trouble-shooting/case2-step1')
+       }, 2000)
+
+
+    } else {
+      router.push('/hint/trouble-shooting-2-false')
+    }
+    
+  }
+
+  const handleTrue_1 = () => {
+    setStepQuiz("2")
+    const mainWrap = document.querySelector('#main')
+    mainWrap.classList.remove(styles['flade']);
+    mainWrap.classList.add(styles['hidden']);
+    
+    setTimeout(() => { 
+      mainWrap.classList.remove(styles['hidden']);
+      mainWrap.classList.add(styles['flade']);
+    }, 200)
+  }
+  const handleFalse = () => {
+    router.push('/hint/trouble-shooting-2-false')
+  }
+
+  // lottie
+  const lottieOptions = {
+    animationData: animationData,
+    // loop: true,
+    loop: false,
+    autoplay: true,
+    rendererSettings: {
+      // preserveAspectRatio: 'xMidYMid slice'
+      preserveAspectRatio: 'none'
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -76,36 +168,113 @@ export default function Main_menu() {
       </div>{/* prev_page */}
       <div className={styles.quiz_container}>
         <div className='container'>
-          <div className='row justify-content-center align-items-center min-h-screen'>
+          {showLottie &&
+            <div className={styles.lottieCheck}>
+              <Lottie options={lottieOptions} />
+            </div>
+          } 
+          <div id='main' className='row justify-content-center align-items-center min-h-screen'>
+
+            <div className={styles.videoWrap}>
+              <ReactPlayer 
+                onClick={onClickFullscreen}
+                className={styles.video_item} 
+                url={troubleShootingVideo}  
+                playing={playing} 
+                ref={playerRef}
+                loop={true}
+                onEnded={reset}
+                width='100%'
+                height='100%'
+                style={videoStyle}
+              />            
+            </div>
+
+
+            {stepQuiz.includes("1") &&   
             <div className='col-11 col-lg-8'>
               <h1 className={styles.quiz_title}>
-                เกิดปัญหาขึ้นกับคนไข้!<br/>
-                ระหว่างที่คุณปฏิบัติงาน พบความผิดปกติกับคนไข้<br/>
-                จากการสังเกตความผิดปกติที่เกิด คุณพบว่า
+              โหมดของเครื่องช่วยหายใจที่มีการตั้งให้กับคนไข้คนนี้คือโหมดใด
               </h1>
 
               <div className={styles.quiz_row}>        
-                {/* <div id='ans1' className={styles.quiz_col} onClick={handleAnsClick}>
-                  <p>XX</p> 
-                </div>
-                <div id='ans2' className={styles.quiz_col} onClick={handleAnsClick}>
-                  <p>XX</p>
-                </div> */}
-                <div id='ans3' className={styles.quiz_col} onClick={handleAnsClick}>
-                  <p>Low volume alarm</p>
-                </div>
-                <div id='ans4' className={styles.quiz_col} onClick={handleAnsClick}>
-                  <p>Low minute ventilation alarm</p>
+                <div  className={styles.quiz_col} onClick={handleFalse}>
+                  <p>Volume Control</p> 
                   {/*  */}
                 </div>
-                <div id='ans5' className={styles.quiz_col} onClick={handleAnsClick}>
-                  <p>Low pressure alarm</p>
+                <div className={styles.quiz_col} onClick={handleFalse}>
+                  <p>Volume Assist</p>
                 </div>
-                <div id='ans6' className={styles.quiz_col} onClick={handleAnsClick}>
-                  <p>High pressure alarm</p>
+                <div className={styles.quiz_col} onClick={handleTrue_1}>
+                  <p>Pressure Control</p>
+                </div>
+                <div  className={styles.quiz_col} onClick={handleFalse}>
+                  <p>Pressure Assist</p>
+                  {/*  */}
+                </div>
+                <div  className={styles.quiz_col} onClick={handleFalse}>
+                  <p>Low volume alarm</p>
+                </div>
+                <div className={styles.quiz_col} onClick={handleFalse}>
+                  <p>Pressure Support</p>
                 </div>
               </div>
 
+            </div>
+            }
+
+            {stepQuiz.includes("2") &&   
+            <div className='col-11 col-lg-8'>
+              <h1 className={styles.quiz_title}>
+                เครื่องตั้งค่า Tidal Volume ประมาณเท่าไหร่ และ Tidal volume ในช่วงที่เครื่องมีการร้องเตือนมีค่าเท่าไหร่
+              </h1>
+
+              <div className={styles.quiz_row}>        
+                <div className={styles.quiz_input} >
+                  <div className="input-group">
+                    <span className={styles.input_text} >Trouble shooting </span>
+                    <input type="number" className="form-control" placeholder='ระบุค่าเป็นตัวเลข' onChange={handleInputChange1} />
+                  </div>
+                </div>
+                <div className={styles.quiz_input} >
+                  <div className="input-group">
+                    <span className={styles.input_text}>Leak volume waveform  </span>
+                    <input type="number" className="form-control" placeholder='ระบุค่าเป็นตัวเลข' onChange={handleInputChange2} />
+                  </div>
+                </div>
+              </div>
+              <div className={styles.btn_area}>
+                  <div className={styles.btn_container}>
+                      <button className={styles.next_btn} onClick={checkAns2}>
+                      NEXT
+                      </button>
+                  </div>
+              </div>
+            </div>
+            }
+
+            {stepQuiz.includes("3") &&   
+            <div className='col-11 col-lg-8'>
+              <h1 className={styles.quiz_title}>
+              ลักษณะใดของกราฟที่บ่งชี้ว่าคนไข้มีโอกาสเกิด air leak บ้าง
+              </h1>
+
+              <div className={styles.quiz_row_2}>        
+                <div id='ans1' className={styles.quiz_col} onClick={handleAnsClick}>
+                  <p>Volume ลดลงจำนวนมากระหว่างหายใจออก </p> 
+                  {/*  */}
+                </div>
+                <div id='ans2' className={styles.quiz_col} onClick={handleAnsClick}>
+                  <p>Volume ลดลงจำนวนมากระหว่างหายใจเข้า</p>
+                </div>
+                <div id='ans3' className={styles.quiz_col} onClick={handleAnsClick}>
+                  <p>พบ Leak volume ใน waveform</p>
+                </div>
+                <div id='ans4' className={styles.quiz_col} onClick={handleAnsClick}>
+                  <p>Expiratory flow แตะศูนย์ ก่อนเริ่มมีการหายใจเข้าเกิดขึ้นแล้ว</p>
+                  {/*  */}
+                </div>
+              </div>
               <div className={styles.btn_area}>
                   <div className={styles.btn_container}>
                       <button className={styles.next_btn} onClick={checkAns}>
@@ -114,6 +283,9 @@ export default function Main_menu() {
                   </div>
               </div>
             </div>
+            }
+
+
           </div>
         </div>
       </div>

@@ -14,7 +14,8 @@ export default function Intruction_1() {
         if ( stepCount+1 < 3 ) {
             setStepCount(stepCount+1);
         } else {
-            router.push('/mainbrain')
+            // router.push('/mainbrain')
+            router.push('/quiz/brain2')
         }
         if ( stepCount+1 == 1 ) {
             setTextHint('การใช้เครื่องประมวลผลสัญญาณคลื่นไฟฟ้าสมองออกมาเป็นตัวเลข (processed-EEG monitor) จะช่วยทำให้สามารถวางแผนการใช้ยาระงับความรู้สึกได้อย่างแม่นยำเหมาะสมเฉพาะรายบุคคลตามสภาวะการตอบสนองของคลื่นไฟฟ้าสมอง ผ่านการดูตัวเลขง่าย ๆ ในช่วง 0-100 พร้อมกับกราฟแนวโน้มของสภาวะตอบสนองต่อยาระงับความรู้สึก')

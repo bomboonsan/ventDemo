@@ -6,7 +6,10 @@ import Link from "next/link";
 import { useRouter } from 'next/router'
 
 export default function Intruction_1() {
-
+    const router = useRouter()
+    const handleClick = () => {
+        router.back();
+      };
     return (
         <div className={styles.container}>
             <Head>
@@ -39,11 +42,14 @@ export default function Intruction_1() {
                             {/* <button onClick={replace}>
                             Try again
                             </button> */}
-                            <Link href="/quiz/trouble-shooting-case1"> 
+                            {/* <Link href="/quiz/trouble-shooting-case1"> 
                             <button >        
                                 TRY AGAIN
                             </button>
-                            </Link>
+                            </Link> */}
+                            <button onClick={handleClick}>        
+                                TRY AGAIN
+                            </button>
                         </div>
                     </div>
                     {/* <div className={styles.col_image}>

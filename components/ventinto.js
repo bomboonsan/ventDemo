@@ -64,7 +64,7 @@ export default function VentInto() {
         
         'การใช้เครื่องช่วยหายใจผ่านท่อช่วยหายใจหรือท่อเจาะคอ  ท่อหลอดลมคอ',
         'การใช้เครื่องช่วยหายใจผ่านทางหน้ากากครอบจมูกและปาก',
-        'การใช้เครื่องช่วยหายใจที่ควบคุมการให้ออกซิเจนอัตราการไหลสูง การให้ออกซิเจนที่มีอัตราการไหลสูงHigh flow oxygen therapy          ',
+        'การใช้เครื่องช่วยหายใจที่ควบคุมการให้ออกซิเจนอัตราการไหลสูง การให้ออกซิเจนที่มีอัตราการไหลสูง High Flow Oxygen Therapy',
         'Assist-Control Ventilation คือ โหมดที่ผสมผสานระหว่าง Assisted และ control ventilation โดยผู้ป่วยสามารถช่วยกำหนดจุดเริ่มต้นของการหายใจเข้าได้เอง (Assisted)         ',
         'Synchromized intermittent mandatory ventilation คือโหมดที่ผู้ป่วยหายใจเอง (spontaneous ventilation) สลับกับการหายใจจากเครื่องตามที่ตั้งไว้ ',
         'Spontaneous คือ เครื่องให้แรงดันบวกโดยผู้ป่วยหายใจเองและกำหนดอัตราการหายใจ inspiratory time และ VT ด้วยตัวเอง         ',
@@ -84,7 +84,7 @@ export default function VentInto() {
         'Inspiratory pressure : แรงดันอากาศหายใจเข้า',
         'Inspiratory time : ช่วงเวลาในการหายใจเข้า ระยะ        ',
         'Expiratory  time : ช่วงเวลาในการหายใจออก  ระยะ        ',
-        'Flow  Sensitivity : ค่าความไวในการ Trigger เครื่องด้วยหลักการของ Flow  ค่าความไวในการ Trigger เครื่องโดยอาศัยการเปลี่ยนแปลงของการไหลของอากาศ',
+        'Flow  Sensitivity : ค่าความไวในการ Trigger เครื่องด้วยหลักการของ Flow  ค่าความไวในการ Trigger เครื่องโดยอาศัยการเปลี่ยนแปลงของการไหลของอากาศ        ',
         'Pressure  Sensitivity  :ค่าความไวในการ Trigger เครื่องด้วยหลักการของ Pressure  ค่าความไวในการ Trigger เครื่องโดยอาศัยการเปลี่ยนแปลงของความดัน ',
         'Oxygen percentage : ความเข้มข้นของออกซิเจนในอากาศที่จ่ายให้ผู้ป่วย',
         'Set limitation of  high peak circuit pressure : ค่าขีดจำกัดความดันลมในสายเครื่องช่วยหายใจสูงสุดที่ต้องการกำหนด โดยจะเตือนเมื่อความดันในสายสูงเกินกำหนด ',
@@ -166,7 +166,7 @@ export default function VentInto() {
     }
 
     const handleFinish = () => {
-        router.push('/menulearningmode')
+        router.push('/vent/quiz')
     }
 
     return (
