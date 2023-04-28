@@ -16,7 +16,7 @@ export default function menu3() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className='prev_page'>
-          <Link href="/consent"> 
+          <Link href="/welcome"> 
             <Image
                 src="/images/prev.png"
                 alt="Women"
