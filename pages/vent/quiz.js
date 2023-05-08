@@ -23,28 +23,32 @@ export default function Instruction() {
 
 
   var ansMode1 = {
-    mode : 'Pressure Control',
+    // mode : 'Pressure Control',
+    mode: '',
     triggering_variable : 'Machine',
     control_pressure_variable : 'Pressure',
     cycling_variable : 'Time',
   }
 
   var ansMode2 = {
-    mode : 'Volume Control',
+    // mode : 'Volume Control',
+    mode: '',
     triggering_variable : 'Machine',
     control_pressure_variable : 'Flow',
     cycling_variable : 'Volume',
   }
 
   var ansMode3 = {
-    mode : 'Volume Control',
+    // mode : 'Volume Control',
+    mode: '',
     triggering_variable : 'Patient',
     control_pressure_variable : 'Flow',
     cycling_variable : 'Volume',
   }
 
   var ansMode4 = {
-    mode : 'Pressure Support',
+    // mode : 'Pressure Support',
+    mode: '',
     triggering_variable : 'Patient',
     control_pressure_variable : 'Pressure',
     cycling_variable : 'Flow',
@@ -111,6 +115,8 @@ export default function Instruction() {
           mainWrap.classList.add(styles['flade']);
 
           setShowLottie(false)
+
+          router.push('/menulearningmode')
          }, 2000)
 
         const btnAll = document.querySelectorAll(`.${styles.btnSelect}`);
@@ -153,13 +159,13 @@ export default function Instruction() {
           <div className='col-12 mb-3'>
 
             <div className={styles.quiz_title}>
-              เลือกเงื่อนไขในการตั้งค่าสำหรับสำหรับโหมด 
+              เลือกเงื่อนไขในการตั้งค่าสำหรับสำหรับโหมด <br/>
               <strong>
                 {modeCurrent.includes("Pressure Control") && 'Pressure Control'} {modeCurrent.includes("Volume Control") && 'Volume Control'} {modeCurrent.includes("Pressure Support") && 'Pressure Support'}
               </strong>            
             </div>
           </div>
-          <div className='col-12 col-md-6 col-lg-3 master-col'>
+          {/* <div className='col-12 col-md-6 col-lg-3 master-col'>
             <div className={styles.title_col}>
               Mode
             </div>
@@ -181,9 +187,9 @@ export default function Instruction() {
               Support
             </button>
             }
-          </div>
+          </div> */}
 
-          <div className='col-12 col-md-6 col-lg-3 master-col'>
+          <div className='col-12 col-md-6 col-lg-4 master-col'>
             <div className={styles.title_col}>
               Triggering <br/>
               variable
@@ -196,7 +202,7 @@ export default function Instruction() {
             </button>
           </div>
 
-          <div className='col-12 col-md-6 col-lg-3 master-col'>
+          <div className='col-12 col-md-6 col-lg-4 master-col'>
             <div className={styles.title_col}>
               Control of <br/>
               pressure variable
@@ -209,7 +215,7 @@ export default function Instruction() {
             </button>
           </div>
 
-          <div className='col-12 col-md-6 col-lg-3 master-col'>
+          <div className='col-12 col-md-6 col-lg-4 master-col'>
             <div className={styles.title_col}>
               Cycling off <br/>
               variable

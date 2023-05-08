@@ -237,8 +237,7 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                     <p>
-                    Tube อยู่มุมปากตำแหน่งเดิม
-                    ผู้ป่วยมีลมออกปาก
+                    พบเสมหะใน tube เป็นจำนวนมาก
                     </p>                    
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_2') ; setPlayingYoutube(false)}}>
@@ -256,7 +255,7 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                     <p>
-                    ความดันที่วัดได้อยู่ที่ 5 cm/H2O
+                    ความดันที่วัดได้อยู่ที่ 25 cm/H2O
                     </p>                    
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_3') ; setPlayingYoutube(false)}}>
@@ -447,14 +446,14 @@ export default function HomeAlert() {
             {isStart && <VentilatorElement />}
             {showElement=='Ventilator' && <VentilatorMonitor />}
 
-            {/* {isStart && <CircuitsElement />} */}
+            {isStart && <CircuitsElement />}
             {showElement=='Circuits' && <CircuitsAlertBox />}
 
-            {/* {isStart && <TubeElement />} */}
+            {isStart && <TubeElement />}
             {showElement=='Tube' && <TubeAlertBox />}
             
 
-            {/* {isStart && <CloseSuctionElement />} */}
+            {isStart && <CloseSuctionElement />}
             {showElement=='CloseSuction' && <CloseSuctionAlertBox />}
             
         </div>        

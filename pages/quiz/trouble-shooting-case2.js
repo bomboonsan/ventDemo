@@ -79,7 +79,7 @@ export default function Main_menu() {
   const checkAns2 = () => {
     
     
-    if (inputValue1 == '300' && inputValue2 == '216') {
+    if ( Number(inputValue1) >= 500 && inputValue2 == '216') {
       
       setStepQuiz("3")
       const mainWrap = document.querySelector('#main')
@@ -175,24 +175,19 @@ export default function Main_menu() {
           } 
           <div id='main' className='row justify-content-center align-items-center min-h-screen'>
 
-            <div className={styles.videoWrap}>
-              <ReactPlayer 
-                onClick={onClickFullscreen}
-                className={styles.video_item} 
-                url={troubleShootingVideo}  
-                playing={playing} 
-                ref={playerRef}
-                loop={true}
-                onEnded={reset}
-                width='100%'
-                height='100%'
-                style={videoStyle}
-              />            
-            </div>
-
 
             {stepQuiz.includes("1") &&   
             <div className='col-11 col-lg-8'>
+              <div className={styles.quiz_image}>
+              <Image
+                  src="/images/quiz-trouble2.png"
+                  alt="Women"
+                  // layout="fill"
+                  // objectFit="cover"
+                  width={400}
+                  height={400}
+              />
+              </div>
               <h1 className={styles.quiz_title}>
               โหมดของเครื่องช่วยหายใจที่มีการตั้งให้กับคนไข้คนนี้คือโหมดใด
               </h1>
@@ -211,9 +206,6 @@ export default function Main_menu() {
                 <div  className={styles.quiz_col} onClick={handleFalse}>
                   <p>Pressure Assist</p>
                   {/*  */}
-                </div>
-                <div  className={styles.quiz_col} onClick={handleFalse}>
-                  <p>Low volume alarm</p>
                 </div>
                 <div className={styles.quiz_col} onClick={handleFalse}>
                   <p>Pressure Support</p>
@@ -261,17 +253,17 @@ export default function Main_menu() {
 
               <div className={styles.quiz_row_2}>        
                 <div id='ans1' className={styles.quiz_col} onClick={handleAnsClick}>
-                  <p>Volume ลดลงจำนวนมากระหว่างหายใจออก </p> 
+                  <p>Volume ช่วงหายใจเข้าลดลงหรือน้อยกว่า Volume ช่วงหายใจออก </p> 
                   {/*  */}
                 </div>
                 <div id='ans2' className={styles.quiz_col} onClick={handleAnsClick}>
-                  <p>Volume ลดลงจำนวนมากระหว่างหายใจเข้า</p>
+                  <p>Volume ช่วงหายใจออกมากกว่า Volume ช่วงหายใจเข้า</p>
                 </div>
                 <div id='ans3' className={styles.quiz_col} onClick={handleAnsClick}>
-                  <p>พบ Leak volume ใน waveform</p>
+                  <p>End expiratory flow rate เท่ากับศูนย์ก่อนการหายใจเข้าครั้งถัดไป</p>
                 </div>
                 <div id='ans4' className={styles.quiz_col} onClick={handleAnsClick}>
-                  <p>Expiratory flow แตะศูนย์ ก่อนเริ่มมีการหายใจเข้าเกิดขึ้นแล้ว</p>
+                  <p>End expiratory flow rate ต่ำกว่าศูนย์ก่อนการหายใจเข้าครั้งถัดไป</p>
                   {/*  */}
                 </div>
               </div>

@@ -13,13 +13,6 @@ export default function HomeAlert() {
 
     const [missions, setMissions] = useState([]);
 
-    useEffect(() => {
-        if (missions.includes("Patient_1") && missions.includes("Patient_2") && missions.includes("Patient_3") && !missions.includes("Patient")) {
-            handleMission('Patient')
-            closeBox()
-        }
-    }, [missions]);
-
     function handleStart() {
         setisStart(true);
     }
@@ -30,15 +23,10 @@ export default function HomeAlert() {
         setShowElement('')
 
         // Step นี้ไม่ต้องตรวจสอบ Mission ว่าครบหรือยัง ()
-        if (missions.includes("Patient_1") && missions.includes("Patient_2") && missions.includes("Patient_3") && missions.includes("Circuits") && missions.includes("Tube") ) {
+        if (missions.includes("Patient") && missions.includes("Circuits") && missions.includes("Tube") && missions.includes("Cuff")) {
             // console.log('Next')
             router.push('/quiz/trouble-shooting-case2-1')
         }
-
-        // if (missions.includes("Patient_1") && missions.includes("Patient_2") && missions.includes("Patient_3") && missions.includes("Ventilator") ) {
-        //     // console.log('Next')
-        //     router.push('/quiz/trouble-shooting-case1-1')
-        // }
 
     }
     function handleMission(mission) {
@@ -76,7 +64,7 @@ export default function HomeAlert() {
     // ตำแหน่งของคนไข้
     const PatientElement = () => {
         return (
-            <div className={styles.patientElement}>
+            <div className={styles.patientElement}>          
                 {missions.includes("Patient") &&
                 <div className={styles.checkedIconElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>
                 </div>                
@@ -84,7 +72,7 @@ export default function HomeAlert() {
                 {!missions.includes("Patient") &&
                 <div className={styles.alertIconElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>
                 </div>                
-                }
+                }   
             </div>
         )
     }
@@ -96,59 +84,48 @@ export default function HomeAlert() {
                 <div className={styles.alertClose} onClick={closeBox}>
                     X
                 </div>
+                <div className={styles.alertText}>
+                <p>
+                ผู้ป่วยมีลมออกปาก
+                </p>
+                </div>
+                <button className={styles.alertSubmitBtn} onClick={() => {setPatientAlertStep(2)}}>
+                    NEXT
+                </button>
+            </div>
+        )
+    }
+    const PatientAlertBox2 = () => {
+        return (
+            <div className={styles.alertBox}>
+                <div className={styles.alertClose} onClick={closeBox}>
+                    X
+                </div>
                 <div className={styles.alertHead}>
                     <p>
                         ตรวจร่างกายผู้ป่วย
                     </p>                    
                 </div>
-                <div className={styles.d_flex}>
-                    <div>
-                        <Image
-                            onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(4)}}
-                            className={styles.alertImage}
-                            src='/images/case3-thumb3.png'
-                            alt="Hover"
-                            // layout="fill"
-                            // objectFit="cover"
-                            draggable='false'
-                            width={200}
-                            height={200}
-                        />
-                    </div>
-                    <div>
-                        <Image
-                            onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}
-                            className={styles.alertImage}
-                            src='/troubleshooting/04.png'
-                            alt="Hover"
-                            // layout="fill"
-                            // objectFit="cover"
-                            draggable='false'
-                            width={200}
-                            height={200}
-                        />
-                    </div>
-                    <div>
-                        <Image
-                            onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(5)}}
-                            className={styles.alertImage}
-                            src='/troubleshooting/09.png'
-                            alt="Hover"
-                            // layout="fill"
-                            // objectFit="cover"
-                            draggable='false'
-                            width={200}
-                            height={200}
-                        />
-                    </div>
-                </div>                
-                {/* <button className={styles.alertSubmitBtn} onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}>
+                <div>
+                    <Image
+                        onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(3)}}
+                        className={styles.alertImage}
+                        src='/troubleshooting/04.png'
+                        alt="Hover"
+                        // layout="fill"
+                        // objectFit="cover"
+                        draggable='false'
+                        width={200}
+                        height={200}
+                    />
+                </div>
+                <button className={styles.alertSubmitBtn} onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(3)}}>
                     NEXT
-                </button> */}
+                </button>
             </div>
         )
     }
-    const PatientAlertBox2 = () => {
+    const PatientAlertBox3 = () => {
         return (
             <div className={styles.alertBox}>
                 <div className={styles.alertClose} onClick={closeBox}>
@@ -162,7 +139,7 @@ export default function HomeAlert() {
                 <div>
                     <Image
                         // onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}
-                        onClick={() =>  {setPlayingYoutube(true) ; handleMission('Patient_1')}}
+                        onClick={() =>  {setPlayingYoutube(true) ; handleMission('Patient')}}
                         className={styles.alertImage}
                         src='/troubleshooting/01.png'
                         alt="Hover"
@@ -173,21 +150,16 @@ export default function HomeAlert() {
                         height={200}
                     />
                 </div>
-                <PatientAlertBox3 />
+                <PatientAlertBox4 />
                 {/* <button className={styles.alertSubmitBtn} onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}>
                     NEXT
                 </button> */}
-                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_1') ; setPlayingYoutube(false)}}>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient')}}>
                     GOT IT
                 </button>
             </div>
         )
-    }  
-
-
-
-
-
+    }
     const [playingYoutube, setPlayingYoutube] = useState(false);
     // const [urlYoutube, setUrlYoutube] = useState('https://www.youtube.com/watch?v=aSor2XBc9K8?start=46');
     const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble-shooting2-edit.mp3');
@@ -195,7 +167,7 @@ export default function HomeAlert() {
         setPatientAlertStep(1)
         setShowElement('')
     }
-    const PatientAlertBox3 = () => {
+    const PatientAlertBox4 = () => {
         return (
             // <div className={styles.alertBox}>
             //     <div className={styles.alertClose} onClick={closeBox}>
@@ -224,43 +196,6 @@ export default function HomeAlert() {
             width="100%"
             height="40px"
             />
-        )
-    }
-
-
-    const PatientAlertBox4 = () => {
-        return (
-            <div className={styles.alertBox}>
-                <div className={styles.alertClose} onClick={closeBox}>
-                    X
-                </div>
-                <div className={styles.alertText}>
-                    <p>
-                    Tube อยู่มุมปากตำแหน่งเดิมผู้ป่วยมีลมออกปาก
-                    </p>                    
-                </div>
-                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_2') ; setPlayingYoutube(false)}}>
-                    GOT IT
-                </button>
-            </div>
-        )
-    }
-
-    const PatientAlertBox5 = () => {
-        return (
-            <div className={styles.alertBox}>
-                <div className={styles.alertClose} onClick={closeBox}>
-                    X
-                </div>
-                <div className={styles.alertText}>
-                    <p>
-                    ความดันที่วัดได้อยู่ที่ 5 cm/H<sub>2</sub>O
-                    </p>                    
-                </div>
-                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_3') ; setPlayingYoutube(false)}}>
-                    GOT IT
-                </button>
-            </div>
         )
     }
 
@@ -485,9 +420,8 @@ export default function HomeAlert() {
             {isStart && <PatientElement />}
             {showElement=='Patient' && patientAlertStep==1 && <PatientAlertBox1 />}
             {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox2 />}
-            {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox3 />}
+            {showElement=='Patient' && patientAlertStep==3 && <PatientAlertBox3 />}
             {showElement=='Patient' && patientAlertStep==4 && <PatientAlertBox4 />}
-            {showElement=='Patient' && patientAlertStep==5 && <PatientAlertBox5 />}
 
             {isStart && <VentilatorElement />}
             {showElement=='Ventilator' && <VentilatorMonitor />}

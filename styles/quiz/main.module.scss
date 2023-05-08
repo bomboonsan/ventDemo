@@ -5,6 +5,11 @@
     min-height: 100vh;
 }
 
+.bgTriangle {
+    background-image: url('../../public/images/bg-triangle.png');
+    background-size: cover;
+}
+
 .intruction_wrapper {
     position: relative;
 }
@@ -16,6 +21,14 @@
     color: blue;
     text-align: center;
     font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+}
+.quiz_title3 {
+    color: blue;
+    text-align: right;
+    font-size: 1.5rem;
+    line-height: 2rem;
     margin-bottom: 1.5rem;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
 }
@@ -179,4 +192,21 @@
     display: block;
     content: '';
     height: 8rem;
+}
+
+.quiz_image {
+    margin-bottom: 2rem;
+    img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.inline_input {
+    border: 0;
+    border-bottom: 1px solid blue;
+    outline: 0;
+    padding: 0 5px;
+    width: auto;
+    text-align: center;
 }

@@ -74,7 +74,7 @@ export default function Main_menu() {
                   <p>Increase NMB dose</p>
                 </div>
                 <div className={styles.quiz_item} onClick={ansCorrect}>
-                  <p>Check EMG signals</p>
+                  <p>Check phase of TTM</p>
                 </div>
                 <div className={styles.quiz_item} onClick={ansWorng}>
                   <p>Check ABG</p>

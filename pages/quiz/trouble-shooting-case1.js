@@ -103,7 +103,7 @@ export default function Main_menu() {
     // เรียงลำดับ Array
     const ansArrSort = ansArr.sort();
     
-    if (ansArrSort.toString() == 'ans1,ans3' || ansArrSort.toString() == 'ans4,ans1') {
+    if (ansArrSort.toString() == 'ans1,ans4' || ansArrSort.toString() == 'ans4,ans1') {
       
 
       setShowLottie(true)
@@ -175,36 +175,32 @@ export default function Main_menu() {
             </div>
           } 
           <div id='main' className='row justify-content-center align-items-center min-h-screen'>
-            <div className={styles.videoWrap}>
-              <ReactPlayer 
-                onClick={onClickFullscreen}
-                className={styles.video_item} 
-                url={troubleShootingVideo}  
-                playing={playing} 
-                ref={playerRef}
-                loop={true}
-                onEnded={reset}
-                width='100%'
-                height='100%'
-                style={videoStyle}
-              />            
-            </div>
 
             {stepQuiz.includes("1") &&   
             <div className='col-11 col-lg-8'>
+              <div className={styles.quiz_image}>
+              <Image
+                  src="/images/quiz-trouble1.png"
+                  alt="Women"
+                  // layout="fill"
+                  // objectFit="cover"
+                  width={400}
+                  height={400}
+              />
+              </div>
               <h1 className={styles.quiz_title}>
                 โหมดของเครื่องช่วยหายใจที่มีการตั้งให้กับคนไข้คนนี้คือโหมดใด
               </h1>
 
               <div className={styles.quiz_row}>        
-                <div id='ans1' className={styles.quiz_col} onClick={handleFalse}>
+                <div id='ans1' className={styles.quiz_col} onClick={handleTrue_1}>
                   <p>Volume Control</p> 
                   {/*  */}
                 </div>
                 <div id='ans2' className={styles.quiz_col} onClick={handleFalse}>
                   <p>Volume Assist</p>
                 </div>
-                <div id='ans3' className={styles.quiz_col} onClick={handleTrue_1}>
+                <div id='ans3' className={styles.quiz_col} onClick={handleFalse}>
                   <p>Pressure Control</p>
                 </div>
                 <div id='ans4' className={styles.quiz_col} onClick={handleFalse}>
@@ -212,11 +208,11 @@ export default function Main_menu() {
                   {/*  */}
                 </div>
                 <div id='ans5' className={styles.quiz_col} onClick={handleFalse}>
-                  <p>Low volume alarm</p>
-                </div>
-                <div id='ans6' className={styles.quiz_col} onClick={handleFalse}>
                   <p>Pressure Support</p>
                 </div>
+                {/* <div id='ans6' className={styles.quiz_col} onClick={handleFalse}>
+                  <p>Pressure Support</p>
+                </div> */}
               </div>
 
             </div>
@@ -224,11 +220,18 @@ export default function Main_menu() {
 
             {stepQuiz.includes("2") &&   
             <div className='col-11 col-lg-8'>
-              <h1 className={styles.quiz_title}>
+              {/* <h1 className={styles.quiz_title}>
               Tidal Volume มีค่าเท่ากับเท่าไหร่ <br/>และ Exhale tidal volume มีค่าเท่าไหร่
-              </h1>
+              </h1> */}
 
-              <div className={styles.quiz_row}>        
+              <p className={styles.quiz_title3}>
+                Tidal Volume มีค่าเท่ากับ <input type="number" className={styles.inline_input} placeholder='ระบุค่าเป็นตัวเลข' onChange={handleInputChange1} />
+              </p>
+              <p className={styles.quiz_title3}>
+                และ Exhale tidal volume มีค่าเท่ากับ <input type="number" className={styles.inline_input} placeholder='ระบุค่าเป็นตัวเลข' onChange={handleInputChange2} />
+              </p>
+
+              {/* <div className={styles.quiz_row}>        
                 <div className={styles.quiz_input} >
                   <div className="input-group">
                     <span className={styles.input_text} >Tidal Volume </span>
@@ -241,7 +244,7 @@ export default function Main_menu() {
                     <input type="number" className="form-control" placeholder='ระบุค่าเป็นตัวเลข' onChange={handleInputChange2} />
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className={styles.btn_area}>
                   <div className={styles.btn_container}>
                       <button className={styles.next_btn} onClick={checkAns2}>
@@ -255,22 +258,22 @@ export default function Main_menu() {
             {stepQuiz.includes("3") &&   
             <div className='col-11 col-lg-8'>
               <h1 className={styles.quiz_title}>
-                โหมดของเครื่องช่วยหายใจที่มีการตั้งให้กับคนไข้คนนี้คือโหมดใด
+              ลักษณะใดของกราฟที่บ่งชี้ว่าคนไข้มีโอกาสเกิด air trapping บ้าง
               </h1>
 
-              <div className={styles.quiz_row}>        
+              <div className={styles.quiz_row_2}>        
                 <div id='ans1' className={styles.quiz_col} onClick={handleAnsClick}>
-                  <p>Volume Control</p> 
+                  <p>Peak airway pressure สูงขึ้น Control</p> 
                   {/*  */}
                 </div>
                 <div id='ans2' className={styles.quiz_col} onClick={handleAnsClick}>
-                  <p>Volume Assist</p>
+                  <p>Peak airway pressure ลดลงขึ้น</p>
                 </div>
                 <div id='ans3' className={styles.quiz_col} onClick={handleAnsClick}>
-                  <p>Pressure Control</p>
+                  <p>Exhale tidal volume สูงกว่า Inhale tidal volume</p>
                 </div>
                 <div id='ans4' className={styles.quiz_col} onClick={handleAnsClick}>
-                  <p>Pressure Assist</p>
+                  <p>Exhale tidal volume ต่ำกว่า Inhale tidal volume</p>
                   {/*  */}
                 </div>
               </div>

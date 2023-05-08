@@ -231,6 +231,7 @@ export default function HomeAlert() {
         )
     }
 
+
     const PatientAlertBox4 = () => {
         return (
             <div className={styles.alertBox}>
@@ -249,12 +250,12 @@ export default function HomeAlert() {
                 <div className={styles.alertText}>
                     <div className={styles.d_flex}>
                         <div>
-                            <button className={styles.alertSubmitBtn2} onClick={() =>  {setPatientAlertStep(6)}}>
-                                Inflate ลมกลับเข้าไปใน cuff
+                            <button className={styles.alertSubmitBtn2} onClick={() =>  {closeBox ; setPatientAlertStep(6)}}>
+                                ให้ยาลดสะอึก
                             </button>
                         </div>
                         <div>
-                            <button className={styles.alertSubmitBtn2} onClick={closeBox}>
+                            <button className={styles.alertSubmitBtn2} onClick={() =>  {closeBox ; setPatientAlertStep(7)}}>
                                 ปรับตำแหน่งของ Tube
                             </button>
                         </div>
@@ -278,8 +279,11 @@ export default function HomeAlert() {
                 {/* <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_3') ; setPlayingYoutube(false)}}>
                     GOT IT
                 </button> */}
-                <button className={styles.finishBtn} onClick={handleFinish}>
+                {/* <button className={styles.finishBtn} onClick={handleFinish}>
                     FINISH
+                </button> */}
+                <button className={styles.alertSubmitBtn} onClick={closeBox}>
+                    GOT IT
                 </button>
             </div>
         )
@@ -294,7 +298,28 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                     <p>
-                    กลับไปกด ตรวจสอบอุปกรณ์โดย Cuff pressure gauge
+                    คนไข้ไม่ได้มีอาการสะอึก
+                    </p>                    
+                </div>
+                {/* <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_3') ; setPlayingYoutube(false)}}>
+                    GOT IT
+                </button> */}
+                <button className={styles.alertSubmitBtn} onClick={closeBox}>
+                    GOT IT
+                </button>
+            </div>
+        )
+    }
+
+    const PatientAlertBox7 = () => {
+        return (
+            <div className={styles.alertBox}>
+                <div className={styles.alertClose} onClick={closeBox}>
+                    X
+                </div>
+                <div className={styles.alertText}>
+                    <p>
+                    Tube อยู่ในตำแหน่งที่เหมาะสมแล้ว
                     </p>                    
                 </div>
                 {/* <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_3') ; setPlayingYoutube(false)}}>
@@ -369,6 +394,34 @@ export default function HomeAlert() {
             </div>
         )
     }
+    // const CircuitsAlertBox = () => {
+    //     return (
+    //         <div className={styles.alertBox}>
+    //             <div className={styles.alertClose} onClick={closeBox}>
+    //                 X
+    //             </div>
+    //             <div className={styles.alertText}>
+    //                 <div className={styles.d_flex}>
+    //                     <div>
+    //                         <button className={styles.alertSubmitBtn2} onClick={closeBox}>
+    //                             ตรวจสอบการรั่ว <br/>
+    //                             ventilator circuits
+    //                         </button>
+    //                     </div>
+    //                     <div>
+    //                         <button className={styles.alertSubmitBtn2} onClick={closeBox}>
+    //                             เปลี่ยน <br/>
+    //                             ventilator circuits
+    //                         </button>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //             {/* <button className={styles.alertSubmitBtn} onClick={closeBox}>
+    //                 NEXT
+    //             </button> */}
+    //         </div>
+    //     )
+    // }
     const CircuitsAlertBox = () => {
         return (
             <div className={styles.alertBox}>
@@ -376,24 +429,14 @@ export default function HomeAlert() {
                     X
                 </div>
                 <div className={styles.alertText}>
-                    <div className={styles.d_flex}>
-                        <div>
-                            <button className={styles.alertSubmitBtn2} onClick={closeBox}>
-                                ตรวจสอบการรั่ว <br/>
-                                ventilator circuits
-                            </button>
-                        </div>
-                        <div>
-                            <button className={styles.alertSubmitBtn2} onClick={closeBox}>
-                                เปลี่ยน <br/>
-                                ventilator circuits
-                            </button>
-                        </div>
-                    </div>
+                <p>
+                    ไม่มีน้ำใน ventilator circuits <br/>
+                    (ไม่มี Condensate)
+                </p>
                 </div>
-                {/* <button className={styles.alertSubmitBtn} onClick={closeBox}>
-                    NEXT
-                </button> */}
+                <button className={styles.alertSubmitBtn} onClick={closeBox}>
+                    GOT IT
+                </button>
             </div>
         )
     }
@@ -425,8 +468,9 @@ export default function HomeAlert() {
                 ตรวจพบเสมหะจำนวนมาก
                 </p>
                 </div>
+                
                 <button className={styles.alertSubmitBtn} onClick={closeBox}>
-                    NEXT
+                    GOT IT
                 </button>
             </div>
         )
@@ -437,16 +481,18 @@ export default function HomeAlert() {
         return (
             <div className={styles.closeSuctionElement}>                
                 {missions.includes("CloseSuction") &&
-                <div className={styles.checkedIconElement} onClick={() => {setShowElement('CloseSuction') ; handleMission('CloseSuction')}}>
+                <div className={styles.checkedIconElement} onClick={() => {setShowElement('CloseSuction') ; handleMission('CloseSuction') ; setCloseSuctionAlertStep(0)}}>
                 </div>                
                 }
                 {!missions.includes("CloseSuction") &&
-                <div className={styles.alertIconElement} onClick={() => {setShowElement('CloseSuction') ; handleMission('CloseSuction')}}>
+                <div className={styles.alertIconElement} onClick={() => {setShowElement('CloseSuction') ; handleMission('CloseSuction') ; setCloseSuctionAlertStep(0)}}>
                 </div>                
                 }  
             </div>
         )
     }
+
+    const [closeSuctionAlertStep, setCloseSuctionAlertStep] = useState(0);
     const CloseSuctionAlertBox = () => {
         return (
             <div className={styles.alertBox}>
@@ -454,13 +500,57 @@ export default function HomeAlert() {
                     X
                 </div> */}
                 <div className={styles.alertText}>
-                <p>
+                <div className={styles.d_flex}>
+                        <div>
+                            <button className={styles.alertSubmitBtn2} onClick={() => {handleMission('CloseSuction') ; setCloseSuctionAlertStep(2)}}>
+                            ดูดเสมหะ
+                            </button>
+                        </div>
+                        <div>
+                            <button className={styles.alertSubmitBtn2} onClick={() => {handleMission('CloseSuction') ; setCloseSuctionAlertStep(3)}}>
+                                ตรวจดูตำแหน่งสาย suction
+                            </button>
+                        </div>
+                </div>
+                {/* <button className={styles.finishBtn} onClick={handleFinish}>
+                    FINISH
+                </button> */}
+                </div>
+            </div>
+        )
+    }
+
+    const CloseSuctionAlertBox2 = () => {
+        return (
+            <div className={styles.alertBox}>
+                {/* <div className={styles.alertClose} onClick={closeBox}>
+                    X
+                </div> */}
+                <div className={styles.alertText}>
+                    <p>
                     ดูดได้เสมหะจำนวนมาก
-                </p>
+                    </p>
                 <button className={styles.finishBtn} onClick={handleFinish}>
                     FINISH
                 </button>
                 </div>
+            </div>
+        )
+    }
+    const CloseSuctionAlertBox3 = () => {
+        return (
+            <div className={styles.alertBox}>
+                {/* <div className={styles.alertClose} onClick={closeBox}>
+                    X
+                </div> */}
+                <div className={styles.alertText}>
+                    <p>
+                    สาย Suction อยู่ในตำแหน่งที่เหมาะสม ไม่ได้ค้างอยู่ในท่อช่วยหายใจ
+                    </p>
+                </div>
+                <button className={styles.alertSubmitBtn} onClick={closeBox}>
+                    GOT IT
+                </button>
             </div>
         )
     }
@@ -478,6 +568,7 @@ export default function HomeAlert() {
             {showElement=='Patient' && patientAlertStep==4 && <PatientAlertBox4 />}
             {showElement=='Patient' && patientAlertStep==5 && <PatientAlertBox5 />}
             {showElement=='Patient' && patientAlertStep==6 && <PatientAlertBox6 />}
+            {showElement=='Patient' && patientAlertStep==7 && <PatientAlertBox7 />}
 
             {isStart && <VentilatorElement />}
             {showElement=='Ventilator' && <VentilatorMonitor />}
@@ -485,11 +576,14 @@ export default function HomeAlert() {
             {isStart && <CircuitsElement />}
             {showElement=='Circuits' && <CircuitsAlertBox />}
 
-            {/* {isStart && <TubeElement />} */}
+            {isStart && <TubeElement />}
             {showElement=='Tube' && <TubeAlertBox />}
 
-            {/* {isStart && <CloseSuctionElement />} */}
-            {showElement=='CloseSuction' && <CloseSuctionAlertBox />}
+            {isStart && <CloseSuctionElement />}
+            {/* {showElement=='CloseSuction' && <CloseSuctionAlertBox />} */}
+            {showElement=='CloseSuction' && closeSuctionAlertStep==0 && <CloseSuctionAlertBox />}
+            {showElement=='CloseSuction' && closeSuctionAlertStep==2 && <CloseSuctionAlertBox2 />}
+            {showElement=='CloseSuction' && closeSuctionAlertStep==3 && <CloseSuctionAlertBox3 />}
 
             {/* DEV */}
             {/* <div className={styles.timeup}>

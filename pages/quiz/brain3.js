@@ -62,9 +62,11 @@ export default function Main_menu() {
         <div className='container'>
           <div className='row justify-content-center align-items-center min-h-screen'>
             <div className='col-11 col-lg-8'>
-              <h1 className={styles.quiz_title}>A paralyzed ventilated patient is sedated with propofol (unadjusted dose). He has stable hemodynamics, unchanged respiratory parameters & RASS -5. 
+              <h1 className={styles.quiz_title}>
+              A paralyzed ventilated patient is sedated with propofol (unadjusted dose). He has stable hemodynamics, unchanged respiratory parameters & RASS -5.
               BIS increases from 50 to 80.
-              Which one is the most appropriate management?</h1>
+              Which one is the most appropriate management?
+              </h1>
               <div className={styles.quiz_lists}>                
                 <div className={styles.quiz_item} onClick={ansWorng}>
                   <p>Increase sedation</p>
