@@ -39,6 +39,15 @@ export default function Instruction() {
 
   const handleSettingbtn = (event) => {
 
+      document.querySelector(`.${styles.btnOrangeOutline}`).classList.remove(styles['btnOutlineActive']);
+      document.querySelector(`.${styles.btnRedOutline}`).classList.remove(styles['btnOutlineActive']);
+      document.querySelector(`.${styles.btnBlueOutline}`).classList.remove(styles['btnOutlineActive']);
+      document.querySelector(`.${styles.btnGreenOutline}`).classList.remove(styles['btnOutlineActive']);
+      document.querySelector(`.${styles.btnPinkOutline}`).classList.remove(styles['btnOutlineActive']);
+
+
+      event.currentTarget.classList.add(styles['btnOutlineActive']);
+
       const btnStep = event.currentTarget.getAttribute('data-step');
       const btnColor = event.currentTarget.getAttribute('data-color');
       setCurrentStep(btnStep)

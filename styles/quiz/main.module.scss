@@ -8,6 +8,39 @@
 .bgTriangle {
     background-image: url('../../public/images/bg-triangle.png');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-position: center;
+    background-position-y: 15%;
+    background-size: 98%;
+}
+
+@media only screen and (max-width: 1367px) {
+    .bgTriangle {
+        // background-position-y: 35%;
+        background-position-y: 40%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .bgTriangle {
+        // background-position-y: 35%;
+        background-position-y: 45%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .bgTriangle {
+        background-position-y: 55%;
+        background-size: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .bgTriangle {
+        background-position-y: 65%;
+        background-size: 60%;
+    }
 }
 
 .intruction_wrapper {
@@ -188,11 +221,23 @@
     cursor: zoom-in;
 }
 
+.triangleWrap {
+    aspect-ratio: 10.5/5;
+}
+
 .blankSpace {
     display: block;
     content: '';
-    height: 8rem;
+    // height: 8rem;
 }
+
+@media only screen and (min-width: 1300px) {
+    .blankSpace {
+        // height: 18vh;
+        // height: 20%;
+    }
+}
+
 
 .quiz_image {
     margin-bottom: 2rem;

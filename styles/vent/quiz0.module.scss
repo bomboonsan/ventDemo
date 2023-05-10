@@ -185,6 +185,12 @@
     font-size: 1.2rem;
 }
 
+.btnOutlineActive {
+    transform: scale(1.05);
+    transition: all .25s;
+    box-shadow: 2px 1px 10px rgba(0, 0, 0, 0.43);
+}
+
 .btnGray {
     width: 100%;
     display: flex;

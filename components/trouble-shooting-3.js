@@ -485,12 +485,12 @@ export default function HomeAlert() {
             {isStart && <PatientElement />}
             {showElement=='Patient' && patientAlertStep==1 && <PatientAlertBox1 />}
             {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox2 />}
-            {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox3 />}
+            {/* {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox3 />} */}
             {showElement=='Patient' && patientAlertStep==4 && <PatientAlertBox4 />}
             {showElement=='Patient' && patientAlertStep==5 && <PatientAlertBox5 />}
 
-            {isStart && <VentilatorElement />}
-            {showElement=='Ventilator' && <VentilatorMonitor />}
+            {/* {isStart && <VentilatorElement />}
+            {showElement=='Ventilator' && <VentilatorMonitor />} */}
 
             {isStart && <CircuitsElement />}
             {showElement=='Circuits' && <CircuitsAlertBox />}

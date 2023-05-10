@@ -12,6 +12,7 @@
   "dependencies": {
     "@next/font": "^13.0.3",
     "bootstrap": "5.2.2",
+    "cordova-plugin-screen-orientation": "^3.0.3",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
     "file-loader": "^6.2.0",
@@ -24,6 +25,7 @@
     "react-lottie": "^1.2.3",
     "react-moveable": "^0.42.1",
     "react-player": "^2.11.0",
+    "react-screen-orientation": "^0.0.4",
     "redux": "^4.2.0",
     "sass": "^1.56.1",
     "screenfull": "^6.0.2",

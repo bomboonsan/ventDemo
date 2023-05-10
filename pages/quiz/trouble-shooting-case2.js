@@ -184,8 +184,8 @@ export default function Main_menu() {
                   alt="Women"
                   // layout="fill"
                   // objectFit="cover"
-                  width={400}
-                  height={400}
+                  width={800}
+                  height={800}
               />
               </div>
               <h1 className={styles.quiz_title}>
@@ -217,6 +217,16 @@ export default function Main_menu() {
 
             {stepQuiz.includes("2") &&   
             <div className='col-11 col-lg-8'>
+              <div className={styles.quiz_image}>
+              <Image
+                  src="/images/quiz-trouble2.png"
+                  alt="Women"
+                  // layout="fill"
+                  // objectFit="cover"
+                  width={800}
+                  height={800}
+              />
+              </div>
               <h1 className={styles.quiz_title}>
                 เครื่องตั้งค่า Tidal Volume ประมาณเท่าไหร่ และ Tidal volume ในช่วงที่เครื่องมีการร้องเตือนมีค่าเท่าไหร่
               </h1>
@@ -247,6 +257,16 @@ export default function Main_menu() {
 
             {stepQuiz.includes("3") &&   
             <div className='col-11 col-lg-8'>
+              <div className={styles.quiz_image}>
+              <Image
+                  src="/images/quiz-trouble2.png"
+                  alt="Women"
+                  // layout="fill"
+                  // objectFit="cover"
+                  width={800}
+                  height={800}
+              />
+              </div>
               <h1 className={styles.quiz_title}>
               ลักษณะใดของกราฟที่บ่งชี้ว่าคนไข้มีโอกาสเกิด air leak บ้าง
               </h1>

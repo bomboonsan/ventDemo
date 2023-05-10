@@ -166,7 +166,7 @@ export default function VentInto() {
     }
 
     const handleFinish = () => {
-        router.push('/vent/quiz')
+        router.push('/vent/quiz0')
     }
 
     return (

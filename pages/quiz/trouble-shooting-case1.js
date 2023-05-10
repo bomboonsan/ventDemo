@@ -179,13 +179,13 @@ export default function Main_menu() {
             {stepQuiz.includes("1") &&   
             <div className='col-11 col-lg-8'>
               <div className={styles.quiz_image}>
-              <Image
+              <Image                
                   src="/images/quiz-trouble1.png"
                   alt="Women"
                   // layout="fill"
                   // objectFit="cover"
-                  width={400}
-                  height={400}
+                  width={800}
+                  height={800}
               />
               </div>
               <h1 className={styles.quiz_title}>
@@ -223,7 +223,17 @@ export default function Main_menu() {
               {/* <h1 className={styles.quiz_title}>
               Tidal Volume มีค่าเท่ากับเท่าไหร่ <br/>และ Exhale tidal volume มีค่าเท่าไหร่
               </h1> */}
-
+              <div className={styles.quiz_image}>
+              <Image                  
+                  src="/images/quiz-trouble1.png"
+                  alt="Women"
+                  // layout="fill"
+                  // objectFit="cover"
+                  width={800}
+                  height={800}
+              />
+              </div>
+              <div className='mt-5'></div>
               <p className={styles.quiz_title3}>
                 Tidal Volume มีค่าเท่ากับ <input type="number" className={styles.inline_input} placeholder='ระบุค่าเป็นตัวเลข' onChange={handleInputChange1} />
               </p>
@@ -257,6 +267,17 @@ export default function Main_menu() {
 
             {stepQuiz.includes("3") &&   
             <div className='col-11 col-lg-8'>
+              <div className={styles.quiz_image}>
+              <Image                  
+                  src="/images/quiz-trouble1.png"
+                  alt="Women"
+                  // layout="fill"
+                  // objectFit="cover"
+                  width={600}
+                  height={600}
+              />
+              </div>
+              <div className='mt-5'></div>
               <h1 className={styles.quiz_title}>
               ลักษณะใดของกราฟที่บ่งชี้ว่าคนไข้มีโอกาสเกิด air trapping บ้าง
               </h1>

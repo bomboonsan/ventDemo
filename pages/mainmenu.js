@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import styles from '../styles/mainmenu.module.css'
 import Link from "next/link";
 // import { useRouter } from 'next/router'
-
+import React, { useEffect, useState } from 'react';
 
 export default function menu3() {
   

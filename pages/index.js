@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import {useState} from 'react';
+import {useEffect , useState} from 'react';
 import { useRouter } from 'next/router'
 import HomeAlert from '../components/homealert'
 
@@ -31,6 +31,58 @@ export default function Home() {
 
   // Elements
   const alertElement = message ? <HomeAlert message={message} /> : null;
+
+
+
+  // 
+  const [userData, setUserData] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check if user is logged in
+    const loggedIn = sessionStorage.getItem('isLoggedIn');
+    setIsLoggedIn(loggedIn === 'true');
+
+    // Fetch user data from API
+    const fetchUserData = async () => {
+      try {
+        const response = await fetch('http://192.168.1.99:2000/user/8', {
+          // headers: {
+          //   Authorization: 'Bearer YOUR_ACCESS_TOKEN',
+          // },
+          headers: {
+            'Accept': 'application/json',
+              'Content-Type': 'application/json'
+          },
+        });
+        console.log(response)
+        if (response.ok) {
+          const data = await response.json();
+          console.log(data)
+          setUserData(data);
+          setIsLoggedIn(true);
+          sessionStorage.setItem('userData', JSON.stringify(data));
+        } else {
+          // Handle error
+        }
+      } catch (error) {
+        // Handle error
+      }
+    };
+
+    fetchUserData();
+  }, []);  
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    sessionStorage.setItem('isLoggedIn', 'true');
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    sessionStorage.setItem('isLoggedIn', 'false');
+    sessionStorage.removeItem('userData');
+  };
 
   return (
     <div className={styles.container}>
@@ -70,6 +122,22 @@ export default function Home() {
               className={styles.submit_btn}>Register</button>
             </div>
           </div>
+
+
+          {/* <div>
+            {isLoggedIn ? (
+              <>
+                <h1>Welcome, {userData ? userData['first_name'] : ''}!</h1>
+                <button onClick={handleLogout}>Logout</button>
+              </>
+            ) : (
+              <>
+                <h1>Login</h1>
+                <button onClick={handleLogin}>Login</button>
+              </>
+            )} 
+          </div> */}
+          
 
         </div>        
       </div>

@@ -115,8 +115,10 @@ export default function Instruction() {
           mainWrap.classList.add(styles['flade']);
 
           setShowLottie(false)
-
-          router.push('/menulearningmode')
+          if (modeCurrent == 'Pressure Support') {
+            router.push('/menulearningmode')
+          }
+          // router.push('/menulearningmode')
          }, 2000)
 
         const btnAll = document.querySelectorAll(`.${styles.btnSelect}`);

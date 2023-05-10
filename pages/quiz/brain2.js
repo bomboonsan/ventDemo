@@ -65,43 +65,46 @@ export default function Main_menu() {
             <div className='col-11 col-lg-8'>
               <section className={styles.bgTriangle}>
                 <h1 className={styles.quiz_title}>Triad of Anesthesia ประกอบด้วยอะไร</h1>
-                <div className='row justify-content-center'>
-                  <div className='col-4'>
-                    <h2 className={styles.quiz_subtitle}>
-                    Anesthetics
-                    </h2>
-                    <input type="text" className="form-control" placeholder='' onChange={handleInputChange1}/>
-                  </div>
-                  <div className='col-12'>
-                    <div className={styles.blankSpace}></div>
-                  </div>
-                  <div className='col-4'>
-                    <h2 className={styles.quiz_subtitle}>
-                      Muscle
-                      relaxants
-                    </h2>
-                    <input type="text" className="form-control" placeholder='' onChange={handleInputChange2}/>
-                  </div>
-                  <div className='col-4'>
-                    
-                  </div>
-                  <div className='col-4'>
-                    <h2 className={styles.quiz_subtitle}>
-                      Analgesics
-                    </h2>
-                    <input type="text" className="form-control" placeholder='' onChange={handleInputChange3}/>
-                  </div>
+                <div className={styles.triangleWrap}>
+                  <div className='row justify-content-center h-100'>
+                    <div className='col-4'>
+                      <h2 className={styles.quiz_subtitle}>
+                      Anesthetics
+                      </h2>
+                      <input type="text" className="form-control" placeholder='' onChange={handleInputChange1}/>
+                    </div>
+                    <div className='col-12'>
+                      <div className={styles.blankSpace}></div>
+                    </div>
+                    <div className='col-5 col-md-4 align-self-end'>
+                      <h2 className={styles.quiz_subtitle}>
+                        Muscle
+                        relaxants
+                      </h2>
+                      <input type="text" className="form-control" placeholder='' onChange={handleInputChange2}/>
+                    </div>
+                    <div className='col-2 col-md-4 align-self-end'>
+                      
+                    </div>
+                    <div className='col-5 col-md-4 align-self-end'>
+                      <h2 className={styles.quiz_subtitle}>
+                        Analgesics
+                      </h2>
+                      <input type="text" className="form-control" placeholder='' onChange={handleInputChange3}/>
+                    </div>
 
-                  <div className='col-12 mt-5'>
-                    <div className={styles.btn_area}>
-                      <div className={styles.btn_container}>
-                          <button className={styles.next_btn} onClick={checkAns}>
-                          NEXT
-                          </button>
+                    <div className='col-12 mt-5'>
+                      <div className={styles.btn_area}>
+                        <div className={styles.btn_container}>
+                            <button className={styles.next_btn} onClick={checkAns}>
+                            NEXT
+                            </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                
               </section>
             </div>
             
