@@ -4,9 +4,13 @@ import styles from '../styles/Home.module.css'
 import {useEffect , useState} from 'react';
 import { useRouter } from 'next/router'
 import HomeAlert from '../components/homealert'
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 export default function Home() {
   const router = useRouter()
+
+  const handle = useFullScreenHandle();
+
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState(null);
   const handleChange = event => {
@@ -20,6 +24,7 @@ export default function Home() {
     if (password === correctPassword) {
       // router.push('/select');
       router.push('/welcome');
+      document.documentElement.requestFullscreen();
     } else {
       setMessage('Incorrect password');
     }
@@ -27,6 +32,7 @@ export default function Home() {
 
   const handleRegister = () => {
     router.push('/select');
+    document.documentElement.requestFullscreen();
   }
 
   // Elements
