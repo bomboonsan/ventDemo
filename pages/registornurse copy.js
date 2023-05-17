@@ -12,47 +12,39 @@ export default function Home() {
     let [ lastName , setLastName ] = useState('');
     let [ phoneNumber , setPhoneNumber ] = useState('');
     let [ email , setEmail ] = useState('');
-    let [ speciality , setSpeciality ] = useState('');
-    let [ hostpital , setHostpital ] = useState('');
-
-
-    const handleSelectChange = (event) => {
-        const selectedValue = event.target.value;
-        setSpeciality(selectedValue);
-    };
-
+    let [ speciallty , setSpeciallty ] = useState('');
+    let [ hospital , setHospital ] = useState('');
 
     // FN
     async  function toConsentPage() {
-        // // console.log('hello');
-        const response = await fetch("https://ventbackend.wish-integrate.com/register", {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
 
-            body: `
-                {
-                    "first_name": "${firstName}",
-                    "last_name": "${lastName}",
-                    "phone_number": "${phoneNumber}",
-                    "email": "${email}",
-                    "speciality": "${speciality}",
-                    "type": "Doctor",
-                    "hostpital": "${hostpital}"
-                }
-            `,
-        });
+        // const response = await fetch("http://192.168.1.99:8001/api/posts", {
+        // method: 'POST',
+        // headers: {
+        // 'Accept': 'application/json',
+        // 'Content-Type': 'application/json'
+        // },
 
-        // // console.log(body);
+        // body: `
+        //     {
+        //         "first_name": "${firstName}",
+        //         "last_name": "${lastName}",
+        //         "phone_number": "${phoneNumber}",
+        //         "email": "${email}",
+        //         "speciallty": "DEV api speciallty",
+        //         "type": "Nurse",
+        //         "hospital": "${hospital}"
+        //     }
+        // `,
+        // });
 
-        response.json().then(data => {
-            // console.log(data[0]);
-            if (data[0] == 'success' ) {
-                router.push('/consent')
-            }
-        });
+
+        // response.json().then(data => {
+        // // console.log(data[0]);
+        // if (data[0] == 'Create Member Successfully' ) {
+        //     router.push('/consent')
+        // }
+        // });
 
         if (firstName != '') {
             document.querySelector('#firstName').classList.remove(styles['border_red']);
@@ -107,12 +99,12 @@ export default function Home() {
         } else {
             document.querySelector('#email').classList.add(styles['border_red']);
         }
-        if (hostpital != '') {
+        if (hospital != '') {
             document.querySelector('#hospital').classList.remove(styles['border_red']);
         } else {
             document.querySelector('#hospital').classList.add(styles['border_red']);
         }
-    }, [firstName , lastName , phoneNumber , email , hostpital]);
+    }, [firstName , lastName , phoneNumber , email , hospital]);
 
     
     useEffect(() => {
@@ -123,6 +115,8 @@ export default function Home() {
         document.querySelector('#email').classList.remove(styles['border_red']);
         document.querySelector('#hospital').classList.remove(styles['border_red']);
     }, []);
+
+
 
   return (
     <div className={styles.container}>
@@ -135,7 +129,7 @@ export default function Home() {
         <Link href="/select"> 
         <Image
             src="/images/prev.png"
-            alt="doctor"
+            alt="Women"
             // layout="fill"
             // objectFit="cover"
             width={196}
@@ -147,11 +141,11 @@ export default function Home() {
         <div className={styles.col}>
             <div className={styles.registor_wrap}>
 
-                <div className={styles.registor_block}>
+            <div className={styles.registor_block}>
                     {/* <div className={styles.registor_thumbnail}>
                         <Image
-                            src="/images/registor-doctor.png"
-                            alt="Women"
+                            src="/images/registor-nurse.png"
+                            alt="Nurse"
                             // layout="fill"
                             // objectFit="cover"
                             width={196}
@@ -160,8 +154,8 @@ export default function Home() {
                     </div> */}
                     <div className={styles.registor_thumbnail2}>
                         <Image
-                            src="/images/doctor-4.png"
-                            alt="Women"
+                            src="/images/nurse-4.png"
+                            alt="Nurse"
                             // layout="fill"
                             // objectFit="cover"
                             width={196}
@@ -169,7 +163,7 @@ export default function Home() {
                         />
                     </div>
                     <h2 className={styles.registor_title}>
-                        Doctor
+                    Nurse
                     </h2>
                     <div className='row mb-3'>
                         <div className='col-6'>
@@ -219,7 +213,7 @@ export default function Home() {
                     </div>
                     <div className='row mb-3'>
                         <div className='col-12'>
-                            <select className="form-select border-primary" value={speciality} onChange={handleSelectChange}>
+                            <select className="form-select border-primary" aria-label="Default select example">
                                 <option selected>Please select your speciality*</option>
                                 <option value="CriticalCare">Critical care</option>
                                 <option value="Anesthesiology">Anesthesiology</option>
@@ -234,9 +228,9 @@ export default function Home() {
                             <input 
                             id='hospital'
                             type="text" 
-                            value={hostpital}
+                            value={hospital}
                             name="hospital"
-                            onChange={e => setHostpital(e.target.value)}
+                            onChange={e => setHospital(e.target.value)}
                             className="form-control border-primary" 
                             placeholder="Hospital*" />
                         </div>

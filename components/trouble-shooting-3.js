@@ -466,7 +466,7 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                 <p>
-                ตรวจไม่พบลมรั่วบริเวณโถ suction
+                ตรวจไม่พบลมรั่วบริเวณสาย suction
                 </p>
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={closeBox}>

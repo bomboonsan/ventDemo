@@ -161,7 +161,9 @@ export default function Instruction() {
           <main id='main'>
             <section className='pt-5'>
               <div className={styles.quiz_title}>
-                จับคู่ กด ชื่อ กดคำอธิบาย เปลี่ยนสีตามคำที่เลือก
+                {/* จับคู่ กด ชื่อ กดคำอธิบาย เปลี่ยนสีตามคำที่เลือก */}
+
+                เลือกจับคู่ tem และคำอธิบายให้ถูกต้อง
               </div>
             </section>
 

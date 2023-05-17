@@ -227,11 +227,18 @@ export default function Main_menu() {
                   height={800}
               />
               </div>
-              <h1 className={styles.quiz_title}>
-                เครื่องตั้งค่า Tidal Volume ประมาณเท่าไหร่ และ Tidal volume ในช่วงที่เครื่องมีการร้องเตือนมีค่าเท่าไหร่
-              </h1>
+              <p className={styles.quiz_title3}>
+                Tidal Volume มีค่าเท่ากับ <input type="number" className={styles.inline_input} placeholder='ระบุค่าเป็นตัวเลข' onChange={handleInputChange1} />
+              </p>
+              <p className={styles.quiz_title3}>
+                และ Exhale tidal volume มีค่าเท่ากับ <input type="number" className={styles.inline_input} placeholder='ระบุค่าเป็นตัวเลข' onChange={handleInputChange2} />
+              </p>
+              {/* <h1 className={styles.quiz_title}>
+              ค่าประมาณของ Inhale Tidal Volume และ Exhale Tidal volume มีค่าเท่าใด
 
-              <div className={styles.quiz_row}>        
+              </h1> */}
+
+              {/* <div className={styles.quiz_row}>        
                 <div className={styles.quiz_input} >
                   <div className="input-group">
                     <span className={styles.input_text} >Trouble shooting </span>
@@ -244,7 +251,7 @@ export default function Main_menu() {
                     <input type="number" className="form-control" placeholder='ระบุค่าเป็นตัวเลข' onChange={handleInputChange2} />
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className={styles.btn_area}>
                   <div className={styles.btn_container}>
                       <button className={styles.next_btn} onClick={checkAns2}>

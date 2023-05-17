@@ -11,6 +11,7 @@ export default function Home() {
 
   const handle = useFullScreenHandle();
 
+  const [passwordAll, setPasswordAll] = useState([]);
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState(null);
   const handleChange = event => {
@@ -20,11 +21,17 @@ export default function Home() {
   };
 
   const checkPassword = () => {
-    const correctPassword = '9876543';
-    if (password === correctPassword) {
-      // router.push('/select');
+    // const correctPassword = '9876543';
+    // if (password === correctPassword) {
+    //   // router.push('/select');
+    //   router.push('/welcome');
+    //   document.documentElement.requestFullscreen();
+    // } else {
+    //   setMessage('Incorrect password');
+    // }
+
+    if (checkPasswordMatch(passwordAll, password)) {
       router.push('/welcome');
-      document.documentElement.requestFullscreen();
     } else {
       setMessage('Incorrect password');
     }
@@ -50,9 +57,9 @@ export default function Home() {
     setIsLoggedIn(loggedIn === 'true');
 
     // Fetch user data from API
-    const fetchUserData = async () => {
+    const fetchEventPwd = async () => {
       try {
-        const response = await fetch('http://192.168.1.99:2000/user/8', {
+        const response = await fetch('https://ventbackend.wish-integrate.com/event/all', {
           // headers: {
           //   Authorization: 'Bearer YOUR_ACCESS_TOKEN',
           // },
@@ -65,9 +72,10 @@ export default function Home() {
         if (response.ok) {
           const data = await response.json();
           console.log(data)
-          setUserData(data);
-          setIsLoggedIn(true);
-          sessionStorage.setItem('userData', JSON.stringify(data));
+          setPasswordAll(data)
+          // setUserData(data);
+          // setIsLoggedIn(true);
+          // sessionStorage.setItem('userData', JSON.stringify(data));
         } else {
           // Handle error
         }
@@ -76,7 +84,7 @@ export default function Home() {
       }
     };
 
-    fetchUserData();
+    fetchEventPwd();
   }, []);  
 
   const handleLogin = () => {
@@ -89,6 +97,21 @@ export default function Home() {
     sessionStorage.setItem('isLoggedIn', 'false');
     sessionStorage.removeItem('userData');
   };
+
+
+  function checkPasswordMatch(jsonArray, inputPassword) {
+    for (let i = 0; i < jsonArray.length; i++) {
+      const obj = jsonArray[i];
+      const password = obj.password;
+  
+      if (password === inputPassword) {
+        return true; // Password matches
+      }
+    }
+  
+    return false; // No matching password found
+  }
+  
 
   return (
     <div className={styles.container}>
