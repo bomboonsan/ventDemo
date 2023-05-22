@@ -31,6 +31,7 @@ export default function Home() {
     // }
 
     if (checkPasswordMatch(passwordAll, password)) {
+      document.documentElement.requestFullscreen();
       router.push('/welcome');
     } else {
       setMessage('Incorrect password');

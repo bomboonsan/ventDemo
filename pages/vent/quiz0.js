@@ -18,6 +18,14 @@ export default function Instruction() {
   const [playing, setPlaying] = useState(true);
   const [gotit, setGotit] = useState(true);
 
+
+
+  const [checkTidalVolume, setCheckTidalVolume] = useState(false);
+  const [checkMinuteVentilation, setCheckMinuteVentilation] = useState(false);
+  const [checkPIP, setCheckPIP] = useState(false);
+  const [checkP_rise, setCheckP_rise] = useState(false);
+  const [checkPEEP, setCheckPEEP] = useState(false);
+
   const [currentColor, setCurrentColor] = useState('');
   const [currentStep, setCurrentStep] = useState('');
   const [dataSelection, setDataSelection] = useState({
@@ -109,8 +117,43 @@ export default function Instruction() {
         console.log(dataSelection)
 
       }
-
+      checkSelectbtn()
       
+  }
+  // const [checkTidalVolume, setCheckTidalVolume] = useState(false);
+  // const [checkMinuteVentilation, setCheckMinuteVentilation] = useState(false);
+  // const [checkPIP, setCheckPIP] = useState(false);
+  // const [checkP_rise, setCheckP_rise] = useState(false);
+  // const [checkPEEP, setCheckPEEP] = useState(false);
+  const checkSelectbtn = () => {
+    if ( dataSelection['TidalVolume'].includes('ปริมาตรอากาศที่ไหลเข้าถุงลมต่อหนึ่งครั้ง') ) {
+      setCheckTidalVolume(true)
+    }
+    if ( 
+      dataSelection['MinuteVentilation'].includes('VT x RR') &&
+      dataSelection['MinuteVentilation'].includes('ปริมาตรอากาศที่เข้าสู่ปอดของผู้ป่วยใน 1 นาที')
+     ) {
+      setCheckMinuteVentilation(true)
+    }
+    if ( 
+      dataSelection['PIP'].includes('Peak Inspiration pressure') &&
+      dataSelection['PIP'].includes('Peak airway pressure')
+     ) {
+      setCheckPIP(true)
+    }
+    if ( 
+      dataSelection['P_rise'].includes('Pressurization slope') &&
+      dataSelection['P_rise'].includes('อัตราเร่งการไหลของลมขณะหายใจเข้า') &&
+      dataSelection['P_rise'].includes('มีความสัมพันธ์กับการไหลของลมขณะหายใจเข้า')
+     ) {
+      setCheckP_rise(true)
+    }
+    if ( 
+      dataSelection['PEEP'].includes('Positive End Expiratory Pressure') &&
+      dataSelection['PEEP'].includes('แรงดันบวกของอากาศหายใจที่ค้างอยู่ในปอดเมื่อสิ้นสุดการหายใจออก')
+     ) {
+      setCheckPEEP(true)
+    }
   }
   const handleGotit = () => {
     document.querySelector('#main').classList.remove(styles['backdrop']);
@@ -212,19 +255,55 @@ export default function Instruction() {
               <div className={styles.boxGrid}>         
                 <button className={styles.btnOrangeOutline} data-step='TidalVolume' data-color='Orange' onClick={handleSettingbtn}>
                   Tidal Volume
+                  {checkTidalVolume &&
+                  <i className={styles.iconChecked}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="green" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    </svg>
+                  </i>
+                  }
+                  
                 </button>
                 <button className={styles.btnRedOutline} data-step='MinuteVentilation' data-color='Red' onClick={handleSettingbtn}>
                 Minute <br/>
                 Ventilation
+                  {checkMinuteVentilation && 
+                  <i className={styles.iconChecked}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="green" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    </svg>
+                  </i>
+                  }                  
                 </button>
                 <button className={styles.btnBlueOutline} data-step='PIP' data-color='Blue' onClick={handleSettingbtn}>
                   PIP
+                  {checkPIP &&
+                  <i className={styles.iconChecked}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="green" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    </svg>
+                  </i>
+                  }                  
                 </button>
                 <button className={styles.btnGreenOutline} data-step='P_rise' data-color='Green' onClick={handleSettingbtn}>
                   P rise
+                  {checkP_rise &&
+                  <i className={styles.iconChecked}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="green" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    </svg>
+                  </i>
+                  }                  
                 </button>
                 <button className={styles.btnPinkOutline} data-step='PEEP' data-color='Pink' onClick={handleSettingbtn}>
                   PEEP
+                  {checkPEEP &&
+                  <i className={styles.iconChecked}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="green" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    </svg>
+                  </i>
+                  }                  
                 </button>
               </div>
             </section>
