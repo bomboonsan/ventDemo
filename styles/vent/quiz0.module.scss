@@ -3,6 +3,28 @@
     background-image: url('../../public/images/bg1.png');
     background-size: cover;
     min-height: 100vh;
+    position: relative;
+}
+.howtoplay {
+    z-index: 99;
+    position: absolute;
+    transform: translate(-50% , -50%);
+    background-color: #FFF;
+    left: 50%;
+    top: 50%;
+    width: 60%;
+    padding: 1rem;
+    height: auto;
+    // aspect-ratio: 16/9;
+    padding-top: 1rem;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: .5rem 1rem 3rem rgba(0, 0, 0, 0.23);
+    
+    h2 {
+        text-align: center;
+        color: blue;
+    }
 }
 .quiz_title {
     color: blue;
@@ -258,6 +280,17 @@
     background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;;
 }
 
+.btnSubmitGotit {
+    color: #FFF;
+    font-size: 1.2rem;
+    border-radius: .4rem;
+    padding: .4rem 1.5rem;
+    border: 0;
+    outline: 0;
+    color: #FFF;
+    background: radial-gradient(92.09% 85.42% at 86.3% 87.5%, rgba(0, 0, 0, 0.23) 0%, rgba(0, 0, 0, 0) 86.18%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(65.28% 65.28% at 26.39% 20.83%, rgba(255, 255, 255, 0.413) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, #94C11F;;
+}
+
 .flade {
     animation: flade 2s;
 }
@@ -277,6 +310,11 @@
     transform: translate(-50%,-50%);
     top: 50%;
     left: 50%;
+}
+
+.backdrop {
+    opacity: .3;
+    filter: blur(4px);
 }
 
 .hidden {

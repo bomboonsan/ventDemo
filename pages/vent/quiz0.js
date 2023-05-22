@@ -6,6 +6,7 @@ import Link from "next/link";
 import VentInto from '../../components/ventinto'
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
+import ReactPlayer from 'react-player'
 
 import Lottie from 'react-lottie';
 import animationData from '../../lottiefiles/checkmark.json';
@@ -13,6 +14,10 @@ import animationData from '../../lottiefiles/checkmark.json';
 export default function Instruction() {
   const router = useRouter()
   
+  const [urlVideo, setUrlVideo] = useState('https://wish-integrate.com/vent-video/how_to_play_final.mp4');
+  const [playing, setPlaying] = useState(true);
+  const [gotit, setGotit] = useState(true);
+
   const [currentColor, setCurrentColor] = useState('');
   const [currentStep, setCurrentStep] = useState('');
   const [dataSelection, setDataSelection] = useState({
@@ -23,6 +28,20 @@ export default function Instruction() {
     PEEP : ''
   });
   const [showLottie, setShowLottie] = useState(false);
+
+  function reset() {        
+    
+  }
+  function showBtnNextVideo() {
+    // if(videoStep == 4) {
+    //     setUrlVideo(video4);
+    //     setIsShowBtn(false);
+    //     setVideoStep(5)
+    // } else {
+    //     setShowNext(true)
+    // }
+
+  }
 
   // lottie
   const lottieOptions = {
@@ -93,7 +112,10 @@ export default function Instruction() {
 
       
   }
-
+  const handleGotit = () => {
+    document.querySelector('#main').classList.remove(styles['backdrop']);
+    setGotit(false);
+  }
   const handleSubmit = () => {
     if(
       
@@ -157,8 +179,27 @@ export default function Instruction() {
           <div className={styles.lottieCheck}>
             <Lottie options={lottieOptions} />
           </div>
-          }    
-          <main id='main'>
+          }
+          {gotit &&
+          <aside className={styles.howtoplay}>
+            <h2>วิธีการเล่น</h2>
+            <ReactPlayer 
+              className={styles.video_item} 
+              url={urlVideo}  
+              playing={playing} 
+              loop={true}
+              onEnded={showBtnNextVideo}
+              width='100%'
+              height='100%'
+            />
+            <div className='text-center'>
+              <button className={styles.btnSubmitGotit} onClick={handleGotit}>
+                    GOT IT
+              </button>
+            </div>
+          </aside>
+          }
+          <main id='main' className={styles.backdrop} >
             <section className='pt-5'>
               <div className={styles.quiz_title}>
                 {/* จับคู่ กด ชื่อ กดคำอธิบาย เปลี่ยนสีตามคำที่เลือก */}
