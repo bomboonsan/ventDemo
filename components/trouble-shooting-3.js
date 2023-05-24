@@ -91,6 +91,9 @@ export default function HomeAlert() {
     }
     
     // ตำแหน่งของคนไข้
+    const [patient1, setPatient1] = useState(false);
+    const [patient2, setPatient2] = useState(false);
+    const [patient3, setPatient3] = useState(false);
     const PatientElement = () => {
         return (
             <div className={styles.patientElement}>
@@ -118,7 +121,23 @@ export default function HomeAlert() {
                         ตรวจร่างกายผู้ป่วย
                     </p>                    
                 </div>
-                <div className={styles.d_flex}>
+                <div className={styles.d_flex_3}>
+                    {patient1 ? (
+                    <div className={styles.opacity_50}>
+                        <Image
+                            onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(4)}}
+                            className={styles.alertImage}
+                            src='/images/case3-thumb3.png'
+                            alt="Hover"
+                            // layout="fill"
+                            // objectFit="cover"
+                            draggable='false'
+                            width={200}
+                            height={200}
+                        />
+                    </div>
+                    )                     
+                    : 
                     <div>
                         <Image
                             onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(4)}}
@@ -132,6 +151,25 @@ export default function HomeAlert() {
                             height={200}
                         />
                     </div>
+                    }
+
+
+                    {patient2 ? (
+                    <div className={styles.opacity_50}>
+                        <Image
+                            onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}
+                            className={styles.alertImage}
+                            src='/troubleshooting/04.png'
+                            alt="Hover"
+                            // layout="fill"
+                            // objectFit="cover"
+                            draggable='false'
+                            width={200}
+                            height={200}
+                        />
+                    </div>
+                    )
+                    :
                     <div>
                         <Image
                             onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}
@@ -145,6 +183,24 @@ export default function HomeAlert() {
                             height={200}
                         />
                     </div>
+                    }
+
+                    {patient3 ? (
+                    <div className={styles.opacity_50}>
+                        <Image
+                            onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(5)}}
+                            className={styles.alertImage}
+                            src='/troubleshooting/09.png'
+                            alt="Hover"
+                            // layout="fill"
+                            // objectFit="cover"
+                            draggable='false'
+                            width={200}
+                            height={200}
+                        />
+                    </div>
+                    ) 
+                    : 
                     <div>
                         <Image
                             onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(5)}}
@@ -158,7 +214,8 @@ export default function HomeAlert() {
                             height={200}
                         />
                     </div>
-                </div>                
+                    }                    
+                </div>                    
                 {/* <button className={styles.alertSubmitBtn} onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}>
                     NEXT
                 </button> */}
@@ -194,7 +251,7 @@ export default function HomeAlert() {
                 {/* <button className={styles.alertSubmitBtn} onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}>
                     NEXT
                 </button> */}
-                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient') ; setPlayingYoutube(false)}}>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_1') ; setPlayingYoutube(false) ; setPatient2(true)}}>
                     GOT IT
                 </button>
             </div>
@@ -256,7 +313,7 @@ export default function HomeAlert() {
                     Tube อยู่มุมปากตำแหน่งเดิมผู้ป่วยมีลมออกปาก
                     </p>                    
                 </div>
-                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_2') ; setPlayingYoutube(false)}}>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_2') ; setPlayingYoutube(false) ; setPatient1(true)}}>
                     GOT IT
                 </button>
             </div>
@@ -274,7 +331,7 @@ export default function HomeAlert() {
                     ความดันที่วัดได้อยู่ที่ 5 cm/H<sub>2</sub>O
                     </p>                    
                 </div>
-                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_3') ; setPlayingYoutube(false)}}>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_3') ; setPlayingYoutube(false) ; setPatient3(true)}}>
                     GOT IT
                 </button>
             </div>

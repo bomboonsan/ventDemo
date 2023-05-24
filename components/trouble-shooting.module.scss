@@ -520,3 +520,17 @@
     flex-direction: row;
     gap: 15px;
 }
+
+.d_flex_3 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 15px;
+    div {
+        flex-basis: calc(33.33% - 15px);
+    }
+}
+
+.opacity_50 {
+    opacity: .3;
+}

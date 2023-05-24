@@ -22,33 +22,41 @@ export default function Instruction() {
   const [showLottie, setShowLottie] = useState(false);
 
 
+  var ansMode0 = {
+    // mode : 'Pressure Control',
+    mode: '',
+    triggering_variable : 'PatientMachine',
+    control_pressure_variable : 'Pressure',
+    cycling_variable : 'Time',
+  }
+
   var ansMode1 = {
     // mode : 'Pressure Control',
     mode: '',
-    triggering_variable : 'Machine',
+    triggering_variable : 'MachinePatient',
     control_pressure_variable : 'Pressure',
     cycling_variable : 'Time',
   }
 
   var ansMode2 = {
-    // mode : 'Volume Control',
-    mode: '',
-    triggering_variable : 'Machine',
+    mode : 'Volume Control',
+    // mode: '',
+    triggering_variable : 'MachinePatient',
     control_pressure_variable : 'Flow',
     cycling_variable : 'Volume',
   }
 
   var ansMode3 = {
-    // mode : 'Volume Control',
-    mode: '',
-    triggering_variable : 'Patient',
+    mode : 'Volume Control',
+    // mode: '',
+    triggering_variable : 'PatientMachine',
     control_pressure_variable : 'Flow',
     cycling_variable : 'Volume',
   }
 
   var ansMode4 = {
-    // mode : 'Pressure Support',
-    mode: '',
+    mode : 'Pressure Support',
+    // mode: '',
     triggering_variable : 'Patient',
     control_pressure_variable : 'Pressure',
     cycling_variable : 'Flow',
@@ -87,6 +95,34 @@ export default function Instruction() {
       console.log(dataSelector)
   }
 
+  const handleSettingbtn2 = (event) => {
+
+    const btnName = event.currentTarget.getAttribute('data-btnName');
+    const btnStep = event.currentTarget.getAttribute('data-step');
+    console.log(btnName);
+
+    // Remove Active class All
+    // const btnOtherAll = document.querySelectorAll(`[data-step=${btnStep}]`);
+    // btnOtherAll.forEach((element) => {
+    //   element.classList.remove(styles['btnActive']);
+    // });
+    // Add Active class
+    event.currentTarget.classList.add(styles['btnActive']);
+
+    // Set data
+    if (dataSelector[btnStep].includes(btnName)) {
+      // REMOVE
+      event.currentTarget.classList.remove(styles['btnActive']);
+      dataSelector[btnStep] = dataSelector[btnStep].replace(btnName,'');
+    } else {
+      // ADD
+      dataSelector[btnStep] += btnName;
+    }
+    setDataSelector(dataSelector)
+
+    console.log(dataSelector)
+}
+
   const handleSubmit = () => {
       console.log('Submit');
 
@@ -99,11 +135,15 @@ export default function Instruction() {
       if (JSON.stringify(dataSelector) === JSON.stringify(ansMode1) || JSON.stringify(dataSelector) === JSON.stringify(ansMode2) || JSON.stringify(dataSelector) === JSON.stringify(ansMode3) || JSON.stringify(dataSelector) === JSON.stringify(ansMode4)) {
         console.log('ถูก')
 
-        setShowLottie(true)
+        // setShowLottie(true)
+
+        console.log(modeCurrent)
         
         if (modeCurrent == 'Pressure Control') {
+          dataSelector['mode'] = 'Volume Control';
           setModeCurrent('Volume Control')
         } else if (modeCurrent == 'Volume Control') {
+          dataSelector['mode'] = 'Pressure Support';
           setModeCurrent('Pressure Support')
         } else if (modeCurrent == 'Pressure Support') {
           router.push('/menulearningmode')
@@ -116,7 +156,9 @@ export default function Instruction() {
           mainWrap.classList.remove(styles['hidden']);
           mainWrap.classList.add(styles['flade']);
 
-          setShowLottie(false)
+          dataSelector['triggering_variable'] = '';
+
+          // setShowLottie(false)
           // if (modeCurrent == 'Pressure Support') {
           //   router.push('/menulearningmode')
           // }
@@ -198,10 +240,10 @@ export default function Instruction() {
               Triggering <br/>
               variable
             </div>
-            <button className={styles.btnSelect} data-btnName='Machine' data-step='triggering_variable' onClick={handleSettingbtn}>
+            <button className={styles.btnSelect} data-btnName='Machine' data-step='triggering_variable' onClick={handleSettingbtn2}>
               Machine
             </button>
-            <button className={styles.btnSelect} data-btnName='Patient' data-step='triggering_variable' onClick={handleSettingbtn}>
+            <button className={styles.btnSelect} data-btnName='Patient' data-step='triggering_variable' onClick={handleSettingbtn2}>
               Patient
             </button>
           </div>

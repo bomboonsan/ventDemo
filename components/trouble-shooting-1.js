@@ -13,28 +13,29 @@ export default function HomeAlert() {
 
     const [missions, setMissions] = useState([]);
 
-    useEffect(() => {
-        if (missions.includes("Patient_1") && missions.includes("Patient_2") && missions.includes("Patient_3") && !missions.includes("Patient")) {
-            handleMission('Patient')
-        } 
-    }, [missions]);
+    // useEffect(() => {
+    //     if (missions.includes("Patient_1") && missions.includes("Patient_2") && missions.includes("Patient_3") && !missions.includes("Patient")) {
+    //         handleMission('Patient')
+    //     } 
+    // }, [missions]);
 
-    const [seconds, setSeconds] = useState(0);
-    const [minutes, setMinutes] = useState(0);
-    useEffect(() => {
-        const interval = setInterval(() => {
-          setSeconds((prevSeconds) => prevSeconds + 1);
-        }, 1000);
+    // const [seconds, setSeconds] = useState(0);
+    // const [minutes, setMinutes] = useState(0);
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //       setSeconds((prevSeconds) => prevSeconds + 1);
+    //     }, 1000);
     
-        return () => clearInterval(interval);
-    }, []);
+    //     return () => clearInterval(interval);
+    // }, []);
     
-    useEffect(() => {
-        if (seconds === 60) {
-            setSeconds(0);
-            setMinutes((prevMinutes) => prevMinutes + 1);
-        }
-    }, [seconds]);
+    
+    // useEffect(() => {
+    //     if (seconds === 60) {
+    //         setSeconds(0);
+    //         setMinutes((prevMinutes) => prevMinutes + 1);
+    //     }
+    // }, [seconds]);
 
     function handleStart() {
         setisStart(true);
@@ -52,7 +53,8 @@ export default function HomeAlert() {
         if (missions.includes("Patient") && missions.includes("Ventilator") ) {
             // console.log('Next')
             // router.push('/quiz/trouble-shooting-case1-1')
-            router.push('/quiz/trouble-shooting-case1-1?timer='+seconds)
+            // router.push('/quiz/trouble-shooting-case1-1?timer='+seconds)
+            router.push('/quiz/trouble-shooting-case1-1?timer=30')
         }
 
 
@@ -109,6 +111,12 @@ export default function HomeAlert() {
         )
     }
     // กล่องข้อความของคนไข้
+    // const handleOpaciry = (event) => {
+    //     event.currentTarget.classList.add(styles['opacity-50']);
+    // }
+    const [patient1, setPatient1] = useState(false);
+    const [patient2, setPatient2] = useState(false);
+    const [patient3, setPatient3] = useState(false);
     const [patientAlertStep, setPatientAlertStep] = useState(1);
     const PatientAlertBox1 = () => {
         return (
@@ -121,7 +129,23 @@ export default function HomeAlert() {
                         ตรวจร่างกายผู้ป่วย
                     </p>                    
                 </div>
-                <div className={styles.d_flex}>
+                <div className={styles.d_flex_3}>
+                    {patient1 ? (
+                    <div className={styles.opacity_50}>
+                        <Image
+                            onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(4)}}
+                            className={styles.alertImage}
+                            src='/images/case4-thumb3.png'
+                            alt="Hover"
+                            // layout="fill"
+                            // objectFit="cover"
+                            draggable='false'
+                            width={200}
+                            height={200}
+                        />
+                    </div>
+                    )                     
+                    : 
                     <div>
                         <Image
                             onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(4)}}
@@ -135,6 +159,25 @@ export default function HomeAlert() {
                             height={200}
                         />
                     </div>
+                    }
+
+
+                    {patient2 ? (
+                    <div className={styles.opacity_50}>
+                        <Image
+                            onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}
+                            className={styles.alertImage}
+                            src='/troubleshooting/04.png'
+                            alt="Hover"
+                            // layout="fill"
+                            // objectFit="cover"
+                            draggable='false'
+                            width={200}
+                            height={200}
+                        />
+                    </div>
+                    )
+                    :
                     <div>
                         <Image
                             onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}
@@ -148,6 +191,24 @@ export default function HomeAlert() {
                             height={200}
                         />
                     </div>
+                    }
+
+                    {patient3 ? (
+                    <div className={styles.opacity_50}>
+                        <Image
+                            onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(5)}}
+                            className={styles.alertImage}
+                            src='/troubleshooting/09.png'
+                            alt="Hover"
+                            // layout="fill"
+                            // objectFit="cover"
+                            draggable='false'
+                            width={200}
+                            height={200}
+                        />
+                    </div>
+                    ) 
+                    : 
                     <div>
                         <Image
                             onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(5)}}
@@ -161,6 +222,7 @@ export default function HomeAlert() {
                             height={200}
                         />
                     </div>
+                    }                    
                 </div>                
                 {/* <button className={styles.alertSubmitBtn} onClick={() => {setPlayingYoutube(true) ; setPatientAlertStep(2)}}>
                     NEXT
@@ -201,7 +263,7 @@ export default function HomeAlert() {
                 {/* <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_1') ; setPlayingYoutube(false)}}>
                     GOT IT
                 </button> */}
-                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient') ; setPlayingYoutube(false)}}>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient') ; setPlayingYoutube(false)  ; setPatient2(true)}}>
                     GOT IT
                 </button>
             </div>
@@ -239,15 +301,16 @@ export default function HomeAlert() {
             //     </button>
             // </div>
 
-            <ReactPlayer 
-            className={styles.alertYoutube}
-            url={urlYoutube}
-            playing={playingYoutube} 
-            onEnded={resetYoutube}
-            controls={true}
-            width="100%"
-            height="40px"
-            />
+            // <ReactPlayer 
+            // className={styles.alertYoutube}
+            // url={urlYoutube}
+            // playing={playingYoutube} 
+            // onEnded={resetYoutube}
+            // controls={true}
+            // width="100%"
+            // height="40px"
+            // />
+            <></>
         )
     }
 
@@ -263,7 +326,7 @@ export default function HomeAlert() {
                     พบเสมหะใน tube เป็นจำนวนมาก
                     </p>                    
                 </div>
-                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_2') ; setPlayingYoutube(false)}}>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_2') ; setPlayingYoutube(false) ; setPatient1(true) }}>
                     GOT IT
                 </button>
             </div>
@@ -281,7 +344,7 @@ export default function HomeAlert() {
                     ความดันที่วัดได้อยู่ที่ 25 cm/H2O
                     </p>                    
                 </div>
-                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_3') ; setPlayingYoutube(false)}}>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_3') ; setPlayingYoutube(false)  ; setPatient3(true)}}>
                     GOT IT
                 </button>
             </div>
