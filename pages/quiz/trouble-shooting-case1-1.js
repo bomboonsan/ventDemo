@@ -11,6 +11,46 @@ export default function Main_menu() {
   const router = useRouter()
   const [ansArr, setAnsArr] = useState([]);  
 
+  const [seconds, setSeconds] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  useEffect(() => {
+
+    const { timer } = router.query;
+    if (timer === null || timer === undefined) {
+      // Handle when 'timer' is null or undefined
+      console.log('timer is null or undefined');      
+      router.push('/trouble-shooting/case1-step1')
+    } else {
+      // Handle when 'timer' has a value
+      console.log('timer:', timer);
+    }
+    setSeconds(Number(timer))
+
+      const interval = setInterval(() => {
+        setSeconds((prevSeconds) => prevSeconds + 1);
+      }, 1000);
+  
+      return () => clearInterval(interval);
+      
+      
+  }, []);
+  
+  useEffect(() => {
+      if (seconds === 60) {
+          setSeconds(0);
+          setMinutes((prevMinutes) => prevMinutes + 1);
+      }
+      console.log(seconds)
+  }, [seconds]);
+
+
+
+  // Function to handle setting query parameters
+  const setQueryParam = (name, value) => {
+    const queryParams = { ...router.query, [name]: value };
+    router.push({ pathname: router.pathname, query: queryParams });
+  };
+
   const handleAnsClick = (event) => {
 
     const btnID = event.currentTarget.id;    
@@ -47,7 +87,7 @@ export default function Main_menu() {
     
     // if (ansArrSort.toString() == 'ans1,ans2' || ansArrSort.toString() == 'ans2,ans1') {
     if (ansArrSort.toString() == 'ans2') {
-      router.push('/trouble-shooting/case1-step2')
+      router.push('/trouble-shooting/case1-step2?timer='+seconds)
     } else {
       router.push('/hint/trouble-shooting-1-false')
     }

@@ -16,6 +16,17 @@ export default function HomeAlert() {
     const [seconds, setSeconds] = useState(0);
     const [minutes, setMinutes] = useState(0);
     useEffect(() => {
+        const { timer } = router.query;
+        if (timer === null || timer === undefined) {
+        // Handle when 'timer' is null or undefined
+        console.log('timer is null or undefined');      
+        router.push('/trouble-shooting/case1-step1')
+        } else {
+        // Handle when 'timer' has a value
+        console.log('timer:', timer);
+        }
+        setSeconds(Number(timer))
+        
         const interval = setInterval(() => {
           setSeconds((prevSeconds) => prevSeconds + 1);
         }, 1000);
@@ -386,7 +397,39 @@ export default function HomeAlert() {
             </div>
         )
     }
+    const [circuitsAlertBoxStep, setCircuitsAlertBoxStep] = useState(0);
     const CircuitsAlertBox = () => {
+        return (
+            <div className={styles.alertBox}>
+                <div className={styles.alertClose} onClick={closeBox}>
+                    X
+                </div>
+                {/* <div className={styles.alertText}>
+                <p>
+                ขยับข้อต่อแล้วแน่นดี
+                </p>
+                </div> */}
+                <div className={styles.alertText}>
+                    <div className={styles.d_flex}>
+                            <div>
+                                <button className={styles.alertSubmitBtn2} onClick={() => {handleMission('Circuits') ; setCircuitsAlertBoxStep(2)}}>
+                                ตรวจสอบการรั่ว ventilator circuits
+                                </button>
+                            </div>
+                            <div>
+                                <button className={styles.alertSubmitBtn2} onClick={() => {handleMission('Circuits') ; setCircuitsAlertBoxStep(2)}}>
+                                เปลี่ยน ventilator circuits
+                                </button>
+                            </div>
+                    </div>
+                </div>
+                {/* <button className={styles.alertSubmitBtn} onClick={closeBox}>
+                    NEXT
+                </button> */}
+            </div>
+        )
+    }
+    const CircuitsAlertBox2 = () => {
         return (
             <div className={styles.alertBox}>
                 <div className={styles.alertClose} onClick={closeBox}>
@@ -394,7 +437,7 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                 <p>
-                ขยับข้อต่อแล้วแน่นดี
+                ไม่มีการรั่วของ Ventilator circuits
                 </p>
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={closeBox}>
@@ -525,7 +568,7 @@ export default function HomeAlert() {
                 <div className={styles.alertClose} onClick={closeBox}>
                     X
                 </div>
-                <div className={styles.alertText}>
+                {/* <div className={styles.alertText}>
                     <div className={styles.d_flex}>
                             <div>
                                 <button className={styles.alertSubmitBtn2} onClick={() => {handleMission('CloseSuction') ; setCloseSuctionAlertStep(2)}}>
@@ -538,8 +581,15 @@ export default function HomeAlert() {
                                 </button>
                             </div>
                     </div>
+                </div> */}
+                <div className={styles.alertText}>
+                <p>
+                ตรวจไม่พบลมรั่ว
+                </p>
                 </div>
-                
+                <button className={styles.alertSubmitBtn} onClick={closeBox}>
+                    NEXT
+                </button>
             </div>
         )
     }
@@ -582,14 +632,15 @@ export default function HomeAlert() {
             
 
             {isStart && <CircuitsElement />}
-            {showElement=='Circuits' && <CircuitsAlertBox />}
+            {showElement=='Circuits' && circuitsAlertBoxStep==0 && <CircuitsAlertBox />}
+            {showElement=='Circuits' && circuitsAlertBoxStep==2 && <CircuitsAlertBox2 />}
 
             {/* {isStart && <CuffElement />}
             {showElement=='Cuff' && <CuffAlertBox />}
             {showElement=='Cuff2' && <CuffAlertBox2 />} */}
 
-            {isStart && <TubeElement />}
-            {showElement=='Tube' && <TubeAlertBox />}
+            {/* {isStart && <TubeElement />}
+            {showElement=='Tube' && <TubeAlertBox />} */}
 
             {isStart && <CloseSuctionElement />}
             {showElement=='CloseSuction' && closeSuctionAlertStep==0 && <CloseSuctionAlertBox />}

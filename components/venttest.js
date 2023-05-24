@@ -24,7 +24,7 @@ import Moveable from "react-moveable"; // preact-moveable
 export default function VentTest() {
     const router = useRouter()
     const [btnSetupRecord, setBtnSetupRecord] = useState([]);
-    const [varBtnSetting, setvarBtnSetting] = useState([10,300,39,10,2.0,30,8.0,75,0.0,0.0,0,5.0,3,3,750,'ET']);
+    const [varBtnSetting, setvarBtnSetting] = useState([10,300,39,10,2.0,30,8.0,75,0.0,0.0,0,5.0,3,5,750,'ET']);
     const [btnSetup, setBtnSetup] = useState();
     const [stepCount, setStepCount] = useState(1);
     const [isSetWeight, setIsSetWeight] = useState(0);
@@ -211,7 +211,7 @@ export default function VentTest() {
     // insert <sub> tag at index 6
     listFooterText.splice(5, 0, <span>ตั้งค่า Pmax 35 cmH<sub>2</sub>O</span>);
     // insert <sub> tag at index 8
-    listFooterText.splice(7, 0, <span>PEEP 5 cmH<sub>2</sub>O</span>);
+    listFooterText.splice(7, 0, <span>PEEP 3 cmH<sub>2</sub>O</span>);
 
     const nextText = () => {
         if (footerTextStep+1 < listFooterText.length) {
@@ -476,7 +476,7 @@ export default function VentTest() {
 
         // arrItemShow = [4,5,6,7,9,13,14];
         // varBtnSetting
-        if ( Number(varBtnSetting[3]).toFixed(0) == 10 && Number(varBtnSetting[4]).toFixed(0) == 3 && Number(varBtnSetting[5]).toFixed(0) == 40 & Number(varBtnSetting[6]).toFixed(0) == 35 & Number(varBtnSetting[8]).toFixed(0) == 50 & Number(varBtnSetting[12]).toFixed(0) == 25 & Number(varBtnSetting[13]).toFixed(0) == 5 ) {
+        if ( Number(varBtnSetting[3]).toFixed(0) == 10 && Number(varBtnSetting[4]).toFixed(0) == 3 && Number(varBtnSetting[5]).toFixed(0) == 40 & Number(varBtnSetting[6]).toFixed(0) == 35 & Number(varBtnSetting[8]).toFixed(0) == 50 & Number(varBtnSetting[12]).toFixed(0) == 25 & Number(varBtnSetting[13]).toFixed(0) == 3 ) {
             console.log('succecfully')
             // setPlaying(true)
             // document.querySelector('#main')?.classList.add(styles['hidden_force']);

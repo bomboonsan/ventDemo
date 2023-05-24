@@ -105,6 +105,8 @@ export default function Instruction() {
           setModeCurrent('Volume Control')
         } else if (modeCurrent == 'Volume Control') {
           setModeCurrent('Pressure Support')
+        } else if (modeCurrent == 'Pressure Support') {
+          router.push('/menulearningmode')
         }
 
         const mainWrap = document.querySelector('#main')
@@ -115,9 +117,9 @@ export default function Instruction() {
           mainWrap.classList.add(styles['flade']);
 
           setShowLottie(false)
-          if (modeCurrent == 'Pressure Support') {
-            router.push('/menulearningmode')
-          }
+          // if (modeCurrent == 'Pressure Support') {
+          //   router.push('/menulearningmode')
+          // }
           // router.push('/menulearningmode')
          }, 2000)
 

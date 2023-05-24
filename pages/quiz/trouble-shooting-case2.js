@@ -22,6 +22,12 @@ export default function Main_menu() {
   const [ansArr, setAnsArr] = useState([]);  
   const [showLottie, setShowLottie] = useState(false);
 
+  const [isFullScreen, setIsFullScreen] = useState(false);
+
+  const toggleFullScreen = () => {
+    setIsFullScreen(!isFullScreen);
+  };
+
   const [playing, setPlaying] = useState(true);
   // const troubleShootingVideo = 'https://wish-integrate.com/vent-video/trouble-shooting-edit.mp4'
   const troubleShootingVideo = 'https://wish-integrate.com/vent-video/trouble/Patient2Pre.mp4'
@@ -39,6 +45,20 @@ export default function Main_menu() {
     marginLeft: 'auto',
     marginRight: 'auto',
   };
+
+  useEffect(() => {
+    const { step } = router.query;
+    // console.log(step)
+    if (step === null || step === undefined) {
+      // Handle when 'step' is null or undefined
+      console.log('Step is null or undefined');
+    } else {
+      // Handle when 'step' has a value
+      console.log('Step:', step);
+      setStepQuiz(step)
+    }
+    // setStepQuiz(step)
+  }, []);
 
   const handleAnsClick = (event) => {
 
@@ -80,7 +100,7 @@ export default function Main_menu() {
     
     
     if ( Number(inputValue1) >= 500 && inputValue2 == '216') {
-      
+      setQueryParam('step', 3);
       setStepQuiz("3")
       const mainWrap = document.querySelector('#main')
       mainWrap.classList.remove(styles['flade']);
@@ -121,6 +141,7 @@ export default function Main_menu() {
   }
 
   const handleTrue_1 = () => {
+    setQueryParam('step', 2);
     setStepQuiz("2")
     const mainWrap = document.querySelector('#main')
     mainWrap.classList.remove(styles['flade']);
@@ -145,6 +166,12 @@ export default function Main_menu() {
       // preserveAspectRatio: 'xMidYMid slice'
       preserveAspectRatio: 'none'
     }
+  };
+
+  // Function to handle setting query parameters
+  const setQueryParam = (name, value) => {
+    const queryParams = { ...router.query, [name]: value };
+    router.push({ pathname: router.pathname, query: queryParams });
   };
 
   return (
@@ -179,14 +206,46 @@ export default function Main_menu() {
             {stepQuiz.includes("1") &&   
             <div className='col-11 col-lg-8'>
               <div className={styles.quiz_image}>
-              <Image
+              {/* <Image
                   src="/images/quiz-trouble2.png"
                   alt="Women"
                   // layout="fill"
                   // objectFit="cover"
                   width={800}
                   height={800}
-              />
+              /> */}
+                <div>
+                  {isFullScreen ? (
+                    <div
+                      style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        zIndex: 9999,
+                        background: '#000',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                      onClick={toggleFullScreen}
+                    >
+                      <img
+                        src="/images/quiz-trouble2.png"
+                        alt="Full-Screen Image"
+                        style={{ maxHeight: '100%', maxWidth: '100%' , width: '100%' }}
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src="/images/quiz-trouble2.png"
+                      alt="Normal Image"
+                      style={{ cursor: 'pointer' }}
+                      onClick={toggleFullScreen}
+                    />
+                  )}
+                </div>
               </div>
               <h1 className={styles.quiz_title}>
               โหมดของเครื่องช่วยหายใจที่มีการตั้งให้กับคนไข้คนนี้คือโหมดใด
@@ -218,14 +277,46 @@ export default function Main_menu() {
             {stepQuiz.includes("2") &&   
             <div className='col-11 col-lg-8'>
               <div className={styles.quiz_image}>
-              <Image
+              {/* <Image
                   src="/images/quiz-trouble2.png"
                   alt="Women"
                   // layout="fill"
                   // objectFit="cover"
                   width={800}
                   height={800}
-              />
+              /> */}
+                <div>
+                  {isFullScreen ? (
+                    <div
+                      style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        zIndex: 9999,
+                        background: '#000',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                      onClick={toggleFullScreen}
+                    >
+                      <img
+                        src="/images/quiz-trouble2.png"
+                        alt="Full-Screen Image"
+                        style={{ maxHeight: '100%', maxWidth: '100%' , width: '100%' }}
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src="/images/quiz-trouble2.png"
+                      alt="Normal Image"
+                      style={{ cursor: 'pointer' }}
+                      onClick={toggleFullScreen}
+                    />
+                  )}
+                </div>
               </div>
               <p className={styles.quiz_title3}>
                 Tidal Volume มีค่าเท่ากับ <input type="number" className={styles.inline_input} placeholder='ระบุค่าเป็นตัวเลข' onChange={handleInputChange1} />
@@ -265,14 +356,46 @@ export default function Main_menu() {
             {stepQuiz.includes("3") &&   
             <div className='col-11 col-lg-8'>
               <div className={styles.quiz_image}>
-              <Image
+              {/* <Image
                   src="/images/quiz-trouble2.png"
                   alt="Women"
                   // layout="fill"
                   // objectFit="cover"
                   width={800}
                   height={800}
-              />
+              /> */}
+                <div>
+                  {isFullScreen ? (
+                    <div
+                      style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        zIndex: 9999,
+                        background: '#000',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                      onClick={toggleFullScreen}
+                    >
+                      <img
+                        src="/images/quiz-trouble2.png"
+                        alt="Full-Screen Image"
+                        style={{ maxHeight: '100%', maxWidth: '100%' , width: '100%' }}
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src="/images/quiz-trouble2.png"
+                      alt="Normal Image"
+                      style={{ cursor: 'pointer' }}
+                      onClick={toggleFullScreen}
+                    />
+                  )}
+                </div>
               </div>
               <h1 className={styles.quiz_title}>
               ลักษณะใดของกราฟที่บ่งชี้ว่าคนไข้มีโอกาสเกิด air leak บ้าง

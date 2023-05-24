@@ -14,7 +14,7 @@ import animationData from '../../lottiefiles/checkmark.json';
 export default function Instruction() {
   const router = useRouter()
   
-  const [urlVideo, setUrlVideo] = useState('https://wish-integrate.com/vent-video/how_to_play_final.mp4');
+  const [urlVideo, setUrlVideo] = useState('https://wish-integrate.com/vent-video/howtoplay_final.mp4');
   const [playing, setPlaying] = useState(true);
   const [gotit, setGotit] = useState(true);
 
@@ -96,21 +96,35 @@ export default function Instruction() {
         event.currentTarget.classList.remove(styles['btnGreen']);
         event.currentTarget.classList.remove(styles['btnPink']);
 
+
         event.currentTarget.classList.add(styles['btn'+currentColor]);
-
-
-        dataSelection.TidalVolume = dataSelection.TidalVolume.replace(btnName + ", ", "").replace(btnName, "");
-        dataSelection.MinuteVentilation = dataSelection.MinuteVentilation.replace(btnName + ", ", "").replace(btnName, "");
-        dataSelection.PIP = dataSelection.PIP.replace(btnName + ", ", "").replace(btnName, "");
-        dataSelection.P_rise = dataSelection.P_rise.replace(btnName + ", ", "").replace(btnName, "");
-        dataSelection.PEEP = dataSelection.PEEP.replace(btnName + ", ", "").replace(btnName, "");
+        
 
         // Checking for duplicate value
         if (dataSelection[currentStep].includes(btnName)) {
           console.log("Duplicate data found!");
+
+          event.currentTarget.classList.remove(styles['btn'+currentColor]);
+          event.currentTarget.classList.add(styles['btnGray']);
+
+          dataSelection.TidalVolume = dataSelection.TidalVolume.replace(btnName + ", ", "").replace(btnName, "");
+          dataSelection.MinuteVentilation = dataSelection.MinuteVentilation.replace(btnName + ", ", "").replace(btnName, "");
+          dataSelection.PIP = dataSelection.PIP.replace(btnName + ", ", "").replace(btnName, "");
+          dataSelection.P_rise = dataSelection.P_rise.replace(btnName + ", ", "").replace(btnName, "");
+          dataSelection.PEEP = dataSelection.PEEP.replace(btnName + ", ", "").replace(btnName, "");
+          
         } else {
+
+          dataSelection.TidalVolume = dataSelection.TidalVolume.replace(btnName + ", ", "").replace(btnName, "");
+          dataSelection.MinuteVentilation = dataSelection.MinuteVentilation.replace(btnName + ", ", "").replace(btnName, "");
+          dataSelection.PIP = dataSelection.PIP.replace(btnName + ", ", "").replace(btnName, "");
+          dataSelection.P_rise = dataSelection.P_rise.replace(btnName + ", ", "").replace(btnName, "");
+          dataSelection.PEEP = dataSelection.PEEP.replace(btnName + ", ", "").replace(btnName, "");
+
           dataSelection[currentStep] += btnName + ", ";
         }
+
+        
         
         setDataSelection(dataSelection)
 
@@ -126,33 +140,51 @@ export default function Instruction() {
   // const [checkP_rise, setCheckP_rise] = useState(false);
   // const [checkPEEP, setCheckPEEP] = useState(false);
   const checkSelectbtn = () => {
-    if ( dataSelection['TidalVolume'].includes('ปริมาตรอากาศที่ไหลเข้าถุงลมต่อหนึ่งครั้ง') ) {
+    if ( dataSelection['TidalVolume'].includes('ปริมาตรอากาศที่ไหลเข้าถุงลมต่อหนึ่งครั้ง') &&
+        dataSelection['TidalVolume'].length == '42'
+      ) {
       setCheckTidalVolume(true)
+    } else {
+      setCheckTidalVolume(false)
     }
     if ( 
+      dataSelection['MinuteVentilation'].length == '55' &&
       dataSelection['MinuteVentilation'].includes('VT x RR') &&
-      dataSelection['MinuteVentilation'].includes('ปริมาตรอากาศที่เข้าสู่ปอดของผู้ป่วยใน 1 นาที')
+      dataSelection['MinuteVentilation'].includes('ปริมาตรอากาศที่เข้าสู่ปอดของผู้ป่วยใน 1 นาที'
+      
+      )
      ) {
       setCheckMinuteVentilation(true)
+    } else {
+      setCheckMinuteVentilation(false)
     }
     if ( 
+      dataSelection['PIP'].length == '49' &&
       dataSelection['PIP'].includes('Peak Inspiration pressure') &&
       dataSelection['PIP'].includes('Peak airway pressure')
-     ) {
+     ) {      
       setCheckPIP(true)
+    } else {
+      setCheckPIP(false)
     }
     if ( 
+      dataSelection['P_rise'].length == '98' &&
       dataSelection['P_rise'].includes('Pressurization slope') &&
       dataSelection['P_rise'].includes('อัตราเร่งการไหลของลมขณะหายใจเข้า') &&
       dataSelection['P_rise'].includes('มีความสัมพันธ์กับการไหลของลมขณะหายใจเข้า')
      ) {
       setCheckP_rise(true)
+    } else {
+      setCheckP_rise(false)
     }
     if ( 
+      dataSelection['PEEP'].length == '97' &&
       dataSelection['PEEP'].includes('Positive End Expiratory Pressure') &&
       dataSelection['PEEP'].includes('แรงดันบวกของอากาศหายใจที่ค้างอยู่ในปอดเมื่อสิ้นสุดการหายใจออก')
      ) {
       setCheckPEEP(true)
+    } else {
+      setCheckPEEP(false)
     }
   }
   const handleGotit = () => {

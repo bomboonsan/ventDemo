@@ -20,6 +20,23 @@ export default function HomeAlert() {
         }
     }, [missions]);
 
+    const [seconds, setSeconds] = useState(0);
+    const [minutes, setMinutes] = useState(0);
+    useEffect(() => {
+        const interval = setInterval(() => {
+          setSeconds((prevSeconds) => prevSeconds + 1);
+        }, 1000);
+    
+        return () => clearInterval(interval);
+    }, []);
+    
+    useEffect(() => {
+        if (seconds === 60) {
+            setSeconds(0);
+            setMinutes((prevMinutes) => prevMinutes + 1);
+        }
+    }, [seconds]);
+
     function handleStart() {
         setisStart(true);
     }
@@ -30,9 +47,9 @@ export default function HomeAlert() {
         setShowElement('')
 
         // Step นี้ไม่ต้องตรวจสอบ Mission ว่าครบหรือยัง ()
-        if (missions.includes("Patient_1") && missions.includes("Patient_2") && missions.includes("Patient_3") && missions.includes("Circuits") && missions.includes("Tube") ) {
+        if (missions.includes("Patient") && missions.includes("Circuits") && missions.includes("CloseSuction") ) {
             // console.log('Next')
-            router.push('/quiz/trouble-shooting-case2-1')
+            router.push('/quiz/trouble-shooting-case2-1?timer='+seconds)
         }
 
         // if (missions.includes("Patient_1") && missions.includes("Patient_2") && missions.includes("Patient_3") && missions.includes("Ventilator") ) {
@@ -177,7 +194,7 @@ export default function HomeAlert() {
                 {/* <button className={styles.alertSubmitBtn} onClick={() =>  {setPatientAlertStep(3) ; setPlayingYoutube(true) ; handleMission('Patient')}}>
                     NEXT
                 </button> */}
-                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_1') ; setPlayingYoutube(false)}}>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient') ; setPlayingYoutube(false)}}>
                     GOT IT
                 </button>
             </div>
@@ -499,8 +516,8 @@ export default function HomeAlert() {
             {showElement=='Cuff' && <CuffAlertBox />}
             {showElement=='Cuff2' && <CuffAlertBox2 />} */}
 
-            {isStart && <TubeElement />}
-            {showElement=='Tube' && <TubeAlertBox />}
+            {/* {isStart && <TubeElement />}
+            {showElement=='Tube' && <TubeAlertBox />} */}
 
             {isStart && <CloseSuctionElement />}
             {showElement=='CloseSuction' && <CloseSuctionAlertBox />}
