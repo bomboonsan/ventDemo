@@ -8,6 +8,7 @@ import ReactPlayer from 'react-player'
 export default function HomeAlert() {
     const router = useRouter()
     const [isStart, setisStart] = useState(false);
+    const [isFinish, setIsFinish] = useState(false);
 
     const [showElement, setShowElement] = useState('');
 
@@ -517,7 +518,7 @@ export default function HomeAlert() {
                 <div className={styles.alertText}>
                 <div className={styles.d_flex}>
                         <div>
-                            <button className={styles.alertSubmitBtn2} onClick={() => {handleMission('CloseSuction') ; setCloseSuctionAlertStep(2)}}>
+                            <button className={styles.alertSubmitBtn2} onClick={() => {handleMission('CloseSuction') ; setCloseSuctionAlertStep(2) ; setIsFinish(true)}}>
                             ดูดเสมหะ
                             </button>
                         </div>

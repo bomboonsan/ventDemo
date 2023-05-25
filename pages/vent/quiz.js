@@ -146,7 +146,7 @@ export default function Instruction() {
           dataSelector['mode'] = 'Pressure Support';
           setModeCurrent('Pressure Support')
         } else if (modeCurrent == 'Pressure Support') {
-          router.push('/menulearningmode')
+          router.push('/vent/success')
         }
 
         const mainWrap = document.querySelector('#main')

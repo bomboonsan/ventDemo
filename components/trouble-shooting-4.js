@@ -20,7 +20,7 @@ export default function HomeAlert() {
         if (timer === null || timer === undefined) {
         // Handle when 'timer' is null or undefined
         console.log('timer is null or undefined');      
-        router.push('/trouble-shooting/case1-step1')
+        router.push('/trouble-shooting/case2-step1')
         } else {
         // Handle when 'timer' has a value
         console.log('timer:', timer);
@@ -106,13 +106,14 @@ export default function HomeAlert() {
     const PatientElement = () => {
         return (
             <div className={styles.patientElement}>
-                {missions.includes("Patient") &&
+                {/* {missions.includes("Patient") && */}
+                {showElement=='Patient' && patientAlertStep==5 ? (
                 <div className={styles.checkedIconElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>
-                </div>                
-                }
-                {!missions.includes("Patient") &&
+                </div>  
+                ) 
+                : 
                 <div className={styles.alertIconElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>
-                </div>                
+                </div>
                 }
             </div>
         )
@@ -385,14 +386,16 @@ export default function HomeAlert() {
             <div className={styles.circuitsElement}> 
                 {/* <div className={styles.alertIconElement} onClick={() => {setPlayingVent(true) ; setShowElement('Ventilator') ; handleMission('Ventilator')}}>
                 </div>                  */}
-                {missions.includes("Circuits") &&
+                {/* {missions.includes("Circuits") &&
                 <div className={styles.checkedIconElement} onClick={() => {setShowElement('Circuits') ; handleMission('Circuits')}}>
                 </div>                
                 }
                 {!missions.includes("Circuits") &&
                 <div className={styles.alertIconElement} onClick={() => {setShowElement('Circuits') ; handleMission('Circuits')}}>
                 </div>                
-                }  
+                }   */}
+                <div className={styles.alertIconElement} onClick={() => {setShowElement('Circuits') ; handleMission('Circuits')}}>
+                </div>   
 
             </div>
         )
@@ -551,14 +554,17 @@ export default function HomeAlert() {
     const CloseSuctionElement = () => {
         return (
             <div className={styles.closeSuctionElement}>         
-                {missions.includes("CloseSuction") &&
+                {/* {missions.includes("CloseSuction") &&
                 <div className={styles.checkedIconElement} onClick={() => {setShowElement('CloseSuction') ; handleMission('CloseSuction') ; setCloseSuctionAlertStep(0)}}>
                 </div>                
                 }
                 {!missions.includes("CloseSuction") &&
                 <div className={styles.alertIconElement} onClick={() => {setShowElement('CloseSuction') ; handleMission('CloseSuction') ; setCloseSuctionAlertStep(0)}}>
                 </div>                
-                }  
+                }   */}
+
+            <div className={styles.alertIconElement} onClick={() => {setShowElement('CloseSuction') ; handleMission('CloseSuction') ; setCloseSuctionAlertStep(0)}}>
+                </div>  
             </div>
         )
     }
