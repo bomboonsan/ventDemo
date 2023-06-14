@@ -136,8 +136,9 @@ export default function CaseMonitor() {
                         <div className={styles.right_colbox}>
                             <h2 className={styles.introduction_title}>Introduction</h2>
                             <p  className={styles.introduction_text}>
-                            ผู้ป่วย ARDS ใส่เครื่องช่วยหายใจ และช่วยผู้ป่วยให้หายใจสัมพันธ์กับเครื่อง
-                            ด้วยยา Neuromuscular blocking รวมถึงมีการให้ยาระงับความรู้สึกด้วย propofol <br/>
+                            {/* ผู้ป่วย ARDS ใส่เครื่องช่วยหายใจ และช่วยผู้ป่วยให้หายใจสัมพันธ์กับเครื่อง
+                            ด้วยยา Neuromuscular blocking รวมถึงมีการให้ยาระงับความรู้สึกด้วย propofol <br/> */}
+                            ผู้ป่วย ARDS ได้รับการช่วยหายใจด้วยเครื่องช่วยหายใจ และได้รับยาระงับความรู้สึกระดับสูงร่วมกับยา Neuromuscular blockade <br/>
 
                                 {/* Physical Examination:<br/> */}
                                 <br/>

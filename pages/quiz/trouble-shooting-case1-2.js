@@ -5,6 +5,7 @@ import styles from '../../styles/quiz/main.module.scss'
 import Link from "next/link";
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react';
+import ReactPlayer from 'react-player'
 
 
 export default function Main_menu() {
@@ -26,22 +27,22 @@ export default function Main_menu() {
     }
     setSeconds(Number(timer))
 
-      const interval = setInterval(() => {
-        setSeconds((prevSeconds) => prevSeconds + 1);
-      }, 1000);
+      // const interval = setInterval(() => {
+      //   setSeconds((prevSeconds) => prevSeconds + 1);
+      // }, 1000);
   
-      return () => clearInterval(interval);
+      // return () => clearInterval(interval);
       
       
   }, []);
   
-  useEffect(() => {
-      if (seconds === 60) {
-          setSeconds(0);
-          setMinutes((prevMinutes) => prevMinutes + 1);
-      }
-      console.log(seconds)
-  }, [seconds]);
+  // useEffect(() => {
+  //     if (seconds === 60) {
+  //         setSeconds(0);
+  //         setMinutes((prevMinutes) => prevMinutes + 1);
+  //     }
+  //     console.log(seconds)
+  // }, [seconds]);
 
 
 
@@ -86,12 +87,33 @@ export default function Main_menu() {
     const ansArrSort = ansArr.sort();
     
     // if (ansArrSort.toString() == 'ans1,ans2' || ansArrSort.toString() == 'ans2,ans1') {
-    if (ansArrSort.toString() == 'ans1,ans2,ans3') {
-      router.push('/trouble-shooting/case1-step2?timer='+seconds)
+    if (ansArrSort.toString() == 'ans1') {
+      router.push('/trouble-shooting/success?timer='+seconds)
     } else {
       router.push('/hint/trouble-shooting-1-false')
     }
     
+  }
+
+
+  const [playingYoutube, setPlayingYoutube] = useState(false);
+  const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble-shooting-q1-2.mp3');
+  const resetYoutube = () => {
+      setPatientAlertStep(1)
+      setShowElement('')
+  }
+  const PatientAlertBox = () => {
+      return (
+          <ReactPlayer 
+          className={styles.alertYoutube}
+          url={urlYoutube}
+          playing={playingYoutube} 
+          onEnded={resetYoutube}
+          controls={true}
+          width="100%"
+          height="40px"
+          />
+      )
   }
 
 
@@ -119,20 +141,46 @@ export default function Main_menu() {
         <div className='container'>
           <div className='row justify-content-center align-items-center min-h-screen'>
             <div className='col-11 col-lg-8'>
-              <h1 className={styles.quiz_title}>
-              หลังจากตรวจสอบความผิดปกติของคนไข้ที่เกิดขึ้นแล้ว <br/>
-              ท่านคาดว่าสาเหตุเกิดจากอะไร
-              </h1>
+              <h2 className={styles.quiz_title_3}>
+              หลังจากดูดเสมหะแล้ว คนไข้อาการดีขึ้นเล็กน้อย แต่เครื่องยังมี High pressure alarm!
+              
+              ลองฟังเสียงปอดอีกครั้ง
+              </h2>
+
+              <div className={styles.alertBox}>
+                <div className={styles.alertHead}>
+                    <p>
+                        ฟังเสียงปอด
+                    </p>                    
+                </div>
+                <div>
+                  <Image
+                      className={styles.alertImage}
+                      src='/troubleshooting/04.png'
+                      alt="Hover"
+                      // layout="fill"
+                      // objectFit="cover"
+                      draggable='false'
+                      width={200}
+                      height={200}
+                  />
+                </div>
+                <PatientAlertBox />
+              </div>
+
+              <h2 className={styles.quiz_title_3}>
+              ท่านจะทำการรักษาคนไข้อย่างไรต่อ
+              </h2>
 
               <div className={styles.quiz_lists}>                
                 <div id='ans1' className={styles.quiz_item_center} onClick={handleAnsClick}>
-                  <p>เกิดการรั่วที่ท่อช่วยหายใจ</p>
+                  <p>พ่นยารักษาหลอดลมตีบ</p>
                 </div>
                 <div id='ans2' className={styles.quiz_item_center} onClick={handleAnsClick}>
-                  <p>เกิดการอุดตันในระบบเครื่องช่วยหายใจ</p>
+                  <p>เปลี่ยนท่อช่วยหายใจ</p>
                 </div>
                 <div id='ans3' className={styles.quiz_item_center} onClick={handleAnsClick}>
-                  <p>การปรับตั้งเครื่องช่วยหายใจไม่เหมาะสมกับผู้ป่วย</p>
+                  <p>ขยับตำแหน่งท่อช่วยหายใจ</p>
                 </div>
               </div>
 

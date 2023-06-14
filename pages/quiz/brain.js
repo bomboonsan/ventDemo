@@ -50,7 +50,7 @@ export default function Main_menu() {
                   <p>ขอ Brain monitoring มาใช้ในการประเมินคนไข้เพื่อวางแผนในการรักษา หรือใช้ร่วมกับการวางแผนการใช้ยาระงับความรู้สึกให้กับคนไข้</p>
                 </div>
                 <div className={styles.quiz_item} onClick={ansWorng}>
-                  <p>ลดระดับของยา Neuromuscular blocking</p>
+                  <p>ลดระดับของยา Neuromuscular blockade</p>
                 </div>
                 <div className={styles.quiz_item} onClick={ansWorng}>
                   <p>ส่งคนไข้ทำ CT brain เพราะสงสัยstroke</p>

@@ -33,14 +33,14 @@ export default function Main_menu() {
         Trouble Shooting
         </p>
       </header>
-      <div className={styles.row}>
+      <div className={styles.row}>        
         <div className={styles.col_item}>
           <div className={styles.card2}>
-            <Link href="/case/trouble-shooting"> 
+            <Link href="/case/trouble-shooting2"> 
             <div className={styles.card_thumbnail}>
               <Image
                     className={styles.bisitem}
-                    src="/images/case4-thumb3.png"
+                    src="/images/case3-thumb3.png"
                     alt="Ventilator"
                     // layout="fill"
                     // objectFit="cover"
@@ -59,11 +59,11 @@ export default function Main_menu() {
         </div>
         <div className={styles.col_item}>
           <div className={styles.card2}>
-            <Link href="/case/trouble-shooting2"> 
+            <Link href="/case/trouble-shooting"> 
             <div className={styles.card_thumbnail}>
               <Image
                     className={styles.bisitem}
-                    src="/images/case3-thumb3.png"
+                    src="/images/case4-thumb3.png"
                     alt="Ventilator"
                     // layout="fill"
                     // objectFit="cover"

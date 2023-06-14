@@ -353,13 +353,15 @@ $fontBtnNumber: 150%; // 1rem
     background: #007fee;
 }
 .table_btnsetting {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
     border-collapse:separate; 
     border-spacing: .4rem .4rem;
     overflow: hidden;
     // opacity: 0;
     td {
         width: 12.5%;
-        font-size: $fontTD;
+        font-size: $fontTD/1.2;
     }
     .btn_setting {
         width: 100%;
@@ -555,7 +557,7 @@ $fontBtnNumber: 150%; // 1rem
     }
     p {
         color: blue;
-        height: 45px;
+        min-height: 50px;
         font-weight: 300;
         // font-size: .95rem;
         font-size: 1.05rem;

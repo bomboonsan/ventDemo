@@ -80,7 +80,7 @@ export default function CaseDetail() {
                     />
                   </div>
                   <div className={styles.case_simpledetail}>
-                    <h2 className={styles.case_name}>Patient 2</h2>
+                    <h2 className={styles.case_name}>Patient 1</h2>
                     <div className={styles.case_simpledetail_byline}>
                       <ul>
                         <li>

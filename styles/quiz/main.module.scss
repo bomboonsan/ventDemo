@@ -65,6 +65,13 @@
     margin-bottom: 1.5rem;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
 }
+.quiz_title_3 {
+    color: blue;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+}
 .quiz_subtitle {
     color: #313131;
     text-align: center;
@@ -254,4 +261,38 @@
     padding: 0 5px;
     width: auto;
     text-align: center;
+}
+
+.alertBox {
+    display: block;
+    width: auto;
+    max-width: 70%;
+    margin: 3rem auto;
+    height: auto;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    z-index: 4;
+    background-color: #FFF;
+    border: 3px solid pink;
+    box-shadow: 4px .4rem 1rem rgba(0, 0, 0, 0.5);
+    color: black;
+}
+.alertHead {
+    background: #8EBB21;
+    color: #FFF;
+    border-radius: 2rem;
+    // padding: .3rem;
+    padding: .3rem 2rem;
+    margin-bottom: 1rem;
+    p {
+        text-align: center;
+        font-size: 1.5rem;
+        margin: 0;
+    }
+}
+.alertImage {
+    display: block;
+    max-width: 60%;
+    height: auto;
+    margin: auto;
 }

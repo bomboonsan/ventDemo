@@ -52,7 +52,7 @@ export default function HomeAlert() {
         setisStart(true);
     }
     function handleFinish() {
-        router.push('/trouble-shooting/success?timer='+seconds)
+        router.push('/quiz/trouble-shooting-case1-2?timer='+seconds)
     }
     function closeBox() {
         setShowElement('')

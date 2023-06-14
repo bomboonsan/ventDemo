@@ -22,6 +22,35 @@ export default function Instruction() {
   const [showLottie, setShowLottie] = useState(false);
 
 
+  useEffect(()=>{   
+
+
+      const { queryMode } = router.query; 
+      if(!queryMode) {
+        router.query.queryMode="Pressure Control"
+        router.push(router)
+      } else {
+        setModeCurrent(queryMode)
+        dataSelector['mode'] = queryMode;
+        setModeCurrent(queryMode)
+      }
+
+
+
+    }
+  ,[router.isReady])
+
+  useEffect(()=>{   
+
+    if(modeCurrent !== 'Pressure Control') {
+      router.query.queryMode=modeCurrent
+      router.push(router)
+    }
+
+
+  }
+,[modeCurrent])
+
   var ansMode0 = {
     // mode : 'Pressure Control',
     mode: '',
@@ -132,7 +161,7 @@ export default function Instruction() {
       // const cycling_variable = dataSelector.cycling_variable
 
 
-      if (JSON.stringify(dataSelector) === JSON.stringify(ansMode1) || JSON.stringify(dataSelector) === JSON.stringify(ansMode2) || JSON.stringify(dataSelector) === JSON.stringify(ansMode3) || JSON.stringify(dataSelector) === JSON.stringify(ansMode4)) {
+      if (JSON.stringify(dataSelector) === JSON.stringify(ansMode0) || JSON.stringify(dataSelector) === JSON.stringify(ansMode1) || JSON.stringify(dataSelector) === JSON.stringify(ansMode2) || JSON.stringify(dataSelector) === JSON.stringify(ansMode3) || JSON.stringify(dataSelector) === JSON.stringify(ansMode4)) {
         console.log('ถูก')
 
         // setShowLottie(true)

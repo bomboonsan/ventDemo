@@ -66,7 +66,7 @@
     display: block;
     margin: 0 auto;
     max-width: 70%;
-    font-size: 1.45rem;
+    font-size: 1.1rem;
 }
 .case_simpledetail_byline ul {
     list-style: none;
@@ -95,8 +95,8 @@
 }
 .introduction_text {
     color: #1010EB;
-    font-size: 1.4rem;
-    line-height: 2.4rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
 }
 /* .introduction_linkExternal {
     font-size: 1.5rem;
@@ -207,4 +207,18 @@
     text-align: center;
     cursor: pointer;
     z-index: 8;
+}
+
+
+@media only screen and (min-width: 1100px) {
+    .case_simpledetail_byline {
+        display: block;
+        margin: 0 auto;
+        max-width: 70%;
+        font-size: 1.45rem;
+    }
+    .introduction_text {
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+    }
 }

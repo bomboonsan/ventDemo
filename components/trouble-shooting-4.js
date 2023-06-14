@@ -443,7 +443,7 @@ export default function HomeAlert() {
                 ไม่มีการรั่วของ Ventilator circuits
                 </p>
                 </div>
-                <button className={styles.alertSubmitBtn} onClick={closeBox}>
+                <button className={styles.alertSubmitBtn} onClick={() => {closeBox() ; setCircuitsAlertBoxStep(0)}}>
                     NEXT
                 </button>
             </div>

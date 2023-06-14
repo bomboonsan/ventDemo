@@ -63,24 +63,26 @@ export default function Main_menu() {
           <div className='row justify-content-center align-items-center min-h-screen'>
             <div className='col-11 col-lg-8'>
               <h1 className={styles.quiz_title}>
-                A paralysed ventilated patient is sedated with propofol (unadjusted dose). He undergoes TTM due to post-cardiac arrest. He has stable hemodynamics, unchanged respiratory parameters & RASS -5. BIS increases from 40 to 70.
-                Which one is the most appropriate management?
+              ผู้ป่วย post-cardiac arrest ได้รับการช่วยหายใจด้วยเครื่องช่วยหายใจ โดยได้รับยาระงับความรู้สึกและยาหย่อนกล้ามเนื้อ
+              ขณะนั้นผู้ป่วยกำลังได้รับการทำ Targeted Temperature Management (TTM) ค่าสัญญาญของผู้ป่วยคงที่ ไม่มีการเปลี่ยนแปลงของพารามิเตอร์ของการหายใจ ค่า RASS score เท่ากับ -5 โดยค่า BIS เพิ่มขึ้นจาก 40 เป็น 70
+              หากท่านได้ให้การดูแลผู้ป่วยรายนี้ ท่านจะให้การรักษาเบื้องต้นใด เป็นอย่างแรก
               </h1>
               <div className={styles.quiz_lists}>                
                 <div className={styles.quiz_item} onClick={ansWorng}>
-                  <p>Increase sedation</p>
+                  <p>เพิ่มขนาดยาระงับความรู้สึก</p>
                 </div>
                 <div className={styles.quiz_item} onClick={ansWorng}>
-                  <p>Increase NMB dose</p>
+                  <p>เพิ่มขนาดยาหย่อนกล้ามเนื้อ</p>
                 </div>
                 <div className={styles.quiz_item} onClick={ansCorrect}>
-                  <p>Check phase of TTM</p>
+                  <p>ตรวจสอบระดับเฟสของ TTM <br/>
+                    (Cooling phase หรือ Rewarm phase)</p>
                 </div>
                 <div className={styles.quiz_item} onClick={ansWorng}>
-                  <p>Check ABG</p>
+                  <p>ตรวจสอบ Arterial Blood Gas</p>
                 </div>
                 <div className={styles.quiz_item} onClick={ansWorng}>
-                  <p>Observe</p>
+                  <p>สังเกตอาการต่อ โดยไม่ทำการรักษาเพิ่มเติม</p>
                 </div>
               </div>
             </div>
