@@ -120,7 +120,7 @@ export default function HomeAlert() {
         return (
             <div className={styles.patientElement}>
                 {/* {missions.includes("Patient") && */}
-                {showElement=='Patient' && patientAlertStep==5 ? (
+                {showElement=='Patient' && patientAlertStep==5 && isFinishPatient ? (
                 <div className={styles.checkedIconElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>
                 </div>  
                 ) 
@@ -303,6 +303,24 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                     <p>
+                    ความดันที่วัดได้อยู่ที่ 5 cm/H<sub>2</sub>O
+                    </p>        
+                    <button className={styles.finishBtn} onClick={() =>  {closeBox ; setPatientAlertStep(0)}}>
+                        GOT IT
+                    </button>            
+                </div>
+            </div>
+        )
+    }
+
+    const PatientAlertBox5_finish = () => {
+        return (
+            <div className={styles.alertBox}>
+                <div className={styles.alertClose} onClick={closeBox}>
+                    X
+                </div>
+                <div className={styles.alertText}>
+                    <p>
                     ความดันที่วัดได้อยู่ที่ 25 cm/H<sub>2</sub>O
                     </p>        
                     <button className={styles.finishBtn} onClick={handleFinish}>
@@ -313,6 +331,7 @@ export default function HomeAlert() {
         )
     }
 
+    const [isFinishPatient, setIsFinishPatient] = useState(false);
     const PatientAlertBox6 = () => {
         return (
             <div className={styles.alertBox}>
@@ -324,7 +343,7 @@ export default function HomeAlert() {
                     กลับไปกด ตรวจสอบอุปกรณ์โดย Cuff pressure gauge
                     </p>                    
                 </div>
-                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_4') ; setPlayingYoutube(false)}}>
+                <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_4') ; setIsFinishPatient(true) ; setPlayingYoutube(false)}}>
                     GOT IT
                 </button>
             </div>
@@ -632,6 +651,8 @@ export default function HomeAlert() {
     }
 
 
+    console.log(isFinishPatient)
+
     // Render
     return (
         <div className={styles.room_bg_female}>
@@ -642,7 +663,8 @@ export default function HomeAlert() {
             {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox2 />}
             {/* {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox3 />} */}
             {showElement=='Patient' && patientAlertStep==4 && <PatientAlertBox4 />}
-            {showElement=='Patient' && patientAlertStep==5 && <PatientAlertBox5 />}
+            {showElement=='Patient' && patientAlertStep==5 & isFinishPatient == false && <PatientAlertBox5 />}
+            {showElement=='Patient' && patientAlertStep==5 & isFinishPatient == true && <PatientAlertBox5_finish />}
             {showElement=='Patient' && patientAlertStep==6 && <PatientAlertBox6 />}
             {showElement=='Patient' && patientAlertStep==7 && <PatientAlertBox7 />}
 
