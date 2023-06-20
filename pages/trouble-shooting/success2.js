@@ -26,7 +26,29 @@ export default function CaseDetail() {
 
   // Get Param
   const router = useRouter();
-  const { timer } = router.query;
+  // const { timer } = router.query;
+
+  const [timeResult, setTimeResult] = useState(null);
+
+  useEffect(() => {
+    const { start } = router.query;
+    const startTime = start;
+    const finishTime = Date.now();
+    const durationInSeconds = (finishTime - startTime) / 1000;
+    // console.log(`Duration: ${durationInSeconds} seconds`);
+    const timeToPlay = Math.floor(durationInSeconds); // ทำให้เป็นจำนวนเต็มบวก
+
+    function formatDuration(seconds) {
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = seconds % 60;
+
+      return `${minutes} นาที ${remainingSeconds} วินาที`;
+    }
+
+
+    setTimeResult(formatDuration(timeToPlay))
+
+  }, []);
 
 
   return (
@@ -82,7 +104,7 @@ export default function CaseDetail() {
             <div className={styles.text_wrap}>
                 <p>
                 เสียงลมออกปากของคนไข้หายไป 
-                ท่านใช้เวลาไป  {timer} วินาที  
+                ท่านใช้เวลาไป  {timeResult}
                 </p>
             </div>
             <div className={styles.btn_area}>

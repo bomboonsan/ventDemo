@@ -18,7 +18,7 @@ export default function Intruction_1() {
             router.push('/quiz/brain2')
         }
         if ( stepCount+1 == 1 ) {
-            setTextHint('การใช้เครื่องประมวลผลสัญญาณคลื่นไฟฟ้าสมองออกมาเป็นตัวเลข (processed-EEG monitor) จะช่วยทำให้สามารถวางแผนการใช้ยาระงับความรู้สึกได้อย่างแม่นยำและเหมาะสมตามสภาวะการตอบสนองของคลื่นไฟฟ้าสมองของผู้ป่วย ผ่านการดูตัวเลขง่าย ๆ ในช่วง 0-100 พร้อมกับประเมินแนวโน้มของกราฟที่แสดงถึงการตอบสนองต่อยาระงับความรู้สึก')
+            setTextHint('การใช้เครื่องประมวลผลสัญญาณคลื่นไฟฟ้าสมองออกมาเป็นตัวเลข (Processed-EEG monitor) จะช่วยทำให้สามารถวางแผนการใช้ยาระงับความรู้สึกได้อย่างแม่นยำและเหมาะสมตามสภาวะการตอบสนองของคลื่นไฟฟ้าสมองของผู้ป่วย <br/> ผ่านการดูตัวเลขง่าย ๆ ในช่วง 0-100 พร้อมกับประเมินแนวโน้มของกราฟที่แสดงถึงการตอบสนองต่อยาระงับความรู้สึก')
         } else if ( stepCount+1 == 2 ) {
             setTextHint('ดังนั้นเรามาทำความรู้จักกับการทำงานของ Brain Monitoring และ ฝึกหัดการติดอุปกรณ์ให้กับคนไข้กันเถอะ')
         }
@@ -68,9 +68,10 @@ export default function Intruction_1() {
                     {stepCount+1 == 2 && 
                     <div className={styles.col_text_box2}>
                         <div className={styles.text_box_wrap2}>
-                            <p>
+                            {/* <p>
                                 {textHint}
-                            </p>
+                            </p> */}
+                            <p dangerouslySetInnerHTML={{ __html: textHint }} />
                         </div>
 
                         <div className={styles.btn_group}>
@@ -84,9 +85,10 @@ export default function Intruction_1() {
                     {stepCount+1 !== 2 && 
                     <div className={styles.col_text_box}>
                         <div className={styles.text_box_wrap}>
-                            <p>
+                            {/* <p>
                                 {textHint}
-                            </p>
+                            </p> */}
+                            <p dangerouslySetInnerHTML={{ __html: textHint }} />
                         </div>
 
                         <div className={styles.btn_group}>
@@ -117,9 +119,10 @@ export default function Intruction_1() {
                     {stepCount+1 == 2 && 
                     <div className={styles.col_text_box2}>
                         <div className={styles.text_box_wrap2}>
-                            <p>
+                            {/* <p>
                                 {textHint}
-                            </p>
+                            </p> */}
+                            <p dangerouslySetInnerHTML={{ __html: textHint }} />
                         </div>
 
                         <div className={styles.btn_group}>
@@ -133,9 +136,10 @@ export default function Intruction_1() {
                     {stepCount+1 !== 2 && 
                     <div className={styles.col_text_box}>
                         <div className={styles.text_box_wrap}>
-                            <p>
+                            {/* <p>
                                 {textHint}
-                            </p>
+                            </p> */}
+                            <p dangerouslySetInnerHTML={{ __html: textHint }} />
                         </div>
 
                         <div className={styles.btn_group}>

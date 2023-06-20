@@ -20,22 +20,28 @@ export default function HomeAlert() {
         }
     }, [missions]);
 
-    const [seconds, setSeconds] = useState(0);
-    const [minutes, setMinutes] = useState(0);
+    const [startTime, setStartTime] = useState(null);
     useEffect(() => {
-        const interval = setInterval(() => {
-          setSeconds((prevSeconds) => prevSeconds + 1);
-        }, 1000);
-    
-        return () => clearInterval(interval);
+        // ตั้งค้่าเวลาเริ่มต้นเล่น
+        setStartTime(Date.now())
     }, []);
+
+    // const [seconds, setSeconds] = useState(0);
+    // const [minutes, setMinutes] = useState(0);
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //       setSeconds((prevSeconds) => prevSeconds + 1);
+    //     }, 1000);
     
-    useEffect(() => {
-        if (seconds === 60) {
-            setSeconds(0);
-            setMinutes((prevMinutes) => prevMinutes + 1);
-        }
-    }, [seconds]);
+    //     return () => clearInterval(interval);
+    // }, []);
+    
+    // useEffect(() => {
+    //     if (seconds === 60) {
+    //         setSeconds(0);
+    //         setMinutes((prevMinutes) => prevMinutes + 1);
+    //     }
+    // }, [seconds]);
 
     function handleStart() {
         setisStart(true);
@@ -49,7 +55,7 @@ export default function HomeAlert() {
         // Step นี้ไม่ต้องตรวจสอบ Mission ว่าครบหรือยัง ()
         if (missions.includes("Patient") && missions.includes("Circuits") && missions.includes("CloseSuction") ) {
             // console.log('Next')
-            router.push('/quiz/trouble-shooting-case2-1?timer='+seconds)
+            router.push('/quiz/trouble-shooting-case2-1?start='+startTime)
         }
 
         // if (missions.includes("Patient_1") && missions.includes("Patient_2") && missions.includes("Patient_3") && missions.includes("Ventilator") ) {
@@ -540,8 +546,7 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                 <p>
-                ตรวจไม่พบลมรั่วบริเวณสาย suction <br/>
-                ทั้งในตอนหาสาเหตุและตอนแก้ปัญหา 
+                ตรวจไม่พบลมรั่วบริเวณ Close suction
                 </p>
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={closeBox}>

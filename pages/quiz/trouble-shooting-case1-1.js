@@ -11,37 +11,55 @@ export default function Main_menu() {
   const router = useRouter()
   const [ansArr, setAnsArr] = useState([]);  
 
-  const [seconds, setSeconds] = useState(0);
-  const [minutes, setMinutes] = useState(0);
+  const [startTime, setStartTime] = useState(null);
   useEffect(() => {
 
-    const { timer } = router.query;
-    if (timer === null || timer === undefined) {
+    const { start } = router.query;
+    if (start === null || start === undefined) {
       // Handle when 'timer' is null or undefined
-      console.log('timer is null or undefined');      
+      console.log('start is null or undefined');      
       router.push('/trouble-shooting/case1-step1')
     } else {
       // Handle when 'timer' has a value
-      console.log('timer:', timer);
-    }
-    setSeconds(Number(timer))
-
-      const interval = setInterval(() => {
-        setSeconds((prevSeconds) => prevSeconds + 1);
-      }, 1000);
-  
-      return () => clearInterval(interval);
-      
+    }      
+    setStartTime(start)
       
   }, []);
+
+  // const [seconds, setSeconds] = useState(0);
+  // const [minutes, setMinutes] = useState(0);
+
+
+  // useEffect(() => {
+
+  //   const { timer } = router.query;
+  //   if (timer === null || timer === undefined) {
+  //     // Handle when 'timer' is null or undefined
+  //     console.log('timer is null or undefined');      
+  //     router.push('/trouble-shooting/case1-step1')
+  //   } else {
+  //     // Handle when 'timer' has a value
+  //     console.log('timer:', timer);
+  //   }
+
+  //   setSeconds(Number(timer))
+
+  //     const interval = setInterval(() => {
+  //       setSeconds((prevSeconds) => prevSeconds + 1);
+  //     }, 1000);
   
-  useEffect(() => {
-      if (seconds === 60) {
-          setSeconds(0);
-          setMinutes((prevMinutes) => prevMinutes + 1);
-      }
-      console.log(seconds)
-  }, [seconds]);
+  //     return () => clearInterval(interval);
+      
+      
+  // }, []);
+  
+  // useEffect(() => {
+  //     if (seconds === 60) {
+  //         setSeconds(0);
+  //         setMinutes((prevMinutes) => prevMinutes + 1);
+  //     }
+  //     console.log(seconds)
+  // }, [seconds]);
 
 
 
@@ -87,7 +105,8 @@ export default function Main_menu() {
     
     // if (ansArrSort.toString() == 'ans1,ans2' || ansArrSort.toString() == 'ans2,ans1') {
     if (ansArrSort.toString() == 'ans1,ans2,ans3') {
-      router.push('/trouble-shooting/case1-step2?timer='+seconds)
+      // router.push('/trouble-shooting/case1-step2?timer='+seconds)
+      router.push('/trouble-shooting/case1-step2?start='+startTime)
     } else {
       router.push('/hint/trouble-shooting-1-false')
     }
@@ -126,13 +145,13 @@ export default function Main_menu() {
 
               <div className={styles.quiz_lists}>                
                 <div id='ans1' className={styles.quiz_item_center} onClick={handleAnsClick}>
-                  <p>เกิดการรั่วที่ท่อช่วยหายใจ</p>
+                  <p>มีเสมหะอยู่ในระบบเครื่องช่วยหายใจ</p>
                 </div>
                 <div id='ans2' className={styles.quiz_item_center} onClick={handleAnsClick}>
-                  <p>เกิดการอุดตันในระบบเครื่องช่วยหายใจ</p>
+                  <p>คนไข้มีภาวะหลอดลมตีบ <br/> (Bronchospasm)</p>
                 </div>
                 <div id='ans3' className={styles.quiz_item_center} onClick={handleAnsClick}>
-                  <p>การปรับตั้งเครื่องช่วยหายใจไม่เหมาะสมกับผู้ป่วย</p>
+                  <p>มีอากาศค้างอยู่ในปอด <br/> (Air trapping)</p>
                 </div>
               </div>
 

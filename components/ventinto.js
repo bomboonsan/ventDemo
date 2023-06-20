@@ -57,22 +57,22 @@ export default function VentInto() {
     }
 
     let listInstructionText = [      
-        'เริ่มต้นการตั้งค่าด้วยการใส่น้าหนัก Ideal Body Weight Weight (Predicted Body Weight by height height)ของผู้ป่วย หรือเลือกเพศ และใส่ส่วนสูง เพื่อคานวณเป็น Predicted body weight weightอัตโนมัติ',              
-        'เริ่มต้นการตั้งค่าด้วยการใส่น้าหนัก Ideal Body Weight Weight (Predicted Body Weight by height height)ของผู้ป่วย หรือเลือกเพศ และใส่ส่วนสูง เพื่อคานวณเป็น Predicted body weight weightอัตโนมัติ',              
-        'เริ่มต้นการตั้งค่าด้วยการใส่น้าหนัก Ideal Body Weight Weight (Predicted Body Weight by height height)ของผู้ป่วย หรือเลือกเพศ และใส่ส่วนสูง เพื่อคานวณเป็น Predicted body weight weightอัตโนมัติ',              
+        'เริ่มต้นการตั้งค่าด้วยการใส่น้ำหนัก Ideal Body Weight Weight (Predicted Body Weight by Height) ของผู้ป่วย หรือเลือกเพศ และใส่ส่วนสูง เพื่อคำนวณเป็น Predicted Body weight อัตโนมัติ',              
+        'เริ่มต้นการตั้งค่าด้วยการใส่น้ำหนัก Ideal Body Weight Weight (Predicted Body Weight by Height) ของผู้ป่วย หรือเลือกเพศ และใส่ส่วนสูง เพื่อคำนวณเป็น Predicted Body weight อัตโนมัติ',              
+        'เริ่มต้นการตั้งค่าด้วยการใส่น้ำหนัก Ideal Body Weight Weight (Predicted Body Weight by Height) ของผู้ป่วย หรือเลือกเพศ และใส่ส่วนสูง เพื่อคำนวณเป็น Predicted Body weight อัตโนมัติ',              
         // 'เริ่มต้นเลือกเพศของผู้ป่วย เราสามารถกำหนด Predicted body weight โดยการกำหนดผ่านส่วนสูงได้',          
         
         'การใช้เครื่องช่วยหายใจผ่านท่อช่วยหายใจ (Endotracheal Tube) หรือท่อเจาะคอ (Tracheostomy Tube)',
-        'การใช้เครื่องช่วยหายใจโดยไม่ผ่านท่อช่วยหายใจ หมายเหตุโดยอาจใช้หน้ากากครอบจมูกและปาก เป็น Interface ในการช่วยหายใจแทน',
+        'การใช้เครื่องช่วยหายใจโดยไม่ผ่านท่อช่วยหายใจ <br/> <b><u>หมายเหตุ</u></b> โดยอาจใช้หน้ากากครอบจมูกและปาก เป็น Interface ในการช่วยหายใจแทน',
         'การช่วยหายใจโดยการบาบัดด้วยออกซิเจนที่มีอัตราการไหลสูง (High Flow Oxygen Therapy)',
-        'Assist Control Mode คือ โหมดที่ผสมผสานระหว่าง Assist และ Control โดยผู้ป่วยสามารถช่วยกำหนดจุดเริ่มต้นของการหายใจเข้าได้เอง (Assist Mode ) และหากผู้ป่วยไม่มีการหายใจ เครื่องสามารถจะจ่ายอากาศในการช่วยหายใจให้ผู้ป่วยได้ (Control Mode',
-        'Synchronous Intermittent Mandatory Ventilation Mode คือโหมดที่ผู้ป่วยหายใจเอง (Spontaneous Mode ) สลับกับการหายใจจากเครื่องตามที่ตั้งไว้ ในลักษณะที่เป็น Assist และ Control',
+        'Assist - Control Mode คือ โหมดที่ผสมผสานระหว่าง Assist และ Control โดยผู้ป่วยสามารถช่วยกำหนดจุดเริ่มต้นของการหายใจเข้าได้เอง (Assist Mode ) และหากผู้ป่วยไม่มีการหายใจ เครื่องสามารถจะจ่ายอากาศในการช่วยหายใจให้ผู้ป่วยได้ (Control Mode)',
+        'Synchronous Intermittent Mandatory Ventilation Mode คือโหมดที่ผู้ป่วยหายใจเอง (Spontaneous Mode) สลับกับการหายใจจากเครื่องตามที่ตั้งไว้ ในลักษณะที่เป็น Assist และ Control',
         'Spontaneous Mode คือโหมดช่วยหายใจ โดยผู้ป่วยเป็นผู้กำหนดอัตรการหายใจ Inspiratory Time และ Tidal Volume ด้วยตัวเอง     ',
         'Bilevel ventilator คือโหมดที่สามารถหายใจบนแรงดันบวก 2 ระดับ ',
         'Continuous Positive Airway Pressure Mode คือโหมดที่จะปรากฏขึ้นเมื่อเลือกใช้ NIV Mode เป็นการช่วยหายใจ โดยเครื่องจ่ายแรงดันบวกให้ในระดับเดียวตลอด Respiratory Cycle โดยผู้ป่วยหายใจบนแรงดันบวกนั้น ',
         'Pressure Control Mode ',
         'Volume Control Mode',
-        'Volume Control Plus Mode หรือPressure Regulated Volume Control Mode (PRVC Mode',
+        'Volume Control Plus Mode หรือPressure Regulated Volume Control Mode (PRVC Mode)',
         'Pressure Support Mode ',
         'Tube Compensation Mode',
         'Volume Support Mode',
@@ -89,22 +89,23 @@ export default function VentInto() {
         'Positive End Expiratory Pressure คือแรงดันบวกของอากาศที่ค้างอยู่ในปอดเมื่อสิ้นสุดการหายใจออก        ',
         'Set Limitation of High Peak Circuit Pressure คือการกำหนดค่าแรงดันบวกสูงสุดที่เครื่องจะจ่ายความดันให้ หากระดับแรงดันสูงกว่าที่กำหนด เครื่องจะร้องเตือนและหยุดการจ่ายอากาศ        ',
         'Inspiratory Pressure คือแรงดันบวกที่ช่วยหายใจเข้า โดยเพิ่มจากระดับ PEEP ที่กำหนด',
-        'Pressurization slope คือการตั้งอัตราการไหลของลมขณะหายใจเข้าใน Pressure target mode หน่วยเป็น % หมายเหตุ ค่า % สูง แสดงว่ามีการจ่ายแรงดันจนถึงค่าที่กำหนดเร็ว และ ค่า % ต่ำ แสดงว่ามีการจ่ายแรงดันจนถึงค่าที่กำหนด        ',
+        'Pressurization slope คือการตั้งอัตราการไหลของลมขณะหายใจเข้าใน Pressure target mode หน่วยเป็น % <br/> <b><u>หมายเหตุ</u></b> ค่า % สูง แสดงว่ามีการจ่ายแรงดันจนถึงค่าที่กำหนดเร็ว และ ค่า % ต่ำ แสดงว่ามีการจ่ายแรงดันจนถึงค่าที่กำหนด        ',
         'Inspiratory Time คือ ระยะเวลาในการหายใจเข้า        ',
-        'Expiratory Time คือ ระยะเวลาในการหายใจออก        ',
+        'I:E คืออัตราส่วนของระยะเวลาหายใจเข้าต่อระยะเวลาหายใจออก  ',
         'Pressure  Support คือแรงดันบวกที่จ่ายให้ผู้ป่วยใน SPONT mode โดยเป็นแรงดันบวกที่จ่ายเพิ่มจากระดับ PEEP ที่กำหนด',
-        'Expiratory Sensitivity คือระดับความไวในการหายใจออก โดยเป็นการกำหนด % ของ Peak inspiration flow ใน Pressure support mode หากผู้ป่วยมี Flow ที่ลดลงจนถึงค่าที่ตั้งไว้ เครื่องจะปรับการจ่ายลม แล้วเปลี่ยนเป็นช่วงหายใจออก        ',
-        'Set Limitation of High Inspire Tidal Volume คือการกำหนดค่าปริมาตรอากาศสูงสุดในการหายใจเข้าหนึ่งครั้ง ที่เครื่องจะยอมรับได้หากปริมาตรอากาศหายใจเข้าของผู้ป่วยสูงกว่าค่าที่กำหนด เครื่องจะหยุดการจ่ายอากาศเพิ่ม และจะไม่มีการจ่ายแรงดันเพิ่มขึ้นไปอีกหมายเหตุ จะพบพารามิเตอร์นี้ใน Volume Support Mode',
-        'Pressurization Slope คือการตั้งอัตราการไหลของอากาศขณะหายใจเข้าใน Pressure Target Modeode หน่วยเป็น % หมายเหตุ ค่า % สูง แสดงว่าอัตราการไหลของอากาศเร็วเพื่อให้ถึงค่าแรงดันที่กำหนด และ ค่า ต่า แสดงว่าอัตราการไหลของอากาศช้าเพื่อให้ถึงค่าแรงดันที่กำหนด',
+        'Pressurization Slope คือการตั้งอัตราการไหลของอากาศขณะหายใจเข้าใน Pressure Target Mode หน่วยเป็น % <br/> <b><u>หมายเหตุ</u></b> ค่า % สูง แสดงว่าอัตราการไหลของอากาศเร็วเพื่อให้ถึงค่าแรงดันที่กำหนด และ ค่า % ต่ำ แสดงว่าอัตราการไหลของอากาศช้าเพื่อให้ถึงค่าแรงดันที่กำหนด  ',
+        'Expiratory Sensitivity Sensitivity คือระดับความไวในการหายใจออก โดยเป็นการกำหนด ของ Peak Inspiration Flow ใน Pressure Support Mode หากผู้ป่วยมี Flow ที่ลดลงจนถึงค่า % ที่ตั้งไว้ เครื่องจะหยุดการจ่ายอากาศ แล้วเปลี่ยนเป็นช่วงหายใจออก',
+        'Set Limitation of High Inspire Tidal Volume คือการกำหนดค่าปริมาตรอากาศสูงสุดในการหายใจเข้าหนึ่งครั้ง ที่เครื่องจะยอมรับได้หากปริมาตรอากาศหายใจเข้าของผู้ป่วยสูงกว่าค่าที่กำหนด เครื่องจะหยุดการจ่ายอากาศเพิ่ม และจะไม่มีการจ่ายแรงดันเพิ่มขึ้นไปอีก <br/> <b><u>หมายเหตุ</u></b> จะพบพารามิเตอร์นี้ใน Volume Support Mode',
         'Tidal Volume คือปริมาตรของอากาศในช่วงหายใจเข้าหนึ่งครั้ง',
-        'Plateau Time คือเวลาที่กำหนดเพิ่มเติมในช่วงหายใจเข้า โดยช่วงเวลาดังกล่าวเครื่องจะไม่มีการจ่ายอากาศเข้าสู่ปอด',
         'Peak Inspiratory Flow คืออัตราการไหลสูงสุดของอากาศในช่วงหายใจเข้า',
+        'Plateau Time คือเวลาที่กำหนดเพิ่มเติมในช่วงหายใจเข้า โดยช่วงเวลาดังกล่าวเครื่องจะไม่มีการจ่ายอากาศเข้าสู่ปอด',
         'Ramp Flow Pattern คือรูปแบบของการจ่ายอากาศใน Volume Control Mode โดยมีอัตราการไหลของอากาศสูงสุดในช่วงแรกของการหายใจเข้า หลังจากนั้นอัตราการไหลของอากาศจะลดลงอย่างช้าๆจนผู้ป่วยเข้าสู่การหายใจออก',
-        'Square Flow Pattern Patternคือรูปแบบของการจ่ายอากาศใน Volume Control Mode โดยมีอัตราการไหลของอากาศคงที่ตลอดในช่วงระยะเวลาหายใจเข้า',
+        'Square Flow Pattern Pattern คือรูปแบบของการจ่ายอากาศใน Volume Control Mode โดยมีอัตราการไหลของอากาศคงที่ตลอดในช่วงระยะเวลาหายใจเข้า',
         'Spontaneous Inspiratory Time Limit คือพารามิเตอร์ที่อยู่ใน NIV Mode เป็นการกำหนดระยะเวลาการหายใจเข้าสูงสุด หากผู้ป่วยไม่มีการหายใจออกก่อนหน้าเวลาที่กำหนด เครื่องจะตัดการจ่ายอากาศเป็นการหายใจออกตามระยะเวลา T SPONT ที่ได้กำหนดไว้',
-        'Disconnect Sensitivity เป็นการกำหนดอัตราการไหลของอากาศที่หายไป หากปริมาตรของอากาศที่หายไปใน 1 นาทีสูงกว่าค่าที่กำหนดเครื่องช่วยหายใจจะแจ้งเตือนเป็น CIRCUIT DISCONNECT',
-        'Constant Flow Flowคือพารามิเตอร์ใน High flow oxygen therapy โดยเป็นการกำหนดอัตราการไหลของอากาศเข้าสู่ผู้ป่วย',        
+        'Disconnect Sensitivity เป็นการกำหนดอัตราการไหลของอากาศที่หายไป หากปริมาตรของอากาศที่หายไปใน 1 นาทีสูงกว่าค่าที่กำหนดเครื่องช่วยหายใจจะแจ้งเตือนเป็น "CIRCUIT DISCONNECT"',
+        'Constant Flow Flow คือพารามิเตอร์ใน High Flow Oxygen Therapy โดยเป็นการกำหนดอัตราการไหลของอากาศเข้าสู่ผู้ป่วย',        
     ]
+    
     const handlePreviosStep = () => {
         if (stepCount-1 >= 0) {
             setStepCount(stepCount-1);
@@ -445,11 +446,11 @@ export default function VentInto() {
                                                         L/min
                                                     </div>
                                                 </div>
-                                            </td>
+                                            </td>                                            
                                             <td>
                                                 <div id='btn24' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>
-                                                        E<sub>SYNC</sub>
+                                                        I<sub>SYNC</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
                                                     <span className={styles.s0}></span>
@@ -462,7 +463,7 @@ export default function VentInto() {
                                             <td>
                                                 <div id='btn25' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>
-                                                        I<sub>SYNC</sub>
+                                                        E<sub>SYNC</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
                                                     <span className={styles.s0}></span>
@@ -488,13 +489,13 @@ export default function VentInto() {
                                             <td>
                                                 <div id='btn27' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>
-                                                        P<sub>I</sub>
+                                                        f
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        15
+                                                        10
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
-                                                        cmH<sub>2</sub>O
+                                                        1/min
                                                     </div>
                                                 </div>
                                             </td>
@@ -646,10 +647,10 @@ export default function VentInto() {
                                             <td>
                                                 <div id='btn32' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>
-                                                        T<sub>L</sub>
+                                                        T<sub>I</sub>
                                                     </div>
                                                     <div className={styles.btnsLineMid}>
-                                                        5.16
+                                                        0.84
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
                                                         S
@@ -797,7 +798,7 @@ export default function VentInto() {
                                                         3.0
                                                     </div>
                                                     <div className={styles.btnsLineBot}>
-                                                        Squre
+                                                        S
                                                     </div>
                                                 </div>
                                             </td>
@@ -952,9 +953,10 @@ export default function VentInto() {
                     <div className={styles.introduction_box_close} onClick={handleIntroductionClose}>
                         X
                     </div>
-                    <p>
+                    {/* <p>
                         {introductionText}      
-                    </p>
+                    </p> */}
+                    <p dangerouslySetInnerHTML={{ __html: introductionText }} />
                     <div id='btnGroup' className={styles.btnGroup}>
                         <button id='btnFinish' className={styles.btnItem_finish} onClick={handleFinish}>
                             FINISH 

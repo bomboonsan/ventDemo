@@ -20,39 +20,53 @@ export default function HomeAlert() {
         }
     }, [missions]);
 
-    const [seconds, setSeconds] = useState(0);
-    const [minutes, setMinutes] = useState(0);
+
+    const [startTime, setStartTime] = useState(null);
     useEffect(() => {
-        const { timer } = router.query;
-        if (timer === null || timer === undefined) {
+        const { start } = router.query;
+        if (start === null || start === undefined) {
         // Handle when 'timer' is null or undefined
         console.log('timer is null or undefined');      
         router.push('/trouble-shooting/case1-step1')
         } else {
         // Handle when 'timer' has a value
-        console.log('timer:', timer);
         }
-        setSeconds(Number(timer))
-
-        const interval = setInterval(() => {
-          setSeconds((prevSeconds) => prevSeconds + 1);
-        }, 1000);
-    
-        return () => clearInterval(interval);
+        setStartTime(start)
     }, []);
+
+    // const [seconds, setSeconds] = useState(0);
+    // const [minutes, setMinutes] = useState(0);
+    // useEffect(() => {
+    //     const { timer } = router.query;
+    //     if (timer === null || timer === undefined) {
+    //     // Handle when 'timer' is null or undefined
+    //     console.log('timer is null or undefined');      
+    //     router.push('/trouble-shooting/case1-step1')
+    //     } else {
+    //     // Handle when 'timer' has a value
+    //     console.log('timer:', timer);
+    //     }
+    //     setSeconds(Number(timer))
+
+    //     const interval = setInterval(() => {
+    //       setSeconds((prevSeconds) => prevSeconds + 1);
+    //     }, 1000);
     
-    useEffect(() => {
-        if (seconds === 60) {
-            setSeconds(0);
-            setMinutes((prevMinutes) => prevMinutes + 1);
-        }
-    }, [seconds]);
+    //     return () => clearInterval(interval);
+    // }, []);
+    
+    // useEffect(() => {
+    //     if (seconds === 60) {
+    //         setSeconds(0);
+    //         setMinutes((prevMinutes) => prevMinutes + 1);
+    //     }
+    // }, [seconds]);
 
     function handleStart() {
         setisStart(true);
     }
     function handleFinish() {
-        router.push('/quiz/trouble-shooting-case1-2?timer='+seconds)
+        router.push('/quiz/trouble-shooting-case1-2?start='+startTime)
     }
     function closeBox() {
         setShowElement('')

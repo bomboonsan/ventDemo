@@ -13,33 +13,46 @@ export default function HomeAlert() {
 
     const [missions, setMissions] = useState([]);
 
-    const [seconds, setSeconds] = useState(0);
-    const [minutes, setMinutes] = useState(0);
+    const [startTime, setStartTime] = useState(null);
     useEffect(() => {
-        const { timer } = router.query;
-        if (timer === null || timer === undefined) {
+        const { start } = router.query;
+        if (start === null || start === undefined) {
         // Handle when 'timer' is null or undefined
         console.log('timer is null or undefined');      
         router.push('/trouble-shooting/case2-step1')
         } else {
         // Handle when 'timer' has a value
-        console.log('timer:', timer);
         }
-        setSeconds(Number(timer))
-        
-        const interval = setInterval(() => {
-          setSeconds((prevSeconds) => prevSeconds + 1);
-        }, 1000);
-    
-        return () => clearInterval(interval);
+        setStartTime(start)
     }, []);
+
+    // const [seconds, setSeconds] = useState(0);
+    // const [minutes, setMinutes] = useState(0);
+    // useEffect(() => {
+    //     const { timer } = router.query;
+    //     if (timer === null || timer === undefined) {
+    //     // Handle when 'timer' is null or undefined
+    //     console.log('timer is null or undefined');      
+    //     router.push('/trouble-shooting/case2-step1')
+    //     } else {
+    //     // Handle when 'timer' has a value
+    //     console.log('timer:', timer);
+    //     }
+    //     setSeconds(Number(timer))
+        
+    //     const interval = setInterval(() => {
+    //       setSeconds((prevSeconds) => prevSeconds + 1);
+    //     }, 1000);
     
-    useEffect(() => {
-        if (seconds === 60) {
-            setSeconds(0);
-            setMinutes((prevMinutes) => prevMinutes + 1);
-        }
-    }, [seconds]);
+    //     return () => clearInterval(interval);
+    // }, []);
+    
+    // useEffect(() => {
+    //     if (seconds === 60) {
+    //         setSeconds(0);
+    //         setMinutes((prevMinutes) => prevMinutes + 1);
+    //     }
+    // }, [seconds]);
 
     useEffect(() => {
         if (missions.includes("Patient_1") && missions.includes("Patient_2") && missions.includes("Patient_3") && !missions.includes("Patient")) {
@@ -53,7 +66,7 @@ export default function HomeAlert() {
     }
     function handleFinish() {
         // router.push('/trouble-shooting/success2')
-        router.push('/trouble-shooting/success2/?timer='+seconds)
+        router.push('/trouble-shooting/success2/?start='+startTime)
     }
     function closeBox() {
         setShowElement('')
@@ -435,7 +448,7 @@ export default function HomeAlert() {
     const CircuitsAlertBox2 = () => {
         return (
             <div className={styles.alertBox}>
-                <div className={styles.alertClose} onClick={closeBox}>
+                <div className={styles.alertClose} onClick={() => {closeBox() ; setCircuitsAlertBoxStep(0)}}>
                     X
                 </div>
                 <div className={styles.alertText}>
@@ -571,7 +584,7 @@ export default function HomeAlert() {
     const CloseSuctionAlertBox = () => {
         return (
             <div className={styles.alertBox}>
-                <div className={styles.alertClose} onClick={closeBox}>
+                <div className={styles.alertClose} onClick={() => {closeBox ; setCloseSuctionAlertStep(0)}}>
                     X
                 </div>
                 {/* <div className={styles.alertText}>
@@ -590,7 +603,7 @@ export default function HomeAlert() {
                 </div> */}
                 <div className={styles.alertText}>
                 <p>
-                ตรวจไม่พบลมรั่ว
+                ตรวจไม่พบลมรั่วบริเวณ Close suction
                 </p>
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={closeBox}>

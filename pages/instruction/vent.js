@@ -14,12 +14,12 @@ export default function Intruction_1() {
     
     const router = useRouter()
     const [instructionStep, setInstructionStep] = useState(1);
-    const [instructionText, setInstructionText] = useState('ในหัวข้อนี้ ท่านสามารถทำความรู้จักความหมายของพารามิเตอร์ของเครื่องช่วยหายใจ ในโหมด Set up Ventilator');
+    const [instructionText, setInstructionText] = useState('ในหัวข้อนี้ ท่านสามารถทำความรู้จักความหมายของพารามิเตอร์ของเครื่องช่วยหายใจ ในโหมด Set Up Ventilator');
     const handleClick = () => {
         console.log('click')
         setInstructionStep(instructionStep+1)
         if (instructionStep == 1) {
-            setInstructionText('คำอธิบายต่างๆจะแสดงบริเวณด้านล่างของหน้าต่าง Set up ท่านสามารถดูคำอธิบายไปตามลำดับโดย กดปุ่ม NEXT เพื่อเดินหน้า กดปุ่ม Previous เพื่อย้อนกลับ หรือหากท่านต้องการทราบคำอธิบายของพารามิเตอร์ ท่านสามารถกดไปที่ค่าต่างๆได้โดยตรง')
+            setInstructionText('คำอธิบายต่างๆจะแสดงบริเวณด้านล่างของหน้าต่าง Set up ท่านสามารถดูคำอธิบายไปตามลำดับโดย <br/> กดปุ่ม NEXT เพื่อเดินหน้า <br/> กดปุ่ม Previous เพื่อย้อนกลับ หรือหากท่านต้องการทราบคำอธิบายของพารามิเตอร์ ท่านสามารถกดไปที่ค่าต่างๆได้โดยตรง')
         }
         if (instructionStep == 2) {
             setInstructionText('หมายเหตุ: โปรแกรมนี้จัดจำลองขึ้นเพื่อให้ท่านได้รู้จักความหมายของพารามิเตอร์ต่างๆ โปรดศึกษาเพิ่มเติมในหัวข้อถัดไปสำหรับการใช้งานเครื่องจริง')
@@ -69,9 +69,10 @@ export default function Intruction_1() {
                                     <div className={styles.content_container}>
                                         <div className={styles.contenn_wrap}>
                                             <h2>Instruction</h2>
-                                            <p>
+                                            {/* <p>
                                                 {instructionText}
-                                            </p>
+                                            </p> */}
+                                            <p dangerouslySetInnerHTML={{ __html: instructionText }} />
                                         </div>
                                     </div>  
                                 </div>

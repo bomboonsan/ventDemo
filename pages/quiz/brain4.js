@@ -74,13 +74,13 @@ export default function Main_menu() {
                 <div className={styles.quiz_item} onClick={ansWorng}>
                   <p>เพิ่มขนาดยาหย่อนกล้ามเนื้อ</p>
                 </div>
-                <div className={styles.quiz_item} onClick={ansCorrect}>
-                  <p>ตรวจสอบระดับเฟสของ TTM <br/>
-                    (Cooling phase หรือ Rewarm phase)</p>
-                </div>
                 <div className={styles.quiz_item} onClick={ansWorng}>
                   <p>ตรวจสอบ Arterial Blood Gas</p>
                 </div>
+                <div className={styles.quiz_item} onClick={ansCorrect}>
+                  <p>ตรวจสอบระดับเฟสของ TTM <br/>
+                    (Cooling phase หรือ Rewarm phase)</p>
+                </div>                
                 <div className={styles.quiz_item} onClick={ansWorng}>
                   <p>สังเกตอาการต่อ โดยไม่ทำการรักษาเพิ่มเติม</p>
                 </div>

@@ -1,5 +1,5 @@
 import styles from './trouble-shooting.module.scss'
-import { useState, useEffect } from 'react';
+import { useState, useEffect , useMemo  } from 'react';
 import Image from 'next/image'
 import Link from "next/link";
 import { useRouter } from 'next/router'
@@ -19,6 +19,10 @@ export default function HomeAlert() {
     //     } 
     // }, [missions]);
 
+    const [startTime, setStartTime] = useState(null);
+    // const [finishTime, setFinishTime] = useState(null);
+
+
     // const [seconds, setSeconds] = useState(0);
     // const [minutes, setMinutes] = useState(0);
     // useEffect(() => {
@@ -37,6 +41,11 @@ export default function HomeAlert() {
     //     }
     // }, [seconds]);
 
+    useEffect(() => {
+        // ตั้งค้่าเวลาเริ่มต้นเล่น
+        setStartTime(Date.now())
+    }, []);
+
     function handleStart() {
         setisStart(true);
     }
@@ -54,7 +63,13 @@ export default function HomeAlert() {
             // console.log('Next')
             // router.push('/quiz/trouble-shooting-case1-1')
             // router.push('/quiz/trouble-shooting-case1-1?timer='+seconds)
-            router.push('/quiz/trouble-shooting-case1-1?timer=30')
+
+
+            // router.push('/quiz/trouble-shooting-case1-1?timer=30')
+            // router.push('/quiz/trouble-shooting-case1-1?timer='+timeToPlay)
+            router.push('/quiz/trouble-shooting-case1-1?start='+startTime)
+
+            
         }
 
 
@@ -301,16 +316,16 @@ export default function HomeAlert() {
             //     </button>
             // </div>
 
-            // <ReactPlayer 
-            // className={styles.alertYoutube}
-            // url={urlYoutube}
-            // playing={playingYoutube} 
-            // onEnded={resetYoutube}
-            // controls={true}
-            // width="100%"
-            // height="40px"
-            // />
-            <></>
+            <ReactPlayer 
+            className={styles.alertYoutube}
+            url={urlYoutube}
+            playing={playingYoutube} 
+            onEnded={resetYoutube}
+            controls={true}
+            width="100%"
+            height="40px"
+            />
+            // <></>
         )
     }
 
@@ -524,7 +539,7 @@ export default function HomeAlert() {
             {isStart && <PatientElement />}
             {showElement=='Patient' && patientAlertStep==1 && <PatientAlertBox1 />}
             {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox2 />}
-            {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox3 />}
+            {/* {showElement=='Patient' && patientAlertStep==2 && <PatientAlertBox3 />} */}
             {showElement=='Patient' && patientAlertStep==4 && <PatientAlertBox4 />}
             {showElement=='Patient' && patientAlertStep==5 && <PatientAlertBox5 />}
             {/* {showElement=='Patient' && patientAlertStep==3 && <PatientAlertBox3 />} */}
