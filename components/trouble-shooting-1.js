@@ -338,7 +338,7 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                     <p>
-                    พบเสมหะใน tube เป็นจำนวนมาก
+                    พบเสมหะใน Tube เป็นจำนวนมาก
                     </p>                    
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_2') ; setPlayingYoutube(false) ; setPatient1(true) }}>
@@ -448,7 +448,7 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                 <p>
-                    ไม่มีน้ำใน ventilator circuits <br/>
+                    ไม่มีน้ำใน Ventilator Circuits <br/>
                     (ไม่มี Condensate)
                 </p>
                 </div>
@@ -520,7 +520,7 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                 <p>
-                ตรวจพบเสมหะใน close suction จำนวนมาก
+                ตรวจพบเสมหะใน Close Suction จำนวนมาก
                 </p>
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={closeBox}>

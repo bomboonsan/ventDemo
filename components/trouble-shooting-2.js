@@ -456,7 +456,7 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                 <p>
-                    ไม่มีน้ำใน ventilator circuits <br/>
+                    ไม่มีน้ำใน Ventilator Circuits <br/>
                     (ไม่มี Condensate)
                 </p>
                 </div>
@@ -538,7 +538,7 @@ export default function HomeAlert() {
                         </div>
                         <div>
                             <button className={styles.alertSubmitBtn2} onClick={() => {handleMission('CloseSuction') ; setCloseSuctionAlertStep(3)}}>
-                                ตรวจดูตำแหน่งสาย suction
+                                ตรวจดูตำแหน่งสาย Suction
                             </button>
                         </div>
                 </div>

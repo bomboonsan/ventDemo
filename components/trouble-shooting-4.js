@@ -281,7 +281,7 @@ export default function HomeAlert() {
                     <div className={styles.d_flex}>
                         <div>
                             <button className={styles.alertSubmitBtn2} onClick={() =>  {closeBox ; setPatientAlertStep(6)}}>
-                            Inflate ลมกลับเข้าไปใน cuff
+                            Inflate ลมกลับเข้าไปใน Cuff
                             </button>
                         </div>
                         <div>
@@ -340,7 +340,7 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                     <p>
-                    กลับไปกด ตรวจสอบอุปกรณ์โดย Cuff pressure gauge
+                    กลับไปกด ตรวจสอบอุปกรณ์โดย Cuff Pressure Gauge
                     </p>                    
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_4') ; setIsFinishPatient(true) ; setPlayingYoutube(false)}}>
@@ -448,12 +448,12 @@ export default function HomeAlert() {
                     <div className={styles.d_flex}>
                             <div>
                                 <button className={styles.alertSubmitBtn2} onClick={() => {handleMission('Circuits') ; setCircuitsAlertBoxStep(2)}}>
-                                ตรวจสอบการรั่ว ventilator circuits
+                                ตรวจสอบการรั่ว Ventilator Circuits
                                 </button>
                             </div>
                             <div>
                                 <button className={styles.alertSubmitBtn2} onClick={() => {handleMission('Circuits') ; setCircuitsAlertBoxStep(2)}}>
-                                เปลี่ยน ventilator circuits
+                                เปลี่ยน Ventilator Circuits
                                 </button>
                             </div>
                     </div>
@@ -472,7 +472,7 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                 <p>
-                ไม่มีการรั่วของ Ventilator circuits
+                ไม่มีการรั่วของ Ventilator Circuits
                 </p>
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={() => {closeBox() ; setCircuitsAlertBoxStep(0)}}>
@@ -622,7 +622,7 @@ export default function HomeAlert() {
                 </div> */}
                 <div className={styles.alertText}>
                 <p>
-                ตรวจไม่พบลมรั่วบริเวณ Close suction
+                ตรวจไม่พบลมรั่วบริเวณ Close Suction
                 </p>
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={closeBox}>
@@ -640,7 +640,7 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                 <p>
-                ไม่มีการรั่วของ Ventilator circuits
+                ไม่มีการรั่วของ Ventilator Circuits
                 </p>
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={closeBox}>
