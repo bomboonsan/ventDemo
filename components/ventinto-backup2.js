@@ -473,7 +473,6 @@ export default function VentInto() {
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td></td>
                                             <td>
                                                 <div id='btn26' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>
@@ -671,7 +670,6 @@ export default function VentInto() {
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td></td>
                                             <td>
                                                 <div id='btn34' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>
@@ -791,7 +789,6 @@ export default function VentInto() {
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td></td>
                                             <td>
                                                 <div id='btn43' className={styles.btn_setting} onClick={handleShowIntroduction}>
                                                     <div className={styles.btnsLineTop}>

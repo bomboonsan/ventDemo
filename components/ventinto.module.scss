@@ -360,7 +360,8 @@ $fontBtnNumber: 150%; // 1rem
     overflow: hidden;
     // opacity: 0;
     td {
-        width: 12.5%;
+        // width: 12.5%;
+        width: 10%;
         font-size: $fontTD/1.2;
     }
     .btn_setting {

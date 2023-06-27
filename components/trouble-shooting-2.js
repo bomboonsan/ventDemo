@@ -112,14 +112,16 @@ export default function HomeAlert() {
     const PatientElement = () => {
         return (
             <div className={styles.patientElement}>     
-                {missions.includes("Patient") &&
+                {/* {missions.includes("Patient") &&
                 <div className={styles.checkedIconElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>
                 </div>                
                 }
                 {!missions.includes("Patient") &&
                 <div className={styles.alertIconElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>
-                </div>                
-                }                     
+                </div>
+                }        */}
+                <div className={styles.alertIconElement} onClick={() => {setPatientAlertStep(1) ; setShowElement('Patient')}}>
+                </div>              
             </div>
         )
     }
@@ -363,14 +365,16 @@ export default function HomeAlert() {
     const VentilatorElement = () => {
         return (
             <div className={styles.ventilatorElement}>        
-                {missions.includes("Ventilator") &&
+                {/* {missions.includes("Ventilator") &&
                 <div className={styles.checkedIconElement} onClick={() => {setPlayingVent(true) ; setShowElement('Ventilator') ; handleMission('Ventilator')}}>
                 </div>                
                 }
                 {!missions.includes("Ventilator") &&
                 <div className={styles.alertIconElement} onClick={() => {setPlayingVent(true) ; setShowElement('Ventilator') ; handleMission('Ventilator')}}>
                 </div>                
-                }       
+                }     */}
+                <div className={styles.alertIconElement} onClick={() => {setPlayingVent(true) ; setShowElement('Ventilator') ; handleMission('Ventilator')}}>
+                </div>    
             </div>
         )
     }
