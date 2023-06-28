@@ -66,7 +66,7 @@ export default function VentInto() {
         'การใช้เครื่องช่วยหายใจโดยไม่ผ่านท่อช่วยหายใจ <br/> <b><u>หมายเหตุ</u></b> โดยอาจใช้หน้ากากครอบจมูกและปาก เป็น Interface ในการช่วยหายใจแทน',
         'การช่วยหายใจโดยการบำบัดด้วยออกซิเจนที่มีอัตราการไหลสูง (High Flow Oxygen Therapy)',
         'Assist - Control Mode คือ โหมดที่ผสมผสานระหว่าง Assist และ Control โดยผู้ป่วยสามารถช่วยกำหนดจุดเริ่มต้นของการหายใจเข้าได้เอง (Assist Mode ) และหากผู้ป่วยไม่มีการหายใจ เครื่องสามารถจะจ่ายอากาศในการช่วยหายใจให้ผู้ป่วยได้ (Control Mode)',
-        'Synchronous Intermittent Mandatory Ventilation Mode คือโหมดที่ผู้ป่วยหายใจเอง (Spontaneous Mode) สลับกับการหายใจจากเครื่องตามที่ตั้งไว้ ในลักษณะที่เป็น Assist และ Control',
+        'Synchronous Intermittent Mandatory Ventilation Mode คือโหมดที่ผู้ป่วยหายใจเอง (Spontaneous Mode) สลับกับการหายใจจากเครื่องตามที่ตั้งไว้ ในลักษณะที่เป็น Assist หรือ Control',
         'Spontaneous Mode คือโหมดช่วยหายใจ โดยผู้ป่วยเป็นผู้กำหนดอัตรการหายใจ Inspiratory Time และ Tidal Volume ด้วยตัวเอง     ',
         'Bilevel ventilator คือโหมดที่สามารถหายใจบนแรงดันบวก 2 ระดับ ',
         'Continuous Positive Airway Pressure Mode คือโหมดที่จะปรากฏขึ้นเมื่อเลือกใช้บ NIV Mode เป็นการช่วยหายใจ โดยเครื่องจ่ายแรงดันบวกให้ในระดับเดียวตลอด Respiratory Cycle โดยผู้ป่วยหายใจบนแรงดันบวกนั้น ',
