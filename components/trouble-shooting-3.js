@@ -334,7 +334,7 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                     <p>
-                    ความดันที่วัดได้อยู่ที่ 5 cm/H<sub>2</sub>O
+                    Cuff Pressure ที่วัดได้อยู่ที่ 5 cm/H<sub>2</sub>O
                     </p>                    
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_3') ; setPlayingYoutube(false) ; setPatient3(true)}}>

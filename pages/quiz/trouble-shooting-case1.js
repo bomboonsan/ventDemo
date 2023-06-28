@@ -328,7 +328,7 @@ export default function Main_menu() {
               </div>
               <div className='mt-5'></div>
               <p className={styles.quiz_title3}>
-                Tidal Volume มีค่าเท่ากับ <input type="number" className={styles.inline_input} placeholder='ระบุค่าเป็นตัวเลข' onChange={handleInputChange1} />
+                Inhale Tidal Volume มีค่าเท่ากับ <input type="number" className={styles.inline_input} placeholder='ระบุค่าเป็นตัวเลข' onChange={handleInputChange1} />
               </p>
               <p className={styles.quiz_title3}>
                 และ Exhale tidal volume มีค่าเท่ากับ <input type="number" className={styles.inline_input} placeholder='ระบุค่าเป็นตัวเลข' onChange={handleInputChange2} />

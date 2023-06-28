@@ -72,7 +72,7 @@ export default function VentInto() {
         'Continuous Positive Airway Pressure Mode คือโหมดที่จะปรากฏขึ้นเมื่อเลือกใช้บ NIV Mode เป็นการช่วยหายใจ โดยเครื่องจ่ายแรงดันบวกให้ในระดับเดียวตลอด Respiratory Cycle โดยผู้ป่วยหายใจบนแรงดันบวกนั้น ',
         'Pressure Control Mode ',
         'Volume Control Mode',
-        'Volume Control Plus Mode หรือPressure Regulated Volume Control Mode (PRVC Mode)',
+        'Volume Control Plus Mode หรือ Pressure Regulated Volume Control Mode (PRVC Mode)',
         'Pressure Support Mode ',
         'Tube Compensation Mode',
         'Volume Support Mode',
@@ -97,7 +97,7 @@ export default function VentInto() {
         // 'Pressurization Slope คือการตั้งอัตราการไหลของอากาศขณะหายใจเข้าใน Pressure Target Mode หน่วยเป็น % <br/> <b><u>หมายเหตุ</u></b> ค่า % สูง แสดงว่าอัตราการไหลของอากาศเร็วเพื่อให้ถึงค่าแรงดันที่กำหนด และ ค่า % ต่ำ แสดงว่าอัตราการไหลของอากาศช้าเพื่อให้ถึงค่าแรงดันที่กำหนด  ',
         'Pressurization Slope คือการตั้งค่าเพื่อกำหนดความเร็วในการจ่ายแรงดันของเครื่องจนถึง Pressure Target Mode หน่วยเป็น % <br/> <b><u>หมายเหตุ</u></b> ค่า % สูง แสดงว่าอัตราการไหลของอากาศเร็วเพื่อให้ถึงค่าแรงดันที่กำหนด และ ค่า % ต่ำ แสดงว่าอัตราการไหลของอากาศช้าเพื่อให้ถึงค่าแรงดันที่กำหนด  ',
         'Expiratory Sensitivity Sensitivity คือระดับความไวในการหายใจออก โดยเป็นการกำหนด % ของ Peak Inspiration Flow ใน Pressure Support Mode หากผู้ป่วยมี Flow ที่ลดลงจนถึงค่า % ที่ตั้งไว้ เครื่องจะหยุดการจ่ายอากาศ แล้วเปลี่ยนเป็นช่วงหายใจออก',
-        'Set Limitation of High Inspire Tidal Volume คือการกำหนดค่าปริมาตรอากาศสูงสุดในการหายใจเข้าหนึ่งครั้ง ที่เครื่องจะยอมรับได้ หากปริมาตรอากาศหายใจเข้าของผู้ป่วยมากกว่าหรือเท่ากับค่าที่กำหนด เครื่องจะหยุดการจ่ายอากาศเพิ่ม และจะไม่มีการจ่ายแรงดันเพิ่มขึ้นไปอีก <br/> <b><u>หมายเหตุ</u></b> จะพบพารามิเตอร์นี้ใน Volume Support Mode',
+        'Set Limitation of High Inspire Tidal Volume คือการกำหนดค่าปริมาตรลมสูงสุดในการหายใจเข้าหนึ่งครั้ง ที่เครื่องจะยอมรับได้ หากปริมาตรอากาศของผู้ป่วยมากกว่าหรือเท่ากับค่าที่กำหนด เครื่องจะหยุดการจ่ายลมเพิ่ม และจะไม่มีการจ่ายแรงดันเพิ่มขึ้นไปอีก <br/> <b><u>หมายเหตุ</u></b> จะพบพารามิเตอร์นี้ใน Volume Support Mode',
         'Tidal Volume คือปริมาตรของอากาศในช่วงหายใจเข้าหนึ่งครั้ง',
         'Peak Inspiratory Flow คืออัตราการไหลสูงสุดของอากาศในช่วงหายใจเข้า',
         'Plateau Time คือเวลาที่กำหนดเพิ่มเติมในช่วงหายใจเข้า โดยช่วงเวลาดังกล่าวเครื่องจะไม่มีการจ่ายอากาศเข้าสู่ปอด',
@@ -284,7 +284,7 @@ export default function VentInto() {
                                 </div>
                                 <div className={styles.heightBox}>
                                     <div id='btn2' className={styles.btn_setting_up} onClick={handleShowIntroduction}>
-                                        <div className={styles.btnsLineMid}>150</div>
+                                        <div className={styles.btnsLineMid}>152</div>
                                         <div className={styles.btnsLineTop}>cm</div>
                                         <div className={styles.btnsLineBot}>(59.8in)</div>
                                     </div>
