@@ -57,9 +57,9 @@ export default function VentInto() {
     }
 
     let listInstructionText = [      
-        'เริ่มต้นการตั้งค่าด้วยการใส่น้ำหนัก Ideal Body Weight Weight (Predicted Body Weight by Height) ของผู้ป่วย หรือเลือกเพศ และใส่ส่วนสูง เพื่อคำนวณเป็น Predicted Body weight อัตโนมัติ',              
-        'เริ่มต้นการตั้งค่าด้วยการใส่น้ำหนัก Ideal Body Weight Weight (Predicted Body Weight by Height) ของผู้ป่วย หรือเลือกเพศ และใส่ส่วนสูง เพื่อคำนวณเป็น Predicted Body weight อัตโนมัติ',              
-        'เริ่มต้นการตั้งค่าด้วยการใส่น้ำหนัก Ideal Body Weight Weight (Predicted Body Weight by Height) ของผู้ป่วย หรือเลือกเพศ และใส่ส่วนสูง เพื่อคำนวณเป็น Predicted Body weight อัตโนมัติ',              
+        'เริ่มต้นการตั้งค่าด้วยการใส่น้ำหนัก Ideal Body Weight (Predicted Body Weight by Height) ของผู้ป่วย หรือเลือกเพศ และใส่ส่วนสูง เพื่อคำนวณเป็น Predicted Body weight อัตโนมัติ',              
+        'เริ่มต้นการตั้งค่าด้วยการใส่น้ำหนัก Ideal Body Weight (Predicted Body Weight by Height) ของผู้ป่วย หรือเลือกเพศ และใส่ส่วนสูง เพื่อคำนวณเป็น Predicted Body weight อัตโนมัติ',              
+        'เริ่มต้นการตั้งค่าด้วยการใส่น้ำหนัก Ideal Body Weight (Predicted Body Weight by Height) ของผู้ป่วย หรือเลือกเพศ และใส่ส่วนสูง เพื่อคำนวณเป็น Predicted Body weight อัตโนมัติ',              
         // 'เริ่มต้นเลือกเพศของผู้ป่วย เราสามารถกำหนด Predicted body weight โดยการกำหนดผ่านส่วนสูงได้',          
         
         'การใช้เครื่องช่วยหายใจผ่านท่อช่วยหายใจ (Endotracheal Tube) หรือท่อเจาะคอ (Tracheostomy Tube)',
@@ -249,7 +249,7 @@ export default function VentInto() {
                                     <div id='btn3' className={styles.btn_setting_up} onClick={handleShowIntroduction}>
                                         <div className={styles.btnsLineMid}>50</div>
                                         <div className={styles.btnsLineTop}>kg</div>
-                                        <div className={styles.btnsLineBot}>(110)</div>
+                                        <div className={styles.btnsLineBot}>(110lb)</div>
                                     </div>
                                 </div>
                                 <div className={styles.orBox}>
