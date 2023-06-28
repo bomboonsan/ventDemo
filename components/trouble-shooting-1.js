@@ -356,7 +356,8 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                     <p>
-                    ความดันที่วัดได้อยู่ที่ 25 cm/H2O
+                    {/* ความดันที่วัดได้อยู่ที่ 25 cm/H2O */}
+                    Cuff Pressure ที่วัดได้อยู่ที่ 25 cm/H<sub>2</sub>O
                     </p>                    
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={() =>  {closeBox() ; handleMission('Patient_3') ; setPlayingYoutube(false)  ; setPatient3(true)}}>
@@ -520,7 +521,7 @@ export default function HomeAlert() {
                 </div>
                 <div className={styles.alertText}>
                 <p>
-                ตรวจพบเสมหะใน Close Suction จำนวนมาก
+                    ตรวจพบเสมหะใน Close Suction จำนวนมาก
                 </p>
                 </div>
                 <button className={styles.alertSubmitBtn} onClick={closeBox}>
@@ -554,8 +555,8 @@ export default function HomeAlert() {
             {showElement=='Tube' && <TubeAlertBox />} */}
             
 
-            {isStart && <CloseSuctionElement />}
-            {showElement=='CloseSuction' && <CloseSuctionAlertBox />}
+            {/* {isStart && <CloseSuctionElement />}
+            {showElement=='CloseSuction' && <CloseSuctionAlertBox />} */}
             
         </div>        
     )
