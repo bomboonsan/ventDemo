@@ -263,11 +263,12 @@ export default function Instruction() {
             <ReactPlayer 
               className={styles.video_item} 
               url={urlVideo}  
-              playing={playing} 
+              playing={playing}
               loop={true}
               onEnded={showBtnNextVideo}
               width='100%'
               height='100%'
+              muted={true}
             />
             <div className='text-center'>
               <button className={styles.btnSubmitGotit} onClick={handleGotit}>
