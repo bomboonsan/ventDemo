@@ -60,7 +60,7 @@ export default function Home() {
     // Fetch user data from API
     const fetchEventPwd = async () => {
       try {
-        // const response = await fetch('https://ventbackend.wish-integrate.com/event/all', {
+          // const response = await fetch('https://ventbackend.wish-integrate.com/event/all', {
           const response = await fetch('/api/login', {
           // headers: {
           //   Authorization: 'Bearer YOUR_ACCESS_TOKEN',
