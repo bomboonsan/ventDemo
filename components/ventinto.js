@@ -131,9 +131,17 @@ export default function VentInto() {
 
         if (stepCount >= 45) {
             removeActiveBtn(stepCount);
-            handleIntroductionClose()
-            // document.querySelector('#introductionBox')?.classList.add(styles['hidden']);
-            // router.push('/instruction/vent')
+            // edit
+            // handleIntroductionClose()
+        }
+
+        if (stepCount >= 44) {
+
+            document.querySelector('#btnPrevious').classList.add(styles['hidden']);
+
+            document.querySelector('#btnNext').classList.add(styles['hidden']);
+
+            document.querySelector('#btnFinish').classList.add(styles['showbtn']);
         }
     }
     const handleIntroductionClose = () => {
@@ -962,7 +970,7 @@ export default function VentInto() {
                         {introductionText}      
                     </p> */}
                     <p dangerouslySetInnerHTML={{ __html: introductionText }} />
-                    <div id='btnGroup' className={styles.btnGroup}>
+                    <div id='btnGroup' className={styles.btnGroup}>                        
                         <button id='btnFinish' className={styles.btnItem_finish} onClick={handleFinish}>
                             FINISH 
                         </button>
