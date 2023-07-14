@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@next/font": "^13.0.3",
+    "axios": "^1.4.0",
     "bootstrap": "5.2.2",
     "cordova-plugin-screen-orientation": "^3.0.3",
     "eslint": "8.27.0",

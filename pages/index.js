@@ -124,7 +124,7 @@ export default function Home() {
       </Head>
       <div className={styles.login_page}>
         <div className={styles.login_container}>
-          <h1>i-MEDucation TEST</h1>
+          <h1>i-MEDucation</h1>
           <p>{alertElement}</p>
           <input 
           className={styles.login_input} 
