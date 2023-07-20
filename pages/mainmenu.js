@@ -7,7 +7,9 @@ import Link from "next/link";
 import React, { useEffect, useState } from 'react';
 
 export default function menu3() {
-  
+  const handleMedUmore = () => {
+    window.open('https://www.medumore.org/','_blank')
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -79,7 +81,7 @@ export default function menu3() {
         </div>
         <div className={styles.col_item}>
           <div className={styles.card}>
-          <a href="https://www.medumore.org/" target='_blank'> 
+          <div onClick={handleMedUmore}> 
             <div className={styles.card_thumbnail}>
               <Image
                     className={styles.bisitem}
@@ -96,7 +98,7 @@ export default function menu3() {
               Med U More
               </p>
             </div>    
-            </a>           
+            </div>           
           </div>
         </div>
         {/* <div className={styles.col_item}>
