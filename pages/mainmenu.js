@@ -77,6 +77,28 @@ export default function menu3() {
             </Link>           
           </div>
         </div>
+        <div className={styles.col_item}>
+          <div className={styles.card}>
+          <a href="https://www.medumore.org/" target='_blank'> 
+            <div className={styles.card_thumbnail}>
+              <Image
+                    className={styles.bisitem}
+                    src="/images/medumore.jpg"
+                    alt="Ventilator"
+                    // layout="fill"
+                    // objectFit="cover"
+                    width={640}
+                    height={508}
+                />
+            </div>
+            <div className={styles.card_title}>
+              <p>
+              Med U More
+              </p>
+            </div>    
+            </a>           
+          </div>
+        </div>
         {/* <div className={styles.col_item}>
           <div className={styles.card}>
             <div className={styles.card_thumbnail}>
