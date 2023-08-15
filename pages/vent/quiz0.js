@@ -269,6 +269,8 @@ export default function Instruction() {
               width='100%'
               height='100%'
               muted={true}
+              controls
+              // muted={false}
             />
             <div className='text-center'>
               <button className={styles.btnSubmitGotit} onClick={handleGotit}>

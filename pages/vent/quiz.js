@@ -67,6 +67,22 @@ export default function Instruction() {
     cycling_variable : 'Time',
   }
 
+  var ansMode0_2 = {
+    mode : 'Pressure Control',
+    // mode: '',
+    triggering_variable : 'PatientMachine',
+    control_pressure_variable : 'Pressure',
+    cycling_variable : 'Time',
+  }
+
+  var ansMode1_2 = {
+    mode : 'Pressure Control',
+    // mode: '',
+    triggering_variable : 'MachinePatient',
+    control_pressure_variable : 'Pressure',
+    cycling_variable : 'Time',
+  }
+
   var ansMode2 = {
     mode : 'Volume Control',
     // mode: '',
@@ -161,7 +177,7 @@ export default function Instruction() {
       // const cycling_variable = dataSelector.cycling_variable
 
 
-      if (JSON.stringify(dataSelector) === JSON.stringify(ansMode0) || JSON.stringify(dataSelector) === JSON.stringify(ansMode1) || JSON.stringify(dataSelector) === JSON.stringify(ansMode2) || JSON.stringify(dataSelector) === JSON.stringify(ansMode3) || JSON.stringify(dataSelector) === JSON.stringify(ansMode4)) {
+      if (JSON.stringify(dataSelector) === JSON.stringify(ansMode0) || JSON.stringify(dataSelector) === JSON.stringify(ansMode1) || JSON.stringify(dataSelector) === JSON.stringify(ansMode0_2) || JSON.stringify(dataSelector) === JSON.stringify(ansMode1_2) || JSON.stringify(dataSelector) === JSON.stringify(ansMode2) || JSON.stringify(dataSelector) === JSON.stringify(ansMode3) || JSON.stringify(dataSelector) === JSON.stringify(ansMode4)) {
         console.log('ถูก')
 
         // setShowLottie(true)

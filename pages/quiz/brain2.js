@@ -25,12 +25,11 @@ export default function Main_menu() {
 
   const checkAns = () => {
     if (inputValue1.toLowerCase() == 'unconciousness' || inputValue2.toLowerCase() == 'patient movement'  || inputValue3.toLowerCase() == 'pain perception') {
-      router.push('/mainbrain')
+      // router.push('/mainbrain')
+      router.push('/success/brain')
     } else {
       router.push('/hint/brain-false')
-    }
-   
-    
+    }  
   }
 
   const ansCorrect = () => {
