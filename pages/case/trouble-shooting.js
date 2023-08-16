@@ -27,6 +27,9 @@ export default function CaseDetail() {
     marginLeft: 'auto',
     marginRight: 'auto',
   };
+  if (!playing) {
+    return
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -114,6 +117,8 @@ export default function CaseDetail() {
                             onEnded={reset}
                             width='100%'
                             height='100%'
+                            muted={true}
+                            controls
                             style={videoStyle}
                             />
                             <p className='text-center'>
