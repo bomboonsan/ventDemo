@@ -14,6 +14,7 @@ export default function Home() {
     let [ email , setEmail ] = useState('');
     let [ speciality , setSpeciality ] = useState('');
     let [ hostpital , setHostpital ] = useState('');
+    let [ event , setEvent ] = useState('');
 
 
     const handleSelectChange = (event) => {
@@ -40,7 +41,8 @@ export default function Home() {
                     "email": "${email}",
                     "speciality": "${speciality}",
                     "type": "Doctor",
-                    "hostpital": "${hostpital}"
+                    "hostpital": "${hostpital}",
+                    "event": "${event}"
                 }
             `,
         });
@@ -229,7 +231,7 @@ export default function Home() {
                             </select>
                         </div>
                     </div>
-                    <div className='row mb-5'>
+                    <div className='row mb-3'>
                         <div className='col-12'>
                             <input 
                             id='hospital'
@@ -239,6 +241,18 @@ export default function Home() {
                             onChange={e => setHostpital(e.target.value)}
                             className="form-control border-primary" 
                             placeholder="Hospital*" />
+                        </div>
+                    </div>
+                    <div className='row mb-5'>
+                        <div className='col-12'>
+                            <input 
+                            id='event'
+                            type="text" 
+                            value={event}
+                            name="event"
+                            onChange={e => setEvent(e.target.value)}
+                            className="form-control border-primary" 
+                            placeholder="event*" />
                         </div>
                     </div>
                     <div className='row mb-3'>
