@@ -245,6 +245,7 @@ export default function BrainVideo() {
             url={urlVideo}  
             playing={playing} 
             onEnded={showBtnNextVideo}
+            muted={true}
             width='100%'
             height='100%'
             />

@@ -102,6 +102,8 @@ export default function VentFinish() {
                 url={urlVideo}  
                 playing={playing} 
                 onEnded={endVideo}
+                muted={true}
+                // controls
                 width='100%'
                 height='100%'
                 loop={loop}

@@ -107,6 +107,8 @@ export default function CaseDetail() {
                   ref={playerRef}
                   loop={true}
                   onEnded={resetYoutube}
+                  muted={true}
+                  controls
                   width='100%'
                   height='100%'
                   />

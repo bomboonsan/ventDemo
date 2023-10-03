@@ -360,7 +360,7 @@ export default function Main_menu() {
 
             {stepQuiz.includes("3") &&   
             <div className='col-11 col-lg-8'>
-              <div className={styles.quiz_image}>
+              <div className={styles.quiz_image_2}>
               {/* <Image                  
                   src="/images/quiz-trouble1.png"
                   alt="Women"
@@ -402,7 +402,7 @@ export default function Main_menu() {
                   )}
                 </div>
               </div>
-              <div className='mt-5'></div>
+              <div className='mt-xl-5'></div>
               <h1 className={styles.quiz_title}>
               ลักษณะใดของกราฟที่บ่งชี้ว่าคนไข้มีโอกาสเกิด air trapping บ้าง
               </h1>
@@ -424,7 +424,7 @@ export default function Main_menu() {
                 </div>
               </div>
               <div className={styles.btn_area}>
-                  <div className={styles.btn_container}>
+                  <div className={styles.btn_container_2}>
                       <button className={styles.next_btn} onClick={checkAns}>
                       NEXT
                       </button>

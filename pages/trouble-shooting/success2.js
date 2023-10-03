@@ -88,7 +88,7 @@ export default function CaseDetail() {
             </div>
             <div className={styles.box_wrapper}>
               <div className={styles.video}>
-              <ReactPlayer 
+                <ReactPlayer 
                   onClick={onClickFullscreen}
                   className={styles.alertYoutube} 
                   url={urlYoutube}  
@@ -96,9 +96,11 @@ export default function CaseDetail() {
                   ref={playerRef}
                   loop={true}
                   onEnded={resetYoutube}
+                  muted={true}
+                  controls
                   width='100%'
                   height='100%'
-                  />
+                />
               </div>
             </div>
             <div className={styles.text_wrap}>

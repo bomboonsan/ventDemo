@@ -1060,6 +1060,7 @@ export default function BrainSensor() {
                 url={urlVideo}  
                 playing={playing} 
                 onEnded={reset}
+                muted={true}
                 width='100%'
                 height='100%'
                 />
