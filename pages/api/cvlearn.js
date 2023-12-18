@@ -3,6 +3,11 @@ import axios from 'axios';
 export default async function handler(req, res) {
     try {
 
+        if (req.method !== 'POST') {
+            res.status(405).send({ message: 'Only POST requests allowed' })
+            return
+        }
+
         const cvlearnData = req.body;
 
         const crypto = require('crypto');
