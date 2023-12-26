@@ -113,6 +113,13 @@ export default async function handler(req, res) {
         if (decryptData.success && decryptData.trusted) {
             res.status(200).json({
                 "success" : true,
+                "data" : {
+                    "user_profile" : {
+                        "ref_id" : decryptData.data.user_profile.ref_id
+                    },
+                    "company_code" : decryptData.data.company_code,
+                    "course_id" : decryptData.data.course_id
+                }
             });
         } else {
             res.status(500).json({
