@@ -12,11 +12,17 @@ export default async function handler(req, res) {
 
         const crypto = require('crypto');
 
+        // Sample data from MCV.
+        // const cvlearnData = {
+        //     data: "ejUhu6nVZv7jJoLCNiT5Lo5z0NGoTZ+7UQeP0PRMzrAgBjBNaTWwjwH30OJi+tkmlfkIkxS8EWfrGVvcbl2Xx6t/hZeGfJ+fXBUok718ykYzdBY72QLndm9NFZM9R0uqwlHbXMhEXpQ6avWoFNke6T1AmN8AUKLqY37jK8Clp9UMGd3wse2njL8ROjzTwWq88HIKNzOkPcGQPQRCzZPXMTdvgZ0cJjzOm1+9pT85QFfbFi+lcACTdTltTlNLmlRrbokSRMdx/KM2cLPJwQ7aDw==",
+        //     signature: "G7YgEfL3nnPNC8zMXE4ldNCTyVvYxE9iqcQuaSnOO96EdUlyEDprLPsK0U8U0n5spzLox8wFr86xhCQyJ+AEuogQMGCr+R1LYxtxpgdc3Y9lFzVNqVOsy6M7ng/RKyb98oh9uJBzxJ7DEs7N+ZKkpqnw1EsghetHIgIsdbw9mWI="
+        // };
+
         const data = cvlearnData.data;
         const signature = cvlearnData.signature; 
 
         function decrypt(data, signature) {
-            // Declare results.
+            // declare results.
             const results = {
                 success: false,
                 trusted: false,
@@ -31,42 +37,46 @@ export default async function handler(req, res) {
                     return results;
                 }
         
-                const publicKey = "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzbgwNtKwkjDoVLLLQ18q\nv7mxFYUo+93ztjrQhx15Y6m91tFzVM5jwquTA1yGS/r1b2HqfSlijF9XMCgLmmy7\nYQgdf3Y4/qU3vOpxbNdpO8tT3CkS6LJ1CgjjYKHkcxlVl6XLYvJJUzHWVRRB1Q1R\nPKmpD1sNtjFWWDkGyB+GeXjxzXVYQDG00Z9P7lnza50/4Q9Hzau/rSZ26mqA7gxM\nk4sQo0RRuWAnWjwHgsnS1dIcgE+LitLb8ACU/XV2mUNfEsONVDFR2gyUSA+fAbGT\nk70I+UjZf04AcHtX8lZVExPwKylTWeE8K0STddKoerTrjggoE/X+lvwDbmSJ0pJK\nDwIDAQAB\n-----END PUBLIC KEY-----";; 
+                // public key for testing.
+                const publicKey = `
+                    -----BEGIN PUBLIC KEY-----
+                    MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCw+rwYdvOuoaRGYdBWuXb6Q9C7
+                    oRd6w58VVQTzZBLodOT+EkDreMmTn/7WiA1sblldtzl66eLnumdL9dIv2de+NLeK
+                    AFXf9LnvfDn0hyfCge/DLIqb7+zKcnmBFmzzI8woXallE/G0qHQMIEC9C0MudVac
+                    xqwEpAeJ4lvd+n1V/QIDAQAB
+                    -----END PUBLIC KEY-----
+                `;
         
-                const verifier = crypto.createVerify('RSA-SHA256');
-                verifier.update(data);
-                const verificationResult = verifier.verify(publicKey, signature, 'base64');
+                const rsa = crypto.createVerify('SHA512');
+                rsa.update(data, 'utf-8');
         
+                const signatureBytes = Buffer.from(signature, 'base64');
         
-                if (!verifier) {
-                    results.message = 'E001: Signature is not valid.';
+                if (!rsa.verify(publicKey, signatureBytes)) {
+                    results.message = "E001: Signature is not valid.";
                     results['debug-signature'] = signature;
-                    results['debug-data'] = dataBytes.toString('base64');
-                    return results;
+                    results['debug-data'] = data;
                 }
-         
         
-                const plaintext = decryptAesString(data, '0MVthFWUEZ3BMl9+Q/98/l9RLK+kmgmlduRbygeRrYk=');
-        
+                const plaintext = decryptAESString(data, 'cvlearnuser');
                 if (!plaintext) {
                     results.message = "E002: Decryption did not succeed.";
                     return results;
                 }
         
                 const splitData = plaintext.split('|');
-        
                 if (splitData.length !== 2) {
                     results.message = "E002-2: Decryption did not succeed.";
                     return results;
                 }
         
-                const dataObj = JSON.parse(splitData[0]);
+                const dataObjJson = JSON.parse(splitData[0]);
         
-                if (typeof dataObj !== 'object') {
+                if (!dataObjJson) {
                     results.data = splitData[0];
                     results.isJson = false;
                 } else {
-                    results.data = dataObj;
+                    results.data = dataObjJson;
                     results.isJson = true;
                 }
         
@@ -83,21 +93,23 @@ export default async function handler(req, res) {
                 results.expired = dateExpired.toISOString();
                 results.plaintext = plaintext;
             } catch (error) {
-                results.message = `Caught exception: ${error.message}`;
+                results.message = "Caught exception: " + error.message;
             }
         
             return results;
         }
         
-        function decryptAesString(ciphertext, key) {
+        function decryptAESString(ciphertext, key) {
             try {
-                if (!ciphertext || ciphertext === "") return false;
+                if (!ciphertext) return false;
         
                 const cipherTextBytes = Buffer.from(ciphertext, 'base64');
                 const aesKeyBytes = Buffer.from(key, 'base64');
-                const cipher = crypto.createDecipheriv('aes-256-ecb', aesKeyBytes, Buffer.alloc(0));
-                let result = cipher.update(cipherTextBytes, 'binary', 'utf8');
-                result += cipher.final('utf8');
+        
+                const decipher = crypto.createDecipheriv('aes-256-ecb', aesKeyBytes, Buffer.alloc(0));
+                let result = decipher.update(cipherTextBytes, null, 'utf-8');
+                result += decipher.final('utf-8');
+        
                 return result;
             } catch (error) {
                 return error.message;
