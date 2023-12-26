@@ -108,17 +108,7 @@ export default async function handler(req, res) {
         
         
         // Return the data as the API response
-        // res.status(200).json(decryptData);
-
-        if (decryptData.success && decryptData.trusted) {
-            res.status(200).json({
-                "success" : true,
-            });
-        } else {
-            res.status(500).json({
-                "success" : false
-            });
-        }
+        res.status(200).json(decryptData);
         
     } catch (error) {
       console.error('Error fetching external API:', error.message);
