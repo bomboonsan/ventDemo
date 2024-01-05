@@ -35,7 +35,9 @@ export default function Main_menu() {
     const fetchData = async () => {
       const response = await axios.get('/api/user/' + token);
       if(!response.data.success) {
-        Swal.fire('Error', 'Invalid Token', 'error');
+        Swal.fire('Error', 'Invalid Token', 'error').then((result) => {
+          router.push('/')
+        });
         return;        
       }
       // console.log(response.data.data)

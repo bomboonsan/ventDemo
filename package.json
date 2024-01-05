@@ -34,6 +34,7 @@
     "redux": "^4.2.0",
     "sass": "^1.56.1",
     "screenfull": "^6.0.2",
+    "sweetalert2": "^11.10.2",
     "typewriter-effect": "^2.19.0",
     "use-text-fit": "^2.0.1",
     "video-react": "^0.16.0",
