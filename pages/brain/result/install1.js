@@ -6,7 +6,38 @@ import Link from "next/link";
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react';
 
+import Swal from 'sweetalert2'
+import { useCookies } from 'react-cookie';
+import axios from 'axios';
+
 export default function CaseDetail() {
+    const [cookies, setCookie] = useCookies(['data','signature']);
+    useEffect(() => {
+      if (!cookies.data || !cookies.signature) {
+        return false
+      }
+
+      const fetchData = async () => {
+        const userData = await axios.post('/api/cvlearn-test', {
+          data: cookies.data,
+          signature: cookies.signature,
+        });
+
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Equipment set up success",
+          text: `${userData.data.data.user_profile.first_name}  ${userData.data.data.user_profile.last_name}`,
+          showConfirmButton: false,
+          timer: 5500
+        }).then((result) => {
+          alert('send data to cvLearn')
+        });
+      }
+      fetchData();
+
+    }, [cookies]);
+
     const router = useRouter()
     const [instructionStep, setInstructionStep] = useState(1);
     const [instructionImg, setInstructionImg] = useState('/images/equipment-success1.png');

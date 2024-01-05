@@ -1,10 +1,6 @@
 import axios from 'axios';
 
-import dbConnect from '../../utils/dbConnect';
-import User from '../../models/User';
-
 export default async function handler(req, res) {
-    await dbConnect();
     try {
 
         if (req.method !== 'POST') {
@@ -18,9 +14,6 @@ export default async function handler(req, res) {
 
         const data = cvlearnData.data;
         const signature = cvlearnData.signature; 
-
-        var dataBody = cvlearnData.data;
-        const signatureBody = cvlearnData.signature; 
 
         function decrypt(data, signature) {
             // Declare results.
@@ -111,21 +104,11 @@ export default async function handler(req, res) {
             }
         }
         
-        let decryptData = decrypt(data, signature);
-
-        // เก็บข้อมูลผู้ใช้ใน mongodb
-        const userID = await User.create({ 
-            dataBody , signatureBody
-        });
+        const decryptData = decrypt(data, signature);
         
         
-        // Return the data as the API response      
-        res.status(200).json({
-            "success" : decryptData.success,
-            "name" : decryptData.data.user_profile.first_name+' '+decryptData.data.user_profile.last_name,
-            "email" : decryptData.data.user_profile.email,
-            "urlLogin" : 'https://criticalcare.i-meducation.com/cvlearn?token='+userID._id,
-        });
+        // Return the data as the API response
+        res.status(200).json(decryptData);
 
         // if (decryptData.success && decryptData.trusted) {
         //     res.status(200).json({
