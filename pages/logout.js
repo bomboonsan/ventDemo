@@ -5,6 +5,7 @@ import {useState , useEffect} from 'react';
 import { useRouter } from 'next/router'
 
 import { useCookies } from 'react-cookie';
+import Swal from 'sweetalert2'
 
 export default function Home() {
   const router = useRouter()
@@ -77,6 +78,19 @@ export default function Home() {
     // Clear Cookies
     removeCookie('data');
     removeCookie('signature');
+
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Logout Success",
+      text: `${userData.user_profile.first_name}  ${userData.user_profile.last_name}`,
+      showConfirmButton: false,
+      timer: 5500
+    }).then((result) => {
+      if (result.isConfirmed) {
+        router.push('/')
+      }
+    })
   }, []);
 
   return (

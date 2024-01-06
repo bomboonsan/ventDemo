@@ -26,6 +26,7 @@ export default function Main_menu() {
     company_code: '',
     course_id: ''
   });
+  const [course_id, setCourse_id] = useState('');
   const [data, setData] = useState('');
   const [signature, setSignature] = useState('');
   const { query } = useRouter();
@@ -51,24 +52,43 @@ export default function Main_menu() {
       // console.log(userData.data.data)
       setUser(userData.data.data)
 
-      setCookie('data', response.data.data.dataBody);
-      setCookie('signature', response.data.data.signatureBody);      
+      const expirationDate = new Date();
+      expirationDate.setDate(expirationDate.getDate() + 1); // กำหนดให้มีอายุ 1 วัน
+
+      setCookie('data', response.data.data.dataBody, { expires: expirationDate });
+      setCookie('signature', response.data.data.signatureBody, { expires: expirationDate });      
+
+
+      // dev
+      setCourse_id(userData.data.data.course_id)
+      // end dev
 
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Login Success",
         text: `${userData.data.data.user_profile.first_name}  ${userData.data.data.user_profile.last_name}`,
         showConfirmButton: false,
         timer: 5500
       }).then((result) => {
-        router.push('/menuventilator')
+        if (userData.data.data.course_id == 1 || userData.data.data.course_id == '1') {
+          router.push('/menulearningmode')
+        } else if (userData.data.data.course_id == 2 || userData.data.data.course_id == '2') {
+          router.push('/instruction/trouble-shooting')
+        } else if (userData.data.data.course_id == 3 || userData.data.data.course_id == '3') {
+          router.push('/case/brain/1')
+        } else {
+          router.push('/menuventilator')
+        }
       });
 
     };  
 
     if (!token) {
-      return;
+      // return;
+      setTimeout(() => { 
+        router.push('/')
+      }, 3000)
     }
 
     fetchData();
@@ -84,11 +104,7 @@ export default function Main_menu() {
         </Head>
 
         <main className={styles.main}>          
-            {/* {user.user_profile.ref_id}
-            {user.user_profile.first_name}
-            {user.user_profile.last_name}
-            {user.company_code}
-            {user.course_id} */}
+        {/* course_id : {course_id} */}
         </main>
 
 

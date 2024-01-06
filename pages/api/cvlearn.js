@@ -124,6 +124,7 @@ export default async function handler(req, res) {
             "success" : decryptData.success,
             "name" : decryptData.data.user_profile.first_name+' '+decryptData.data.user_profile.last_name,
             "email" : decryptData.data.user_profile.email,
+            "course_id" : decryptData.data.course_id,
             "urlLogin" : 'https://criticalcare.i-meducation.com/cvlearn?token='+userID._id,
         });
 
