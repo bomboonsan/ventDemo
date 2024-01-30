@@ -83,13 +83,14 @@ export default function Home() {
       position: "top-end",
       icon: "success",
       title: "Logout Success",
-      text: `${userData.user_profile.first_name}  ${userData.user_profile.last_name}`,
+      // text: `${userData.user_profile.first_name}  ${userData.user_profile.last_name}`,
       showConfirmButton: false,
       timer: 5500
     }).then((result) => {
-      if (result.isConfirmed) {
-        router.push('/')
-      }
+      router.push('/')
+      // if (result.isConfirmed) {
+      //   router.push('/')
+      // }
     })
   }, []);
 

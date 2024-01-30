@@ -8,7 +8,72 @@ import ReactPlayer from 'react-player'
 import { useState, useEffect, useRef } from 'react';
 import screenfull from 'screenfull'
 
+import { useCookies } from 'react-cookie';
+import axios from 'axios';
+import Swal from 'sweetalert2'
+
 export default function CaseDetail() {
+
+  const [cookies, setCookie] = useCookies(['data','signature']);
+
+    useEffect(() => {
+      // ส่งข้อมูลกลับที่ไปที่ CV learn
+      if (!cookies.data || !cookies.signature) {
+        return false
+      }
+
+      const fetchData = async () => {
+        const userData = await axios.post('/api/cvlearn-test', {
+          data: cookies.data,
+          signature: cookies.signature,
+        });
+
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Equipment set up success",
+          text: `${userData.data.data.user_profile.first_name}  ${userData.data.data.user_profile.last_name}`,
+          showConfirmButton: false,
+          timer: 5500
+        }).then((result) => {
+          // alert('send data to cvLearn')
+          sendDataToApi(userData.data.data.user_profile.ref_id, "2", "100")
+        });
+      }
+      fetchData();
+
+      const sendDataToApi = async (ref_id, course_id, percent_progress) => {
+
+        const url = 'https://demo.mycourseville.com/?q=courseville/ajax/cvlti_launch';
+      
+        const postData = {
+          ref_id: ref_id,
+          course_id: course_id,
+          percent_progress: percent_progress,
+        };
+      
+        const requestOptions = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams(postData),
+        };
+      
+        try {
+          const response = await fetch(url, requestOptions);
+          const data = await response.json();
+          console.log('Response:', data);
+          return data; // หากต้องการให้ฟังก์ชั่นส่งค่าไปยังที่อื่น
+        } catch (error) {
+          console.error('Error:', error);
+          throw error; // หากต้องการจัดการข้อผิดพลาดหรือส่งไปยังที่อื่น
+        }
+      }
+
+    }, [cookies]);
+
+
   const [playingYoutube, setPlayingYoutube] = useState(true);
   // const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble-success2-Trim.mp4');
   const [urlYoutube, setUrlYoutube] = useState('https://wish-integrate.com/vent-video/trouble/Patient2post.mp4');

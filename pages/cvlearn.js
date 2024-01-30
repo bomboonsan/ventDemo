@@ -34,6 +34,15 @@ export default function Main_menu() {
 
   useEffect(() => {
     const fetchData = async () => {
+
+      if (!token) {
+        return;
+        // setTimeout(() => { 
+        //   router.push('/')
+        // }, 3000)
+      }
+
+
       const response = await axios.get('/api/user/' + token);
       if(!response.data.success) {
         Swal.fire('Error', 'Invalid Token', 'error').then((result) => {
@@ -84,14 +93,14 @@ export default function Main_menu() {
 
     };  
 
+    fetchData();       
+
     if (!token) {
       // return;
-      setTimeout(() => { 
-        router.push('/')
-      }, 3000)
-    }
-
-    fetchData();
+      // setTimeout(() => { 
+      //   router.push('/')
+      // }, 3000)
+    } 
     
   }, [token]);
 
