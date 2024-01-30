@@ -84,6 +84,7 @@ export default function Intruction_1() {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Bearer pF8KfLpeOU4S0hYqkp4bZIq0qwluah',
           },
           body: new URLSearchParams(postData),
         };
