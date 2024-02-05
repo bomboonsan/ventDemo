@@ -120,30 +120,16 @@ export default async function handler(req, res) {
         
         
         // Return the data as the API response      
-        res.status(200).json({
-            "success" : decryptData.success,
-            "name" : decryptData.data.user_profile.first_name+' '+decryptData.data.user_profile.last_name,
-            "email" : decryptData.data.user_profile.email,
-            "course_id" : decryptData.data.course_id,
-            "urlLogin" : 'https://criticalcare.i-meducation.com/cvlearn?token='+userID._id,
-        });
+        // res.status(200).json({
+        //     "success" : decryptData.success,
+        //     "name" : decryptData.data.user_profile.first_name+' '+decryptData.data.user_profile.last_name,
+        //     "email" : decryptData.data.user_profile.email,
+        //     "course_id" : decryptData.data.course_id,
+        //     "urlLogin" : 'https://criticalcare.i-meducation.com/cvlearn?token='+userID._id,
+        // });
 
-        // if (decryptData.success && decryptData.trusted) {
-        //     res.status(200).json({
-        //         "success" : true,
-        //         "data" : {
-        //             "user_profile" : {
-        //                 "ref_id" : decryptData.data.user_profile.ref_id
-        //             },
-        //             "company_code" : decryptData.data.company_code,
-        //             "course_id" : decryptData.data.course_id
-        //         }
-        //     });
-        // } else {
-        //     res.status(500).json({
-        //         "success" : false
-        //     });
-        // }
+        res.redirect(307, 'https://criticalcare.i-meducation.com/cvlearn?token='+userID._id);
+
         
     } catch (error) {
       console.error('Error fetching external API:', error.message);
