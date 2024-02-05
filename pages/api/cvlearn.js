@@ -7,10 +7,10 @@ export default async function handler(req, res) {
     await dbConnect();
     try {
 
-        // if (req.method !== 'POST') {
-        //     res.status(405).send({ message: 'Only POST requests allowed' })
-        //     return
-        // }
+        if (req.method !== 'POST') {
+            res.status(405).send({ message: 'Only POST requests allowed' })
+            return
+        }
 
         const cvlearnData = req.body;
 
@@ -128,7 +128,7 @@ export default async function handler(req, res) {
         //     "urlLogin" : 'https://criticalcare.i-meducation.com/cvlearn?token='+userID._id,
         // });
 
-        res.redirect(307, 'https://criticalcare.i-meducation.com/cvlearn?token='+userID._id);
+        res.redirect(301, 'https://criticalcare.i-meducation.com/cvlearn?token='+userID._id);
 
         
     } catch (error) {
