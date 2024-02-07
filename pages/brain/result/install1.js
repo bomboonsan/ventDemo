@@ -55,13 +55,14 @@ export default function CaseDetail() {
             'Content-Type': 'application/x-www-form-urlencoded',
             'Authorization': 'Bearer pF8KfLpeOU4S0hYqkp4bZIq0qwluah',
           },
-          body: new URLSearchParams(postData),
+          // body: new URLSearchParams(postData),
+          body: JSON.stringify(postData),
         };
       
         try {
           const response = await fetch(url, requestOptions);
           const data = await response.json();
-          console.log('Response:', data);
+          // console.log('Response:', data);
           return data; // หากต้องการให้ฟังก์ชั่นส่งค่าไปยังที่อื่น
         } catch (error) {
           console.error('Error:', error);
