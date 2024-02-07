@@ -87,7 +87,7 @@ export default function Main_menu() {
         } else if (userData.data.data.course_id == 3 || userData.data.data.course_id == '3') {
           router.push('/case/brain/1')
         } else {
-          router.push('/menuventilator')
+          router.push('/welcome')
         }
       });
 
