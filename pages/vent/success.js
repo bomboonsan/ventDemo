@@ -65,6 +65,11 @@ export default function Intruction_1() {
           timer: 5500
         }).then((result) => {
           // alert('send data to cvLearn')
+          console.log('send data to cvLearn' , {
+            ref_id: userData.data.data.user_profile.ref_id,
+            course_id: "1",
+            percent_progress: "100"
+          })
           sendDataToApi(userData.data.data.user_profile.ref_id, "1", "100")
         });
       }
