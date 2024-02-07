@@ -120,16 +120,16 @@ export default async function handler(req, res) {
         
         
         // Return the data as the API response      
-        // res.status(200).json({
-        //     "id" : decryptData.data.user_profile.ref_id,
-        //     "success" : decryptData.success,
-        //     "name" : decryptData.data.user_profile.first_name+' '+decryptData.data.user_profile.last_name,
-        //     "email" : decryptData.data.user_profile.email,
-        //     "course_id" : decryptData.data.course_id,
-        //     "urlLogin" : 'https://criticalcare.i-meducation.com/cvlearn?token='+userID._id,
-        // });
+        res.status(200).json({
+            "id" : decryptData.data.user_profile.ref_id,
+            "success" : decryptData.success,
+            "name" : decryptData.data.user_profile.first_name+' '+decryptData.data.user_profile.last_name,
+            "email" : decryptData.data.user_profile.email,
+            "course_id" : decryptData.data.course_id,
+            "urlLogin" : 'https://criticalcare.i-meducation.com/cvlearn?token='+userID._id,
+        });
 
-        res.redirect(301, 'https://criticalcare.i-meducation.com/cvlearn?token='+userID._id);
+        // res.redirect(301, 'https://criticalcare.i-meducation.com/cvlearn?token='+userID._id);
 
         
     } catch (error) {
