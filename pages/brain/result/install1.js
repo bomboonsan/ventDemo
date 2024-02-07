@@ -46,7 +46,8 @@ export default function CaseDetail() {
         const postData = {
           ref_id: ref_id,
           course_id: course_id,
-          percent_progress: percent_progress,
+          // percent_progress: percent_progress,
+          percent_progress: "100",
         };
       
         const requestOptions = {
