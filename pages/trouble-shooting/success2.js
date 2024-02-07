@@ -44,7 +44,7 @@ export default function CaseDetail() {
 
       const sendDataToApi = async (ref_id, course_id, percent_progress) => {
 
-        const url = 'https://demo.mycourseville.com/?q=courseville/ajax/cvlti_launch';
+        const url = 'https://demo.mycourseville.com/?q=cvapi/post/saveprogress';
       
         const postData = {
           ref_id: ref_id,
