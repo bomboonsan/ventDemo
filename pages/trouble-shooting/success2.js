@@ -44,7 +44,7 @@ export default function CaseDetail() {
 
       const sendDataToApi = async (ref_id, course_id, percent_progress) => {
 
-        const url = 'https://demo.mycourseville.com/?q=cvapi/post/saveprogress';
+        const url = 'https://www.mycourseville.com/?q=cvapi/post/saveprogress';
       
         const postData = {
           ref_id: ref_id,
@@ -57,7 +57,7 @@ export default function CaseDetail() {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': 'Bearer pF8KfLpeOU4S0hYqkp4bZIq0qwluah',
+            'Authorization': 'Bearer NTnKSjmdrue5ND8gFzlPbIyFpGCvfh9oMADydPgrFqVQS',
           },
           // body: new URLSearchParams(postData),
           body: JSON.stringify(postData),
