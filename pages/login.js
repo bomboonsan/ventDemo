@@ -35,7 +35,7 @@ export default function Home() {
     event.preventDefault();
   
     const formData = {
-      pin: password,
+      otp: password,
     };
   
     const res = await fetch('https://ventbackend.wish-integrate.com/otp-login', {
