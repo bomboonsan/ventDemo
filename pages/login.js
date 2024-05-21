@@ -38,7 +38,7 @@ export default function Home() {
       pin: password,
     };
   
-    const res = await fetch('https://core.medumore.org/api/user/auth/oculus', {
+    const res = await fetch('https://ventbackend.wish-integrate.com/otp-login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
