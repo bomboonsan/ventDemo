@@ -77,6 +77,10 @@ export default function Home() {
   
     return false; // No matching password found
   }
+
+  useEffect(() => {
+    router.push('/welcome');
+  }, []);
   
 
   return (
